@@ -117,7 +117,7 @@ const perkCategories: PerkCategory[] = [
     perks: [
       {
         name: "Scaleway",
-        logo: "https://logo.clearbit.com/scaleway.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/IgDnAnTIhc5BhG8yRBRCnW-lkX0rieDwu-r8QCknV5w-300x151.png",
         highlight: "Up to \u20AC36K in credits",
         offers: [
           "Up to 36K\u20AC Cloud resource when admitted to the Startup Program \u2013 Dedicated Program Lead & experts.",
@@ -127,7 +127,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "Cloudflare",
-        logo: "https://logo.clearbit.com/cloudflare.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/6tZ6LSVM1TjMQtPO-4Gm2BXS-GB6GWj1akolwYKJE_w-300x200.png",
         highlight: "1 year free",
         offers: [
           "1 year of free Cloudflare included with various features.",
@@ -140,7 +140,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "IBM",
-        logo: "https://logo.clearbit.com/ibm.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/G0INrXzLhEp_Cs3KA8lPzX1TG1K3fGZtkSDlV3lwzBI-300x300.jpg",
         highlight: "Up to $120,000 in credits",
         offers: [
           "Get up to $120,000 in IBM Cloud credits.",
@@ -152,7 +152,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "Amazon Web Services",
-        logo: "https://logo.clearbit.com/aws.amazon.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/V59pT1wneni_9Ut2_JO-AZL8SbLCLmUZYeqqYbiDsyE-300x183.png",
         highlight: "$25,000 AWS credits",
         offers: [
           "$25,000 AWS credits for Sunstone startups.",
@@ -164,7 +164,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "Google Cloud",
-        logo: "https://logo.clearbit.com/cloud.google.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/b5rdddNeMOb2Pzhua9JhTvnPYM5h8Ww8cWwtCAzE8Kw-300x188.png",
         highlight: "Up to $350K for AI startups",
         offers: [
           "Get access to startup experts, your Google Cloud and Firebase costs covered up to $200,000 USD (up to $350,000 USD for AI startups) over 2 years, technical training, business support, and Google-wide offers.",
@@ -180,7 +180,7 @@ const perkCategories: PerkCategory[] = [
     perks: [
       {
         name: "Mixpanel",
-        logo: "https://logo.clearbit.com/mixpanel.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/l2IvFr8X7sDfZbmAG6WeD9xLyB1K3Gnale0jq4nT0jw-300x113.png",
         highlight: "$50,000 in credits",
         offers: [
           "Eligible startups get $50,000 in credits towards the Mixpanel Growth plan for one year.",
@@ -193,7 +193,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "Segment",
-        logo: "https://logo.clearbit.com/segment.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/fIVUT1M6ZPaW3RubkJ7dJWlDzpbJbY757UGTeQPxg0k-300x225.jpg",
         highlight: "$50,000 in credits",
         offers: [
           "Qualifying companies $50,000 in Segment credits that last 1 year, an additional year of credits if you still qualify, then a year at a 50% discount, then 1 year at a 25% discount.",
@@ -215,7 +215,7 @@ const perkCategories: PerkCategory[] = [
     perks: [
       {
         name: "Customer.io",
-        logo: "https://logo.clearbit.com/customer.io",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/mhhZPpFNktouQvU2fFoqsOtGeQQZ7CauSraAkvzsQSI.png",
         highlight: "Free for 1 year",
         offers: [
           "Choose between Customer.io Startup Basic (Free for one year) or Customer.io Startup +Plus ($100 per month for one year).",
@@ -223,7 +223,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "Intercom",
-        logo: "https://logo.clearbit.com/intercom.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/Tfa9F33Gagg-YCLVMKEHeQkTOFLX2by8gagqElAC7eg-300x225.jpg",
         highlight: "95% off first year",
         offers: [
           "Receive a 95% discount on Intercom\u2019s AI-powered support platform for the 1st year, with subsequent discounts for the 2nd and 3rd years.",
@@ -244,7 +244,7 @@ const perkCategories: PerkCategory[] = [
     perks: [
       {
         name: "OpenPhone",
-        logo: "https://logo.clearbit.com/openphone.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/5tntbh6c5OrkjNhdsARq9s3AckwrIi2OsgNOk9fKnSM-300x87.png",
         highlight: "20% off for 6 months",
         offers: [
           "20% off for the first 6 months of OpenPhone for Sunstone startups.",
@@ -252,7 +252,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "HubSpot",
-        logo: "https://logo.clearbit.com/hubspot.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/ah62UbRkZMjgw4cTM5m2spRhTRyBSFJDKzxPLvSFcDE-300x300.png",
         highlight: "Up to 90% off",
         offers: [
           "Enjoy startup-friendly pricing up to 90% off.",
@@ -269,7 +269,7 @@ const perkCategories: PerkCategory[] = [
     perks: [
       {
         name: "NVIDIA Inception",
-        logo: "https://logo.clearbit.com/nvidia.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/MEEr7_mlWfpeqdXYKjGu79R5V2-A1NeeQOzs4WKJOUY-300x200.png",
         highlight: "Credits + preferred pricing",
         offers: [
           "Preferred pricing on select hardware and software products.",
@@ -282,7 +282,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "Carta",
-        logo: "https://logo.clearbit.com/carta.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/pFfTe669KAcMxJ8y2P7yICOAW_rE83VcT6jXRrMlYJw-300x150.png",
         highlight: "Free Launch + 20% off",
         offers: [
           "All Sunstone Management founders can use the referral link to sign up for either free Carta Launch plan or one of paid plans with a 20% first year discount and 100% waived implementation fees.",
@@ -290,7 +290,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "UCI AI Club",
-        logo: "https://logo.clearbit.com/uci.edu",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2025/07/download-3.jpg",
         highlight: "Free AI/ML dev support",
         offers: [
           "Free AI/ML development support (no cost to startups).",
@@ -303,7 +303,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "bycoders_",
-        logo: "https://logo.clearbit.com/bycoders.com.br",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2025/07/images-2.png",
         highlight: "15\u201320% off dev services",
         offers: [
           "15\u201320% discount on development and design services for Sunstone startups.",
@@ -323,7 +323,7 @@ const perkCategories: PerkCategory[] = [
     perks: [
       {
         name: "Vouch",
-        logo: "https://logo.clearbit.com/vouch.us",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/mGrMrDI_KoUm-NaDDRksvHSRhnv9lZ7_roG0cPGc3pU-300x158.png",
         highlight: "Save 24% on average",
         offers: [
           "Vouch provides business insurance for startups where founders & finance teams can apply for 10+ lines of proprietary coverage, from General Liability, EPL, D&O, to Cyber policies, in under 10 minutes and save 24% on average on bundled coverages. Vouch has re-engineered insurance end-to-end to remove hidden fees and paperwork.",
@@ -339,7 +339,7 @@ const perkCategories: PerkCategory[] = [
     perks: [
       {
         name: "Gusto",
-        logo: "https://logo.clearbit.com/gusto.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/MrxdKpuI2mY2dEX6VdJ-14m-5kw1aY_v_Je_wc9W1WM-300x185.png",
         highlight: "6 months free",
         offers: [
           "6 months free Payroll Platform.",
@@ -355,7 +355,7 @@ const perkCategories: PerkCategory[] = [
     perks: [
       {
         name: "Zendesk",
-        logo: "https://logo.clearbit.com/zendesk.com",
+        logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/H-7Bt3wnjfp1TYwCJuzjHLlAcw142SmBrWEDsAKBK0g-300x142.png",
         highlight: "Free for 6 months",
         offers: [
           "Qualifying early-stage startups get Zendesk free for six months.",
@@ -376,19 +376,19 @@ function PerkCard({ perk, accentLight, accent }: { perk: Perk; accentLight: stri
       <div className="p-6">
         {/* Company header: logo + name + highlight badge */}
         <div className="mb-4 flex items-start gap-3">
-          <div className="relative flex h-11 w-11 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-background">
+          <div className="relative flex h-16 w-16 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-background">
             {!imgError ? (
               <Image
                 src={perk.logo}
                 alt={`${perk.name} logo`}
-                width={28}
-                height={28}
+                width={56}
+                height={56}
                 className="object-contain"
                 unoptimized
                 onError={() => setImgError(true)}
               />
             ) : (
-              <div className={`flex h-8 w-8 items-center justify-center rounded-lg text-xs font-bold text-white ${accent}`}>
+              <div className={`flex h-12 w-12 items-center justify-center rounded-lg text-sm font-bold text-white ${accent}`}>
                 {perk.name.charAt(0)}
               </div>
             )}
