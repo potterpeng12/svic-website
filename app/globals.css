@@ -96,8 +96,18 @@
   0% { transform: translateX(-50%); }
   100% { transform: translateX(0); }
 }
-.animate-marquee-left { animation: marquee-left 40s linear infinite; }
-.animate-marquee-right { animation: marquee-right 40s linear infinite; }
+.animate-marquee-left {
+  animation: marquee-left 129s linear infinite;
+}
+.animate-marquee-left:hover {
+  animation-play-state: paused;
+}
+.animate-marquee-right {
+  animation: marquee-right 129s linear infinite;
+}
+.animate-marquee-right:hover {
+  animation-play-state: paused;
+}
 
 /* ===== HERO WORD ROTATE ===== */
 @keyframes word-in {
