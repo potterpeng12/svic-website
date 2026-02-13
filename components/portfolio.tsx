@@ -7,9 +7,6 @@ import { useRef, useCallback, useState } from "react"
 import { getPortfolioCompanies, getCompanyCount, type DisplayCompany } from "@/lib/portfolio-utils"
 
 const companies = getPortfolioCompanies()
-console.log("[v0] Portfolio companies count:", companies.length)
-console.log("[v0] Companies with logos:", companies.filter(c => c.logo).length)
-console.log("[v0] First 3 companies with logos:", companies.filter(c => c.logo).slice(0, 3).map(c => ({ name: c.name, logo: c.logo?.substring(0, 80) })))
 
 function TiltCard({ name, abbr, category, logo, website, color, onHoverChange }: { name: string; abbr: string; category: string; logo: string | null; website: string | null; color: string; onHoverChange: (isHovered: boolean) => void }) {
   const cardRef = useRef<HTMLDivElement>(null)
