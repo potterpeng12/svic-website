@@ -7,6 +7,9 @@ import { useRef, useCallback, useState } from "react"
 import { getPortfolioCompanies, getCompanyCount, type DisplayCompany } from "@/lib/portfolio-utils"
 
 const companies = getPortfolioCompanies()
+console.log("[v0] Portfolio companies count:", companies.length)
+console.log("[v0] Companies with logos:", companies.filter(c => c.logo).length)
+console.log("[v0] First 3 companies with logos:", companies.filter(c => c.logo).slice(0, 3).map(c => ({ name: c.name, logo: c.logo?.substring(0, 80) })))
 
 function TiltCard({ name, abbr, category, logo, website, color, onHoverChange }: { name: string; abbr: string; category: string; logo: string | null; website: string | null; color: string; onHoverChange: (isHovered: boolean) => void }) {
   const cardRef = useRef<HTMLDivElement>(null)
@@ -50,7 +53,7 @@ function TiltCard({ name, abbr, category, logo, website, color, onHoverChange }:
       <div className="flex items-center gap-3 mb-3">
         <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg ${logo && !logoError ? "bg-white border border-border" : `bg-gradient-to-br ${color}`} text-xs font-bold tracking-wide ${logo && !logoError ? "text-foreground" : "text-white"} shadow-sm overflow-hidden`}>
           {logo && !logoError ? (
-            <img src={logo} alt={name} className="w-full h-full object-contain p-1" onError={() => setLogoError(true)} />
+            <img src={logo} alt={name} className="w-full h-full object-contain p-1" onError={(e) => { console.log("[v0] Logo load FAILED for:", name, "url:", logo?.substring(0, 80)); setLogoError(true) }} onLoad={() => console.log("[v0] Logo loaded OK for:", name)} />
           ) : (
             abbr
           )}
