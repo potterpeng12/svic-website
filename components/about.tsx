@@ -51,11 +51,11 @@ export function About() {
             Why Sunstone
           </p>
           <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-            Founders & operators{" "}
-            <span className="italic text-primary">turned investors.</span>
+            A platform for{" "}
+            <span className="italic text-primary">ecosystem building.</span>
           </h2>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            {"We've been in the trenches. We know what it takes to go from zero to one. That's why we built Sunstone -- a different kind of fund, by founders, for founders."}
+            {"We bring together capital, resources, and opportunity in Southern California's innovation ecosystem. From capital access to public-private partnerships, we're here to help founders build scalable, durable companies."}
           </p>
         </div>
 
@@ -69,8 +69,8 @@ export function About() {
             <p className="mt-2 text-sm font-medium text-muted-foreground">Capital Deployed</p>
             <div className="mt-8 h-px w-12 bg-primary/20" />
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-              Investing $250K-$1M at pre-seed and seed in exceptional founders
-              across AI, biotech, fintech, climate, and more.
+              Supporting pre-seed and seed founders across Physical AI, healthcare & MedTech,
+              mobility, and next-generation commerce with $250K-$1M in capital.
             </p>
             <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-primary/[0.04] transition-transform duration-700 group-hover:scale-[3]" />
           </div>

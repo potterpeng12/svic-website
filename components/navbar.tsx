@@ -1,19 +1,21 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { usePathname } from "next/navigation"
 import { Menu, X, ArrowUpRight } from "lucide-react"
 
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Team", href: "#team" },
-  { label: "Perks", href: "#resources" },
+  { label: "About", href: "/#about" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Team", href: "/#team" },
+  { label: "Perks", href: "/perks" },
 ]
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
+  const pathname = usePathname()
 
   useEffect(() => {
     const onScroll = () => {
@@ -41,7 +43,7 @@ export function Navbar() {
         }`}
       >
         <div className="flex items-center justify-between">
-          <a href="#" className="group flex items-center gap-2">
+          <a href="/" className="group flex items-center gap-2">
             <img
               src="/images/sunstone-logo.png"
               alt="Sunstone Venture & Innovation Center"
@@ -52,7 +54,7 @@ export function Navbar() {
           {/* Desktop pill nav */}
           <div className="hidden items-center gap-0.5 md:flex">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.replace("#", "")
+              const isActive = pathname === link.href || (link.href.includes("#") && activeSection === link.href.split("#")[1])
               return (
                 <a
                   key={link.href}
@@ -71,7 +73,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-2">
             <a
-              href="#apply"
+              href="/apply"
               className="hidden items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:scale-[1.02] md:inline-flex"
             >
               Apply
@@ -97,7 +99,7 @@ export function Navbar() {
         }`}
       >
         <div className="flex flex-col items-center gap-2">
-          {[...navLinks, { label: "Apply", href: "#apply" }].map((link, i) => (
+          {[...navLinks, { label: "Apply", href: "/apply" }].map((link, i) => (
             <a
               key={link.href}
               href={link.href}

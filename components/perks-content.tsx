@@ -2,9 +2,7 @@
 
 import React from "react"
 import Image from "next/image"
-import Link from "next/link"
 import {
-  ArrowLeft,
   Monitor,
   Cloud,
   BarChart3,
@@ -459,16 +457,8 @@ export function PerksContent() {
       <Navbar />
       <main className="min-h-screen bg-background" ref={containerRef}>
         {/* Header */}
-        <header className="grain relative overflow-hidden px-6 pb-16 pt-12">
+        <header className="grain relative overflow-hidden px-6 pb-16 pt-24">
         <div className="relative mx-auto max-w-7xl">
-          <Link
-            href="/#resources"
-            className="group mb-10 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-medium text-muted-foreground transition-all duration-300 hover:border-primary/20 hover:text-foreground"
-          >
-            <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
-            Back to Home
-          </Link>
-
           <p className="reveal mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-primary">
             Startup Perks
           </p>

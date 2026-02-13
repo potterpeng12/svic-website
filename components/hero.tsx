@@ -77,7 +77,7 @@ export function Hero() {
           className="sticker animate-float-slow absolute bottom-[22%] right-[12%] rounded-2xl border-2 border-primary/20 bg-accent px-4 py-2 text-sm font-bold text-accent-foreground shadow-xl"
           style={{ animationDelay: "1s", opacity: loaded ? 1 : 0, transition: "opacity 0.8s 1.1s" }}
         >
-          AI / DeepTech / Bio
+          Physical AI / MedTech
         </div>
         <div
           className="sticker animate-float-medium absolute bottom-[28%] left-[8%] rounded-2xl border-2 border-[hsl(var(--warm))]/30 bg-secondary px-4 py-2 text-sm font-bold text-secondary-foreground shadow-xl"
@@ -134,7 +134,7 @@ export function Hero() {
           }}
         >
           Sunstone Venture & Innovation Center empowers founders with capital,
-          mentorship, and a community that has your back.
+          ecosystem connections, and a community built on resilience.
         </p>
 
         {/* CTAs */}
@@ -150,7 +150,7 @@ export function Hero() {
             href="#apply"
             className="group inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
           >
-            Apply for Funding
+            Apply for Capital
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
           <a

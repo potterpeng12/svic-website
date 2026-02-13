@@ -3,12 +3,12 @@
 import React from "react"
 
 import { useReveal } from "@/hooks/use-reveal"
-import { useRef, useCallback } from "react"
+import { useRef, useCallback, useState } from "react"
 import { getPortfolioCompanies, getCompanyCount, type DisplayCompany } from "@/lib/portfolio-utils"
 
 const companies = getPortfolioCompanies()
 
-function TiltCard({ name, abbr, category, logo, website, color }: { name: string; abbr: string; category: string; logo: string | null; website: string | null; color: string }) {
+function TiltCard({ name, abbr, category, logo, website, color, onHoverChange }: { name: string; abbr: string; category: string; logo: string | null; website: string | null; color: string; onHoverChange: (isHovered: boolean) => void }) {
   const cardRef = useRef<HTMLDivElement>(null)
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
@@ -20,10 +20,15 @@ function TiltCard({ name, abbr, category, logo, website, color }: { name: string
     el.style.transform = `perspective(600px) rotateY(${x * 12}deg) rotateX(${-y * 12}deg) scale(1.02)`
   }, [])
 
+  const handleMouseEnter = useCallback(() => {
+    onHoverChange(true)
+  }, [onHoverChange])
+
   const handleMouseLeave = useCallback(() => {
     const el = cardRef.current
     if (el) el.style.transform = "perspective(600px) rotateY(0deg) rotateX(0deg) scale(1)"
-  }, [])
+    onHoverChange(false)
+  }, [onHoverChange])
 
   const handleClick = useCallback(() => {
     if (website) {
@@ -36,6 +41,7 @@ function TiltCard({ name, abbr, category, logo, website, color }: { name: string
       ref={cardRef}
       className={`tilt-card flex-shrink-0 w-[280px] rounded-2xl border border-border bg-card p-5 transition-shadow duration-300 hover:shadow-xl hover:shadow-primary/[0.05] hover:border-primary/20 ${website ? "cursor-pointer" : "cursor-default"}`}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={handleClick}
     >
@@ -60,11 +66,16 @@ function TiltCard({ name, abbr, category, logo, website, color }: { name: string
 export function Portfolio() {
   const containerRef = useReveal()
   const companyCount = getCompanyCount()
+  const [isPaused, setIsPaused] = useState(false)
 
   // Split companies into two rows for marquee effect
   const midpoint = Math.ceil(companies.length / 2)
   const row1 = companies.slice(0, midpoint)
   const row2 = companies.slice(midpoint)
+
+  const handleCardHoverChange = useCallback((isHovered: boolean) => {
+    setIsPaused(isHovered)
+  }, [])
 
   return (
     <section id="portfolio" className="relative overflow-hidden py-28 lg:py-36" ref={containerRef}>
@@ -79,7 +90,7 @@ export function Portfolio() {
             </h2>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-            {companyCount}+ companies across tech, healthcare, consumer, and beyond.
+            100+ companies across AI, healthcare, mobility, DTC, and beyond.
           </p>
         </div>
       </div>
@@ -88,9 +99,9 @@ export function Portfolio() {
       <div className="reveal reveal-delay-1 relative mb-4">
         <div className="absolute left-0 top-0 bottom-0 z-10 w-20 bg-gradient-to-r from-muted/40 to-transparent sm:w-32" />
         <div className="absolute right-0 top-0 bottom-0 z-10 w-20 bg-gradient-to-l from-muted/40 to-transparent sm:w-32" />
-        <div className="flex gap-4 animate-marquee-left" style={{ width: "max-content" }}>
+        <div className="flex gap-4 animate-marquee-left" style={{ width: "max-content", animationPlayState: isPaused ? "paused" : "running" }}>
           {[...row1, ...row1, ...row1, ...row1].map((c, i) => (
-            <TiltCard key={`r1-${i}`} name={c.name} abbr={c.abbr} category={c.category} logo={c.logo} website={c.website} color={c.color} />
+            <TiltCard key={`r1-${i}`} name={c.name} abbr={c.abbr} category={c.category} logo={c.logo} website={c.website} color={c.color} onHoverChange={handleCardHoverChange} />
           ))}
         </div>
       </div>
@@ -99,9 +110,9 @@ export function Portfolio() {
       <div className="reveal reveal-delay-2 relative">
         <div className="absolute left-0 top-0 bottom-0 z-10 w-20 bg-gradient-to-r from-muted/40 to-transparent sm:w-32" />
         <div className="absolute right-0 top-0 bottom-0 z-10 w-20 bg-gradient-to-l from-muted/40 to-transparent sm:w-32" />
-        <div className="flex gap-4 animate-marquee-right" style={{ width: "max-content" }}>
+        <div className="flex gap-4 animate-marquee-right" style={{ width: "max-content", animationPlayState: isPaused ? "paused" : "running" }}>
           {[...row2, ...row2, ...row2, ...row2].map((c, i) => (
-            <TiltCard key={`r2-${i}`} name={c.name} abbr={c.abbr} category={c.category} logo={c.logo} website={c.website} color={c.color} />
+            <TiltCard key={`r2-${i}`} name={c.name} abbr={c.abbr} category={c.category} logo={c.logo} website={c.website} color={c.color} onHoverChange={handleCardHoverChange} />
           ))}
         </div>
       </div>

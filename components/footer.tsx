@@ -24,7 +24,7 @@ export function Footer() {
               />
             </div>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Empowering the next generation of founders through Innovation, Community, and Entrepreneurship.
+              Built on resilience, community, and helping others. Empowering Southern California's next generation of founders.
             </p>
           </div>
 

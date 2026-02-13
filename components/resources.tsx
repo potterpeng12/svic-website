@@ -2,29 +2,82 @@
 
 import { useReveal } from "@/hooks/use-reveal"
 import Link from "next/link"
-import {
-  Monitor,
-  Cloud,
-  BarChart3,
-  Megaphone,
-  Users,
-  Code2,
-  Shield,
-  CreditCard,
-  Headphones,
-  ArrowUpRight,
-} from "lucide-react"
+import Image from "next/image"
+import { ArrowUpRight, Gift } from "lucide-react"
+import { useState } from "react"
 
-const categories = [
-  { icon: Monitor, label: "Workplace & Productivity", count: 5, names: "Notion, Twilio, Microsoft, Agora, SendGrid", accent: "bg-violet-500" },
-  { icon: Cloud, label: "Cloud", count: 5, names: "AWS, Google Cloud, IBM, Scaleway, Cloudflare", accent: "bg-blue-500" },
-  { icon: BarChart3, label: "Data & Analytics", count: 2, names: "Mixpanel, Segment", accent: "bg-emerald-500" },
-  { icon: Megaphone, label: "Marketing", count: 2, names: "Customer.io, Intercom", accent: "bg-rose-500" },
-  { icon: Users, label: "CRM", count: 2, names: "HubSpot, OpenPhone", accent: "bg-amber-500" },
-  { icon: Code2, label: "Software & Dev", count: 5, names: "NVIDIA, Carta, UCI AI Club, bycoders_, and more", accent: "bg-cyan-500" },
-  { icon: Shield, label: "Insurance", count: 1, names: "Vouch", accent: "bg-indigo-500" },
-  { icon: CreditCard, label: "HR, Payroll & Support", count: 2, names: "Gusto, Zendesk", accent: "bg-pink-500" },
+const featuredPerks = [
+  {
+    name: "Twilio",
+    logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/BkWMxp0K5ah_HT_thj8akpnWPjTs_LvQmETJQAZ0BsE-300x200.png",
+    highlight: "$5,000 in credits",
+  },
+  {
+    name: "Amazon Web Services",
+    logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/V59pT1wneni_9Ut2_JO-AZL8SbLCLmUZYeqqYbiDsyE-300x183.png",
+    highlight: "$25,000 AWS credits",
+  },
+  {
+    name: "Google Cloud",
+    logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/b5rdddNeMOb2Pzhua9JhTvnPYM5h8Ww8cWwtCAzE8Kw-300x188.png",
+    highlight: "Up to $350K for AI startups",
+  },
+  {
+    name: "IBM",
+    logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/G0INrXzLhEp_Cs3KA8lPzX1TG1K3fGZtkSDlV3lwzBI-300x300.jpg",
+    highlight: "Up to $120,000 in credits",
+  },
+  {
+    name: "HubSpot",
+    logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/ah62UbRkZMjgw4cTM5m2spRhTRyBSFJDKzxPLvSFcDE-300x300.png",
+    highlight: "Up to 90% off",
+  },
+  {
+    name: "NVIDIA Inception",
+    logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/MEEr7_mlWfpeqdXYKjGu79R5V2-A1NeeQOzs4WKJOUY-300x200.png",
+    highlight: "Credits + preferred pricing",
+  },
 ]
+
+function PerkCard({ name, logo, highlight }: { name: string; logo: string; highlight: string }) {
+  const [imgError, setImgError] = useState(false)
+
+  return (
+    <div className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/15 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/[0.05]">
+      {/* Company logo section - Fixed aspect ratio container */}
+      <div className="flex items-center justify-center border-b border-border bg-background/50 p-6">
+        <div className="relative aspect-[3/2] w-full">
+          {!imgError ? (
+            <Image
+              src={logo}
+              alt={`${name} logo`}
+              fill
+              className="object-contain"
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+              unoptimized
+              onError={() => setImgError(true)}
+            />
+          ) : (
+            <div className="flex h-full items-center justify-center">
+              <span className="text-base font-bold text-foreground">{name}</span>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Perk highlight */}
+      <div className="p-5">
+        <div className="flex items-start gap-2">
+          <Gift className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+          <p className="text-sm font-semibold text-foreground">{highlight}</p>
+        </div>
+      </div>
+
+      {/* Hover bloom effect */}
+      <div className="absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+    </div>
+  )
+}
 
 export function Resources() {
   const containerRef = useReveal()
@@ -43,29 +96,14 @@ export function Resources() {
             </h2>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground lg:text-right">
-            {`$500K+ in exclusive startup perks from partners like AWS, Google Cloud, Notion, HubSpot, and more.`}
+            $500K+ in exclusive perks from top tech partners to accelerate your growth.
           </p>
         </div>
 
-        {/* Category grid */}
-        <div className="reveal reveal-delay-1 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {categories.map((cat) => (
-            <div
-              key={cat.label}
-              className="group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-500 hover:border-primary/20 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/[0.04]"
-            >
-              <div className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl text-white ${cat.accent} transition-transform duration-500 group-hover:scale-110 group-hover:rounded-2xl`}>
-                <cat.icon className="h-5 w-5" />
-              </div>
-              <h3 className="font-display text-base font-bold text-foreground">{cat.label}</h3>
-              <p className="mt-1.5 text-xs leading-relaxed text-muted-foreground line-clamp-2">{cat.names}</p>
-              <p className="mt-3 text-xs font-semibold text-primary">
-                {cat.count} {cat.count === 1 ? "perk" : "perks"}
-              </p>
-
-              {/* Expanding bg circle on hover */}
-              <div className={`absolute -bottom-6 -right-6 h-16 w-16 rounded-full ${cat.accent} opacity-[0.04] transition-transform duration-700 group-hover:scale-[6]`} />
-            </div>
+        {/* Featured partners grid */}
+        <div className="reveal reveal-delay-1 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredPerks.map((perk) => (
+            <PerkCard key={perk.name} name={perk.name} logo={perk.logo} highlight={perk.highlight} />
           ))}
         </div>
 

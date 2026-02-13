@@ -70,9 +70,7 @@ export function Apply() {
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
               <a
-                href="https://sunstoneinvestment.com"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/apply"
                 className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-10 py-5 text-lg font-semibold text-primary-foreground shadow-2xl shadow-primary/20 transition-all duration-300 hover:shadow-primary/40 hover:scale-[1.03]"
               >
                 Start Application
