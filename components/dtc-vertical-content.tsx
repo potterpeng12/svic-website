@@ -19,13 +19,32 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
 const verticals = [
-  { name: "Fashion", abbr: "FA", bg: "bg-pink-50 dark:bg-pink-950/30", text: "text-pink-600 dark:text-pink-400", border: "border-pink-200 dark:border-pink-800/40", accent: "hover:border-pink-300 dark:hover:border-pink-700" },
-  { name: "Beauty", abbr: "BE", bg: "bg-violet-50 dark:bg-violet-950/30", text: "text-violet-600 dark:text-violet-400", border: "border-violet-200 dark:border-violet-800/40", accent: "hover:border-violet-300 dark:hover:border-violet-700" },
-  { name: "Consumer Electronics", abbr: "CE", bg: "bg-blue-50 dark:bg-blue-950/30", text: "text-blue-600 dark:text-blue-400", border: "border-blue-200 dark:border-blue-800/40", accent: "hover:border-blue-300 dark:hover:border-blue-700" },
-  { name: "Wellness", abbr: "WE", bg: "bg-emerald-50 dark:bg-emerald-950/30", text: "text-emerald-600 dark:text-emerald-400", border: "border-emerald-200 dark:border-emerald-800/40", accent: "hover:border-emerald-300 dark:hover:border-emerald-700" },
-  { name: "Food & Beverage", abbr: "FB", bg: "bg-amber-50 dark:bg-amber-950/30", text: "text-amber-600 dark:text-amber-400", border: "border-amber-200 dark:border-amber-800/40", accent: "hover:border-amber-300 dark:hover:border-amber-700" },
-  { name: "Lifestyle", abbr: "LI", bg: "bg-slate-50 dark:bg-slate-900/50", text: "text-slate-600 dark:text-slate-400", border: "border-slate-200 dark:border-slate-800/40", accent: "hover:border-slate-300 dark:hover:border-slate-700" },
+  { name: "Fashion", shape: "circle" as const, fill: "bg-pink-400", bg: "bg-pink-50 dark:bg-pink-950/30", text: "text-pink-600 dark:text-pink-400", border: "border-pink-200 dark:border-pink-800/40", accent: "hover:border-pink-300 dark:hover:border-pink-700" },
+  { name: "Beauty", shape: "diamond" as const, fill: "bg-violet-400", bg: "bg-violet-50 dark:bg-violet-950/30", text: "text-violet-600 dark:text-violet-400", border: "border-violet-200 dark:border-violet-800/40", accent: "hover:border-violet-300 dark:hover:border-violet-700" },
+  { name: "Consumer Electronics", shape: "square" as const, fill: "bg-blue-400", bg: "bg-blue-50 dark:bg-blue-950/30", text: "text-blue-600 dark:text-blue-400", border: "border-blue-200 dark:border-blue-800/40", accent: "hover:border-blue-300 dark:hover:border-blue-700" },
+  { name: "Wellness", shape: "pill" as const, fill: "bg-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-950/30", text: "text-emerald-600 dark:text-emerald-400", border: "border-emerald-200 dark:border-emerald-800/40", accent: "hover:border-emerald-300 dark:hover:border-emerald-700" },
+  { name: "Food & Beverage", shape: "triangle" as const, fill: "bg-amber-400", bg: "bg-amber-50 dark:bg-amber-950/30", text: "text-amber-600 dark:text-amber-400", border: "border-amber-200 dark:border-amber-800/40", accent: "hover:border-amber-300 dark:hover:border-amber-700" },
+  { name: "Lifestyle", shape: "hexagon" as const, fill: "bg-slate-400", bg: "bg-slate-50 dark:bg-slate-900/50", text: "text-slate-600 dark:text-slate-400", border: "border-slate-200 dark:border-slate-800/40", accent: "hover:border-slate-300 dark:hover:border-slate-700" },
 ]
+
+function ShapeIcon({ shape, fill }: { shape: string; fill: string }) {
+  switch (shape) {
+    case "circle":
+      return <div className={`h-4 w-4 rounded-full ${fill}`} />
+    case "diamond":
+      return <div className={`h-3.5 w-3.5 rotate-45 rounded-sm ${fill}`} />
+    case "square":
+      return <div className={`h-3.5 w-3.5 rounded-md ${fill}`} />
+    case "pill":
+      return <div className={`h-3 w-5 rounded-full ${fill}`} />
+    case "triangle":
+      return <div className={`h-4 w-4 ${fill}`} style={{ clipPath: "polygon(50% 0%, 100% 100%, 0% 100%)" }} />
+    case "hexagon":
+      return <div className={`h-4 w-4 ${fill}`} style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }} />
+    default:
+      return <div className={`h-4 w-4 rounded-full ${fill}`} />
+  }
+}
 
 const pillars = [
   {
@@ -258,9 +277,9 @@ export function DtcVerticalContent() {
                     className={`reveal reveal-delay-${(i % 3) + 1} group flex items-center gap-3.5 rounded-2xl border ${vertical.border} ${vertical.bg} p-4 transition-all duration-300 ${vertical.accent} hover:shadow-sm`}
                   >
                     <span
-                      className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl border ${vertical.border} bg-background font-display text-xs font-bold tracking-wider ${vertical.text}`}
+                      className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl border ${vertical.border} bg-background`}
                     >
-                      {vertical.abbr}
+                      <ShapeIcon shape={vertical.shape} fill={vertical.fill} />
                     </span>
                     <span className={`text-sm font-semibold ${vertical.text}`}>
                       {vertical.name}
