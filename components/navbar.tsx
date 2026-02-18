@@ -11,11 +11,14 @@ const navLinks = [
   { label: "Perks", href: "/perks" },
 ]
 
-export function Navbar() {
+export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const pathname = usePathname()
+
+  // True when we should render in "dark hero" mode (unscrolled + darkHero prop)
+  const isOverDark = darkHero && !scrolled
 
   useEffect(() => {
     const onScroll = () => {
@@ -36,11 +39,10 @@ export function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ${
-          scrolled
-            ? "w-[min(95vw,680px)] rounded-full border border-border/50 bg-background/80 px-3 py-2 shadow-lg shadow-foreground/[0.03] backdrop-blur-2xl"
-            : "w-[min(95vw,1200px)] rounded-2xl bg-transparent px-6 py-4"
-        }`}
+        className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ${scrolled
+          ? "w-[min(95vw,680px)] rounded-full border border-border/50 bg-background/80 px-3 py-2 shadow-lg shadow-foreground/[0.03] backdrop-blur-2xl"
+          : "w-[min(95vw,1200px)] rounded-2xl bg-transparent px-6 py-4"
+          }`}
       >
         <div className="flex items-center justify-between">
           <a href="/" className="group flex items-center gap-2">
@@ -59,11 +61,12 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${
-                    isActive
-                      ? "bg-foreground text-background"
+                  className={`relative rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${isActive
+                    ? "bg-foreground text-background"
+                    : isOverDark
+                      ? "text-white/70 hover:text-white hover:bg-white/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.04]"
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </a>
@@ -74,7 +77,10 @@ export function Navbar() {
           <div className="flex items-center gap-2">
             <a
               href="/apply"
-              className="hidden items-center gap-1.5 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:shadow-lg hover:shadow-primary/20 hover:scale-[1.02] md:inline-flex"
+              className={`hidden items-center gap-1.5 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 hover:scale-[1.02] md:inline-flex ${isOverDark
+                ? "border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
+                : "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/20"
+                }`}
             >
               Apply
               <ArrowUpRight className="h-3.5 w-3.5" />
@@ -83,7 +89,10 @@ export function Navbar() {
             <button
               type="button"
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="relative z-50 flex h-9 w-9 items-center justify-center rounded-full text-foreground transition-colors hover:bg-foreground/5 md:hidden"
+              className={`relative z-50 flex h-9 w-9 items-center justify-center rounded-full transition-colors md:hidden ${isOverDark
+                ? "text-white hover:bg-white/10"
+                : "text-foreground hover:bg-foreground/5"
+                }`}
               aria-label="Toggle menu"
             >
               {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -94,9 +103,8 @@ export function Navbar() {
 
       {/* Full-screen mobile overlay */}
       <div
-        className={`fixed inset-0 z-40 flex flex-col items-center justify-center bg-background transition-all duration-500 md:hidden ${
-          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-        }`}
+        className={`fixed inset-0 z-40 flex flex-col items-center justify-center bg-background transition-all duration-500 md:hidden ${mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          }`}
       >
         <div className="flex flex-col items-center gap-2">
           {[...navLinks, { label: "Apply", href: "/apply" }].map((link, i) => (

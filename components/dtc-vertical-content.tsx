@@ -13,99 +13,99 @@ import {
   Clock,
   Zap,
   Target,
+  Shirt,
+  Cpu,
+  Leaf,
+  UtensilsCrossed,
+  Home,
 } from "lucide-react"
 import { useReveal } from "@/hooks/use-reveal"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
-const verticals = [
-  { name: "Fashion", shape: "circle" as const, fill: "bg-pink-400", bg: "bg-pink-50 dark:bg-pink-950/30", text: "text-pink-600 dark:text-pink-400", border: "border-pink-200 dark:border-pink-800/40", accent: "hover:border-pink-300 dark:hover:border-pink-700" },
-  { name: "Beauty", shape: "diamond" as const, fill: "bg-violet-400", bg: "bg-violet-50 dark:bg-violet-950/30", text: "text-violet-600 dark:text-violet-400", border: "border-violet-200 dark:border-violet-800/40", accent: "hover:border-violet-300 dark:hover:border-violet-700" },
-  { name: "Consumer Electronics", shape: "square" as const, fill: "bg-blue-400", bg: "bg-blue-50 dark:bg-blue-950/30", text: "text-blue-600 dark:text-blue-400", border: "border-blue-200 dark:border-blue-800/40", accent: "hover:border-blue-300 dark:hover:border-blue-700" },
-  { name: "Wellness", shape: "pill" as const, fill: "bg-emerald-400", bg: "bg-emerald-50 dark:bg-emerald-950/30", text: "text-emerald-600 dark:text-emerald-400", border: "border-emerald-200 dark:border-emerald-800/40", accent: "hover:border-emerald-300 dark:hover:border-emerald-700" },
-  { name: "Food & Beverage", shape: "triangle" as const, fill: "bg-amber-400", bg: "bg-amber-50 dark:bg-amber-950/30", text: "text-amber-600 dark:text-amber-400", border: "border-amber-200 dark:border-amber-800/40", accent: "hover:border-amber-300 dark:hover:border-amber-700" },
-  { name: "Lifestyle", shape: "hexagon" as const, fill: "bg-slate-400", bg: "bg-slate-50 dark:bg-slate-900/50", text: "text-slate-600 dark:text-slate-400", border: "border-slate-200 dark:border-slate-800/40", accent: "hover:border-slate-300 dark:hover:border-slate-700" },
-]
-
-function ShapeIcon({ shape, fill }: { shape: string; fill: string }) {
-  switch (shape) {
-    case "circle":
-      return <div className={`h-4 w-4 rounded-full ${fill}`} />
-    case "diamond":
-      return <div className={`h-3.5 w-3.5 rotate-45 rounded-sm ${fill}`} />
-    case "square":
-      return <div className={`h-3.5 w-3.5 rounded-md ${fill}`} />
-    case "pill":
-      return <div className={`h-3 w-5 rounded-full ${fill}`} />
-    case "triangle":
-      return <div className={`h-4 w-4 ${fill}`} style={{ clipPath: "polygon(50% 0%, 100% 100%, 0% 100%)" }} />
-    case "hexagon":
-      return <div className={`h-4 w-4 ${fill}`} style={{ clipPath: "polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)" }} />
-    default:
-      return <div className={`h-4 w-4 rounded-full ${fill}`} />
-  }
-}
+/* ─── Data ─── */
 
 const pillars = [
   {
     icon: DollarSign,
     title: "Capital",
-    amount: "$250K - $1M",
+    amount: "$250K – $1M",
     description:
-      "Financial support to fuel your brand's next stage of growth at pre-seed and seed.",
+      "Pre-seed and seed funding to fuel your brand's next stage of growth.",
   },
   {
     icon: Users,
     title: "Connection",
-    amount: "120+",
+    amount: "120+ Partners",
     description:
-      "A curated network of operators, advisors, and partners who've built iconic consumer brands.",
+      "A curated network of operators, advisors, and partners who've scaled iconic consumer brands.",
   },
   {
     icon: Package,
-    title: "Resource",
+    title: "Resources",
     amount: "End-to-End",
     description:
-      "Go-to-market strategy, e-commerce tools, and hands-on growth support from day one.",
+      "Go-to-market strategy, e-commerce infrastructure, and hands-on growth support from day one.",
   },
   {
     icon: TrendingUp,
-    title: "Focused Vertical",
+    title: "Focused Verticals",
     amount: "6 Sectors",
     description:
-      "Deep industry expertise where the next iconic consumer brands are being built.",
+      "Deep industry expertise across the categories where next-generation brands are being built.",
   },
+]
+
+const verticals = [
+  { label: "Fashion & Apparel", Icon: Shirt },
+  { label: "Beauty & Personal Care", Icon: Sparkles },
+  { label: "Consumer Electronics", Icon: Cpu },
+  { label: "Wellness & Health", Icon: Leaf },
+  { label: "Food & Beverage", Icon: UtensilsCrossed },
+  { label: "Lifestyle & Home", Icon: Home },
 ]
 
 const founderTraits = [
   "Pre-seed or seed stage startups",
-  "Looking for $250K - $1M in capital support",
-  "Building in consumer verticals (Fashion, Beauty, Electronics, Wellness, F&B, etc.)",
-  "Ambitious and mission-driven",
-  "Strong understanding of DTC landscape",
+  "Seeking $250K – $1M in capital support",
+  "Building in consumer verticals (Fashion, Beauty, Electronics, Wellness, F&B, Lifestyle)",
+  "Ambitious, mission-driven founders",
+  "Strong understanding of the DTC landscape",
   "Ready to scale and build an iconic brand",
 ]
 
 const steps = [
   {
     number: "01",
-    title: "Submit Your Application",
-    description: "Fill out a short form about your brand, vision, and traction. Takes less than 5 minutes.",
-    icon: Target,
+    title: "Apply",
+    description:
+      "Submit a short application about your brand, vision, and traction. Takes less than 5 minutes.",
   },
   {
     number: "02",
-    title: "Meet the Team",
-    description: "Selected founders are invited to an introductory conversation with our investment team.",
-    icon: Users,
+    title: "Meet",
+    description:
+      "Selected founders are invited to an introductory conversation with our investment team.",
   },
   {
     number: "03",
-    title: "Get Backed",
-    description: "Receive capital, resources, and join a community of ambitious consumer brand builders.",
-    icon: Zap,
+    title: "Launch",
+    description:
+      "Receive capital, resources, and join a community of ambitious consumer brand builders.",
   },
 ]
+
+/* ─── Photo assignments ─── */
+const HERO_IMG = "/images/dtc_imgs/DSC08276.JPG"
+const ABOUT_IMG = "/images/dtc_imgs/DSC08196.JPG"
+const MOSAIC_IMGS = [
+  "/images/dtc_imgs/DSC08200.JPG",
+  "/images/dtc_imgs/DSC08240.JPG",
+  "/images/dtc_imgs/DSC08312.JPG",
+]
+const CRITERIA_IMG = "/images/dtc_imgs/DSC08334.JPG"
+
+/* ─── Component ─── */
 
 export function DtcVerticalContent() {
   const containerRef = useReveal()
@@ -118,67 +118,75 @@ export function DtcVerticalContent() {
 
   return (
     <>
-      <Navbar />
+      <Navbar darkHero />
       <main className="relative min-h-screen" ref={containerRef}>
 
-        {/* ===== HERO HEADER ===== */}
-        <header className="relative overflow-hidden border-b border-border px-6 pt-28 pb-16 lg:pt-32 lg:pb-20">
-          {/* Subtle accent glow */}
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -top-32 right-0 h-[400px] w-[400px] rounded-full bg-primary/[0.05] blur-[100px]" />
-            <div className="absolute -bottom-20 -left-20 h-[300px] w-[300px] rounded-full bg-[hsl(var(--warm))]/[0.04] blur-[80px]" />
+        {/* ════════════════════════════════════════════════════════════
+            1. HERO — cinematic full-viewport
+        ════════════════════════════════════════════════════════════ */}
+        <header className="relative flex min-h-[85vh] items-end overflow-hidden">
+          {/* Background image */}
+          <div className="absolute inset-0">
+            <img
+              src={HERO_IMG}
+              alt="Sunstone DTC Founders"
+              className="h-full w-full object-cover"
+            />
+            {/* Rich gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/95 via-[#0a0a1a]/60 to-[#0a0a1a]/30" />
           </div>
 
-          <div className="relative z-10 mx-auto max-w-3xl">
+          <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-16 pt-32 sm:px-10 lg:pb-24">
             <a
               href="/"
-              className="reveal mb-8 inline-flex items-center gap-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
+              className="reveal mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/50 transition-colors hover:text-white/80"
             >
               <ArrowLeft className="h-3.5 w-3.5" />
               Back to Home
             </a>
 
-            <div className="reveal flex flex-wrap items-center gap-3 mb-5">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary">
+            <div className="reveal flex flex-wrap items-center gap-3 mb-6">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 backdrop-blur-sm px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/80">
                 <Sparkles className="h-3 w-3" />
                 DTC Vertical
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3.5 py-1.5 text-xs font-semibold text-emerald-600">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-500/10 backdrop-blur-sm px-4 py-1.5 text-xs font-semibold text-emerald-300">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
                 </span>
                 Now Accepting Applications
               </span>
             </div>
 
             <h1
-              className="reveal font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl"
+              className="reveal max-w-3xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
               style={{
                 opacity: loaded ? 1 : 0,
-                transform: loaded ? "translateY(0)" : "translateY(20px)",
-                transition: "all 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.1s",
+                transform: loaded ? "translateY(0)" : "translateY(24px)",
+                transition: "all 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
               }}
             >
               {"Build the Next "}
               <span className="text-shimmer">Iconic Brand</span>
             </h1>
-            <p className="reveal mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
-              {"We partner with ambitious consumer founders at the earliest stages. Capital, connections, and deep DTC expertise to help you scale from day one."}
+
+            <p className="reveal mt-6 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg lg:text-xl">
+              We partner with ambitious consumer founders at the earliest stages — capital, connections, and deep DTC expertise to help you scale from day one.
             </p>
 
-            {/* Hero CTA + stats */}
-            <div className="reveal mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
+            {/* Hero CTA */}
+            <div className="reveal mt-10 flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
               <a
                 href="https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEyuQ/form"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-white px-10 py-4 text-base font-semibold text-[#0a0a1a] transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-white/10"
               >
                 Apply Now
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
+              <div className="flex items-center gap-2 text-sm text-white/40">
                 <Clock className="h-4 w-4" />
                 <span>{"Takes < 5 minutes"}</span>
               </div>
@@ -186,165 +194,253 @@ export function DtcVerticalContent() {
           </div>
         </header>
 
-        {/* ===== HIGHLIGHT STRIP ===== */}
-        <div className="border-b border-border bg-card/60 px-6 py-6">
-          <div className="reveal mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-y-4 gap-x-8">
+        {/* ════════════════════════════════════════════════════════════
+            2. KEY STATS STRIP
+        ════════════════════════════════════════════════════════════ */}
+        <div className="border-b border-border bg-gradient-to-r from-card via-card/80 to-card px-6 py-8 sm:px-10">
+          <div className="reveal mx-auto grid max-w-6xl grid-cols-2 gap-8 sm:grid-cols-4">
             {[
-              { label: "Capital Range", value: "$250K - $1M" },
+              { label: "Capital Range", value: "$250K – $1M" },
               { label: "Stage Focus", value: "Pre-Seed & Seed" },
               { label: "Portfolio", value: "120+ Companies" },
               { label: "Deployed", value: "$50M+" },
             ].map((stat) => (
-              <div key={stat.label} className="flex flex-col">
-                <span className="font-display text-xl font-bold tracking-tight text-foreground">{stat.value}</span>
-                <span className="text-xs text-muted-foreground">{stat.label}</span>
+              <div key={stat.label} className="text-center sm:text-left">
+                <span className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+                  {stat.value}
+                </span>
+                <span className="mt-1 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                  {stat.label}
+                </span>
               </div>
             ))}
           </div>
         </div>
 
-        {/* ===== ARTICLE BODY ===== */}
-        <div className="px-6 py-16 lg:py-24">
-          <div className="mx-auto max-w-3xl">
-
-            {/* --- WHAT WE PROVIDE --- */}
-            <section className="reveal mb-20">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <Sparkles className="h-3.5 w-3.5" />
-                </span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-primary">Our Support</span>
+        {/* ════════════════════════════════════════════════════════════
+            3. ABOUT THE PROGRAM — Z-pattern (text left, image right)
+        ════════════════════════════════════════════════════════════ */}
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
+          <div className="reveal mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            {/* Text */}
+            <div>
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+                <Sparkles className="h-3.5 w-3.5" />
+                About the Program
+              </span>
+              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+                The Sunstone DTC Accelerator
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
+                The Sunstone Venture and Innovation Center was established to serve as a long-term platform for capital formation, ecosystem building, and founder empowerment in Southern California.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground lg:text-lg">
+                Southern California is one of the most diverse and under-leveraged innovation regions in the world. We built this program to help ambitious consumer founders access capital, talent, and infrastructure to build the next generation of iconic DTC brands.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                {["#FounderFirst", "#EcosystemBuilder", "#SoCalInnovation"].map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-border bg-muted/50 px-3.5 py-1.5 text-xs font-medium text-muted-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
-              <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            </div>
+            {/* Image */}
+            <div className="relative">
+              <div className="overflow-hidden rounded-2xl shadow-2xl shadow-foreground/5">
+                <img
+                  src={ABOUT_IMG}
+                  alt="Sunstone Demo Day"
+                  className="h-full w-full object-cover aspect-[4/3]"
+                />
+              </div>
+              {/* Decorative accent */}
+              <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl border border-primary/10 bg-primary/[0.03]" />
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════════════════
+            4. WHAT WE PROVIDE — 4-pillar grid, wider
+        ════════════════════════════════════════════════════════════ */}
+        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="reveal text-center mb-14">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+                <Sparkles className="h-3.5 w-3.5" />
+                Our Support
+              </span>
+              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 What We Provide
               </h2>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
                 Comprehensive support across four key pillars, designed to give consumer founders an unfair advantage.
               </p>
+            </div>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {pillars.map((pillar, i) => (
-                  <div
-                    key={pillar.title}
-                    className={`reveal reveal-delay-${i + 1} group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5`}
-                  >
-                    {/* Hover glow */}
-                    <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 rounded-full bg-primary/[0.06] opacity-0 blur-2xl transition-opacity duration-300 group-hover:opacity-100" />
-                    <div className="relative">
-                      <div className="mb-4 flex items-center justify-between">
-                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                          <pillar.icon className="h-5 w-5" />
-                        </div>
-                        <span className="font-display text-lg font-bold tracking-tight text-primary/80">
-                          {pillar.amount}
-                        </span>
-                      </div>
-                      <h3 className="font-display text-lg font-semibold text-foreground">
-                        {pillar.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                        {pillar.description}
-                      </p>
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {pillars.map((pillar, i) => (
+                <div
+                  key={pillar.title}
+                  className={`reveal reveal-delay-${i + 1} group relative overflow-hidden rounded-2xl border border-border bg-card p-7 transition-all duration-500 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1`}
+                >
+                  {/* Hover glow */}
+                  <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-primary/[0.06] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+
+                  <div className="relative">
+                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
+                      <pillar.icon className="h-5 w-5" />
                     </div>
+                    <span className="block font-display text-sm font-bold tracking-tight text-primary/70 mb-1.5">
+                      {pillar.amount}
+                    </span>
+                    <h3 className="font-display text-lg font-semibold text-foreground">
+                      {pillar.title}
+                    </h3>
+                    <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                      {pillar.description}
+                    </p>
                   </div>
-                ))}
-              </div>
-            </section>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-            {/* Divider */}
-            <hr className="mb-20 border-border" />
-
-            {/* --- FOCUS VERTICALS --- */}
-            <section className="reveal mb-20">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-[hsl(var(--warm))]/10 text-[hsl(var(--warm))]">
-                  <Target className="h-3.5 w-3.5" />
-                </span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-[hsl(var(--warm))]">Focus Areas</span>
+        {/* ════════════════════════════════════════════════════════════
+            5. FULL-WIDTH PHOTO MOSAIC
+        ════════════════════════════════════════════════════════════ */}
+        <section className="reveal overflow-hidden">
+          <div className="grid grid-cols-3 gap-0.5">
+            {MOSAIC_IMGS.map((src, i) => (
+              <div key={i} className="relative aspect-[16/9] overflow-hidden">
+                <img
+                  src={src}
+                  alt={`Sunstone community event ${i + 1}`}
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+                {/* Subtle vignette */}
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
               </div>
-              <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+            ))}
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════════════════
+            6. FOCUS VERTICALS — clean grid
+        ════════════════════════════════════════════════════════════ */}
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="reveal text-center mb-14">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[hsl(var(--warm,271_81%_56%))]">
+                <Target className="h-3.5 w-3.5" />
+                Focus Areas
+              </span>
+              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 Where We Invest
               </h2>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
-                We back consumer brands across these categories, partnering
-                with founders who are redefining how people shop, eat, and live.
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+                We back consumer brands across these categories, partnering with founders who are redefining how people shop, eat, and live.
               </p>
+            </div>
 
-              <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3">
-                {verticals.map((vertical, i) => (
-                  <div
-                    key={vertical.name}
-                    className={`reveal reveal-delay-${(i % 3) + 1} group flex items-center gap-3.5 rounded-2xl border ${vertical.border} ${vertical.bg} p-4 transition-all duration-300 ${vertical.accent} hover:shadow-sm`}
-                  >
-                    <span
-                      className={`flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-xl border ${vertical.border} bg-background`}
-                    >
-                      <ShapeIcon shape={vertical.shape} fill={vertical.fill} />
-                    </span>
-                    <span className={`text-sm font-semibold ${vertical.text}`}>
-                      {vertical.name}
-                    </span>
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+              {verticals.map((vertical, i) => (
+                <div
+                  key={vertical.label}
+                  className={`reveal reveal-delay-${(i % 3) + 1} group flex flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-card p-6 text-center transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5`}
+                >
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-foreground/5 text-foreground/50 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
+                    <vertical.Icon className="h-5 w-5" />
                   </div>
-                ))}
-              </div>
-            </section>
+                  <span className="text-sm font-semibold text-foreground/80 leading-tight">
+                    {vertical.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-            {/* Divider */}
-            <hr className="mb-20 border-border" />
-
-            {/* --- HOW IT WORKS --- */}
-            <section className="reveal mb-20">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <Zap className="h-3.5 w-3.5" />
-                </span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-primary">Process</span>
-              </div>
-              <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+        {/* ════════════════════════════════════════════════════════════
+            7. HOW IT WORKS — horizontal timeline-style steps
+        ════════════════════════════════════════════════════════════ */}
+        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="reveal text-center mb-14">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+                <Zap className="h-3.5 w-3.5" />
+                Process
+              </span>
+              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 How It Works
               </h2>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
                 From application to partnership in three simple steps.
               </p>
+            </div>
 
-              <div className="mt-8 space-y-4">
-                {steps.map((step, i) => (
-                  <div
-                    key={step.number}
-                    className={`reveal reveal-delay-${i + 1} group relative flex items-start gap-5 rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/20 hover:shadow-md hover:shadow-primary/5`}
-                  >
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-foreground text-background font-display text-lg font-bold">
-                      {step.number}
+            {/* Timeline steps */}
+            <div className="grid gap-8 sm:grid-cols-3">
+              {steps.map((step, i) => (
+                <div
+                  key={step.number}
+                  className={`reveal reveal-delay-${i + 1} group relative text-center`}
+                >
+                  {/* Connecting line (not on last) */}
+                  {i < steps.length - 1 && (
+                    <div className="absolute right-0 top-12 hidden h-px w-full translate-x-1/2 bg-border sm:block" />
+                  )}
+                  <div className="relative">
+                    {/* Big number */}
+                    <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-2xl border border-border bg-card text-foreground transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-xl group-hover:shadow-primary/5 group-hover:-translate-y-1">
+                      <span className="font-display text-4xl font-bold tracking-tight text-foreground/80 group-hover:text-primary transition-colors duration-300">
+                        {step.number}
+                      </span>
                     </div>
-                    <div className="flex-1">
-                      <h3 className="font-display text-lg font-semibold text-foreground">
-                        {step.title}
-                      </h3>
-                      <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                        {step.description}
-                      </p>
-                    </div>
-                    <step.icon className="hidden h-5 w-5 flex-shrink-0 text-muted-foreground/40 transition-colors duration-300 group-hover:text-primary sm:block" />
+                    <h3 className="font-display text-xl font-bold text-foreground mb-2">
+                      {step.title}
+                    </h3>
+                    <p className="text-sm leading-relaxed text-muted-foreground max-w-xs mx-auto">
+                      {step.description}
+                    </p>
                   </div>
-                ))}
-              </div>
-            </section>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-            {/* Divider */}
-            <hr className="mb-20 border-border" />
-
-            {/* --- WHO WE'RE LOOKING FOR --- */}
-            <section className="reveal mb-20">
-              <div className="flex items-center gap-3 mb-3">
-                <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
-                  <CheckCircle2 className="h-3.5 w-3.5" />
-                </span>
-                <span className="text-xs font-semibold uppercase tracking-wider text-emerald-600">Ideal Fit</span>
+        {/* ════════════════════════════════════════════════════════════
+            8. WHO WE'RE LOOKING FOR — Z-pattern reversed (image left, text right)
+        ════════════════════════════════════════════════════════════ */}
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
+          <div className="reveal mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
+            {/* Image */}
+            <div className="relative order-2 lg:order-1">
+              <div className="overflow-hidden rounded-2xl shadow-2xl shadow-foreground/5">
+                <img
+                  src={CRITERIA_IMG}
+                  alt="Sunstone community"
+                  className="h-full w-full object-cover aspect-[4/3]"
+                />
               </div>
-              <h2 className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
+              <div className="absolute -bottom-4 -left-4 -z-10 h-full w-full rounded-2xl border border-emerald-500/10 bg-emerald-500/[0.02]" />
+            </div>
+
+            {/* Text + criteria */}
+            <div className="order-1 lg:order-2">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-emerald-600">
+                <CheckCircle2 className="h-3.5 w-3.5" />
+                Ideal Fit
+              </span>
+              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 {"Who We're Looking For"}
               </h2>
-              <p className="mt-3 text-base leading-relaxed text-muted-foreground">
+              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
                 {"We partner with ambitious founders building the next generation of consumer brands."}
               </p>
 
@@ -361,68 +457,79 @@ export function DtcVerticalContent() {
                   </li>
                 ))}
               </ul>
-            </section>
-
-            {/* Divider */}
-            <hr className="mb-20 border-border" />
-
-            {/* --- APPLY CTA --- */}
-            <section className="reveal mb-8">
-              <div className="relative overflow-hidden rounded-3xl border border-border bg-foreground p-8 text-center sm:p-12">
-                {/* Background glow */}
-                <div className="pointer-events-none absolute inset-0">
-                  <div className="absolute top-0 right-0 h-48 w-48 rounded-full bg-primary/20 blur-[80px]" />
-                  <div className="absolute bottom-0 left-0 h-48 w-48 rounded-full bg-[hsl(var(--warm))]/15 blur-[80px]" />
-                </div>
-
-                <div className="relative z-10">
-                  <span className="mb-4 inline-flex items-center gap-1.5 rounded-full bg-background/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-background/70">
-                    <Sparkles className="h-3 w-3" />
-                    Applications Open
-                  </span>
-
-                  <h2 className="font-display text-3xl font-bold tracking-tight text-background sm:text-4xl">
-                    {"Ready to Build Something "}
-                    <span className="text-shimmer">Iconic?</span>
-                  </h2>
-                  <p className="mx-auto mt-4 max-w-md text-base leading-relaxed text-background/60">
-                    Join 120+ companies already backed by Sunstone. We review
-                    all submissions and reach out if there is a potential fit.
-                  </p>
-
-                  <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
-                    <a
-                      href="https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEyuQ/form"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-2.5 rounded-full bg-background px-8 py-4 text-base font-semibold text-foreground transition-all duration-300 hover:scale-[1.03] hover:shadow-xl"
-                    >
-                      Submit Application
-                      <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </a>
-                    <a
-                      href="mailto:community@sunstoneinvestment.com"
-                      className="inline-flex items-center gap-2 rounded-full border-2 border-background/20 bg-transparent px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:border-background/40 hover:bg-background/5"
-                    >
-                      Contact Us
-                    </a>
-                  </div>
-
-                  <p className="mt-8 text-sm text-background/40">
-                    {"Questions? Reach us at "}
-                    <a
-                      href="mailto:community@sunstoneinvestment.com"
-                      className="text-background/60 underline underline-offset-4 transition-colors hover:text-background/80"
-                    >
-                      community@sunstoneinvestment.com
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </section>
-
+            </div>
           </div>
-        </div>
+        </section>
+
+        {/* ════════════════════════════════════════════════════════════
+            9. FINAL CTA — premium dark block
+        ════════════════════════════════════════════════════════════ */}
+        <section className="reveal px-6 py-20 sm:px-10 lg:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="relative overflow-hidden rounded-3xl bg-[#0a0a1a] p-10 text-center sm:p-16 lg:p-20">
+              {/* Background photo with heavy overlay */}
+              <div className="absolute inset-0">
+                <img
+                  src="/images/dtc_imgs/DSC08209.JPG"
+                  alt=""
+                  className="h-full w-full object-cover opacity-20"
+                />
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1a]/90 via-[#0a0a1a]/80 to-[#0a0a1a]/90" />
+              </div>
+
+              {/* Glow effects */}
+              <div className="pointer-events-none absolute inset-0">
+                <div className="absolute top-0 right-1/4 h-64 w-64 rounded-full bg-primary/15 blur-[100px]" />
+                <div className="absolute bottom-0 left-1/4 h-64 w-64 rounded-full bg-emerald-500/10 blur-[100px]" />
+              </div>
+
+              <div className="relative z-10">
+                <span className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/60">
+                  <Sparkles className="h-3 w-3" />
+                  Applications Open
+                </span>
+
+                <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                  {"Ready to Build Something "}
+                  <span className="text-shimmer">Iconic?</span>
+                </h2>
+                <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/50 lg:text-lg">
+                  Join 120+ companies already backed by Sunstone. We review all
+                  submissions and reach out if there is a potential fit.
+                </p>
+
+                <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
+                  <a
+                    href="https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEyuQ/form"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group inline-flex items-center gap-2.5 rounded-full bg-white px-10 py-4 text-base font-semibold text-[#0a0a1a] transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-white/10"
+                  >
+                    Submit Application
+                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                  </a>
+                  <a
+                    href="mailto:community@sunstoneinvestment.com"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-transparent px-10 py-4 text-base font-semibold text-white/80 transition-all duration-300 hover:border-white/30 hover:bg-white/5"
+                  >
+                    Contact Us
+                  </a>
+                </div>
+
+                <p className="mt-10 text-sm text-white/30">
+                  {"Questions? Reach us at "}
+                  <a
+                    href="mailto:community@sunstoneinvestment.com"
+                    className="text-white/50 underline underline-offset-4 transition-colors hover:text-white/70"
+                  >
+                    community@sunstoneinvestment.com
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
       </main>
       <Footer />
     </>
