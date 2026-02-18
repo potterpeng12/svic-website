@@ -16,10 +16,10 @@ export default function Page() {
       <Hero />
       <About />
       <Portfolio />
-      <Events />
       <Apply />
       <Resources />
       <Testimonials />
+      <Events />
       <Team />
       <Footer />
     </main>

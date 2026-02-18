@@ -45,7 +45,7 @@ function PerkCard({ name, logo, highlight }: { name: string; logo: string; highl
   return (
     <div className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/15 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/[0.05]">
       {/* Company logo section - Fixed aspect ratio container */}
-      <div className="flex items-center justify-center border-b border-border bg-background/50 p-6">
+      <div className="flex items-center justify-center border-b border-border bg-white p-6">
         <div className="relative aspect-[3/2] w-full">
           {!imgError ? (
             <Image
