@@ -47,7 +47,7 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
         <div className="flex items-center justify-between">
           <a href="/" className="group flex items-center gap-2">
             <img
-              src="/images/sunstone-logo.png"
+              src={isOverDark ? "/images/logo_in_dark.png" : "/images/sunstone-logo.png"}
               alt="Sunstone Venture & Innovation Center"
               className={`w-auto object-contain transition-all duration-500 group-hover:scale-105 ${scrolled ? "h-10" : "h-12"}`}
             />
@@ -82,7 +82,7 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
                 : "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/20"
                 }`}
             >
-              Apply
+              Get Access
               <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
 
@@ -107,7 +107,7 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
           }`}
       >
         <div className="flex flex-col items-center gap-2">
-          {[...navLinks, { label: "Apply", href: "/apply" }].map((link, i) => (
+          {[...navLinks, { label: "Get Access", href: "/apply" }].map((link, i) => (
             <a
               key={link.href}
               href={link.href}

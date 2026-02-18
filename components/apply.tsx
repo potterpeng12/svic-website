@@ -48,7 +48,7 @@ export function Apply() {
             </div>
 
             <h2 className="font-display text-4xl font-bold leading-[1] tracking-tight text-background sm:text-6xl lg:text-7xl">
-              Ready to build
+              Build the next
               <br />
               <span
                 style={{
@@ -60,12 +60,12 @@ export function Apply() {
                   animation: "shimmer-move 4s linear infinite",
                 }}
               >
-                the future?
+                iconic brand.
               </span>
             </h2>
 
             <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-background/50">
-              We invest $250K - $1M at pre-seed and seed. If you are building something bold, we want to hear from you.
+              SVIC's DTC Vertical gives ambitious consumer founders the capital, connections, and hands-on resources to scale — across Fashion, Beauty, Electronics, Food & Beverage, and more.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">

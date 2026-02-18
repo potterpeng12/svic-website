@@ -15,7 +15,6 @@ import {
   Target,
   Shirt,
   Cpu,
-  Leaf,
   UtensilsCrossed,
   Home,
 } from "lucide-react"
@@ -29,7 +28,7 @@ const pillars = [
   {
     icon: DollarSign,
     title: "Capital",
-    amount: "$250K – $1M",
+    amount: "$50K – $1M",
     description:
       "Pre-seed and seed funding to fuel your brand's next stage of growth.",
   },
@@ -60,15 +59,13 @@ const verticals = [
   { label: "Fashion & Apparel", Icon: Shirt },
   { label: "Beauty & Personal Care", Icon: Sparkles },
   { label: "Consumer Electronics", Icon: Cpu },
-  { label: "Wellness & Health", Icon: Leaf },
   { label: "Food & Beverage", Icon: UtensilsCrossed },
   { label: "Lifestyle & Home", Icon: Home },
 ]
 
 const founderTraits = [
-  "Pre-seed or seed stage startups",
   "Seeking $250K – $1M in capital support",
-  "Building in consumer verticals (Fashion, Beauty, Electronics, Wellness, F&B, Lifestyle)",
+  "Building in consumer verticals (Fashion, Beauty, Electronics, Food & Beverage, Lifestyle)",
   "Ambitious, mission-driven founders",
   "Strong understanding of the DTC landscape",
   "Ready to scale and build an iconic brand",
@@ -268,7 +265,7 @@ export function DtcVerticalContent() {
         ════════════════════════════════════════════════════════════ */}
         <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
-            <div className="reveal text-center mb-14">
+            <div className="reveal text-center mb-10">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
                 <Sparkles className="h-3.5 w-3.5" />
                 Our Support
@@ -285,22 +282,20 @@ export function DtcVerticalContent() {
               {pillars.map((pillar, i) => (
                 <div
                   key={pillar.title}
-                  className={`reveal reveal-delay-${i + 1} group relative overflow-hidden rounded-2xl border border-border bg-card p-7 transition-all duration-500 hover:border-primary/25 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1`}
+                  className={`reveal reveal-delay-${i + 1} group relative overflow-hidden rounded-2xl border border-border bg-card p-7 transition-all duration-500 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5 hover:-translate-y-1`}
                 >
-                  {/* Hover glow */}
-                  <div className="pointer-events-none absolute -right-8 -top-8 h-28 w-28 rounded-full bg-primary/[0.06] opacity-0 blur-3xl transition-opacity duration-500 group-hover:opacity-100" />
+                  {/* Left accent bar */}
+                  <div className="absolute left-0 top-6 bottom-6 w-[3px] rounded-full bg-primary/30 transition-colors duration-300 group-hover:bg-primary" />
 
                   <div className="relative">
-                    <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary group-hover:text-primary-foreground">
-                      <pillar.icon className="h-5 w-5" />
-                    </div>
-                    <span className="block font-display text-sm font-bold tracking-tight text-primary/70 mb-1.5">
+                    <span className="block font-display text-3xl font-bold tracking-tight text-foreground mb-1">
                       {pillar.amount}
                     </span>
-                    <h3 className="font-display text-lg font-semibold text-foreground">
+                    <h3 className="font-display text-base font-semibold text-foreground/80 mb-3">
                       {pillar.title}
                     </h3>
-                    <p className="mt-2.5 text-sm leading-relaxed text-muted-foreground">
+                    <div className="h-px w-8 bg-border mb-3 transition-colors duration-300 group-hover:bg-primary/30" />
+                    <p className="text-sm leading-relaxed text-muted-foreground">
                       {pillar.description}
                     </p>
                   </div>
@@ -334,7 +329,7 @@ export function DtcVerticalContent() {
         ════════════════════════════════════════════════════════════ */}
         <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
-            <div className="reveal text-center mb-14">
+            <div className="reveal text-center mb-10">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[hsl(var(--warm,271_81%_56%))]">
                 <Target className="h-3.5 w-3.5" />
                 Focus Areas
@@ -347,11 +342,11 @@ export function DtcVerticalContent() {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:flex lg:flex-wrap lg:justify-center">
               {verticals.map((vertical, i) => (
                 <div
                   key={vertical.label}
-                  className={`reveal reveal-delay-${(i % 3) + 1} group flex flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-card p-6 text-center transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5`}
+                  className={`reveal reveal-delay-${(i % 3) + 1} group flex flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-card p-6 text-center transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5 lg:w-44`}
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-foreground/5 text-foreground/50 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
                     <vertical.Icon className="h-5 w-5" />
@@ -370,7 +365,7 @@ export function DtcVerticalContent() {
         ════════════════════════════════════════════════════════════ */}
         <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
-            <div className="reveal text-center mb-14">
+            <div className="reveal text-center mb-10">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
                 <Zap className="h-3.5 w-3.5" />
                 Process
@@ -384,27 +379,27 @@ export function DtcVerticalContent() {
             </div>
 
             {/* Timeline steps */}
-            <div className="grid gap-8 sm:grid-cols-3">
+            <div className="grid gap-10 sm:grid-cols-3">
               {steps.map((step, i) => (
                 <div
                   key={step.number}
-                  className={`reveal reveal-delay-${i + 1} group relative text-center`}
+                  className={`reveal reveal-delay-${i + 1} group relative`}
                 >
-                  {/* Connecting line (not on last) */}
+                  {/* Dashed connector line (not on last) */}
                   {i < steps.length - 1 && (
-                    <div className="absolute right-0 top-12 hidden h-px w-full translate-x-1/2 bg-border sm:block" />
+                    <div className="absolute left-[calc(100%_-_1rem)] top-4 hidden h-px w-[calc(100%_-_2rem)] border-t border-dashed border-border sm:block" />
                   )}
                   <div className="relative">
-                    {/* Big number */}
-                    <div className="mx-auto mb-6 flex h-24 w-24 items-center justify-center rounded-2xl border border-border bg-card text-foreground transition-all duration-500 group-hover:border-primary/30 group-hover:shadow-xl group-hover:shadow-primary/5 group-hover:-translate-y-1">
-                      <span className="font-display text-4xl font-bold tracking-tight text-foreground/80 group-hover:text-primary transition-colors duration-300">
+                    {/* Step badge + title inline */}
+                    <div className="mb-4 flex items-center gap-3">
+                      <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-xs font-bold tabular-nums text-primary">
                         {step.number}
                       </span>
+                      <h3 className="font-display text-lg font-bold text-foreground">
+                        {step.title}
+                      </h3>
                     </div>
-                    <h3 className="font-display text-xl font-bold text-foreground mb-2">
-                      {step.title}
-                    </h3>
-                    <p className="text-sm leading-relaxed text-muted-foreground max-w-xs mx-auto">
+                    <p className="text-sm leading-relaxed text-muted-foreground pl-11">
                       {step.description}
                     </p>
                   </div>

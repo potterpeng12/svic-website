@@ -114,9 +114,8 @@ export function Hero() {
           <div className="h-[2px] w-10 rounded-full bg-foreground/10 sm:w-16" />
           <div className="relative h-10 overflow-hidden sm:h-12">
             <p
-              className={`font-display text-xl font-semibold text-primary sm:text-2xl ${
-                animState === "in" ? "animate-word-in" : "animate-word-out"
-              }`}
+              className={`font-display text-xl font-semibold text-primary sm:text-2xl ${animState === "in" ? "animate-word-in" : "animate-word-out"
+                }`}
             >
               {rotatingWords[wordIndex]}
             </p>
@@ -150,7 +149,7 @@ export function Hero() {
             href="#apply"
             className="group inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
           >
-            Apply for Capital
+            Get Access
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
           <a

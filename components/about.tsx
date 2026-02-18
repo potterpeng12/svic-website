@@ -96,7 +96,7 @@ export function About() {
           {/* Events stat */}
           <div className="group relative overflow-hidden rounded-3xl border border-border bg-secondary p-8 transition-all duration-500 hover:shadow-xl lg:p-10">
             <p className="font-display text-5xl font-bold text-foreground lg:text-6xl">
-              <Counter target={40} suffix="+" />
+              <Counter target={80} suffix="+" />
             </p>
             <p className="mt-2 text-sm font-medium text-muted-foreground">Events / Year</p>
             <div className="absolute -bottom-6 -right-6 h-20 w-20 rounded-full bg-[hsl(var(--warm))]/[0.08] transition-transform duration-700 group-hover:scale-[4]" />
