@@ -170,7 +170,7 @@ export function DtcVerticalContent() {
             {/* Hero CTA + stats */}
             <div className="reveal mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
               <a
-                href="https://airtable.com/appV77FGcaF0S6aPI/pag5RoCINuwgAN2w7/form"
+                href="https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEyuQ/form"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
@@ -392,7 +392,7 @@ export function DtcVerticalContent() {
 
                   <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
                     <a
-                      href="https://airtable.com/appV77FGcaF0S6aPI/pag5RoCINuwgAN2w7/form"
+                      href="https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEyuQ/form"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="group inline-flex items-center gap-2.5 rounded-full bg-background px-8 py-4 text-base font-semibold text-foreground transition-all duration-300 hover:scale-[1.03] hover:shadow-xl"

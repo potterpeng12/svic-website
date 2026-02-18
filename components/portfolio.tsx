@@ -48,9 +48,9 @@ function TiltCard({ name, abbr, category, logo, website, color, onHoverChange }:
     >
       {/* Company header row */}
       <div className="flex items-center gap-3 mb-3">
-        <div className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg ${logo && !logoError ? "bg-white border border-border" : `bg-gradient-to-br ${color}`} text-xs font-bold tracking-wide ${logo && !logoError ? "text-foreground" : "text-white"} shadow-sm overflow-hidden`}>
+        <div className={`flex h-14 w-auto min-w-[3.5rem] max-w-[6rem] flex-shrink-0 items-center justify-center rounded-lg ${logo && !logoError ? "bg-transparent" : `bg-gradient-to-br ${color} w-14`} text-xs font-bold tracking-wide ${logo && !logoError ? "text-foreground" : "text-white"} overflow-hidden`}>
           {logo && !logoError ? (
-            <img src={logo} alt={name} className="w-full h-full object-contain p-1" onError={(e) => { console.log("[v0] Logo load FAILED for:", name, "url:", logo?.substring(0, 80)); setLogoError(true) }} onLoad={() => console.log("[v0] Logo loaded OK for:", name)} />
+            <img src={logo} alt={name} className="h-full w-auto object-contain" onError={(e) => { console.log("[v0] Logo load FAILED for:", name, "url:", logo?.substring(0, 80)); setLogoError(true) }} onLoad={() => console.log("[v0] Logo loaded OK for:", name)} />
           ) : (
             abbr
           )}

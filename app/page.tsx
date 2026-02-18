@@ -2,6 +2,7 @@ import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Portfolio } from "@/components/portfolio"
+import { Events } from "@/components/events"
 import { Testimonials } from "@/components/testimonials"
 import { Team } from "@/components/team"
 import { Resources } from "@/components/resources"
@@ -15,6 +16,7 @@ export default function Page() {
       <Hero />
       <About />
       <Portfolio />
+      <Events />
       <Apply />
       <Resources />
       <Testimonials />
