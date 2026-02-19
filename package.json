@@ -1,6 +1,8 @@
 {
-  "name": "my-project",
-  "version": "0.1.0",
+  "name": "sunstone-vc-landing-page",
+  "version": "1.0.0",
+  "description": "Modern landing page for Sunstone Venture Capital fund",
+  "author": "Sunstone VC",
   "private": true,
   "scripts": {
     "dev": "next dev",
