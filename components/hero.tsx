@@ -109,7 +109,7 @@ export function Hero() {
               backgroundImage: "linear-gradient(to right, #FFB01F 0%, #A855F7 33%, #FF2E93 66%, #FFB01F 100%)",
               backgroundSize: "200% auto",
               animation: "fluid-flow 3s linear infinite",
-              filter: "drop-shadow(0 0 40px rgba(255,255,255,0.7)) drop-shadow(0 0 80px rgba(168, 85, 247, 0.5))"
+              filter: "drop-shadow(0 0 20px rgba(0,0,0,0.7)) drop-shadow(0 0 60px rgba(0,0,0,0.5))"
             }}
           >
             innovative founders
