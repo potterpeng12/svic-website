@@ -23,6 +23,46 @@ const team = [
     linkedin: "https://www.linkedin.com/in/potter-peng-goat/",
     email: "potter.peng@sunstoneinvestment.com",
   },
+  {
+    name: "Jasmine Jiang",
+    role: "Senior Vice President of Investment Operation",
+    bio: "",
+    photo: "/images/team/jasmine_paint.png",
+    linkedin: "https://www.linkedin.com/in/jasminejiangoc/",
+    email: "Jasmine.Jiang@SunstoneInvestment.com",
+  },
+  {
+    name: "Steven Jiang",
+    role: "Investment Analyst",
+    bio: "",
+    photo: "/images/team/steven_paint.png",
+    linkedin: "https://www.linkedin.com/in/kuilin-jiang-523096148/",
+    email: "steven.jiang@SunstoneInvestment.com",
+  },
+  {
+    name: "Sabrina Li",
+    role: "Investment Associate",
+    bio: "",
+    photo: "/images/team/sabrina_paint.png",
+    linkedin: "https://www.linkedin.com/in/xinyili-sabrina/",
+    email: "Sabrina.Li@SunstoneInvestment.com",
+  },
+  {
+    name: "Cindy Lin",
+    role: "Market Research Analyst",
+    bio: "",
+    photo: "/images/team/cindy_paint.png",
+    linkedin: "https://www.linkedin.com/in/cindyhylin/",
+    email: "Cindy.Lin@SunstoneInvestment.com",
+  },
+  {
+    name: "Clark Hsu",
+    role: "Investor Relations Manager",
+    bio: "",
+    photo: "/images/team/clark_paint.png",
+    linkedin: "https://www.linkedin.com/in/clarkhshsu/",
+    email: "Clark.Hsu@SunstoneInvestment.com",
+  },
 ]
 
 function TeamCard({ member, index }: { member: typeof team[0]; index: number }) {

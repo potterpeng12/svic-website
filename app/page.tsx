@@ -12,7 +12,7 @@ import { Footer } from "@/components/footer"
 export default function Page() {
   return (
     <main className="relative overflow-x-hidden">
-      <Navbar />
+      <Navbar darkHero={true} />
       <Hero />
       <About />
       <Portfolio />

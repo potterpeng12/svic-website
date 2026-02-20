@@ -225,3 +225,24 @@
 .animate-blob { animation: blob-morph 8s ease-in-out infinite; }
 .animate-blob-delay { animation: blob-morph 8s ease-in-out 2s infinite; }
 .animate-blob-delay-2 { animation: blob-morph 8s ease-in-out 4s infinite; }
+
+/* ===== GLOWING TEXT ===== */
+@keyframes glow-pulse {
+  0%, 100% {
+    text-shadow:
+      0 0 10px hsl(271, 81%, 56%, 0.5),
+      0 0 20px hsl(271, 81%, 56%, 0.3),
+      0 0 30px hsl(271, 81%, 56%, 0.2),
+      0 0 40px hsl(271, 81%, 56%, 0.1);
+  }
+  50% {
+    text-shadow:
+      0 0 20px hsl(271, 81%, 56%, 0.8),
+      0 0 30px hsl(271, 81%, 56%, 0.6),
+      0 0 40px hsl(271, 81%, 56%, 0.4),
+      0 0 60px hsl(271, 81%, 56%, 0.2);
+  }
+}
+.text-glow {
+  animation: glow-pulse 3s ease-in-out infinite;
+}

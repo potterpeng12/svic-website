@@ -165,11 +165,11 @@ export function DtcVerticalContent() {
               }}
             >
               {"Build the Next "}
-              <span className="text-shimmer">Iconic Brand</span>
+              <span className="text-shimmer">Great Brand</span>
             </h1>
 
             <p className="reveal mt-6 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg lg:text-xl">
-              We partner with ambitious consumer founders at the earliest stages — capital, connections, and deep DTC expertise to help you scale from day one.
+              We work alongside consumer founders in the early stages, providing aligned capital, industry relationships, and experienced DTC insight to support thoughtful growth from the start.
             </p>
 
             {/* Hero CTA */}
@@ -192,30 +192,7 @@ export function DtcVerticalContent() {
         </header>
 
         {/* ════════════════════════════════════════════════════════════
-            2. KEY STATS STRIP
-        ════════════════════════════════════════════════════════════ */}
-        <div className="border-b border-border bg-gradient-to-r from-card via-card/80 to-card px-6 py-8 sm:px-10">
-          <div className="reveal mx-auto grid max-w-6xl grid-cols-2 gap-8 sm:grid-cols-4">
-            {[
-              { label: "Capital Range", value: "$250K – $1M" },
-              { label: "Stage Focus", value: "Pre-Seed & Seed" },
-              { label: "Portfolio", value: "120+ Companies" },
-              { label: "Deployed", value: "$50M+" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center sm:text-left">
-                <span className="font-display text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-                  {stat.value}
-                </span>
-                <span className="mt-1 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ════════════════════════════════════════════════════════════
-            3. ABOUT THE PROGRAM — Z-pattern (text left, image right)
+            2. ABOUT THE PROGRAM — Z-pattern (text left, image right)
         ════════════════════════════════════════════════════════════ */}
         <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="reveal mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">

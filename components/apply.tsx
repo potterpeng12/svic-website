@@ -48,7 +48,7 @@ export function Apply() {
             </div>
 
             <h2 className="font-display text-4xl font-bold leading-[1] tracking-tight text-background sm:text-6xl lg:text-7xl">
-              Build the next
+              Next-Gen DTC Brands
               <br />
               <span
                 style={{
@@ -60,12 +60,12 @@ export function Apply() {
                   animation: "shimmer-move 4s linear infinite",
                 }}
               >
-                iconic brand.
+                Start Here
               </span>
             </h2>
 
             <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-background/50">
-              SVIC's DTC Vertical gives ambitious consumer founders the capital, connections, and hands-on resources to scale — across Fashion, Beauty, Electronics, Food & Beverage, and more.
+              SVIC's DTC track is designed to support consumer founders with early-stage capital, industry guidance, and a network of trusted connections — along with practical resources to help brands grow across Fashion, Beauty, Consumer Electronics, Food & Beverage, and related categories.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">

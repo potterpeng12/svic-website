@@ -102,12 +102,12 @@ export function About() {
             <div className="absolute -bottom-6 -right-6 h-20 w-20 rounded-full bg-[hsl(var(--warm))]/[0.08] transition-transform duration-700 group-hover:scale-[4]" />
           </div>
 
-          {/* Satisfaction */}
+          {/* Community Members */}
           <div className="group relative overflow-hidden rounded-3xl border border-primary/20 bg-accent p-8 transition-all duration-500 hover:shadow-xl lg:p-10">
             <p className="font-display text-5xl font-bold text-primary lg:text-6xl">
-              <Counter target={95} suffix="%" />
+              <Counter target={40} suffix="K+" />
             </p>
-            <p className="mt-2 text-sm font-medium text-accent-foreground/60">Founder Satisfaction</p>
+            <p className="mt-2 text-sm font-medium text-accent-foreground/60">Community Members</p>
             <div className="absolute -bottom-6 -right-6 h-20 w-20 rounded-full bg-primary/[0.08] transition-transform duration-700 group-hover:scale-[4]" />
           </div>
         </div>
