@@ -458,10 +458,11 @@ export function DtcVerticalContent() {
               <div className="relative z-10">
                 <span className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/60">
                   <Sparkles className="h-3 w-3" />
-                  Next-Gen DTC Brands
+                  Applications Open
                 </span>
 
                 <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
+                  {"Next-Gen DTC Brands "}
                   <span className="text-shimmer">Start Here</span>
                 </h2>
                 <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/50 lg:text-lg">
