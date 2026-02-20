@@ -457,7 +457,7 @@ export function PerksContent() {
       <Navbar />
       <main className="min-h-screen bg-background" ref={containerRef}>
         {/* Header */}
-        <header className="grain relative overflow-hidden px-6 pb-16 pt-24">
+        <header className="grain relative overflow-hidden px-6 pb-16 pt-32 sm:pt-36">
         <div className="relative mx-auto max-w-7xl">
           <p className="reveal mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-primary">
             Startup Perks

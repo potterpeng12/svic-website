@@ -33,7 +33,7 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
           </span>
         </div>
 
-        <h2 className="reveal font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+        <h2 className="reveal font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
           Events &amp; Updates,{" "}
           <span className="italic text-primary">delivered.</span>
         </h2>

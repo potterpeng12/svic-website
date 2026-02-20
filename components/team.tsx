@@ -150,7 +150,7 @@ export function Team() {
   const containerRef = useReveal()
 
   return (
-    <section id="team" className="relative px-6 py-28 lg:py-36" ref={containerRef}>
+    <section id="team" className="relative px-6 py-28 lg:py-36 pt-32 lg:pt-40" ref={containerRef}>
       <div className="mx-auto max-w-7xl">
         <div className="reveal mb-20 max-w-4xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-primary">Team</p>
