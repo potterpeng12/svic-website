@@ -458,16 +458,14 @@ export function DtcVerticalContent() {
               <div className="relative z-10">
                 <span className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/60">
                   <Sparkles className="h-3 w-3" />
-                  Applications Open
+                  Next-Gen DTC Brands
                 </span>
 
                 <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
-                  {"Ready to Build Something "}
-                  <span className="text-shimmer">Great?</span>
+                  <span className="text-shimmer">Start Here</span>
                 </h2>
                 <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/50 lg:text-lg">
-                  Join 120+ companies already backed by Sunstone. We review all
-                  submissions and reach out if there is a potential fit.
+                  SVIC's DTC track is designed to support consumer founders with early-stage capital, industry guidance, and a network of trusted connections — along with practical resources to help brands grow across Fashion, Beauty, Consumer Electronics, Food & Beverage, and related categories.
                 </p>
 
                 <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
