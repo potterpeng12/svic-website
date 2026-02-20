@@ -41,9 +41,10 @@ const featuredPerks = [
 
 function PerkCard({ name, logo, highlight }: { name: string; logo: string; highlight: string }) {
   const [imgError, setImgError] = useState(false)
+  const perkId = name.toLowerCase().replace(/[^a-z0-9]+/g, "-")
 
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/15 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/[0.05]">
+    <Link href={`/perks#${perkId}`} className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/15 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/[0.05] block">
       {/* Company logo section - Fixed aspect ratio container */}
       <div className="flex items-center justify-center border-b border-border bg-white p-6">
         <div className="relative aspect-[3/2] w-full">
@@ -75,7 +76,7 @@ function PerkCard({ name, logo, highlight }: { name: string; logo: string; highl
 
       {/* Hover bloom effect */}
       <div className="absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-primary/5 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-    </div>
+    </Link>
   )
 }
 

@@ -463,6 +463,7 @@ export function DtcVerticalContent() {
 
                 <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
                   {"Next-Gen DTC Brands "}
+                  <br />
                   <span className="text-shimmer">Start Here</span>
                 </h2>
                 <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/50 lg:text-lg">

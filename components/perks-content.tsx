@@ -365,9 +365,10 @@ const perkCategories: PerkCategory[] = [
 
 function PerkCard({ perk, accentLight, accent }: { perk: Perk; accentLight: string; accent: string }) {
   const [imgError, setImgError] = React.useState(false)
+  const perkId = perk.name.toLowerCase().replace(/[^a-z0-9]+/g, "-")
 
   return (
-    <div className="group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/15 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/[0.03]">
+    <div id={perkId} className="scroll-mt-24 group relative overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:border-primary/15 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-primary/[0.03]">
       {/* Top accent stripe */}
       <div className={`h-1 w-full ${accent}`} />
 
@@ -458,86 +459,86 @@ export function PerksContent() {
       <main className="min-h-screen bg-background" ref={containerRef}>
         {/* Header */}
         <header className="grain relative overflow-hidden px-6 pb-16 pt-32 sm:pt-36">
-        <div className="relative mx-auto max-w-7xl">
-          <p className="reveal mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-primary">
-            Startup Perks
-          </p>
-          <h1 className="reveal font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-            Everything you need<br />
-            <span className="italic text-primary">to build & scale.</span>
-          </h1>
-          <p className="reveal reveal-delay-1 mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-            {`$500K+ in exclusive perks from our partners. Cloud credits, dev tools, marketing platforms, and more \u2014 all free or heavily discounted for Sunstone portfolio companies.`}
-          </p>
+          <div className="relative mx-auto max-w-7xl">
+            <p className="reveal mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-primary">
+              Startup Perks
+            </p>
+            <h1 className="reveal font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+              Everything you need<br />
+              <span className="italic text-primary">to build & scale.</span>
+            </h1>
+            <p className="reveal reveal-delay-1 mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+              {`$500K+ in exclusive perks from our partners. Cloud credits, dev tools, marketing platforms, and more \u2014 all free or heavily discounted for Sunstone portfolio companies.`}
+            </p>
 
-          {/* Quick jump nav */}
-          <nav className="reveal reveal-delay-2 mt-10 flex flex-wrap gap-2">
-            {perkCategories.map((cat) => (
-              <a
-                key={cat.title}
-                href={`#${cat.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
-                className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:border-primary/30 hover:text-foreground hover:shadow-sm"
+            {/* Quick jump nav */}
+            <nav className="reveal reveal-delay-2 mt-10 flex flex-wrap gap-2">
+              {perkCategories.map((cat) => (
+                <a
+                  key={cat.title}
+                  href={`#${cat.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`}
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-1.5 text-xs font-medium text-muted-foreground transition-all duration-300 hover:border-primary/30 hover:text-foreground hover:shadow-sm"
+                >
+                  <cat.icon className="h-3.5 w-3.5" />
+                  {cat.title}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </header>
+
+        {/* Perk categories */}
+        <div className="px-6 pb-28">
+          <div className="mx-auto max-w-7xl">
+            {perkCategories.map((category) => (
+              <section
+                key={category.title}
+                id={category.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
+                className="reveal mb-20 scroll-mt-8"
               >
-                <cat.icon className="h-3.5 w-3.5" />
-                {cat.title}
-              </a>
-            ))}
-          </nav>
-        </div>
-      </header>
-
-      {/* Perk categories */}
-      <div className="px-6 pb-28">
-        <div className="mx-auto max-w-7xl">
-          {perkCategories.map((category) => (
-            <section
-              key={category.title}
-              id={category.title.toLowerCase().replace(/[^a-z0-9]+/g, "-")}
-              className="reveal mb-20 scroll-mt-8"
-            >
-              {/* Category header */}
-              <div className="mb-8 flex items-center gap-3">
-                <div className={`flex h-9 w-9 items-center justify-center rounded-lg text-white ${category.accent}`}>
-                  <category.icon className="h-4 w-4" />
+                {/* Category header */}
+                <div className="mb-8 flex items-center gap-3">
+                  <div className={`flex h-9 w-9 items-center justify-center rounded-lg text-white ${category.accent}`}>
+                    <category.icon className="h-4 w-4" />
+                  </div>
+                  <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
+                    {category.title}
+                  </h2>
+                  <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">
+                    {category.perks.length} {category.perks.length === 1 ? "perk" : "perks"}
+                  </span>
                 </div>
-                <h2 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
-                  {category.title}
-                </h2>
-                <span className="rounded-full bg-muted px-2.5 py-0.5 text-xs font-semibold text-muted-foreground">
-                  {category.perks.length} {category.perks.length === 1 ? "perk" : "perks"}
-                </span>
-              </div>
 
-              {/* Perk cards */}
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                {category.perks.map((perk) => (
-                  <PerkCard
-                    key={perk.name}
-                    perk={perk}
-                    accentLight={category.accentLight}
-                    accent={category.accent}
-                  />
-                ))}
-              </div>
-            </section>
-          ))}
+                {/* Perk cards */}
+                <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                  {category.perks.map((perk) => (
+                    <PerkCard
+                      key={perk.name}
+                      perk={perk}
+                      accentLight={category.accentLight}
+                      accent={category.accent}
+                    />
+                  ))}
+                </div>
+              </section>
+            ))}
 
-          {/* Disclaimer */}
-          <div className="reveal mt-8 rounded-2xl border border-border bg-muted/30 p-6 lg:p-8">
-            <h3 className="font-display text-sm font-bold text-foreground mb-3">Disclaimer</h3>
-            <ul className="space-y-2">
-              <li className="text-xs leading-relaxed text-muted-foreground">
-                Sunstone Management and its affiliates do not receive any direct benefits, compensation, or soft dollar benefits from the entities listed on this page.
-              </li>
-              <li className="text-xs leading-relaxed text-muted-foreground">
-                The inclusion of resources is solely based on their merit and relevance to the business startup community. Prior to posting a resource, Sunstone employs a diligent evaluation process, considering factors such as relevance, credibility, and potential value to startups. Information related to value, price, rates and terms are subject to change. Although the information is periodically updated, Sunstone does not make any representation as to the information provided. Founders should verify the respective information directly with the resource firm.
-              </li>
-            </ul>
+            {/* Disclaimer */}
+            <div className="reveal mt-8 rounded-2xl border border-border bg-muted/30 p-6 lg:p-8">
+              <h3 className="font-display text-sm font-bold text-foreground mb-3">Disclaimer</h3>
+              <ul className="space-y-2">
+                <li className="text-xs leading-relaxed text-muted-foreground">
+                  Sunstone Management and its affiliates do not receive any direct benefits, compensation, or soft dollar benefits from the entities listed on this page.
+                </li>
+                <li className="text-xs leading-relaxed text-muted-foreground">
+                  The inclusion of resources is solely based on their merit and relevance to the business startup community. Prior to posting a resource, Sunstone employs a diligent evaluation process, considering factors such as relevance, credibility, and potential value to startups. Information related to value, price, rates and terms are subject to change. Although the information is periodically updated, Sunstone does not make any representation as to the information provided. Founders should verify the respective information directly with the resource firm.
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
-    <Footer />
+      </main>
+      <Footer />
     </>
   )
 }
