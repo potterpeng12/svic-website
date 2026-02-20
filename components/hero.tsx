@@ -96,22 +96,7 @@ export function Hero() {
           }}
         >
           <span className="block">We back</span>
-          <style dangerouslySetInnerHTML={{
-            __html: `
-            @keyframes fluid-flow {
-              0% { background-position: 0% 50%; }
-              100% { background-position: -200% 50%; }
-            }
-          `}} />
-          <span
-            className="block pb-2 bg-clip-text text-transparent font-black"
-            style={{
-              backgroundImage: "linear-gradient(to right, #FFB01F 0%, #A855F7 33%, #FF2E93 66%, #FFB01F 100%)",
-              backgroundSize: "200% auto",
-              animation: "fluid-flow 3s linear infinite",
-              filter: "drop-shadow(0 0 20px rgba(0,0,0,0.7)) drop-shadow(0 0 60px rgba(0,0,0,0.5))"
-            }}
-          >
+          <span className="block text-shimmer pb-2">
             innovative founders
           </span>
         </h1>
