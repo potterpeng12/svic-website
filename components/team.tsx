@@ -50,54 +50,50 @@ function TeamCard({ member, index }: { member: typeof team[0]; index: number }) 
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Compact horizontal layout */}
-      <div className="flex flex-col sm:flex-row">
-        {/* Photo - smaller and circular */}
-        <div className="relative flex-shrink-0 p-6 sm:p-8">
-          <div className="relative h-40 w-40 overflow-hidden rounded-2xl bg-muted sm:h-48 sm:w-48">
+      {/* Refined horizontal layout */}
+      <div className="flex flex-col items-center p-8 sm:flex-row sm:items-center sm:gap-10 sm:p-10 text-center sm:text-left">
+        {/* Photo - full circle with light ring border */}
+        <div className="relative flex-shrink-0 mb-6 sm:mb-0">
+          <div className="relative h-48 w-48 overflow-hidden rounded-full ring-4 ring-muted/50 shadow-lg sm:h-52 sm:w-52">
             {!imgError ? (
               <Image
                 src={member.photo}
                 alt={member.name}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 640px) 160px, 192px"
+                sizes="(max-width: 640px) 192px, 208px"
                 onError={() => setImgError(true)}
               />
             ) : (
               <div className="flex h-full items-center justify-center bg-gradient-to-br from-primary to-purple-600">
-                <span className="text-4xl font-bold text-white">{member.name.charAt(0)}</span>
+                <span className="text-5xl font-bold text-white">{member.name.charAt(0)}</span>
               </div>
             )}
           </div>
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-6 pt-0 sm:p-8 sm:pt-8">
-          <h3 className="tilt-card-inner font-display text-xl font-bold text-foreground">{member.name}</h3>
-          <p className="tilt-card-inner mt-1 text-xs font-semibold uppercase tracking-wide text-primary">{member.role}</p>
-
-          <p className="tilt-card-inner mt-4 text-sm leading-relaxed text-muted-foreground whitespace-pre-line">
-            {member.bio}
-          </p>
+        <div className="flex flex-1 flex-col justify-center">
+          <h3 className="tilt-card-inner font-display text-3xl font-bold text-foreground sm:text-4xl">{member.name}</h3>
+          <p className="tilt-card-inner mt-2 text-sm font-semibold uppercase tracking-widest text-primary">{member.role}</p>
 
           {/* Contact buttons */}
-          <div className="tilt-card-inner mt-5 flex items-center gap-2">
+          <div className="tilt-card-inner mt-8 flex items-center justify-center gap-4 sm:justify-start">
             <a
               href={member.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white hover:scale-110"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
               aria-label={`${member.name}'s LinkedIn`}
             >
-              <Linkedin className="h-4 w-4" />
+              <Linkedin className="h-5 w-5" />
             </a>
             <a
               href={`mailto:${member.email}`}
-              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground transition-all duration-300 hover:border-primary hover:bg-primary hover:text-white hover:scale-110"
+              className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
               aria-label={`Email ${member.name}`}
             >
-              <Mail className="h-4 w-4" />
+              <Mail className="h-5 w-5" />
             </a>
           </div>
         </div>

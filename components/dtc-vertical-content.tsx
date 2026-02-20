@@ -93,7 +93,7 @@ const steps = [
 ]
 
 /* ─── Photo assignments ─── */
-const HERO_IMG = "/images/dtc_imgs/DSC08276.JPG"
+const HERO_IMG = "/images/sunstone-collage-dtc.jpg"
 const ABOUT_IMG = "/images/dtc_imgs/DSC08196.JPG"
 const MOSAIC_IMGS = [
   "/images/dtc_imgs/DSC08200.JPG",
