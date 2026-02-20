@@ -30,7 +30,7 @@ const pillars = [
     title: "Capital",
     amount: "$50K – $1M",
     description:
-      "Pre-seed and seed funding to fuel your brand's next stage of growth.",
+      "Fuel for your next chapter — whether that's finding product-market fit, building a team, or scaling what's working.",
   },
   {
     icon: Users,
@@ -66,7 +66,7 @@ const verticals = [
 const founderTraits = [
   "Seeking $250K – $1M in capital support",
   "Building in consumer verticals (Fashion, Beauty, Electronics, Food & Beverage, Lifestyle)",
-  "Ambitious, mission-driven founders",
+  "Innovative, mission-driven founders",
   "Strong understanding of the DTC landscape",
   "Ready to scale and build an iconic brand",
 ]
@@ -88,7 +88,7 @@ const steps = [
     number: "03",
     title: "Launch",
     description:
-      "Receive capital, resources, and join a community of ambitious consumer brand builders.",
+      "Receive capital, resources, and join a community of dedicated consumer brand builders.",
   },
 ]
 
@@ -203,16 +203,16 @@ export function DtcVerticalContent() {
                 About the Program
               </span>
               <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                The Sunstone DTC Accelerator
+                The Sunstone DTC Initiative
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
-                The Sunstone Venture and Innovation Center was established to serve as a long-term platform for capital formation, ecosystem building, and founder empowerment in Southern California.
+                The Sunstone DTC Initiative is where consumer founders find their footing, their community, and their next move.
               </p>
               <p className="mt-4 text-base leading-relaxed text-muted-foreground lg:text-lg">
-                Southern California is one of the most diverse and under-leveraged innovation regions in the world. We built this program to help ambitious consumer founders access capital, talent, and infrastructure to build the next generation of iconic DTC brands.
+                Southern California is one of the most diverse and under-leveraged innovation regions in the world. Through our DTC-focused efforts, we're committed to helping dedicated consumer founders access the capital, talent, and infrastructure needed to build the next generation of iconic brands.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                {["#FounderFirst", "#EcosystemBuilder", "#SoCalInnovation"].map((tag) => (
+                {["#DTCFounders", "#EcosystemBuilder", "#SoCalInnovation"].map((tag) => (
                   <span
                     key={tag}
                     className="rounded-full border border-border bg-muted/50 px-3.5 py-1.5 text-xs font-medium text-muted-foreground"
