@@ -57,7 +57,7 @@ export function Hero() {
             transition: "opacity 1.5s ease-in-out",
           }}
         >
-          <source src="/images/video.mp4" type="video/mp4" />
+          <source src="/images/video_clean.mp4" type="video/mp4" />
         </video>
 
         {/* Gradient overlays for better text readability */}
