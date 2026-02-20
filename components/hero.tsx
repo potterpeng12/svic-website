@@ -104,12 +104,12 @@ export function Hero() {
             }
           `}} />
           <span
-            className="block pb-2 bg-clip-text text-transparent"
+            className="block pb-2 bg-clip-text text-transparent font-black"
             style={{
-              backgroundImage: "linear-gradient(to right, hsl(36, 100%, 75%) 0%, hsl(271, 90%, 70%) 33%, hsl(300, 80%, 75%) 66%, hsl(36, 100%, 75%) 100%)",
+              backgroundImage: "linear-gradient(to right, hsl(36, 100%, 85%) 0%, hsl(271, 95%, 85%) 33%, hsl(300, 90%, 85%) 66%, hsl(36, 100%, 85%) 100%)",
               backgroundSize: "200% auto",
-              animation: "fluid-flow 4s linear infinite",
-              filter: "drop-shadow(0 0 16px hsla(271, 90%, 75%, 0.6)) drop-shadow(0 0 35px hsla(36, 100%, 75%, 0.5))"
+              animation: "fluid-flow 3s linear infinite",
+              filter: "drop-shadow(0 0 15px hsla(271, 90%, 75%, 0.8)) drop-shadow(0 0 35px hsla(36, 100%, 75%, 0.8))"
             }}
           >
             innovative founders
