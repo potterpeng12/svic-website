@@ -96,7 +96,22 @@ export function Hero() {
           }}
         >
           <span className="block">We back</span>
-          <span className="block text-glow">
+          <style dangerouslySetInnerHTML={{
+            __html: `
+            @keyframes fluid-flow {
+              0% { background-position: 0% 50%; }
+              100% { background-position: -200% 50%; }
+            }
+          `}} />
+          <span
+            className="block pb-2 bg-clip-text text-transparent"
+            style={{
+              backgroundImage: "linear-gradient(to right, hsl(36, 100%, 75%) 0%, hsl(271, 90%, 70%) 33%, hsl(300, 80%, 75%) 66%, hsl(36, 100%, 75%) 100%)",
+              backgroundSize: "200% auto",
+              animation: "fluid-flow 4s linear infinite",
+              filter: "drop-shadow(0 0 16px hsla(271, 90%, 75%, 0.6)) drop-shadow(0 0 35px hsla(36, 100%, 75%, 0.5))"
+            }}
+          >
             innovative founders
           </span>
         </h1>
@@ -113,9 +128,8 @@ export function Hero() {
           <div className="h-[1px] w-12 rounded-full bg-white/30 sm:w-20" />
           <div className="relative h-10 overflow-hidden sm:h-12">
             <p
-              className={`font-display text-xl font-semibold text-white/90 sm:text-2xl ${
-                animState === "in" ? "animate-word-in" : "animate-word-out"
-              }`}
+              className={`font-display text-xl font-semibold text-white/90 sm:text-2xl ${animState === "in" ? "animate-word-in" : "animate-word-out"
+                }`}
               style={{ textShadow: "0 2px 12px rgba(0,0,0,0.3)" }}
             >
               {rotatingWords[wordIndex]}
@@ -162,27 +176,7 @@ export function Hero() {
           </a>
         </div>
 
-        {/* Key stats badges - floating */}
-        <div
-          className="mt-16 flex flex-wrap items-center justify-center gap-6"
-          style={{
-            opacity: loaded ? 1 : 0,
-            transform: loaded ? "translateY(0)" : "translateY(20px)",
-            transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1) 1.1s",
-          }}
-        >
-          <div className="rounded-full border border-white/20 bg-white/10 px-6 py-3 backdrop-blur-md">
-            <p className="text-sm font-semibold text-white">Pre-Seed & Seed</p>
-          </div>
-          <div className="rounded-full border border-white/20 bg-white/10 px-6 py-3 backdrop-blur-md">
-            <p className="text-sm font-semibold text-white">120+ Companies</p>
-          </div>
-          <div className="rounded-full border border-white/20 bg-white/10 px-6 py-3 backdrop-blur-md">
-            <p className="text-sm font-semibold text-white">$50M+ Deployed</p>
-          </div>
-        </div>
       </div>
-
       {/* Bottom scroll indicator */}
       <div
         className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
@@ -198,6 +192,6 @@ export function Hero() {
           <ArrowDown className="h-4 w-4 animate-bounce text-white/50" />
         </a>
       </div>
-    </section>
+    </section >
   )
 }

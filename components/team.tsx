@@ -101,6 +101,7 @@ function TeamCard({ member, index }: { member: typeof team[0]; index: number }) 
                 alt={member.name}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
+                style={{ objectPosition: member.photo.includes('_paint') ? 'center 10%' : 'center center' }}
                 sizes="(max-width: 640px) 192px, 208px"
                 onError={() => setImgError(true)}
               />
