@@ -69,10 +69,11 @@ export function Portfolio() {
   const companyCount = getCompanyCount()
   const [isPaused, setIsPaused] = useState(false)
 
-  // Split companies into two rows for marquee effect
-  const midpoint = Math.ceil(companies.length / 2)
-  const row1 = companies.slice(0, midpoint)
-  const row2 = companies.slice(midpoint)
+  // Split companies into three rows for marquee effect
+  const third = Math.ceil(companies.length / 3)
+  const row1 = companies.slice(0, third)
+  const row2 = companies.slice(third, third * 2)
+  const row3 = companies.slice(third * 2)
 
   const handleCardHoverChange = useCallback((isHovered: boolean) => {
     setIsPaused(isHovered)
@@ -108,12 +109,23 @@ export function Portfolio() {
       </div>
 
       {/* Row 2 - marquee right */}
-      <div className="reveal reveal-delay-2 relative">
+      <div className="reveal reveal-delay-2 relative mb-4">
         <div className="absolute left-0 top-0 bottom-0 z-10 w-20 bg-gradient-to-r from-muted/40 to-transparent sm:w-32" />
         <div className="absolute right-0 top-0 bottom-0 z-10 w-20 bg-gradient-to-l from-muted/40 to-transparent sm:w-32" />
         <div className="flex gap-4 animate-marquee-right" style={{ width: "max-content", animationPlayState: isPaused ? "paused" : "running" }}>
           {[...row2, ...row2, ...row2, ...row2].map((c, i) => (
             <TiltCard key={`r2-${i}`} name={c.name} abbr={c.abbr} category={c.category} logo={c.logo} website={c.website} color={c.color} onHoverChange={handleCardHoverChange} />
+          ))}
+        </div>
+      </div>
+
+      {/* Row 3 - marquee left */}
+      <div className="reveal reveal-delay-3 relative">
+        <div className="absolute left-0 top-0 bottom-0 z-10 w-20 bg-gradient-to-r from-muted/40 to-transparent sm:w-32" />
+        <div className="absolute right-0 top-0 bottom-0 z-10 w-20 bg-gradient-to-l from-muted/40 to-transparent sm:w-32" />
+        <div className="flex gap-4 animate-marquee-left" style={{ width: "max-content", animationPlayState: isPaused ? "paused" : "running" }}>
+          {[...row3, ...row3, ...row3, ...row3].map((c, i) => (
+            <TiltCard key={`r3-${i}`} name={c.name} abbr={c.abbr} category={c.category} logo={c.logo} website={c.website} color={c.color} onHoverChange={handleCardHoverChange} />
           ))}
         </div>
       </div>

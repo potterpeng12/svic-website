@@ -46,7 +46,7 @@ const leadership: TeamMember[] = [
   },
 ]
 
-const members: TeamMember[] = [
+const svicTeam: TeamMember[] = [
   {
     name: "Angie Zuo",
     role: "Founder Community Manager",
@@ -65,6 +65,9 @@ const members: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/potter-peng-goat/",
     email: "potter.peng@sunstoneinvestment.com",
   },
+]
+
+const members: TeamMember[] = [
   {
     name: "Richard Jun",
     role: "Chief Strategy Advisor",
@@ -163,11 +166,16 @@ function MemberPhoto({
   size,
 }: {
   member: TeamMember
-  size: "lg" | "sm"
+  size: "lg" | "md" | "sm"
 }) {
   const [imgError, setImgError] = useState(false)
-  const px = size === "lg" ? "h-36 w-36 sm:h-44 sm:w-44" : "h-20 w-20 sm:h-24 sm:w-24"
-  const fallbackText = size === "lg" ? "text-4xl" : "text-2xl"
+  const px =
+    size === "lg"
+      ? "h-36 w-36 sm:h-44 sm:w-44"
+      : size === "md"
+        ? "h-28 w-28 sm:h-32 sm:w-32"
+        : "h-20 w-20 sm:h-24 sm:w-24"
+  const fallbackText = size === "lg" ? "text-4xl" : size === "md" ? "text-3xl" : "text-2xl"
 
   return (
     <div className={`relative ${px} overflow-hidden rounded-full ring-2 ring-border/60 shadow-md`}>
@@ -182,7 +190,7 @@ function MemberPhoto({
             transform: member.photoScale !== 1 ? `scale(${member.photoScale})` : undefined,
             transformOrigin: member.photoScale !== 1 ? "center top" : undefined,
           }}
-          sizes={size === "lg" ? "176px" : "96px"}
+          sizes={size === "lg" ? "176px" : size === "md" ? "128px" : "96px"}
           onError={() => setImgError(true)}
         />
       ) : (
@@ -292,6 +300,42 @@ function CompactMember({ member, index }: { member: TeamMember; index: number })
   )
 }
 
+/* ── Medium team member (SVIC tier) ──────────────────────────────────── */
+function MidMember({ member, index }: { member: TeamMember; index: number }) {
+  return (
+    <div className={`reveal reveal-delay-${(index % 6) + 1} group flex flex-col items-center text-center`}>
+      <div className="relative mb-4 transition-transform duration-300 group-hover:scale-105">
+        <MemberPhoto member={member} size="md" />
+      </div>
+      <h4 className="font-display text-base font-bold text-foreground sm:text-lg">
+        {member.name}
+      </h4>
+      <p className="mt-1 text-[11px] font-medium uppercase leading-snug tracking-wider text-muted-foreground/70 sm:text-xs">
+        {member.role}
+      </p>
+      {/* Contact buttons - appear on hover */}
+      <div className="mt-3 flex items-center justify-center gap-2.5 translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        <a
+          href={member.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
+          aria-label={`${member.name}'s LinkedIn`}
+        >
+          <Linkedin className="h-3.5 w-3.5" />
+        </a>
+        <a
+          href={`mailto:${member.email}`}
+          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
+          aria-label={`Email ${member.name}`}
+        >
+          <Mail className="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </div>
+  )
+}
+
 /* ── Main section ────────────────────────────────────────────────────── */
 export function Team() {
   const containerRef = useReveal()
@@ -311,9 +355,8 @@ export function Team() {
           <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
             Meet our <span className="italic text-primary">team.</span>
           </h2>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            The people behind Sunstone Investment. Reach out anytime — we're
-            here to help.
+          <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg whitespace-nowrap">
+            The people behind Sunstone Investment. Reach out anytime — we're here to help.
           </p>
         </div>
 
@@ -324,7 +367,23 @@ export function Team() {
           ))}
         </div>
 
-        {/* Divider */}
+        {/* SVIC Team Divider */}
+        <div className="reveal mb-14 flex items-center gap-4">
+          <div className="h-px flex-1 bg-border" />
+          <span className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/60">
+            SVIC Team
+          </span>
+          <div className="h-px flex-1 bg-border" />
+        </div>
+
+        {/* SVIC Team grid */}
+        <div className="mb-16 grid grid-cols-2 gap-x-10 gap-y-10 lg:gap-x-16 max-w-lg mx-auto">
+          {svicTeam.map((member, i) => (
+            <MidMember key={member.name} member={member} index={i} />
+          ))}
+        </div>
+
+        {/* Our Team Divider */}
         <div className="reveal mb-14 flex items-center gap-4">
           <div className="h-px flex-1 bg-border" />
           <span className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/60">
@@ -334,9 +393,11 @@ export function Team() {
         </div>
 
         {/* Compact team grid */}
-        <div className="grid grid-cols-3 gap-x-6 gap-y-10 sm:grid-cols-4 md:grid-cols-6 lg:gap-x-8">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-10 lg:gap-x-8">
           {members.map((member, i) => (
-            <CompactMember key={member.name} member={member} index={i} />
+            <div key={member.name} className="w-[calc(33.333%-1rem)] sm:w-[calc(25%-1.125rem)] md:w-[calc(16.666%-1.25rem)]">
+              <CompactMember member={member} index={i} />
+            </div>
           ))}
         </div>
       </div>

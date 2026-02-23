@@ -96,7 +96,7 @@ export function Resources() {
               More than <span className="italic text-primary">a check.</span>
             </h2>
           </div>
-          <p className="max-w-xs text-sm leading-relaxed text-muted-foreground lg:text-right">
+          <p className="text-sm leading-relaxed text-muted-foreground lg:text-right whitespace-nowrap">
             $500K+ in exclusive perks from top tech partners to accelerate your growth.
           </p>
         </div>
