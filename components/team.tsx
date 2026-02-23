@@ -166,11 +166,16 @@ function MemberPhoto({
   size,
 }: {
   member: TeamMember
-  size: "lg" | "sm"
+  size: "lg" | "md" | "sm"
 }) {
   const [imgError, setImgError] = useState(false)
-  const px = size === "lg" ? "h-36 w-36 sm:h-44 sm:w-44" : "h-20 w-20 sm:h-24 sm:w-24"
-  const fallbackText = size === "lg" ? "text-4xl" : "text-2xl"
+  const px =
+    size === "lg"
+      ? "h-36 w-36 sm:h-44 sm:w-44"
+      : size === "md"
+        ? "h-28 w-28 sm:h-32 sm:w-32"
+        : "h-20 w-20 sm:h-24 sm:w-24"
+  const fallbackText = size === "lg" ? "text-4xl" : size === "md" ? "text-3xl" : "text-2xl"
 
   return (
     <div className={`relative ${px} overflow-hidden rounded-full ring-2 ring-border/60 shadow-md`}>
@@ -185,7 +190,7 @@ function MemberPhoto({
             transform: member.photoScale !== 1 ? `scale(${member.photoScale})` : undefined,
             transformOrigin: member.photoScale !== 1 ? "center top" : undefined,
           }}
-          sizes={size === "lg" ? "176px" : "96px"}
+          sizes={size === "lg" ? "176px" : size === "md" ? "128px" : "96px"}
           onError={() => setImgError(true)}
         />
       ) : (
@@ -295,6 +300,42 @@ function CompactMember({ member, index }: { member: TeamMember; index: number })
   )
 }
 
+/* ── Medium team member (SVIC tier) ──────────────────────────────────── */
+function MidMember({ member, index }: { member: TeamMember; index: number }) {
+  return (
+    <div className={`reveal reveal-delay-${(index % 6) + 1} group flex flex-col items-center text-center`}>
+      <div className="relative mb-4 transition-transform duration-300 group-hover:scale-105">
+        <MemberPhoto member={member} size="md" />
+      </div>
+      <h4 className="font-display text-base font-bold text-foreground sm:text-lg">
+        {member.name}
+      </h4>
+      <p className="mt-1 text-[11px] font-medium uppercase leading-snug tracking-wider text-muted-foreground/70 sm:text-xs">
+        {member.role}
+      </p>
+      {/* Contact buttons - appear on hover */}
+      <div className="mt-3 flex items-center justify-center gap-2.5 translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        <a
+          href={member.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
+          aria-label={`${member.name}'s LinkedIn`}
+        >
+          <Linkedin className="h-3.5 w-3.5" />
+        </a>
+        <a
+          href={`mailto:${member.email}`}
+          className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
+          aria-label={`Email ${member.name}`}
+        >
+          <Mail className="h-3.5 w-3.5" />
+        </a>
+      </div>
+    </div>
+  )
+}
+
 /* ── Main section ────────────────────────────────────────────────────── */
 export function Team() {
   const containerRef = useReveal()
@@ -337,9 +378,9 @@ export function Team() {
         </div>
 
         {/* SVIC Team grid */}
-        <div className="mb-16 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-2 lg:gap-x-8 max-w-md mx-auto">
+        <div className="mb-16 grid grid-cols-2 gap-x-10 gap-y-10 lg:gap-x-16 max-w-lg mx-auto">
           {svicTeam.map((member, i) => (
-            <CompactMember key={member.name} member={member} index={i} />
+            <MidMember key={member.name} member={member} index={i} />
           ))}
         </div>
 
