@@ -23,8 +23,9 @@ export function Footer() {
                 className="h-10 w-auto object-contain"
               />
             </div>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Built on resilience, community, and helping others. Empowering Southern California's next generation of founders.
+            <p className="mt-4 max-w-md text-sm leading-relaxed text-muted-foreground">
+              Built on resilience, community, and helping others.<br />
+              Empowering Southern California's next generation of founders.
             </p>
           </div>
 

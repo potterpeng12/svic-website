@@ -355,9 +355,8 @@ export function Team() {
           <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
             Meet our <span className="italic text-primary">team.</span>
           </h2>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            The people behind Sunstone Investment. Reach out anytime — we're
-            here to help.
+          <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg whitespace-nowrap">
+            The people behind Sunstone Investment. Reach out anytime — we're here to help.
           </p>
         </div>
 
