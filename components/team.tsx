@@ -113,7 +113,7 @@ const members: TeamMember[] = [
   {
     name: "Angie Zuo",
     role: "Founder Community Manager",
-    photo: "/images/angie-zuo.png",
+    photo: "/images/team/angie-zuo.png",
     photoPosition: "center center",
     photoScale: 1,
     linkedin: "https://www.linkedin.com/in/angie-zuo-53a099220/",
@@ -122,7 +122,7 @@ const members: TeamMember[] = [
   {
     name: "Potter Peng",
     role: "Founder Community Associate",
-    photo: "/images/potter-peng.png",
+    photo: "/images/team/potter-peng.png",
     photoPosition: "center center",
     photoScale: 1,
     linkedin: "https://www.linkedin.com/in/potter-peng-goat/",

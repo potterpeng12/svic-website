@@ -10,6 +10,9 @@ const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-space
 export const metadata: Metadata = {
   title: 'Sunstone Venture & Innovation Center',
   description: 'Empowering the next generation of founders through Innovation, Community, and Entrepreneurship.',
+  icons: {
+    icon: '/tab.png',
+  },
 }
 
 export default function RootLayout({
