@@ -394,9 +394,11 @@ export function Team() {
         </div>
 
         {/* Compact team grid */}
-        <div className="grid grid-cols-3 gap-x-6 gap-y-10 sm:grid-cols-4 md:grid-cols-6 lg:gap-x-8">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-10 lg:gap-x-8">
           {members.map((member, i) => (
-            <CompactMember key={member.name} member={member} index={i} />
+            <div key={member.name} className="w-[calc(33.333%-1rem)] sm:w-[calc(25%-1.125rem)] md:w-[calc(16.666%-1.25rem)]">
+              <CompactMember member={member} index={i} />
+            </div>
           ))}
         </div>
       </div>
