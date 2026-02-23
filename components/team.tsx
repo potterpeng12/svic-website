@@ -6,68 +6,199 @@ import { useReveal } from "@/hooks/use-reveal"
 import { useRef, useCallback, useState } from "react"
 import { Linkedin, Mail } from "lucide-react"
 
-const team = [
+type TeamMember = {
+  name: string
+  role: string
+  photo: string
+  photoPosition: string
+  photoScale: number
+  linkedin: string
+  email: string
+}
+
+const leadership: TeamMember[] = [
   {
-    name: "Angie Zuo",
-    role: "Founder Community Manager",
-    bio: "Angie leads SVIC's founder community, building meaningful connections that help startups grow and scale. She designs community initiatives, tracks portfolio progress, and connects founders with the resources and peers they need to succeed.\n\nMS in Financial Technology (Duke University), BA in Mathematics & Quantitative Economics (UC Irvine).",
-    photo: "/images/angie-zuo.png",
-    linkedin: "https://www.linkedin.com/in/angie-zuo-53a099220/",
-    email: "angie.zuo@sunstoneinvestment.com",
+    name: "John Keisler",
+    role: "CEO & Managing Partner",
+    photo: "/images/team/john.jpeg",
+    photoPosition: "center 15%",
+    photoScale: 1.25,
+    linkedin: "https://www.linkedin.com/in/jpkeisler/",
+    email: "John.Keisler@SunstoneInvestment.com",
   },
   {
-    name: "Potter Peng",
-    role: "Founder Community Associate",
-    bio: "Potter is your direct line to the Sunstone ecosystem. He drives founder engagements, cultivates partnerships, and delivers the behind-the-scenes support that helps you break through barriers.\n\nWith experience across VC, Web3, and academic research, Potter understands the startup journey from every angle. Need an intro, a resource, or just someone who gets it? He's got you covered.\n\nBrown University grad with a bachelor's from Boston University.",
-    photo: "/images/potter-peng.png",
-    linkedin: "https://www.linkedin.com/in/potter-peng-goat/",
-    email: "potter.peng@sunstoneinvestment.com",
+    name: "Mike Stone, CFA",
+    role: "Chief Investment Officer & Partner",
+    photo: "/images/team/mike.jpeg",
+    photoPosition: "center 15%",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/mike-stone-cfa-463240/",
+    email: "Mike.Stone@SunstoneInvestment.com",
   },
+  {
+    name: "Richard Jun",
+    role: "Chief Strategy Advisor",
+    photo: "/images/team/richard.jpeg",
+    photoPosition: "center 15%",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/richard-jun-04517954/",
+    email: "rich.jun@SunstoneInvestment.com",
+  },
+]
+
+const members: TeamMember[] = [
   {
     name: "Jasmine Jiang",
     role: "Senior Vice President of Investment Operation",
-    bio: "",
     photo: "/images/team/jasmine_paint.png",
+    photoPosition: "center 10%",
+    photoScale: 1,
     linkedin: "https://www.linkedin.com/in/jasminejiangoc/",
     email: "Jasmine.Jiang@SunstoneInvestment.com",
   },
   {
-    name: "Steven Jiang",
-    role: "Investment Analyst",
-    bio: "",
-    photo: "/images/team/steven_paint.png",
-    linkedin: "https://www.linkedin.com/in/kuilin-jiang-523096148/",
-    email: "steven.jiang@SunstoneInvestment.com",
-  },
-  {
     name: "Sabrina Li",
     role: "Investment Associate",
-    bio: "",
     photo: "/images/team/sabrina_paint.png",
+    photoPosition: "center 10%",
+    photoScale: 1,
     linkedin: "https://www.linkedin.com/in/xinyili-sabrina/",
     email: "Sabrina.Li@SunstoneInvestment.com",
   },
   {
+    name: "Steven Jiang",
+    role: "Investment Analyst",
+    photo: "/images/team/steven_paint.png",
+    photoPosition: "center 10%",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/kuilin-jiang-523096148/",
+    email: "steven.jiang@SunstoneInvestment.com",
+  },
+  {
     name: "Cindy Lin",
     role: "Market Research Analyst",
-    bio: "",
     photo: "/images/team/cindy_paint.png",
+    photoPosition: "center 15%",
+    photoScale: 1.15,
     linkedin: "https://www.linkedin.com/in/cindyhylin/",
     email: "Cindy.Lin@SunstoneInvestment.com",
   },
   {
     name: "Clark Hsu",
     role: "Investor Relations Manager",
-    bio: "",
     photo: "/images/team/clark_paint.png",
+    photoPosition: "center 2%",
+    photoScale: 1.4,
     linkedin: "https://www.linkedin.com/in/clarkhshsu/",
     email: "Clark.Hsu@SunstoneInvestment.com",
   },
+  {
+    name: "Jennifer Huang",
+    role: "Marketing & Communications Manager",
+    photo: "/images/team/jennifer.jpeg",
+    photoPosition: "center 15%",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/jenniferehuang/",
+    email: "Jennifer.Huang@SunstoneInvestment.com",
+  },
+  {
+    name: "Julie Ta",
+    role: "Marketing Associate",
+    photo: "/images/team/julie.jpeg",
+    photoPosition: "center 15%",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/julieta02/",
+    email: "Julie.Ta@SunstoneInvestment.com",
+  },
+  {
+    name: "Angie Zuo",
+    role: "Founder Community Manager",
+    photo: "/images/angie-zuo.png",
+    photoPosition: "center center",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/angie-zuo-53a099220/",
+    email: "angie.zuo@sunstoneinvestment.com",
+  },
+  {
+    name: "Potter Peng",
+    role: "Founder Community Associate",
+    photo: "/images/potter-peng.png",
+    photoPosition: "center center",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/potter-peng-goat/",
+    email: "potter.peng@sunstoneinvestment.com",
+  },
+  {
+    name: "Michelle Cahill",
+    role: "Senior Accounting Manager",
+    photo: "/images/team/michelle.jpeg",
+    photoPosition: "center 15%",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/michelle-cahill5/",
+    email: "Michelle.Cahill@SunstoneInvestment.com",
+  },
+  {
+    name: "Justin Pham",
+    role: "Staff Accountant",
+    photo: "/images/team/justin.jpeg",
+    photoPosition: "center 15%",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/justin-pham330/",
+    email: "justin.pham@SunstoneInvestment.com",
+  },
+  {
+    name: "Jessica Dela Rosa",
+    role: "Administrative & Finance Officer",
+    photo: "/images/team/jessica.jpeg",
+    photoPosition: "center 15%",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/jessica-dela-rosa-5214161b4/",
+    email: "Jessica.DelaRosa@SunstoneInvestment.com",
+  },
 ]
 
-function TeamCard({ member, index }: { member: typeof team[0]; index: number }) {
-  const cardRef = useRef<HTMLDivElement>(null)
+/* ── Shared photo component ─────────────────────────────────────────── */
+function MemberPhoto({
+  member,
+  size,
+}: {
+  member: TeamMember
+  size: "lg" | "sm"
+}) {
   const [imgError, setImgError] = useState(false)
+  const px = size === "lg" ? "h-36 w-36 sm:h-44 sm:w-44" : "h-20 w-20 sm:h-24 sm:w-24"
+  const fallbackText = size === "lg" ? "text-4xl" : "text-2xl"
+
+  return (
+    <div className={`relative ${px} overflow-hidden rounded-full ring-2 ring-border/60 shadow-md`}>
+      {!imgError ? (
+        <Image
+          src={member.photo}
+          alt={member.name}
+          fill
+          className="object-cover"
+          style={{
+            objectPosition: member.photoPosition,
+            transform: member.photoScale !== 1 ? `scale(${member.photoScale})` : undefined,
+            transformOrigin: member.photoScale !== 1 ? "center top" : undefined,
+          }}
+          sizes={size === "lg" ? "176px" : "96px"}
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <div className="flex h-full items-center justify-center bg-gradient-to-br from-primary to-purple-600">
+          <span className={`${fallbackText} font-bold text-white`}>
+            {member.name.charAt(0)}
+          </span>
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ── Leadership card (top tier) ──────────────────────────────────────── */
+function LeaderCard({ member, index }: { member: TeamMember; index: number }) {
+  const cardRef = useRef<HTMLDivElement>(null)
 
   const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const el = cardRef.current
@@ -75,7 +206,7 @@ function TeamCard({ member, index }: { member: typeof team[0]; index: number }) 
     const rect = el.getBoundingClientRect()
     const x = (e.clientX - rect.left) / rect.width - 0.5
     const y = (e.clientY - rect.top) / rect.height - 0.5
-    el.style.transform = `perspective(800px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg) translateY(-4px)`
+    el.style.transform = `perspective(800px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateY(-4px)`
   }, [])
 
   const handleMouseLeave = useCallback(() => {
@@ -90,81 +221,122 @@ function TeamCard({ member, index }: { member: typeof team[0]; index: number }) 
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Refined horizontal layout */}
-      <div className="flex flex-col items-center p-8 sm:flex-row sm:items-start sm:gap-8 sm:p-10 text-center sm:text-left">
-        {/* Photo - full circle with light ring border */}
-        <div className="relative flex-shrink-0 mb-6 sm:mb-0">
-          <div className="relative h-40 w-40 overflow-hidden rounded-full ring-2 ring-border shadow-md sm:h-44 sm:w-44">
-            {!imgError ? (
-              <Image
-                src={member.photo}
-                alt={member.name}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                style={{ objectPosition: member.photo.includes('_paint') ? 'center 10%' : 'center center' }}
-                sizes="(max-width: 640px) 160px, 176px"
-                onError={() => setImgError(true)}
-              />
-            ) : (
-              <div className="flex h-full items-center justify-center bg-gradient-to-br from-primary to-purple-600">
-                <span className="text-4xl font-bold text-white">{member.name.charAt(0)}</span>
-              </div>
-            )}
-          </div>
-        </div>
+      <div className="flex flex-col items-center p-8 pt-10 text-center sm:p-10 sm:pt-12">
+        <MemberPhoto member={member} size="lg" />
 
-        {/* Content */}
-        <div className="flex flex-1 flex-col justify-start">
-          <h3 className="tilt-card-inner font-display text-2xl font-bold text-foreground sm:text-2xl">{member.name}</h3>
-          <p className="tilt-card-inner mt-1.5 text-xs font-medium uppercase tracking-wider text-muted-foreground/80">{member.role}</p>
+        <h3 className="tilt-card-inner mt-6 font-display text-xl font-bold text-foreground sm:text-2xl">
+          {member.name}
+        </h3>
+        <p className="tilt-card-inner mt-1.5 text-xs font-medium uppercase tracking-wider text-muted-foreground/80">
+          {member.role}
+        </p>
 
-          {/* Contact buttons */}
-          <div className="tilt-card-inner mt-6 flex items-center justify-center gap-3 sm:justify-start">
-            <a
-              href={member.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
-              aria-label={`${member.name}'s LinkedIn`}
-            >
-              <Linkedin className="h-4 w-4" />
-            </a>
-            <a
-              href={`mailto:${member.email}`}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
-              aria-label={`Email ${member.name}`}
-            >
-              <Mail className="h-4 w-4" />
-            </a>
-          </div>
+        <div className="tilt-card-inner mt-5 flex items-center justify-center gap-2.5 translate-y-2 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+          <a
+            href={member.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
+            aria-label={`${member.name}'s LinkedIn`}
+          >
+            <Linkedin className="h-3.5 w-3.5" />
+          </a>
+          <a
+            href={`mailto:${member.email}`}
+            className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
+            aria-label={`Email ${member.name}`}
+          >
+            <Mail className="h-3.5 w-3.5" />
+          </a>
         </div>
       </div>
 
-      {/* Hover bloom effect */}
-      <div className="absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-primary/5 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
+      <div className="absolute -bottom-6 -right-6 h-20 w-20 rounded-full bg-primary/5 opacity-0 transition-opacity duration-700 group-hover:opacity-100" />
     </div>
   )
 }
 
+/* ── Compact team member (bottom tier) ───────────────────────────────── */
+function CompactMember({ member, index }: { member: TeamMember; index: number }) {
+  return (
+    <div className={`reveal reveal-delay-${(index % 6) + 1} group flex flex-col items-center text-center`}>
+      <div className="relative mb-3 transition-transform duration-300 group-hover:scale-105">
+        <MemberPhoto member={member} size="sm" />
+      </div>
+      <h4 className="font-display text-sm font-semibold text-foreground sm:text-[15px]">
+        {member.name}
+      </h4>
+      <p className="mt-0.5 text-[10px] font-medium uppercase leading-snug tracking-wider text-muted-foreground/70 sm:text-[11px]">
+        {member.role}
+      </p>
+      {/* Contact buttons - appear on hover */}
+      <div className="mt-2.5 flex items-center justify-center gap-2 translate-y-1 opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
+        <a
+          href={member.linkedin}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
+          aria-label={`${member.name}'s LinkedIn`}
+        >
+          <Linkedin className="h-3 w-3" />
+        </a>
+        <a
+          href={`mailto:${member.email}`}
+          className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-border bg-background text-muted-foreground shadow-sm transition-all duration-300 hover:scale-110 hover:border-primary hover:bg-primary hover:text-white"
+          aria-label={`Email ${member.name}`}
+        >
+          <Mail className="h-3 w-3" />
+        </a>
+      </div>
+    </div>
+  )
+}
+
+/* ── Main section ────────────────────────────────────────────────────── */
 export function Team() {
   const containerRef = useReveal()
 
   return (
-    <section id="team" className="relative px-6 py-28 lg:py-36 pt-32 lg:pt-40" ref={containerRef}>
+    <section
+      id="team"
+      className="relative px-6 py-28 lg:py-36 pt-32 lg:pt-40"
+      ref={containerRef}
+    >
       <div className="mx-auto max-w-7xl">
-        <div className="reveal mb-20 max-w-4xl">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-primary">Team</p>
+        {/* Heading */}
+        <div className="reveal mb-16 max-w-4xl">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-primary">
+            Team
+          </p>
           <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-            Meet your <span className="italic text-primary">community champions.</span>
+            Meet our <span className="italic text-primary">team.</span>
           </h2>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            The people dedicated to making sure you're never building alone. Reach out anytime — they're here to help.
+            The people behind Sunstone Investment. Reach out anytime — we're
+            here to help.
           </p>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-2 lg:gap-10">
-          {team.map((member, i) => (
-            <TeamCard key={member.name} member={member} index={i} />
+        {/* Leadership tier */}
+        <div className="mb-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-8">
+          {leadership.map((member, i) => (
+            <LeaderCard key={member.name} member={member} index={i} />
+          ))}
+        </div>
+
+        {/* Divider */}
+        <div className="reveal mb-14 flex items-center gap-4">
+          <div className="h-px flex-1 bg-border" />
+          <span className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/60">
+            Our Team
+          </span>
+          <div className="h-px flex-1 bg-border" />
+        </div>
+
+        {/* Compact team grid */}
+        <div className="grid grid-cols-3 gap-x-6 gap-y-10 sm:grid-cols-4 md:grid-cols-6 lg:gap-x-8">
+          {members.map((member, i) => (
+            <CompactMember key={member.name} member={member} index={i} />
           ))}
         </div>
       </div>
