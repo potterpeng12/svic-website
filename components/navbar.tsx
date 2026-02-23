@@ -7,8 +7,9 @@ import { Menu, X, ArrowUpRight } from "lucide-react"
 const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Portfolio", href: "/#portfolio" },
-  { label: "Team", href: "/#team" },
   { label: "Perks", href: "/perks" },
+  { label: "Events", href: "/#events-and-updates" },
+  { label: "Team", href: "/#team" },
 ]
 
 export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
@@ -23,7 +24,7 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50)
-      const sections = ["about", "portfolio", "team", "resources", "apply"]
+      const sections = ["about", "portfolio", "events-and-updates", "team", "resources", "apply"]
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id)
         if (el && el.getBoundingClientRect().top < 200) {
@@ -40,7 +41,7 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
     <>
       <nav
         className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-700 ${scrolled
-          ? "w-[min(95vw,680px)] rounded-full border border-border/50 bg-background/80 px-3 py-2 shadow-lg shadow-foreground/[0.03] backdrop-blur-2xl"
+          ? "w-[min(95vw,800px)] rounded-full border border-border/50 bg-background/80 px-3 py-2 shadow-lg shadow-foreground/[0.03] backdrop-blur-2xl"
           : "w-[min(95vw,1200px)] rounded-2xl bg-transparent px-6 py-4"
           }`}
       >

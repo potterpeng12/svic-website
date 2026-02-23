@@ -18,82 +18,68 @@ type LayoutConfig = {
   layout: string[]
 }
 
-// Decorative tile color variations for visual balance
-const decorativeTiles = [
-  { gradient: "from-primary/15 via-primary/20 to-primary/15" },
-  { gradient: "from-primary/10 via-primary/25 to-primary/10" },
-  { gradient: "from-primary/20 via-primary/15 to-primary/20" },
-  { gradient: "from-primary/12 via-primary/22 to-primary/18" },
-]
-
-// Define multiple beautiful layout patterns with decorative tiles
+// Define multiple beautiful layout patterns - all slots show images, all fill 4-column grid
 const layoutPatterns: string[][] = [
-  // Layout 1: Featured large + varied small (9 images + 2 decorative)
+  // Layout 1: Featured large + varied small (12 images filling 4x3 grid)
   [
     "col-span-2 row-span-2", // 0: Large featured - IMAGE
     "col-span-1 row-span-1", // 1: Small - IMAGE
     "col-span-1 row-span-1", // 2: Small - IMAGE
-    "col-span-1 row-span-2", // 3: Tall - IMAGE
+    "col-span-1 row-span-1", // 3: Small - IMAGE
     "col-span-1 row-span-1", // 4: Small - IMAGE
     "col-span-2 row-span-1", // 5: Wide - IMAGE
-    "col-span-1 row-span-1", // 6: Small - DECORATIVE
+    "col-span-2 row-span-1", // 6: Wide - IMAGE
     "col-span-1 row-span-1", // 7: Small - IMAGE
-    "col-span-1 row-span-2", // 8: Tall - IMAGE
-    "col-span-2 row-span-1", // 9: Wide - IMAGE
-    "col-span-1 row-span-1", // 10: Small - DECORATIVE
-    "col-span-1 row-span-1", // 11: Small - IMAGE
+    "col-span-1 row-span-1", // 8: Small - IMAGE
+    "col-span-1 row-span-1", // 9: Small - IMAGE
+    "col-span-1 row-span-1", // 10: Small - IMAGE
+    "col-span-2 row-span-1", // 11: Wide - IMAGE
   ],
-  // Layout 2: Centered large with symmetry (9 images + 1 decorative)
+  // Layout 2: Centered large with symmetry (12 images filling 4x3 grid)
   [
     "col-span-1 row-span-1", // 0: Small - IMAGE
     "col-span-2 row-span-2", // 1: Large featured - IMAGE
     "col-span-1 row-span-1", // 2: Small - IMAGE
-    "col-span-1 row-span-2", // 3: Tall - IMAGE
-    "col-span-1 row-span-1", // 4: Small - DECORATIVE
-    "col-span-1 row-span-1", // 5: Small - IMAGE
+    "col-span-1 row-span-1", // 3: Small - IMAGE
+    "col-span-1 row-span-1", // 4: Small - IMAGE
+    "col-span-1 row-span-2", // 5: Tall - IMAGE
     "col-span-1 row-span-2", // 6: Tall - IMAGE
     "col-span-2 row-span-1", // 7: Wide - IMAGE
-    "col-span-1 row-span-1", // 8: Small - IMAGE
+    "col-span-2 row-span-1", // 8: Wide - IMAGE
     "col-span-1 row-span-1", // 9: Small - IMAGE
-    "col-span-2 row-span-1", // 10: Wide - IMAGE
+    "col-span-1 row-span-1", // 10: Small - IMAGE
+    "col-span-2 row-span-1", // 11: Wide - IMAGE
   ],
-  // Layout 3: Multiple focal points (9 images + 1 decorative)
+  // Layout 3: Multiple focal points (12 images filling 4x3 grid)
   [
     "col-span-1 row-span-2", // 0: Tall - IMAGE
     "col-span-1 row-span-1", // 1: Small - IMAGE
     "col-span-2 row-span-2", // 2: Large - IMAGE
-    "col-span-1 row-span-1", // 3: Small - DECORATIVE
-    "col-span-2 row-span-1", // 4: Wide - IMAGE
+    "col-span-1 row-span-1", // 3: Small - IMAGE
+    "col-span-1 row-span-1", // 4: Small - IMAGE
+    "col-span-2 row-span-1", // 5: Wide - IMAGE
+    "col-span-2 row-span-1", // 6: Wide - IMAGE
+    "col-span-1 row-span-2", // 7: Tall - IMAGE
+    "col-span-1 row-span-1", // 8: Small - IMAGE
+    "col-span-1 row-span-1", // 9: Small - IMAGE
+    "col-span-1 row-span-1", // 10: Small - IMAGE
+    "col-span-1 row-span-1", // 11: Small - IMAGE
+  ],
+  // Layout 4: Dynamic asymmetric (12 images filling 4x3 grid)
+  [
+    "col-span-2 row-span-1", // 0: Wide - IMAGE
+    "col-span-1 row-span-2", // 1: Tall - IMAGE
+    "col-span-1 row-span-1", // 2: Small - IMAGE
+    "col-span-1 row-span-1", // 3: Small - IMAGE
+    "col-span-2 row-span-2", // 4: Large - IMAGE
     "col-span-1 row-span-1", // 5: Small - IMAGE
     "col-span-1 row-span-1", // 6: Small - IMAGE
     "col-span-1 row-span-2", // 7: Tall - IMAGE
     "col-span-2 row-span-1", // 8: Wide - IMAGE
     "col-span-1 row-span-1", // 9: Small - IMAGE
     "col-span-1 row-span-1", // 10: Small - IMAGE
+    "col-span-2 row-span-1", // 11: Wide - IMAGE
   ],
-  // Layout 4: Dynamic asymmetric (10 images + 2 decorative)
-  [
-    "col-span-2 row-span-1", // 0: Wide - IMAGE
-    "col-span-1 row-span-2", // 1: Tall - IMAGE
-    "col-span-1 row-span-1", // 2: Small - IMAGE
-    "col-span-1 row-span-1", // 3: Small - DECORATIVE
-    "col-span-2 row-span-2", // 4: Large - IMAGE
-    "col-span-1 row-span-1", // 5: Small - IMAGE
-    "col-span-1 row-span-1", // 6: Small - IMAGE
-    "col-span-1 row-span-2", // 7: Tall - IMAGE
-    "col-span-1 row-span-1", // 8: Small - DECORATIVE
-    "col-span-2 row-span-1", // 9: Wide - IMAGE
-    "col-span-1 row-span-1", // 10: Small - IMAGE
-    "col-span-1 row-span-1", // 11: Small - IMAGE
-  ],
-]
-
-// Decorative tile positions for each layout (which slot indices are decorative)
-const decorativeSlots: number[][] = [
-  [6, 10],    // Layout 1
-  [4],        // Layout 2
-  [3],        // Layout 3
-  [3, 8],     // Layout 4
 ]
 
 export function Events() {
@@ -268,15 +254,10 @@ export function Events() {
         <div className="reveal reveal-delay-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 auto-rows-[240px]">
           {currentLayout.imageIndices.map((imageIndex, slotIndex) => {
             const layoutClass = currentLayout.layout[slotIndex]
-            // const isFadingOut = fadingOutSlots.has(slotIndex) // Removed
             const isFadingIn = fadingInSlots.has(slotIndex)
-            const isDecorative = decorativeSlots[currentLayoutIndex]?.includes(slotIndex)
-            const decorTile = isDecorative ? decorativeTiles[slotIndex % decorativeTiles.length] : null
 
             // Get next content if available
             const nextImageIndex = nextLayout?.imageIndices[slotIndex]
-            const nextIsDecorative = nextLayout ? decorativeSlots[(currentLayoutIndex + 1) % layoutPatterns.length]?.includes(slotIndex) : false
-            const nextDecorTile = nextIsDecorative ? decorativeTiles[slotIndex % decorativeTiles.length] : null
 
             const isTransitioning = showingNextSlots.has(slotIndex)
             const nextLayoutClass = nextLayout?.layout[slotIndex]
@@ -291,6 +272,11 @@ export function Events() {
               return className.includes('row-span-2') ? 'span 2' : 'span 1'
             }
 
+            // Only render if we have a valid image
+            if (imageIndex === undefined || isNaN(imageIndex) || !allEventImages[imageIndex]) {
+              return null
+            }
+
             return (
               <div
                 key={`slot-${slotIndex}`}
@@ -303,53 +289,39 @@ export function Events() {
               >
                 {/* Layer 1: Current content - fades out when transitioning */}
                 <div
-                  className={`absolute inset-0 overflow-hidden rounded-2xl border ${isDecorative ? 'border-primary/30' : 'border-border'
-                    } z-10`}
+                  className="absolute inset-0 overflow-hidden rounded-2xl border border-border z-10 cursor-pointer"
                   style={{
                     opacity: isTransitioning ? 0 : 1,
                     transition: 'opacity 3s ease-in-out'
                   }}
-                  onClick={() => !isDecorative && setSelectedImage(allEventImages[imageIndex])}
+                  onClick={() => setSelectedImage(allEventImages[imageIndex])}
                 >
-                  {isDecorative ? (
-                    <div className={`absolute inset-0 bg-gradient-to-br ${decorTile?.gradient}`} />
-                  ) : imageIndex !== undefined && !isNaN(imageIndex) && allEventImages[imageIndex] ? (
-                    <Image
-                      src={allEventImages[imageIndex]}
-                      alt={`Event ${imageIndex + 1}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    />
-                  ) : (
-                    <div className={`absolute inset-0 bg-gradient-to-br from-primary/12 via-primary/18 to-primary/12`} />
-                  )}
+                  <Image
+                    src={allEventImages[imageIndex]}
+                    alt={`Event ${imageIndex + 1}`}
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  />
                 </div>
 
                 {/* Layer 2: Next content - only render when this specific slot is transitioning */}
-                {showingNextSlots.has(slotIndex) && nextLayout && (
+                {showingNextSlots.has(slotIndex) && nextLayout && nextImageIndex !== undefined && !isNaN(nextImageIndex) && allEventImages[nextImageIndex] && (
                   <div
-                    className={`absolute inset-0 overflow-hidden rounded-2xl border ${nextIsDecorative ? 'border-primary/30' : 'border-border'
-                      } z-30 ${isFadingIn ? 'pointer-events-auto' : 'pointer-events-none'}`}
+                    className={`absolute inset-0 overflow-hidden rounded-2xl border border-border z-30 cursor-pointer ${isFadingIn ? 'pointer-events-auto' : 'pointer-events-none'}`}
                     style={{
                       opacity: isFadingIn ? 1 : 0,
                       transition: 'opacity 3s ease-in-out'
                     }}
-                    onClick={() => !nextIsDecorative && nextImageIndex !== undefined && !isNaN(nextImageIndex) && setSelectedImage(allEventImages[nextImageIndex])}
+                    onClick={() => setSelectedImage(allEventImages[nextImageIndex])}
                   >
-                    {nextIsDecorative ? (
-                      <div className={`absolute inset-0 bg-gradient-to-br ${nextDecorTile?.gradient}`} />
-                    ) : nextImageIndex !== undefined && !isNaN(nextImageIndex) && allEventImages[nextImageIndex] ? (
-                      <Image
-                        src={allEventImages[nextImageIndex]}
-                        alt={`Event ${nextImageIndex + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                      />
-                    ) : (
-                      <div className={`absolute inset-0 bg-gradient-to-br from-primary/12 via-primary/18 to-primary/12`} />
-                    )}
+                    <Image
+                      src={allEventImages[nextImageIndex]}
+                      alt={`Event ${nextImageIndex + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    />
                   </div>
                 )}
               </div>

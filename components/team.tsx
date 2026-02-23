@@ -27,6 +27,15 @@ const leadership: TeamMember[] = [
     email: "John.Keisler@SunstoneInvestment.com",
   },
   {
+    name: "Jasmine Jiang",
+    role: "Senior Vice President of Investment Operation",
+    photo: "/images/team/jasmine_paint.png",
+    photoPosition: "center 10%",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/jasminejiangoc/",
+    email: "Jasmine.Jiang@SunstoneInvestment.com",
+  },
+  {
     name: "Mike Stone, CFA",
     role: "Chief Investment Officer & Partner",
     photo: "/images/team/mike.jpeg",
@@ -34,6 +43,27 @@ const leadership: TeamMember[] = [
     photoScale: 1,
     linkedin: "https://www.linkedin.com/in/mike-stone-cfa-463240/",
     email: "Mike.Stone@SunstoneInvestment.com",
+  },
+]
+
+const members: TeamMember[] = [
+  {
+    name: "Angie Zuo",
+    role: "Founder Community Manager",
+    photo: "/images/team/angie-zuo.png",
+    photoPosition: "center center",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/angie-zuo-53a099220/",
+    email: "angie.zuo@sunstoneinvestment.com",
+  },
+  {
+    name: "Potter Peng",
+    role: "Founder Community Associate",
+    photo: "/images/team/potter-peng.png",
+    photoPosition: "center center",
+    photoScale: 1,
+    linkedin: "https://www.linkedin.com/in/potter-peng-goat/",
+    email: "potter.peng@sunstoneinvestment.com",
   },
   {
     name: "Richard Jun",
@@ -43,18 +73,6 @@ const leadership: TeamMember[] = [
     photoScale: 1,
     linkedin: "https://www.linkedin.com/in/richard-jun-04517954/",
     email: "rich.jun@SunstoneInvestment.com",
-  },
-]
-
-const members: TeamMember[] = [
-  {
-    name: "Jasmine Jiang",
-    role: "Senior Vice President of Investment Operation",
-    photo: "/images/team/jasmine_paint.png",
-    photoPosition: "center 10%",
-    photoScale: 1,
-    linkedin: "https://www.linkedin.com/in/jasminejiangoc/",
-    email: "Jasmine.Jiang@SunstoneInvestment.com",
   },
   {
     name: "Sabrina Li",
@@ -109,24 +127,6 @@ const members: TeamMember[] = [
     photoScale: 1,
     linkedin: "https://www.linkedin.com/in/julieta02/",
     email: "Julie.Ta@SunstoneInvestment.com",
-  },
-  {
-    name: "Angie Zuo",
-    role: "Founder Community Manager",
-    photo: "/images/team/angie-zuo.png",
-    photoPosition: "center center",
-    photoScale: 1,
-    linkedin: "https://www.linkedin.com/in/angie-zuo-53a099220/",
-    email: "angie.zuo@sunstoneinvestment.com",
-  },
-  {
-    name: "Potter Peng",
-    role: "Founder Community Associate",
-    photo: "/images/team/potter-peng.png",
-    photoPosition: "center center",
-    photoScale: 1,
-    linkedin: "https://www.linkedin.com/in/potter-peng-goat/",
-    email: "potter.peng@sunstoneinvestment.com",
   },
   {
     name: "Michelle Cahill",

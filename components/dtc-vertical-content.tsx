@@ -49,7 +49,7 @@ const pillars = [
   {
     icon: TrendingUp,
     title: "Focused Verticals",
-    amount: "6 Sectors",
+    amount: "5 Sectors",
     description:
       "Deep industry expertise across the categories where next-generation brands are being built.",
   },
@@ -64,7 +64,7 @@ const verticals = [
 ]
 
 const founderTraits = [
-  "Seeking $250K – $1M in capital support",
+  "Seeking $50K – $1M in capital support",
   "Building in consumer verticals (Fashion, Beauty, Electronics, Food & Beverage, Lifestyle)",
   "Innovative, mission-driven founders",
   "Strong understanding of the DTC landscape",

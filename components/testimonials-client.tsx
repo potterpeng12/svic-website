@@ -22,7 +22,7 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
   }
 
   return (
-    <section className="relative px-6 py-28 lg:py-36" ref={containerRef}>
+    <section id="events-and-updates" className="relative px-6 py-28 lg:py-36" ref={containerRef}>
       <div className="mx-auto max-w-3xl text-center">
 
         {/* Eyebrow */}
@@ -62,11 +62,10 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
               </a>
             </div>
 
-            <div className={`mx-auto grid gap-6 ${
-              events.length === 1 ? 'max-w-md grid-cols-1' :
-              events.length === 2 ? 'max-w-2xl grid-cols-1 md:grid-cols-2' :
-              'max-w-5xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-            }`}>
+            <div className={`mx-auto grid gap-6 ${events.length === 1 ? 'max-w-md grid-cols-1' :
+                events.length === 2 ? 'max-w-2xl grid-cols-1 md:grid-cols-2' :
+                  'max-w-5xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
+              }`}>
               {events.map((event, index) => (
                 <a
                   key={index}
