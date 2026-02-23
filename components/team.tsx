@@ -46,7 +46,7 @@ const leadership: TeamMember[] = [
   },
 ]
 
-const members: TeamMember[] = [
+const svicTeam: TeamMember[] = [
   {
     name: "Angie Zuo",
     role: "Founder Community Manager",
@@ -65,6 +65,9 @@ const members: TeamMember[] = [
     linkedin: "https://www.linkedin.com/in/potter-peng-goat/",
     email: "potter.peng@sunstoneinvestment.com",
   },
+]
+
+const members: TeamMember[] = [
   {
     name: "Richard Jun",
     role: "Chief Strategy Advisor",
@@ -324,7 +327,23 @@ export function Team() {
           ))}
         </div>
 
-        {/* Divider */}
+        {/* SVIC Team Divider */}
+        <div className="reveal mb-14 flex items-center gap-4">
+          <div className="h-px flex-1 bg-border" />
+          <span className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/60">
+            SVIC Team
+          </span>
+          <div className="h-px flex-1 bg-border" />
+        </div>
+
+        {/* SVIC Team grid */}
+        <div className="mb-16 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-2 md:grid-cols-2 lg:gap-x-8 max-w-md mx-auto">
+          {svicTeam.map((member, i) => (
+            <CompactMember key={member.name} member={member} index={i} />
+          ))}
+        </div>
+
+        {/* Our Team Divider */}
         <div className="reveal mb-14 flex items-center gap-4">
           <div className="h-px flex-1 bg-border" />
           <span className="text-xs font-semibold uppercase tracking-[0.15em] text-muted-foreground/60">

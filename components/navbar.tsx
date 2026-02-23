@@ -78,7 +78,7 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
           <div className="flex items-center gap-2">
             <a
               href="/apply"
-              className={`hidden items-center gap-1.5 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-300 hover:scale-[1.02] md:inline-flex ${isOverDark
+              className={`hidden items-center gap-1.5 rounded-full px-5 py-2 text-sm font-semibold whitespace-nowrap flex-shrink-0 transition-all duration-300 hover:scale-[1.02] md:inline-flex ${isOverDark
                 ? "border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
                 : "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/20"
                 }`}
