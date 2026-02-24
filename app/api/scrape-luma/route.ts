@@ -153,4 +153,4 @@ function getFallbackEvents(): LumaEvent[] {
 
 // Configure edge runtime for better performance
 export const runtime = "edge"
-export const revalidate = 3600 // Cache for 1 hour
+export const revalidate = 0 // Always fetch fresh data - no caching

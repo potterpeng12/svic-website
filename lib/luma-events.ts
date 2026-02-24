@@ -13,7 +13,7 @@ export async function fetchLumaEvents(): Promise<LumaEvent[]> {
       (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")
 
     const response = await fetch(`${baseUrl}/api/scrape-luma`, {
-      next: { revalidate: 3600 }, // Cache for 1 hour
+      cache: 'no-store', // Always fetch fresh data
     })
 
     if (!response.ok) {

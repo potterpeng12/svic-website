@@ -9,6 +9,10 @@ import { Resources } from "@/components/resources"
 import { Apply } from "@/components/apply"
 import { Footer } from "@/components/footer"
 
+// Force dynamic rendering to always fetch fresh Luma events
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default function Page() {
   return (
     <main className="relative overflow-x-hidden">
