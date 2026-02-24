@@ -356,7 +356,7 @@ export function Team() {
             Meet our <span className="italic text-primary">team.</span>
           </h2>
           <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg whitespace-nowrap">
-            The people behind Sunstone Investment. Reach out anytime — we're here to help.
+            The people behind Sunstone Investment. Reach out anytime, we're here to help.
           </p>
         </div>
 

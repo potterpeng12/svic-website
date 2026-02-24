@@ -48,7 +48,7 @@ export function About() {
         {/* Big editorial header */}
         <div className="reveal mb-20 max-w-4xl">
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.15em] text-primary">
-            Why Sunstone
+            Why Sunstone Venture & Innovation Center
           </p>
           <h2 className="font-display text-4xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
             A platform for{" "}

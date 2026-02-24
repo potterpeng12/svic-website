@@ -39,7 +39,7 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
         </h2>
 
         <p className="reveal mx-auto mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">
-          Be the first to hear about Sunstone events, founder spotlights, and DTC vertical news — straight to your inbox.
+          Be the first to hear about Sunstone events, founder spotlights, and DTC vertical news straight to your inbox.
         </p>
 
         {/* Upcoming Events Section */}
@@ -136,7 +136,7 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
             <div className="mx-auto flex max-w-md items-center justify-center gap-3 rounded-full border border-border bg-muted/50 px-6 py-4">
               <Lock className="h-4 w-4 text-muted-foreground" />
               <p className="text-sm font-medium text-muted-foreground">
-                Coming soon — we&apos;ll notify you when subscriptions open.
+                Coming soon! We&apos;ll notify you when subscriptions open.
               </p>
             </div>
           )}
@@ -144,7 +144,7 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
           {/* Coming soon badge */}
           <p className="mt-5 flex items-center justify-center gap-1.5 text-xs text-muted-foreground/50">
             <Lock className="h-3 w-3" />
-            Subscriptions not yet open — launching soon
+            Subscriptions not yet open, launching soon
           </p>
         </div>
 
