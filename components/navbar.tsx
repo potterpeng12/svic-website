@@ -7,7 +7,8 @@ import { Menu, X, ArrowUpRight } from "lucide-react"
 const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Portfolio", href: "/#portfolio" },
-  { label: "Perks", href: "/perks" },
+  { label: "Program", href: "/#apply" },
+  { label: "Perks", href: "/#resources" },
   { label: "Events", href: "/#events-and-updates" },
   { label: "Team", href: "/#team" },
 ]
@@ -24,7 +25,7 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50)
-      const sections = ["about", "portfolio", "events-and-updates", "team", "resources", "apply"]
+      const sections = ["about", "portfolio", "apply", "resources", "events-and-updates", "team"]
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id)
         if (el && el.getBoundingClientRect().top < 200) {
@@ -55,7 +56,7 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
           </a>
 
           {/* Desktop pill nav */}
-          <div className="hidden items-center gap-0.5 md:flex">
+          <div className="hidden items-center gap-0.5 md:flex ml-6">
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href.includes("#") && activeSection === link.href.split("#")[1])
               return (

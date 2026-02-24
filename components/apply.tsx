@@ -65,7 +65,7 @@ export function Apply() {
             </h2>
 
             <p className="mx-auto mt-6 max-w-lg text-lg leading-relaxed text-background/50">
-              SVIC's DTC track is designed to support consumer founders with early-stage capital, industry guidance, and a network of trusted connections — along with practical resources to help brands grow across Fashion, Beauty, Consumer Electronics, Food & Beverage, and related categories.
+              SVIC's DTC track is designed to support consumer founders with early-stage capital, industry guidance, and a network of trusted connections, along with practical resources to help brands grow across Fashion, Beauty, Consumer Electronics, Food & Beverage, and related categories.
             </p>
 
             <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">

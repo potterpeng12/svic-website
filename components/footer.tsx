@@ -1,13 +1,14 @@
 "use client"
 
-import { Mail, Globe, ArrowUp } from "lucide-react"
+import { Mail, Linkedin, ArrowUp } from "lucide-react"
 
 const links = [
   { label: "About", href: "#about" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "Team", href: "#team" },
+  { label: "Program", href: "#apply" },
   { label: "Perks", href: "#resources" },
-  { label: "Apply", href: "#apply" },
+  { label: "Events", href: "#events-and-updates" },
+  { label: "Team", href: "#team" },
 ]
 
 export function Footer() {
@@ -60,13 +61,13 @@ export function Footer() {
               community@sunstoneinvestment.com
             </a>
             <a
-              href="https://sunstoneinvestment.com"
+              href="https://www.linkedin.com/company/sunstoneventureandinnovationcenter/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
             >
-              <Globe className="h-3.5 w-3.5" />
-              sunstoneinvestment.com
+              <Linkedin className="h-3.5 w-3.5" />
+              LinkedIn
             </a>
           </div>
         </div>

@@ -30,7 +30,7 @@ const pillars = [
     title: "Capital",
     amount: "$50K – $1M",
     description:
-      "Fuel for your next chapter — whether that's finding product-market fit, building a team, or scaling what's working.",
+      "Fuel for your next chapter, whether that's finding product-market fit, building a team, or scaling what's working.",
   },
   {
     icon: Users,
@@ -467,7 +467,7 @@ export function DtcVerticalContent() {
                   <span className="text-shimmer">Start Here</span>
                 </h2>
                 <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/50 lg:text-lg">
-                  SVIC's DTC track is designed to support consumer founders with early-stage capital, industry guidance, and a network of trusted connections — along with practical resources to help brands grow across Fashion, Beauty, Consumer Electronics, Food & Beverage, and related categories.
+                  SVIC's DTC track is designed to support consumer founders with early-stage capital, industry guidance, and a network of trusted connections, along with practical resources to help brands grow across Fashion, Beauty, Consumer Electronics, Food & Beverage, and related categories.
                 </p>
 
                 <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
