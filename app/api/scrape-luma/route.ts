@@ -151,6 +151,6 @@ function getFallbackEvents(): LumaEvent[] {
     .map(({ startAt, ...event }) => event)
 }
 
-// Configure edge runtime for better performance
+// Configure edge runtime for better performance and always fetch fresh Luma events
 export const runtime = "edge"
 export const revalidate = 0 // Always fetch fresh data - no caching
