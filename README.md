@@ -2,6 +2,7 @@
 
 A modern, professional landing page for Sunstone Venture Capital fund, built with Next.js 16 and TypeScript.
 
+
 ## Features
 
 - **Portfolio Showcase** - Interactive marquee gallery with 100+ portfolio companies
