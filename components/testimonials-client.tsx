@@ -2,7 +2,7 @@
 
 import { useReveal } from "@/hooks/use-reveal"
 import { useState } from "react"
-import { ArrowUpRight, Bell, Lock } from "lucide-react"
+import { ArrowUpRight, Bell, Lock, Check, Loader2 } from "lucide-react"
 import Image from "next/image"
 import type { LumaEvent } from "@/lib/luma-events"
 
@@ -13,12 +13,36 @@ interface TestimonialsClientProps {
 export function TestimonialsClient({ events }: TestimonialsClientProps) {
   const containerRef = useReveal()
   const [submitted, setSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
   const [email, setEmail] = useState("")
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Not open yet — just show coming soon state
-    setSubmitted(true)
+    setLoading(true)
+    setError("")
+
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      })
+
+      const data = await res.json()
+
+      if (!res.ok) {
+        setError(data.error || "Something went wrong. Please try again.")
+        setLoading(false)
+        return
+      }
+
+      setSubmitted(true)
+    } catch {
+      setError("Something went wrong. Please try again later.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -112,39 +136,59 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
         {/* Subscribe form */}
         <div className="reveal reveal-delay-2 mt-16">
           {!submitted ? (
-            <form
-              onSubmit={handleSubmit}
-              className="mx-auto flex max-w-md flex-col gap-3 sm:flex-row"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                required
-                className="flex-1 rounded-full border border-border bg-card px-5 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-200"
-              />
-              <button
-                type="submit"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-foreground/10"
+            <div className="mx-auto max-w-md">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-3 sm:flex-row"
               >
-                Subscribe
-                <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </button>
-            </form>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => {
+                    setEmail(e.target.value)
+                    if (error) setError("")
+                  }}
+                  placeholder="your@email.com"
+                  required
+                  disabled={loading}
+                  className="flex-1 rounded-full border border-border bg-card px-5 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-200 disabled:opacity-50"
+                />
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-foreground/10 disabled:opacity-50 disabled:hover:scale-100"
+                >
+                  {loading ? (
+                    <>
+                      <Loader2 className="h-3.5 w-3.5 animate-spin" />
+                      Subscribing...
+                    </>
+                  ) : (
+                    <>
+                      Subscribe
+                      <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    </>
+                  )}
+                </button>
+              </form>
+              {error && (
+                <p className="mt-3 text-center text-sm text-destructive">
+                  {error}
+                </p>
+              )}
+            </div>
           ) : (
-            <div className="mx-auto flex max-w-md items-center justify-center gap-3 rounded-full border border-border bg-muted/50 px-6 py-4">
-              <Lock className="h-4 w-4 text-muted-foreground" />
-              <p className="text-sm font-medium text-muted-foreground">
-                Coming soon! We&apos;ll notify you when subscriptions open.
+            <div className="mx-auto flex max-w-md items-center justify-center gap-3 rounded-full border border-primary/20 bg-primary/5 px-6 py-4">
+              <Check className="h-4 w-4 text-primary" />
+              <p className="text-sm font-medium text-foreground">
+                You&apos;re subscribed! Check your inbox for updates.
               </p>
             </div>
           )}
 
-          {/* Coming soon badge */}
           <p className="mt-5 flex items-center justify-center gap-1.5 text-xs text-muted-foreground/50">
             <Lock className="h-3 w-3" />
-            Subscriptions not yet open, launching soon
+            We respect your privacy. Unsubscribe anytime.
           </p>
         </div>
 
