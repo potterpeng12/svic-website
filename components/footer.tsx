@@ -58,7 +58,7 @@ export function Footer() {
               className="flex items-center gap-1.5 text-muted-foreground transition-colors hover:text-foreground"
             >
               <Mail className="h-3.5 w-3.5" />
-              community@sunstoneinvestment.com
+              Contact Us
             </a>
             <a
               href="https://www.linkedin.com/company/sunstoneventureandinnovationcenter/"
