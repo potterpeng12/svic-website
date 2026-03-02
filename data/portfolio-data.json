@@ -206,7 +206,7 @@
     {
         "company_name": "GoFlyy, Inc.",
         "logo": "/logos/highres/goflyy__inc_.png",
-        "website": "http://www.goflyy.com/",
+        "website": null,
         "primary_industry_sector": "Business Products and Services (B2B)"
     },
     {
@@ -242,7 +242,7 @@
     {
         "company_name": "IndicatorLab Inc.",
         "logo": "/logos/highres/indicatorlab_inc_.png",
-        "website": "http://www.indicatorlab.xyz/",
+        "website": null,
         "primary_industry_sector": "Information Technology"
     },
     {
@@ -272,7 +272,7 @@
     {
         "company_name": "Movig Inc.",
         "logo": "/logos/highres/movig_inc_.png",
-        "website": "http://www.getmovig.com/",
+        "website": null,
         "primary_industry_sector": "Information Technology"
     },
     {
@@ -308,7 +308,7 @@
     {
         "company_name": "PLAUZZABLE, INC.",
         "logo": "/logos/highres/plauzzable__inc_.png",
-        "website": "http://www.plauzzable.com/",
+        "website": null,
         "primary_industry_sector": "Information Technology"
     },
     {

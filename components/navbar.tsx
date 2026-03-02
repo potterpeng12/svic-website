@@ -7,9 +7,9 @@ import { Menu, X, ArrowUpRight } from "lucide-react"
 const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Portfolio", href: "/#portfolio" },
-  { label: "Program", href: "/#apply" },
-  { label: "Perks", href: "/#resources" },
-  { label: "Events", href: "/#events-and-updates" },
+  { label: "Program", href: "/#program" },
+  { label: "Perks", href: "/#perks" },
+  { label: "Events", href: "/#events" },
   { label: "Team", href: "/#team" },
 ]
 
@@ -25,7 +25,7 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 50)
-      const sections = ["about", "portfolio", "apply", "resources", "events-and-updates", "team"]
+      const sections = ["about", "portfolio", "program", "perks", "events", "team"]
       for (const id of [...sections].reverse()) {
         const el = document.getElementById(id)
         if (el && el.getBoundingClientRect().top < 200) {

@@ -84,7 +84,7 @@ export function Resources() {
   const containerRef = useReveal()
 
   return (
-    <section id="resources" className="relative px-6 py-28 lg:py-36" ref={containerRef}>
+    <section id="perks" className="relative px-6 py-28 lg:py-36" ref={containerRef}>
       <div className="pointer-events-none absolute inset-0 bg-muted/40" />
 
       <div className="relative mx-auto max-w-7xl">
