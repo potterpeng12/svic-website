@@ -84,11 +84,12 @@ export function About() {
             <div className="absolute -bottom-6 -right-6 h-20 w-20 rounded-full bg-[hsl(var(--warm))]/[0.06] transition-transform duration-700 group-hover:scale-[4]" />
           </div>
 
-          {/* Quote card - warm accent */}
+          {/* Community Partners card */}
           <div className="group relative overflow-hidden rounded-3xl bg-foreground p-8 text-background transition-all duration-500 hover:shadow-xl lg:p-10">
-            <p className="text-lg font-medium leading-snug italic">
-              {'"We don\'t just write checks. We roll up our sleeves."'}
+            <p className="font-display text-5xl font-bold lg:text-6xl">
+              <Counter target={100} suffix="+" />
             </p>
+            <p className="mt-2 text-sm font-medium text-background/60">Community Partners</p>
             <div className="absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-primary/20 transition-transform duration-700 group-hover:scale-[3]" />
           </div>
 
