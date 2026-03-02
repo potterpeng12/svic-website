@@ -92,7 +92,7 @@ export function Portfolio() {
             </h2>
           </div>
           <p className="max-w-xs text-sm leading-relaxed text-muted-foreground">
-            100+ companies across AI, healthcare, mobility, DTC, and beyond.
+            120+ companies across AI, healthcare, mobility, DTC, and beyond.
           </p>
         </div>
       </div>
