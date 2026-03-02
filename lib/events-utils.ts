@@ -32,7 +32,6 @@ export function getEventImages(): string[] {
     "/images/event_imgs/Gustavo Cruz - resized.jpg",
     "/images/event_imgs/Image (9).jpg",
     "/images/event_imgs/ITW EB5 Panel - from Clark (11).jpg",
-    "/images/event_imgs/itw tammy kim.jpg",
     "/images/event_imgs/ITW VC Panel - from Angie (3).jpg",
     "/images/event_imgs/jk holding sunstone.jpg",
     "/images/event_imgs/lel.jpg",

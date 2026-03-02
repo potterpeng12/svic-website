@@ -22,7 +22,7 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
   }
 
   return (
-    <section id="events-and-updates" className="relative px-6 py-28 lg:py-36" ref={containerRef}>
+    <section id="events" className="relative px-6 py-28 lg:py-36" ref={containerRef}>
       <div className="mx-auto max-w-3xl text-center">
 
         {/* Eyebrow */}

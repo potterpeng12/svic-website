@@ -60,11 +60,11 @@ const perkCategories: PerkCategory[] = [
         logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/BkWMxp0K5ah_HT_thj8akpnWPjTs_LvQmETJQAZ0BsE-300x200.png",
         highlight: "$5,000 in credits",
         offers: [
-          "Qualifying startups will receive US$5,000 in Twilio credits, education and support, plus access to the Twilio for Startups team.",
+          "Qualifying startups will receive $5,000 in Twilio credits, education, and support, plus access to Twilio for Startups.",
         ],
         eligibility: [
           "Were founded within the last 5 years.",
-          "Raised less than $US 5 million.",
+          "Raised less than $5M.",
           "Other criteria.",
         ],
       },
@@ -77,7 +77,7 @@ const perkCategories: PerkCategory[] = [
         ],
         eligibility: [
           "Were founded (or incorporated) within the last 5 years.",
-          "Have raised less than $US 5 million.",
+          "Have raised less than $5M.",
           "Are in a technology-based business.",
           "Have a working website and matching company email.",
           "Are Twilio and/or SendGrid account holders in good status.",
@@ -91,7 +91,7 @@ const perkCategories: PerkCategory[] = [
         logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/xOL7C_yhPCN2i6BRI38OJHuAJ7k9WqWqSGk2o2C11bI-300x225.jpg",
         highlight: "Save up to $12,000",
         offers: [
-          "For non-paying Notion customers with under 100 employees and are affiliated with one of our startup partners, you can get up to 6 months free on the Business plan with Notion AI included \u2013 save up to $12,000.",
+          "For non-paying Notion customers with <100 employees and are affiliated with one of our startup partners, you can get up to 6 months free on the Business plan with Notion AI included – saving up to $12,000.",
           "Apply using Sunstone\u2019s unique link here: https://ntn.so/sunstonemanagementinc",
         ],
         note: "Please note: only applications submitted via this link will be processed.",
@@ -131,9 +131,9 @@ const perkCategories: PerkCategory[] = [
           "1 year of free Cloudflare included with various features.",
         ],
         eligibility: [
-          "Not already on the startup plan.",
+          "Not already on the Cloudflare Startup Plan.",
           "Raised less than $3M in venture capital.",
-          "Currently in the accelerator program, or less than 1 year after graduation.",
+          "Currently in an accelerator program, or less than 1 year after graduation.",
         ],
       },
       {
@@ -155,7 +155,6 @@ const perkCategories: PerkCategory[] = [
         offers: [
           "$25,000 AWS credits for Sunstone startups.",
           "Organization ID (case-sensitive): Please reach out to our founder community team for the code.",
-          "Startups can also check out this video that walks through how to apply for Activate and this video that outlines how to get the most out of the program.",
           "Application will be reviewed and approved by our staff.",
         ],
         note: "Activate FAQ: https://aws.amazon.com/activate/faq/ | Activate Contact form: https://aws.amazon.com/activate/contact-us/",
@@ -165,7 +164,7 @@ const perkCategories: PerkCategory[] = [
         logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/b5rdddNeMOb2Pzhua9JhTvnPYM5h8Ww8cWwtCAzE8Kw-300x188.png",
         highlight: "Up to $350K for AI startups",
         offers: [
-          "Get access to startup experts, your Google Cloud and Firebase costs covered up to $200,000 USD (up to $350,000 USD for AI startups) over 2 years, technical training, business support, and Google-wide offers.",
+          "Get access to startup experts, your Google Cloud and Firebase costs covered up to $200,000 (up to $350,000 for AI startups) over 2 years, technical training, business support, and Google-wide offers.",
         ],
       },
     ],
@@ -194,7 +193,7 @@ const perkCategories: PerkCategory[] = [
         logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/fIVUT1M6ZPaW3RubkJ7dJWlDzpbJbY757UGTeQPxg0k-300x225.jpg",
         highlight: "$50,000 in credits",
         offers: [
-          "Qualifying companies $50,000 in Segment credits that last 1 year, an additional year of credits if you still qualify, then a year at a 50% discount, then 1 year at a 25% discount.",
+          "Qualifying companies receive $50,000 in Segment credits that last 1 year, an additional year of credits if you still qualify, then a year at a 50% discount, then 1 year at a 25% discount.",
           "Access to our dealbook of over $1M in other software deals.",
           "Expedited support, access to our webinars and content to help startups get analytics right.",
         ],
@@ -283,7 +282,7 @@ const perkCategories: PerkCategory[] = [
         logo: "https://www.sunstoneinvestment.com/wp-content/uploads/2024/01/pFfTe669KAcMxJ8y2P7yICOAW_rE83VcT6jXRrMlYJw-300x150.png",
         highlight: "Free Launch + 20% off",
         offers: [
-          "All Sunstone Management founders can use the referral link to sign up for either free Carta Launch plan or one of paid plans with a 20% first year discount and 100% waived implementation fees.",
+          "All Sunstone and its affiliates founders can use the referral link to sign up for either free Carta Launch plan or one of paid plans with a 20% first year discount and 100% waived implementation fees.",
         ],
       },
       {
@@ -534,7 +533,7 @@ export function PerksContent() {
               <h3 className="font-display text-sm font-bold text-foreground mb-3">Disclaimer</h3>
               <ul className="space-y-2">
                 <li className="text-xs leading-relaxed text-muted-foreground">
-                  Sunstone Management and its affiliates do not receive any direct benefits, compensation, or soft dollar benefits from the entities listed on this page.
+                  The Sunstone Venture & Innovation Center (SVIC) is the founder-first innovation platform of Sunstone Investment Management Services (formerly known as Sunstone Management). Sunstone and its affiliates do not receive any direct benefits, compensation, or soft dollar benefits from the entities listed on this page.
                 </li>
                 <li className="text-xs leading-relaxed text-muted-foreground">
                   The inclusion of resources is solely based on their merit and relevance to the business startup community. Prior to posting a resource, Sunstone employs a diligent evaluation process, considering factors such as relevance, credibility, and potential value to startups. Information related to value, price, rates and terms are subject to change. Although the information is periodically updated, Sunstone does not make any representation as to the information provided. Founders should verify the respective information directly with the resource firm.

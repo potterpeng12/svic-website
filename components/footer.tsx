@@ -5,9 +5,9 @@ import { Mail, Linkedin, ArrowUp } from "lucide-react"
 const links = [
   { label: "About", href: "#about" },
   { label: "Portfolio", href: "#portfolio" },
-  { label: "Program", href: "#apply" },
-  { label: "Perks", href: "#resources" },
-  { label: "Events", href: "#events-and-updates" },
+  { label: "Program", href: "#program" },
+  { label: "Perks", href: "#perks" },
+  { label: "Events", href: "#events" },
   { label: "Team", href: "#team" },
 ]
 

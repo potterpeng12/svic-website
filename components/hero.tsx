@@ -147,7 +147,7 @@ export function Hero() {
           }}
         >
           <a
-            href="#apply"
+            href="#program"
             className="group inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-base font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20"
           >
             Get Access

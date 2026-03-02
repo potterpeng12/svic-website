@@ -21,7 +21,7 @@ export function Apply() {
   }, [])
 
   return (
-    <section id="apply" className="relative px-6 py-28 lg:py-36" ref={containerRef}>
+    <section id="program" className="relative px-6 py-28 lg:py-36" ref={containerRef}>
       <div className="reveal mx-auto max-w-5xl">
         <div
           ref={cardRef}

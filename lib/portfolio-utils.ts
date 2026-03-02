@@ -58,8 +58,22 @@ function generateAbbr(name: string): string {
 }
 
 // Simplify category names
-function simplifyCategory(category: string | null): string {
-  if (!category) return "Technology"
+// Companies that should be categorized as AI instead of generic Tech
+const aiCompanies = new Set([
+  "Substantive AI, Inc.",
+  "Docsum, Inc.",
+  "Educational Vision Technologies Inc.",
+  "Pythagora Technologies Inc.",
+  "Openmart, Inc.",
+  "ikonomos Inc.",
+  "Intellitech Spa, Inc.",
+])
+
+function simplifyCategory(category: string | null, companyName?: string): string {
+  if (!category) return "Tech"
+
+  // Check if this company should be labeled as AI
+  if (companyName && aiCompanies.has(companyName)) return "AI"
 
   const categoryMap: Record<string, string> = {
     "Information Technology": "Tech",
@@ -87,7 +101,7 @@ export function transformPortfolioData(data: PortfolioCompany[]): DisplayCompany
   return validCompanies.map((company, index) => ({
     name: company.company_name,
     abbr: generateAbbr(company.company_name),
-    category: simplifyCategory(company.primary_industry_sector),
+    category: simplifyCategory(company.primary_industry_sector, company.company_name),
     logo: company.logo,
     website: company.website,
     color: colorPalette[index % colorPalette.length],

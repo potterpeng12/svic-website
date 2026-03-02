@@ -1,11 +1,5 @@
 [
     {
-        "company_name": "GreenWealth Energy Solutions Inc",
-        "logo": null,
-        "website": null,
-        "primary_industry_sector": null
-    },
-    {
         "company_name": "LivFie Inc.",
         "logo": "/logos/highres/livfie_inc_.png",
         "website": "http://www.exchvnge.co/",
@@ -110,7 +104,7 @@
     {
         "company_name": "Creator Sync, Inc",
         "logo": "/logos/highres/creator_sync__inc.png",
-        "website": "http://www.creator-sync.com/",
+        "website": null,
         "primary_industry_sector": "Information Technology"
     },
     {
@@ -206,7 +200,7 @@
     {
         "company_name": "GoFlyy, Inc.",
         "logo": "/logos/highres/goflyy__inc_.png",
-        "website": "http://www.goflyy.com/",
+        "website": null,
         "primary_industry_sector": "Business Products and Services (B2B)"
     },
     {
@@ -242,7 +236,7 @@
     {
         "company_name": "IndicatorLab Inc.",
         "logo": "/logos/highres/indicatorlab_inc_.png",
-        "website": "http://www.indicatorlab.xyz/",
+        "website": null,
         "primary_industry_sector": "Information Technology"
     },
     {
@@ -272,7 +266,7 @@
     {
         "company_name": "Movig Inc.",
         "logo": "/logos/highres/movig_inc_.png",
-        "website": "http://www.getmovig.com/",
+        "website": null,
         "primary_industry_sector": "Information Technology"
     },
     {
@@ -308,7 +302,7 @@
     {
         "company_name": "PLAUZZABLE, INC.",
         "logo": "/logos/highres/plauzzable__inc_.png",
-        "website": "http://www.plauzzable.com/",
+        "website": null,
         "primary_industry_sector": "Information Technology"
     },
     {
