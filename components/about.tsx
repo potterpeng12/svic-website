@@ -70,7 +70,7 @@ export function About() {
             <div className="mt-8 h-px w-12 bg-primary/20" />
             <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
               Supporting pre-seed and seed founders across Physical AI, healthcare & MedTech,
-              mobility, and next-generation commerce with $250K-$1M in capital.
+              mobility, and next-generation commerce with $50K-$1M in capital.
             </p>
             <div className="absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-primary/[0.04] transition-transform duration-700 group-hover:scale-[3]" />
           </div>
