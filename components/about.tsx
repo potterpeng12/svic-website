@@ -89,7 +89,6 @@ export function About() {
             <p className="text-lg font-medium leading-snug italic">
               {'"We don\'t just write checks. We roll up our sleeves."'}
             </p>
-            <p className="mt-4 text-sm text-background/50">-- Sunstone Team</p>
             <div className="absolute -bottom-8 -right-8 h-24 w-24 rounded-full bg-primary/20 transition-transform duration-700 group-hover:scale-[3]" />
           </div>
 

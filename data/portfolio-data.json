@@ -2,8 +2,8 @@
     {
         "company_name": "GreenWealth Energy Solutions Inc",
         "logo": null,
-        "website": null,
-        "primary_industry_sector": null
+        "website": "https://www.greenwealthenergy.com/",
+        "primary_industry_sector": "Energy"
     },
     {
         "company_name": "LivFie Inc.",
@@ -110,7 +110,7 @@
     {
         "company_name": "Creator Sync, Inc",
         "logo": "/logos/highres/creator_sync__inc.png",
-        "website": "http://www.creator-sync.com/",
+        "website": null,
         "primary_industry_sector": "Information Technology"
     },
     {
