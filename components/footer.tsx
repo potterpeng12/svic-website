@@ -3,12 +3,12 @@
 import { Mail, Linkedin, ArrowUp } from "lucide-react"
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Program", href: "#program" },
-  { label: "Perks", href: "#perks" },
-  { label: "Events", href: "#events" },
-  { label: "Team", href: "#team" },
+  { label: "About", href: "/#about" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Program", href: "/#program" },
+  { label: "Perks", href: "/#perks" },
+  { label: "Events", href: "/#events" },
+  { label: "Team", href: "/#team" },
 ]
 
 export function Footer() {
