@@ -2,7 +2,7 @@
 
 import { useReveal } from "@/hooks/use-reveal"
 import { useState } from "react"
-import { ArrowUpRight, Bell, Check, Loader2 } from "lucide-react"
+import { ArrowUpRight, Bell, Lock } from "lucide-react"
 import Image from "next/image"
 import type { LumaEvent } from "@/lib/luma-events"
 
@@ -14,36 +14,11 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
   const containerRef = useReveal()
   const [submitted, setSubmitted] = useState(false)
   const [email, setEmail] = useState("")
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState("")
-  const [successMessage, setSuccessMessage] = useState("")
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setIsLoading(true)
-    setError("")
-
-    try {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      })
-
-      const data = await response.json()
-
-      if (!response.ok) {
-        setError(data.error || "Failed to subscribe")
-        return
-      }
-
-      setSuccessMessage(data.message)
-      setSubmitted(true)
-    } catch {
-      setError("An error occurred. Please try again.")
-    } finally {
-      setIsLoading(false)
-    }
+    // Not open yet — just show coming soon state
+    setSubmitted(true)
   }
 
   return (
@@ -147,47 +122,30 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="your@email.com"
                 required
-                disabled={isLoading}
-                className="flex-1 rounded-full border border-border bg-card px-5 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-200 disabled:opacity-50"
+                className="flex-1 rounded-full border border-border bg-card px-5 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 outline-none focus:border-primary/40 focus:ring-2 focus:ring-primary/10 transition-all duration-200"
               />
               <button
                 type="submit"
-                disabled={isLoading}
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-foreground/10 disabled:opacity-50 disabled:hover:scale-100"
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-foreground/10"
               >
-                {isLoading ? (
-                  <>
-                    <Loader2 className="h-3.5 w-3.5 animate-spin" />
-                    Subscribing...
-                  </>
-                ) : (
-                  <>
-                    Subscribe
-                    <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </>
-                )}
+                Subscribe
+                <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </button>
             </form>
           ) : (
-            <div className="mx-auto flex max-w-md items-center justify-center gap-3 rounded-full border border-primary/30 bg-primary/5 px-6 py-4">
-              <Check className="h-4 w-4 text-primary" />
-              <p className="text-sm font-medium text-foreground">
-                {successMessage || "Successfully subscribed!"}
+            <div className="mx-auto flex max-w-md items-center justify-center gap-3 rounded-full border border-border bg-muted/50 px-6 py-4">
+              <Lock className="h-4 w-4 text-muted-foreground" />
+              <p className="text-sm font-medium text-muted-foreground">
+                Coming soon! We&apos;ll notify you when subscriptions open.
               </p>
             </div>
           )}
 
-          {/* Error message */}
-          {error && (
-            <p className="mt-3 text-sm text-red-500">{error}</p>
-          )}
-
-          {/* Privacy note */}
-          {!submitted && (
-            <p className="mt-5 text-xs text-muted-foreground/50">
-              We respect your privacy. Unsubscribe anytime.
-            </p>
-          )}
+          {/* Coming soon badge */}
+          <p className="mt-5 flex items-center justify-center gap-1.5 text-xs text-muted-foreground/50">
+            <Lock className="h-3 w-3" />
+            Subscriptions not yet open, launching soon
+          </p>
         </div>
 
       </div>
