@@ -5,8 +5,11 @@ const MAILCHIMP_AUDIENCE_ID = process.env.MAILCHIMP_AUDIENCE_ID
 const MAILCHIMP_DC = MAILCHIMP_API_KEY?.split("-")[1] || "us12"
 
 export async function POST(request: NextRequest) {
+  console.log("[v0] Subscribe API called")
+  
   try {
     const { email } = await request.json()
+    console.log("[v0] Email received:", email)
 
     if (!email || !email.includes("@")) {
       return NextResponse.json(
@@ -15,16 +18,22 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    console.log("[v0] Mailchimp API Key exists:", !!MAILCHIMP_API_KEY)
+    console.log("[v0] Mailchimp Audience ID exists:", !!MAILCHIMP_AUDIENCE_ID)
+    console.log("[v0] Mailchimp DC:", MAILCHIMP_DC)
+
     if (!MAILCHIMP_API_KEY || !MAILCHIMP_AUDIENCE_ID) {
-      console.error("Mailchimp credentials not configured")
+      console.error("[v0] Mailchimp credentials not configured")
       return NextResponse.json(
         { error: "Subscription service is not configured" },
         { status: 500 }
       )
     }
 
-    const response = await fetch(
-      `https://${MAILCHIMP_DC}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`,
+    const url = `https://${MAILCHIMP_DC}.api.mailchimp.com/3.0/lists/${MAILCHIMP_AUDIENCE_ID}/members`
+    console.log("[v0] Fetching Mailchimp URL:", url)
+    
+    const response = await fetch(url,
       {
         method: "POST",
         headers: {
