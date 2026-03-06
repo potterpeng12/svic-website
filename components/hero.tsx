@@ -111,7 +111,7 @@ export function Hero() {
           }}
         >
           <div className="h-[1px] w-12 rounded-full bg-white/30 sm:w-20" />
-          <div className="relative h-10 overflow-hidden sm:h-12">
+          <div className="relative flex h-10 items-center justify-center overflow-hidden sm:h-12">
             <p
               className={`font-display text-xl font-semibold text-white/90 sm:text-2xl ${animState === "in" ? "animate-word-in" : "animate-word-out"
                 }`}

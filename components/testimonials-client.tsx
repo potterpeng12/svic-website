@@ -14,11 +14,33 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
   const containerRef = useReveal()
   const [submitted, setSubmitted] = useState(false)
   const [email, setEmail] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Not open yet — just show coming soon state
-    setSubmitted(true)
+    setIsLoading(true)
+    setError(null)
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      })
+
+      if (!response.ok) {
+        throw new Error("Failed to subscribe")
+      }
+
+      setSubmitted(true)
+    } catch {
+      setError("Something went wrong. Please try again.")
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -126,26 +148,28 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
               />
               <button
                 type="submit"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-foreground/10"
+                disabled={isLoading}
+                className="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-7 py-3.5 text-sm font-semibold text-background transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-foreground/10 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Subscribe
-                <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                {isLoading ? "Subscribing..." : "Subscribe"}
+                {!isLoading && (
+                  <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                )}
               </button>
             </form>
           ) : (
-            <div className="mx-auto flex max-w-md items-center justify-center gap-3 rounded-full border border-border bg-muted/50 px-6 py-4">
-              <Lock className="h-4 w-4 text-muted-foreground" />
-              <p className="text-sm font-medium text-muted-foreground">
-                Coming soon! We&apos;ll notify you when subscriptions open.
+            <div className="mx-auto flex max-w-md items-center justify-center gap-3 rounded-full border border-primary/30 bg-primary/5 px-6 py-4">
+              <Bell className="h-4 w-4 text-primary" />
+              <p className="text-sm font-medium text-foreground">
+                You&apos;re subscribed! We&apos;ll keep you in the loop.
               </p>
             </div>
           )}
 
-          {/* Coming soon badge */}
-          <p className="mt-5 flex items-center justify-center gap-1.5 text-xs text-muted-foreground/50">
-            <Lock className="h-3 w-3" />
-            Subscriptions not yet open, launching soon
-          </p>
+          {/* Error message */}
+          {error && (
+            <p className="mt-3 text-sm text-red-500">{error}</p>
+          )}
         </div>
 
       </div>
