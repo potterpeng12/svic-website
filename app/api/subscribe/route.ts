@@ -9,7 +9,7 @@ export async function POST(request: Request) {
     }
 
     const response = await fetch(
-      "https://markjacoub.app.n8n.cloud/webhook-test/sunstone-innovation-subscribe-newsletter",
+      "https://markjacoub.app.n8n.cloud/webhook/sunstone-innovation-subscribe-newsletter",
       {
         method: "POST",
         headers: {
