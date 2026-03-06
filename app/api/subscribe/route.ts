@@ -14,7 +14,7 @@ export async function POST(request: Request) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Basic ${Buffer.from(`:3dqWk9xhBN16SOHghDhnmAZmkLXIgMxXYNbCQ`).toString("base64")}`,
+          Authorization: `Basic ${Buffer.from(`user:3dqWk9xhBN16SOHghDhnmAZmkLXIgMxXYNbCQ`).toString("base64")}`,
         },
         body: JSON.stringify({ email }),
       }
