@@ -258,7 +258,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "Apollo",
-        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-ljxeY1E16Kzs85Tup1DqRJcPjYsTdJ.png",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-43VKRgWoglHbt3Rx61nCZSbq0gGdrF.png",
         highlight: "80% off first year",
         offers: [
           "80% off Apollo's annual Basic or Professional plans (maximum 5 seats) for the first year.",
