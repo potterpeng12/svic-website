@@ -256,6 +256,18 @@ const perkCategories: PerkCategory[] = [
           "Startups using the HubSpot Growth Platform acquire and retain more customers with HubSpot\u2019s software, educational resources, and robust integrations.",
         ],
       },
+      {
+        name: "Apollo",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-5yqQMAJER0EEG0owqM1zIowJmLhNIq.png",
+        highlight: "80% off first year",
+        offers: [
+          "80% off Apollo's annual Basic or Professional plans (maximum 5 seats) for the first year.",
+        ],
+        eligibility: [
+          "Valid for new customers only.",
+          "20 or fewer employees.",
+        ],
+      },
     ],
   },
   {
