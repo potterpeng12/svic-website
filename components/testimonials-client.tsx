@@ -72,7 +72,7 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
                 Upcoming Events
               </h3>
               <a
-                href="https://luma.com/sunstonestageconnects"
+                href="https://lu.ma/sunstoneinnovation"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors flex items-center gap-2"
@@ -84,17 +84,14 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
               </a>
             </div>
 
-            <div className={`mx-auto grid gap-6 ${events.length === 1 ? 'max-w-md grid-cols-1' :
-                events.length === 2 ? 'max-w-2xl grid-cols-1 md:grid-cols-2' :
-                  'max-w-5xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3'
-              }`}>
+            <div className="flex gap-6 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory scrollbar-hide">
               {events.map((event, index) => (
                 <a
                   key={index}
                   href={event.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative overflow-hidden rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
+                  className="group relative flex-shrink-0 w-72 overflow-hidden rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg snap-start"
                 >
                   {/* Square image container */}
                   <div className="relative aspect-square overflow-hidden bg-muted">
@@ -104,7 +101,7 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
                         alt={event.name}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        sizes="288px"
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/20">
