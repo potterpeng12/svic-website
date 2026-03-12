@@ -72,7 +72,7 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
                 Upcoming Events
               </h3>
               <a
-                href="https://luma.com/sunstonestageconnects"
+                href="https://lu.ma/sunstoneinnovation"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-semibold text-primary hover:text-primary/80 transition-colors flex items-center gap-2"
