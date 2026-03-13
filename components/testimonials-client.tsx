@@ -84,14 +84,14 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
               </a>
             </div>
 
-            <div className="flex gap-6 overflow-x-auto pb-4 -mx-6 px-6 snap-x snap-mandatory scrollbar-hide">
-              {events.map((event, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {events.slice(0, 3).map((event, index) => (
                 <a
                   key={index}
                   href={event.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex-shrink-0 w-72 overflow-hidden rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg snap-start"
+                  className="group relative overflow-hidden rounded-2xl border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-lg"
                 >
                   {/* Square image container */}
                   <div className="relative aspect-square overflow-hidden bg-muted">
@@ -101,7 +101,7 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
                         alt={event.name}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        sizes="288px"
+                        sizes="(max-width: 768px) 100vw, 33vw"
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-primary/10 to-primary/20">
