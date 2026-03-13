@@ -231,6 +231,16 @@ const perkCategories: PerkCategory[] = [
           "New customer (Not currently an Intercom customer).",
         ],
       },
+      {
+        name: "FastMoss & MossCreator",
+        logo: "https://fastmoss.com/wp-content/uploads/2024/03/fastmoss-logo.png",
+        highlight: "Extra 10% off (stackable)",
+        offers: [
+          "All subscriptions to FastMoss (TikTok Shop analytics platform) and MossCreator (influencer outreach platform) made through Sunstone are eligible to use the exclusive promotion code SNSE90.",
+          "This code provides an additional 10% off that can be permanently stacked on top of existing discounts available on the official website.",
+        ],
+        note: "Use code: SNSE90 at checkout.",
+      },
     ],
   },
   {
