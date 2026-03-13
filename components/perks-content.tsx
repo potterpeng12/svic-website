@@ -233,7 +233,7 @@ const perkCategories: PerkCategory[] = [
       },
       {
         name: "FastMoss & MossCreator",
-        logo: "https://fastmoss.com/wp-content/uploads/2024/03/fastmoss-logo.png",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fRe5TB0KK12idGLsMdlr5aubZ9oLUs.png",
         highlight: "Extra 10% off (stackable)",
         offers: [
           "All subscriptions to FastMoss (TikTok Shop analytics platform) and MossCreator (influencer outreach platform) made through Sunstone are eligible to use the exclusive promotion code SNSE90.",
