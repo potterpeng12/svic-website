@@ -397,22 +397,17 @@ function PerkCard({ perk, accentLight, accent }: { perk: Perk; accentLight: stri
         {/* Company header: logo + name + highlight badge */}
         <div className="mb-4 flex items-start gap-3">
           <div className="relative flex h-16 w-16 flex-shrink-0 items-center justify-center overflow-hidden rounded-xl border border-border bg-background">
-            {/* Show fallback icon if image errors, otherwise show the image (with a placeholder color while loading) */}
+            {/* Show fallback icon if image errors, otherwise show the image */}
             {!imgError ? (
-              <>
-                <div className={`absolute inset-0 z-0 flex items-center justify-center bg-muted/30`}>
-                  <Gift className="h-6 w-6 text-muted-foreground/30" />
-                </div>
-                <Image
-                  src={perk.logo}
-                  alt={`${perk.name} logo`}
-                  width={56}
-                  height={56}
-                  className="z-10 object-contain drop-shadow-sm"
-                  unoptimized
-                  onError={() => setImgError(true)}
-                />
-              </>
+              <Image
+                src={perk.logo}
+                alt={`${perk.name} logo`}
+                width={56}
+                height={56}
+                className="object-contain drop-shadow-sm"
+                unoptimized
+                onError={() => setImgError(true)}
+              />
             ) : (
               <div className={`flex h-full w-full items-center justify-center rounded-xl bg-muted/40`}>
                 <Gift className={`h-6 w-6 ${accent.replace('bg-', 'text-')}`} />
