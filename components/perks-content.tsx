@@ -232,7 +232,7 @@ const perkCategories: PerkCategory[] = [
         ],
       },
       {
-        name: "FastMoss & MossCreator",
+        name: "FastMoss",
         logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-fRe5TB0KK12idGLsMdlr5aubZ9oLUs.png",
         highlight: "Extra 10% off (stackable)",
         offers: [
