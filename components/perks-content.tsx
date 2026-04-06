@@ -364,6 +364,18 @@ const perkCategories: PerkCategory[] = [
           "6 months free Payroll Platform.",
         ],
       },
+      {
+        name: "TriNet",
+        logo: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-cE5Ttzvy8JNkOO7bp7C2S8p4Q9y5Nw.png",
+        highlight: "Up to 6 months free",
+        offers: [
+          "3 months free (companies with fewer than 10 employees).",
+          "6 months free (companies with 10 or more employees).",
+          "Waived monthly minimum admin fee (6 or fewer employees).",
+          "Waived onboarding fee ($3,000 savings).",
+          "Lowest floor admin cost per employee.",
+        ],
+      },
     ],
   },
   {
