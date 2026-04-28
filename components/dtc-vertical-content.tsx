@@ -28,7 +28,7 @@ const pillars = [
   {
     icon: DollarSign,
     title: "Capital",
-    amount: "$50K – $1M",
+    amount: "$10K – $1M",
     description:
       "Fuel for your next chapter, whether that's finding product-market fit, building a team, or scaling what's working.",
   },
@@ -64,7 +64,7 @@ const verticals = [
 ]
 
 const founderTraits = [
-  "Seeking $50K – $1M in capital support",
+  "Seeking $10K – $1M in capital support",
   "Building in consumer verticals (Fashion, Beauty, Electronics, Food & Beverage, Lifestyle)",
   "Innovative, mission-driven founders",
   "Strong understanding of the DTC landscape",
