@@ -167,6 +167,19 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
           {error && (
             <p className="mt-3 text-sm text-red-500">{error}</p>
           )}
+
+          {/* Deal Flow subscription link */}
+          <p className="reveal mt-6 text-sm text-muted-foreground">
+            Want to subscribe to our Deal Flow?{" "}
+            <a
+              href="https://mailchi.mp/sunstoneinvestment/dealflow-signup-page"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-semibold text-primary underline-offset-4 hover:underline"
+            >
+              Click here to subscribe
+            </a>
+          </p>
         </div>
 
       </div>
