@@ -168,18 +168,25 @@ export function TestimonialsClient({ events }: TestimonialsClientProps) {
             <p className="mt-3 text-sm text-red-500">{error}</p>
           )}
 
-          {/* Deal Flow subscription link */}
-          <p className="reveal mt-6 text-sm text-muted-foreground">
-            Want to subscribe to our Deal Flow?{" "}
+        </div>
+
+        {/* Deal Flow subscription callout */}
+        <div className="reveal reveal-delay-3 mt-24 border-t border-border pt-16">
+          <h3 className="font-display text-3xl font-bold leading-[1.05] tracking-tight text-foreground sm:text-5xl lg:text-6xl text-balance">
+            Want to subscribe to our{" "}
+            <span className="italic text-primary">Deal Flow?</span>
+          </h3>
+          <div className="mt-8 flex justify-center">
             <a
               href="https://mailchi.mp/sunstoneinvestment/dealflow-signup-page"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-semibold text-primary underline-offset-4 hover:underline"
+              className="group relative inline-flex items-center gap-3 rounded-full bg-primary px-10 py-5 text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20 transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-primary/30 sm:text-xl"
             >
               Click here to subscribe
+              <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 sm:h-6 sm:w-6" />
             </a>
-          </p>
+          </div>
         </div>
 
       </div>
