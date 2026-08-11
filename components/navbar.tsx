@@ -2,22 +2,28 @@
 
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
-import { Menu, X, ArrowUpRight } from "lucide-react"
+import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react"
 
 const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Portfolio", href: "/#portfolio" },
-  { label: "Program", href: "/#program" },
   { label: "Perks", href: "/#perks" },
   { label: "Events", href: "/#events" },
   { label: "Team", href: "/#team" },
 ]
 
+const programLinks = [
+  { label: "DTC Vertical", href: "/apply", description: "Capital and support for consumer founders" },
+  { label: "DTC Brand Lab", href: "/programs/dtc-brand-lab", description: "12-week, no-fee incubator · Sept 2026" },
+]
+
 export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [programsOpen, setProgramsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
   const pathname = usePathname()
+  const programsActive = pathname.startsWith("/programs") || pathname === "/apply"
 
   // True when we should render in "dark hero" mode (unscrolled + darkHero prop)
   const isOverDark = darkHero && !scrolled
@@ -38,6 +44,24 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
+  // Close the Programs dropdown on outside click or Escape
+  useEffect(() => {
+    if (!programsOpen) return
+    const onDocClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement
+      if (!target.closest("[data-programs-menu]")) setProgramsOpen(false)
+    }
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setProgramsOpen(false)
+    }
+    document.addEventListener("click", onDocClick)
+    document.addEventListener("keydown", onKey)
+    return () => {
+      document.removeEventListener("click", onDocClick)
+      document.removeEventListener("keydown", onKey)
+    }
+  }, [programsOpen])
+
   return (
     <>
       <nav
@@ -57,6 +81,43 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
 
           {/* Desktop pill nav */}
           <div className="hidden items-center gap-0.5 md:flex ml-6">
+            {/* Programs dropdown */}
+            <div className="relative" data-programs-menu>
+              <button
+                type="button"
+                onClick={() => setProgramsOpen((v) => !v)}
+                className={`relative flex items-center gap-1 rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 ${programsActive
+                  ? "bg-foreground text-background"
+                  : isOverDark
+                    ? "text-white/70 hover:text-white hover:bg-white/10"
+                    : "text-muted-foreground hover:text-foreground hover:bg-foreground/[0.04]"
+                  }`}
+                aria-expanded={programsOpen}
+                aria-haspopup="true"
+              >
+                Programs
+                <ChevronDown className={`h-3.5 w-3.5 transition-transform duration-300 ${programsOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              <div
+                className={`absolute left-0 top-full pt-2 transition-all duration-200 ${programsOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-1 pointer-events-none"
+                  }`}
+              >
+                <div className="w-72 overflow-hidden rounded-2xl border border-border bg-background/95 p-1.5 shadow-xl shadow-foreground/[0.06] backdrop-blur-2xl">
+                  {programLinks.map((program) => (
+                    <a
+                      key={program.href}
+                      href={program.href}
+                      className="block rounded-xl px-3.5 py-3 transition-colors duration-200 hover:bg-foreground/[0.04]"
+                    >
+                      <span className="block text-sm font-semibold text-foreground">{program.label}</span>
+                      <span className="mt-0.5 block text-xs text-muted-foreground">{program.description}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             {navLinks.map((link) => {
               const isActive = pathname === link.href || (link.href.includes("#") && activeSection === link.href.split("#")[1])
               return (
@@ -109,9 +170,9 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
           }`}
       >
         <div className="flex flex-col items-center gap-2">
-          {[...navLinks, { label: "Get Access", href: "/apply" }].map((link, i) => (
+          {[...programLinks.map((p) => ({ label: p.label, href: p.href })), ...navLinks, { label: "Get Access", href: "/apply" }].map((link, i) => (
             <a
-              key={link.href}
+              key={`${link.label}-${link.href}`}
               href={link.href}
               onClick={() => setMobileOpen(false)}
               className="rounded-2xl px-6 py-3 font-display text-4xl font-bold text-foreground transition-all duration-500 hover:bg-accent hover:text-primary"
