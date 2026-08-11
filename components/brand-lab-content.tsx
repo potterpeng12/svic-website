@@ -4,22 +4,10 @@ import React, { useEffect, useState } from "react"
 import {
   ArrowUpRight,
   ArrowLeft,
-  ArrowRight,
   Sparkles,
   CheckCircle2,
-  Scale,
-  Factory,
   BookOpen,
   Briefcase,
-  Megaphone,
-  ShoppingCart,
-  Bot,
-  Store,
-  TrendingUp,
-  UtensilsCrossed,
-  HeartPulse,
-  Shirt,
-  Cpu,
   DollarSign,
   Users,
   Package,
@@ -31,6 +19,11 @@ import {
   Handshake,
   CalendarClock,
   Building2,
+  TrendingUp,
+  UtensilsCrossed,
+  HeartPulse,
+  Shirt,
+  Cpu,
 } from "lucide-react"
 import { useReveal } from "@/hooks/use-reveal"
 import { Navbar } from "@/components/navbar"
@@ -45,16 +38,8 @@ const APPLICATION_LINK = "https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEy
 
 const heroStats = [
   { value: "12", label: "weeks" },
-  { value: "9", label: "program modules" },
+  { value: "6–10", label: "brands per cohort" },
   { value: "Sept 2026", label: "inaugural cohort" },
-]
-
-const fiveStages = [
-  { number: "1", title: "Set Up", covers: ["Legal & entity", "Banking & tax", "Market readiness"] },
-  { number: "2", title: "Launch Channels", covers: ["DTC & marketplaces", "Social commerce", "Retail entry"] },
-  { number: "3", title: "Build Growth", covers: ["Marketing & creators", "Community", "Performance"] },
-  { number: "4", title: "Prepare Capital", covers: ["Financial setup", "Investor prep", "Capital access"] },
-  { number: "5", title: "Showcase", covers: ["Demo Day", "LA Tech Week", "Ecosystem exposure"] },
 ]
 
 const benefitCards = [
@@ -79,22 +64,6 @@ const differentiators = [
     title: "Built to Accelerate",
     description: "Tools, templates, and office hours every week to help you move faster and with confidence.",
   },
-]
-
-const whyNowStats = [
-  { value: "$21.0T", label: "U.S. consumer spending", source: "Bureau of Economic Analysis, 2025" },
-  { value: "$15.1B", label: "TikTok Shop U.S. sales, up 68% in one year", source: "Momentum Works, 2025" },
-  { value: "108M", label: "Americans bought through social platforms in 2025", source: "eMarketer, 2025" },
-]
-
-// U.S. social commerce sales, in $ billions. Refresh annually.
-const socialCommerceData = [
-  { year: "2022", value: 29.6 },
-  { year: "2023", value: 39.0 },
-  { year: "2024", value: 55.8 },
-  { year: "2025", value: 77.6 },
-  { year: "2026", value: 101.7 },
-  { year: "2027", value: 126.9 },
 ]
 
 const focusCategories = [
@@ -127,18 +96,6 @@ const selectionCriteria = [
   },
 ]
 
-const modules = [
-  { number: "01", icon: Scale, title: "Legal & Compliance", description: "Expert-led legal and compliance essentials" },
-  { number: "02", icon: Factory, title: "Supply Chain & Manufacturing", description: "Global sourcing and production strategy" },
-  { number: "03", icon: BookOpen, title: "Brand & Brand Story", description: "Founder narrative and brand identity" },
-  { number: "04", icon: Briefcase, title: "Back Office", description: "Tax, HR, and banking foundations" },
-  { number: "05", icon: Megaphone, title: "Marketing", description: "Content, creators, and performance growth" },
-  { number: "06", icon: ShoppingCart, title: "Sales Channel", description: "E-commerce, TikTok Shop, and Amazon" },
-  { number: "07", icon: Bot, title: "AI Agent & AI Support", description: "Agentic AI for brand operations" },
-  { number: "08", icon: Store, title: "Retail Channel", description: "Wholesale and retail expansion" },
-  { number: "09", icon: TrendingUp, title: "Capital Readiness", description: "Fundraising, pitching, and financial planning" },
-]
-
 const formatItems = [
   { icon: Video, title: "Online classes", description: "Core modules delivered live, one focused module per week." },
   { icon: Briefcase, title: "Workshops", description: "Working sessions with partner operators on specific problems in your business." },
@@ -160,18 +117,17 @@ const timelineNodes = [
   { number: "04", timing: "December", milestone: "Investor Showcase", detail: "Public finale with investor judging" },
 ]
 
-const socalStats = [
-  { value: "$1.1T+", label: "LA metro GDP, the 3rd largest metro economy in the world", source: "BEA, 2024" },
-  { value: "#1", label: "U.S. apparel and fashion manufacturing hub", source: "BLS, 2024" },
-  { value: "~1/3", label: "of U.S. container imports enter through the Ports of LA and Long Beach", source: "2024" },
-  { value: "$320M+", label: "venture capital into creator-founded LA startups", source: "LA Business Journal, 2025" },
-]
-
-const svicStats = [
-  { value: "100+", label: "events hosted" },
-  { value: "80+", label: "pitch sessions" },
-  { value: "50K+", label: "community reach" },
-  { value: "100+", label: "portfolio companies" },
+const fundingTracks = [
+  {
+    icon: TrendingUp,
+    title: "Equity Program",
+    description: "Direct investment opportunities for brands ready to raise capital.",
+  },
+  {
+    icon: Gift,
+    title: "Grant Program",
+    description: "Non-dilutive funding support for eligible cohort brands.",
+  },
 ]
 
 const faqs = [
@@ -203,94 +159,119 @@ export function BrandLabContent() {
     return () => clearTimeout(t)
   }, [])
 
-  const maxChart = Math.max(...socialCommerceData.map((d) => d.value))
-
   return (
     <>
       <Navbar darkHero />
       <main className="relative min-h-screen" ref={containerRef}>
         {/* ══ 1. HERO ══ */}
-        <header className="relative overflow-hidden bg-[#0a0a1a] pb-20 pt-32 sm:pt-40">
-          {/* Ambient glow */}
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute -top-40 left-1/4 h-96 w-96 rounded-full bg-primary/25 blur-[120px]" />
-            <div className="absolute top-20 right-1/4 h-80 w-80 rounded-full bg-[hsl(36,100%,60%)]/15 blur-[120px]" />
+        <header className="relative overflow-hidden pb-20 pt-32 sm:pt-40">
+          {/* Background photo with purple film */}
+          <div className="absolute inset-0">
+            <img
+              src="/images/brand-lab-hero.jpg"
+              alt="Founders and partners networking at a Sunstone community event"
+              className="h-full w-full object-cover object-center"
+            />
+            {/* Purple film — keeps the photo readable and on-brand, not too bright */}
+            <div className="absolute inset-0 bg-[#0a0a1a]/55" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/45 to-[#0a0a1a]/70 mix-blend-multiply" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/20 to-transparent" />
           </div>
 
-          <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-10">
-            <a
-              href="/"
-              className="reveal mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/50 transition-colors hover:text-white/80"
-            >
-              <ArrowLeft className="h-3.5 w-3.5" />
-              Back to Home
-            </a>
+          <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-10 px-6 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div>
+              <a
+                href="/"
+                className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/60 transition-colors hover:text-white"
+                style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.8s" }}
+              >
+                <ArrowLeft className="h-3.5 w-3.5" />
+                Back to Home
+              </a>
 
-            <p
-              className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(36,100%,65%)]"
-              style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.8s 0.1s" }}
-            >
-              Inaugural Cohort · September–December 2026
-            </p>
+              <p
+                className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(36,100%,72%)]"
+                style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.8s 0.1s" }}
+              >
+                Inaugural Cohort · September–December 2026
+              </p>
 
-            <h1
-              className="mt-5 max-w-4xl font-display text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
-              style={{
-                opacity: loaded ? 1 : 0,
-                transform: loaded ? "translateY(0)" : "translateY(24px)",
-                transition: "all 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
-              }}
-            >
-              Sunstone DTC <span className="text-shimmer">Brand Lab</span>
-            </h1>
+              <h1
+                className="mt-5 font-display text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
+                style={{
+                  opacity: loaded ? 1 : 0,
+                  transform: loaded ? "translateY(0)" : "translateY(24px)",
+                  transition: "all 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
+                }}
+              >
+                Sunstone DTC Brand Lab
+              </h1>
 
-            <p className="reveal mt-6 max-w-2xl text-base leading-relaxed text-white/60 sm:text-xl">
-              A 12-week platform that equips global consumer brands to successfully launch, scale, and
-              raise in the U.S.
-            </p>
+              <div
+                className="mt-8 max-w-xl border-l-2 border-white/40 pl-5"
+                style={{
+                  opacity: loaded ? 1 : 0,
+                  transform: loaded ? "translateY(0)" : "translateY(20px)",
+                  transition: "all 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.3s",
+                }}
+              >
+                <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-[hsl(36,100%,72%)]">
+                  Mission
+                </p>
+                <p className="mt-3 font-display text-xl font-medium leading-snug text-white sm:text-2xl">
+                  To empower the next generation of consumer brands with the knowledge, resources, and
+                  ecosystem they need to build, scale, and last.
+                </p>
+              </div>
 
-            <p className="reveal mt-8 max-w-3xl border-l-2 border-primary/60 pl-5 font-display text-2xl font-medium leading-snug text-white sm:text-3xl">
-              We compress a brand&apos;s first year in America into 12 weeks.
-            </p>
+              {/* CTAs */}
+              <div
+                className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
+                style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.9s 0.45s" }}
+              >
+                <a
+                  href={APPLICATION_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-9 py-4 text-base font-semibold text-[#0a0a1a] transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-white/10"
+                >
+                  Apply Now
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+                <a
+                  href="#curriculum"
+                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-9 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
+                >
+                  Explore the Program
+                </a>
+              </div>
+
+              {/* Free badge */}
+              <div
+                className="mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/15 px-5 py-2 text-sm font-semibold text-emerald-200 backdrop-blur-sm"
+                style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.9s 0.55s" }}
+              >
+                <CheckCircle2 className="h-4 w-4" />
+                No program fee · No equity required
+              </div>
+            </div>
 
             {/* Stat strip */}
-            <div className="reveal mt-10 grid max-w-2xl grid-cols-3 gap-4">
+            <div
+              className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1"
+              style={{ opacity: loaded ? 1 : 0, transition: "opacity 1s 0.6s" }}
+            >
               {heroStats.map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-2xl border border-white/10 bg-white/5 px-4 py-5 text-center backdrop-blur-sm"
+                  className="rounded-2xl border border-white/15 bg-white/10 px-5 py-5 backdrop-blur-md"
                 >
-                  <div className="font-display text-2xl font-bold text-white sm:text-3xl">{stat.value}</div>
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-white/50">
+                  <div className="font-display text-3xl font-bold text-white">{stat.value}</div>
+                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-white/60">
                     {stat.label}
                   </div>
                 </div>
               ))}
-            </div>
-
-            {/* CTAs */}
-            <div className="reveal mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-              <a
-                href={APPLICATION_LINK}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-white px-9 py-4 text-base font-semibold text-[#0a0a1a] transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-white/10"
-              >
-                Apply Now
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-              <a
-                href="#curriculum"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 bg-white/5 px-9 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
-              >
-                See the Curriculum
-              </a>
-            </div>
-
-            {/* Free badge */}
-            <div className="reveal mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/25 bg-emerald-500/10 px-5 py-2 text-sm font-semibold text-emerald-300 backdrop-blur-sm">
-              <CheckCircle2 className="h-4 w-4" />
-              No program fee · No equity required
             </div>
           </div>
         </header>
@@ -310,45 +291,10 @@ export function BrandLabContent() {
                 A 12-week platform that equips global consumer brands to successfully launch, scale, and
                 raise in the U.S.
               </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                Each week covers one practical step: setting up a U.S. entity, building supply chain and
-                logistics, opening sales channels such as TikTok Shop and Amazon, running marketing, and
-                preparing to raise capital. Experts from the Sunstone network teach each module and hold
-                weekly office hours. The program ends with an investor showcase where the brands present
-                publicly.
-              </p>
             </div>
 
-            {/* Five-stage flow */}
-            <div className="mt-14 flex flex-col items-stretch gap-4 lg:flex-row lg:items-center">
-              {fiveStages.map((stage, i) => (
-                <React.Fragment key={stage.number}>
-                  <div
-                    className={`reveal reveal-delay-${i + 1} flex-1 rounded-2xl border border-border bg-card p-5 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5`}
-                  >
-                    <div className="mb-3 flex items-center gap-2.5">
-                      <span className="flex h-7 w-7 items-center justify-center rounded-full bg-primary/10 font-display text-xs font-bold text-primary">
-                        {stage.number}
-                      </span>
-                      <h3 className="font-display text-sm font-bold text-foreground">{stage.title}</h3>
-                    </div>
-                    <ul className="space-y-1.5">
-                      {stage.covers.map((c) => (
-                        <li key={c} className="text-xs leading-relaxed text-muted-foreground">
-                          {c}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  {i < fiveStages.length - 1 && (
-                    <ArrowRight className="hidden h-5 w-5 flex-shrink-0 text-muted-foreground/40 lg:block" />
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
-
-            {/* Benefit cards */}
-            <div className="mt-8 grid gap-5 sm:grid-cols-3">
+            {/* Benefit cards — Capital, Resources, Community */}
+            <div className="mt-14 grid gap-5 sm:grid-cols-3">
               {benefitCards.map((card, i) => (
                 <div
                   key={card.title}
@@ -365,7 +311,7 @@ export function BrandLabContent() {
               ))}
             </div>
 
-            <p className="reveal mt-12 text-center font-display text-xl font-medium text-foreground sm:text-2xl">
+            <p className="reveal mt-14 text-center font-display text-xl font-medium text-foreground sm:text-2xl">
               Vetted brands. Expert partners. Proven process.
             </p>
 
@@ -387,69 +333,8 @@ export function BrandLabContent() {
           </div>
         </section>
 
-        {/* ══ 3. WHY NOW ══ */}
+        {/* ══ 3. WHO WE SELECT ══ */}
         <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal mx-auto max-w-3xl text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <TrendingUp className="h-3.5 w-3.5" />
-                Why Now
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                American consumers are adopting new brands through new channels.
-              </h2>
-            </div>
-
-            <div className="mt-12 grid gap-5 sm:grid-cols-3">
-              {whyNowStats.map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className={`reveal reveal-delay-${i + 1} rounded-2xl border border-border bg-card p-7`}
-                >
-                  <div className="font-display text-4xl font-bold tracking-tight text-primary">
-                    {stat.value}
-                  </div>
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-foreground">{stat.label}</p>
-                  <p className="mt-2 text-xs text-muted-foreground/70">{stat.source}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Chart */}
-            <div className="reveal mt-8 rounded-2xl border border-border bg-card p-7 sm:p-9">
-              <h3 className="font-display text-lg font-bold text-foreground">
-                U.S. social commerce sales, in $ billions
-              </h3>
-              <div className="mt-8 flex items-end justify-between gap-3 sm:gap-6" style={{ height: 220 }}>
-                {socialCommerceData.map((d, i) => (
-                  <div key={d.year} className="flex flex-1 flex-col items-center justify-end gap-2">
-                    <span className="font-display text-xs font-bold tabular-nums text-foreground sm:text-sm">
-                      {d.value}
-                    </span>
-                    <div
-                      className={`reveal reveal-delay-${(i % 6) + 1} w-full rounded-t-lg bg-gradient-to-t from-primary to-purple-400 transition-all duration-500 hover:opacity-90`}
-                      style={{ height: `${(d.value / maxChart) * 170}px` }}
-                    />
-                    <span className="text-xs font-medium text-muted-foreground tabular-nums">{d.year}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="mt-6 text-xs leading-relaxed text-muted-foreground/70">
-                Sales across all social platforms, crossing $100B for the first time in 2026. Source:
-                eMarketer.
-              </p>
-            </div>
-
-            <p className="reveal mx-auto mt-8 max-w-3xl text-center text-base leading-relaxed text-muted-foreground">
-              Distribution is now won on attention, not shelf space. Great products still lose when the
-              brand can&apos;t build narrative, creator operations, and channel strategy fast enough. That
-              gap is what these 12 weeks close.
-            </p>
-          </div>
-        </section>
-
-        {/* ══ 4. WHO WE SELECT ══ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal mx-auto max-w-3xl text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
@@ -465,59 +350,62 @@ export function BrandLabContent() {
               </p>
             </div>
 
-            {/* Big number */}
-            <div className="reveal mt-12 overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-primary/[0.06] to-transparent p-8 text-center sm:p-12">
-              <div className="font-display text-5xl font-bold tracking-tight text-primary sm:text-6xl">
-                6–10 selected brands
-              </div>
-              <p className="mx-auto mt-4 max-w-xl text-base text-muted-foreground">
-                Small by design. Every company receives hands-on support and direct partner access.
+            {/* Four sectors — emphasized */}
+            <div className="mt-14">
+              <p className="reveal text-center text-xs font-semibold uppercase tracking-widest text-primary">
+                Four consumer sectors
               </p>
-            </div>
-
-            {/* Focus categories */}
-            <div className="mt-10 grid grid-cols-2 gap-4 lg:grid-cols-4">
-              {focusCategories.map((cat, i) => (
-                <div
-                  key={cat.label}
-                  className={`reveal reveal-delay-${i + 1} group flex flex-col items-center justify-center gap-3 rounded-2xl border border-border bg-card p-6 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5`}
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-foreground/5 text-foreground/50 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
-                    <cat.icon className="h-5 w-5" />
+              <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+                {focusCategories.map((cat, i) => (
+                  <div
+                    key={cat.label}
+                    className={`reveal reveal-delay-${i + 1} group flex flex-col items-center justify-center gap-4 rounded-3xl border border-primary/15 bg-gradient-to-b from-primary/[0.07] to-card p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10`}
+                  >
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                      <cat.icon className="h-7 w-7" />
+                    </div>
+                    <span className="font-display text-base font-bold leading-tight text-foreground">
+                      {cat.label}
+                    </span>
                   </div>
-                  <span className="text-sm font-semibold leading-tight text-foreground/80">{cat.label}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
 
-            {/* Selection criteria */}
-            <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Clean cohort facts band */}
+            <div className="reveal mt-8 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-3">
+              <div className="bg-card p-8 text-center">
+                <div className="font-display text-4xl font-bold tracking-tight text-primary">6–10</div>
+                <p className="mt-2 text-sm font-medium text-foreground">brands per cohort</p>
+                <p className="mt-1 text-xs text-muted-foreground">Small by design — hands-on support for every founder.</p>
+              </div>
+              <div className="bg-card p-8 text-center">
+                <p className="text-xs font-semibold uppercase tracking-wider text-primary">Stage</p>
+                <p className="mt-2 font-display text-lg font-bold text-foreground">
+                  Ideation through market-ready product
+                </p>
+              </div>
+              <div className="bg-card p-8 text-center">
+                <p className="text-xs font-semibold uppercase tracking-wider text-primary">Traction</p>
+                <p className="mt-2 font-display text-lg font-bold text-foreground">Under $200K GMV preferred</p>
+                <p className="mt-1 text-xs text-muted-foreground">Above that is still welcome to apply.</p>
+              </div>
+            </div>
+
+            {/* Selection criteria — four blocks, emphasized */}
+            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {selectionCriteria.map((c, i) => (
                 <div
                   key={c.number}
-                  className={`reveal reveal-delay-${i + 1} rounded-2xl border border-border bg-card p-6`}
+                  className={`reveal reveal-delay-${i + 1} rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5`}
                 >
-                  <span className="font-display text-sm font-bold tabular-nums text-primary/60">
+                  <span className="font-display text-2xl font-bold tabular-nums text-primary/50">
                     {c.number}
                   </span>
-                  <h3 className="mt-2 font-display text-base font-bold text-foreground">{c.title}</h3>
+                  <h3 className="mt-3 font-display text-base font-bold text-foreground">{c.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.description}</p>
                 </div>
               ))}
-            </div>
-
-            {/* Stage note */}
-            <div className="reveal mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-2xl border border-border bg-muted/30 p-6">
-                <p className="text-xs font-semibold uppercase tracking-wider text-primary">Stage</p>
-                <p className="mt-2 text-base font-medium text-foreground">Ideation through Seed</p>
-              </div>
-              <div className="rounded-2xl border border-border bg-muted/30 p-6">
-                <p className="text-xs font-semibold uppercase tracking-wider text-primary">Traction</p>
-                <p className="mt-2 text-base font-medium text-foreground">
-                  Under $200K GMV preferred. Above that is still welcome to apply.
-                </p>
-              </div>
             </div>
 
             <p className="reveal mt-8 text-center text-sm text-muted-foreground">
@@ -526,47 +414,26 @@ export function BrandLabContent() {
           </div>
         </section>
 
-        {/* ══ 5. CURRICULUM ══ */}
-        <section id="curriculum" className="scroll-mt-24 border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal mx-auto max-w-3xl text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <BookOpen className="h-3.5 w-3.5" />
-                The Curriculum
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                9 Modules. One Complete Brand-Building System.
-              </h2>
-            </div>
-
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {modules.map((m, i) => (
-                <div
-                  key={m.number}
-                  className={`reveal reveal-delay-${(i % 3) + 1} group relative overflow-hidden rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5`}
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-foreground/5 text-foreground/50 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
-                      <m.icon className="h-5 w-5" />
-                    </div>
-                    <span className="font-display text-2xl font-bold tabular-nums text-border transition-colors group-hover:text-primary/30">
-                      {m.number}
-                    </span>
-                  </div>
-                  <h3 className="mt-5 font-display text-base font-bold text-foreground">{m.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{m.description}</p>
-                </div>
-              ))}
-            </div>
-
-            <p className="reveal mt-10 text-center text-sm text-muted-foreground">
-              Partners headline the module closest to their business and hold office hours with every brand.
+        {/* ══ 4. CURRICULUM ══ */}
+        <section id="curriculum" className="scroll-mt-24 px-6 py-20 sm:px-10 lg:py-28">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="reveal mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+              <BookOpen className="h-3.5 w-3.5" />
+              The Curriculum
+            </span>
+            <h2 className="reveal font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+              9 Modules. One Complete Brand-Building System.
+            </h2>
+            <p className="reveal mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
+              A sequential curriculum covering everything from U.S. legal setup and supply chain to sales
+              channels, marketing, AI, retail, and capital readiness — one focused module each week, taught
+              and mentored by experts from the Sunstone network.
             </p>
           </div>
         </section>
 
-        {/* ══ 6. HOW IT RUNS ══ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
+        {/* ══ 5. FORMAT ══ */}
+        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal mx-auto max-w-3xl text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
@@ -574,10 +441,10 @@ export function BrandLabContent() {
                 Format
               </span>
               <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                How the Program Works
+                Join the Program with Hybrid Flexibility
               </h2>
               <p className="mt-5 text-sm font-semibold uppercase tracking-wider text-primary">
-                Hybrid — online instruction, in-person moments in Los Angeles
+                Online instruction, in-person moments in Los Angeles
               </p>
             </div>
 
@@ -598,7 +465,7 @@ export function BrandLabContent() {
               ))}
             </div>
 
-            {/* Free callout */}
+            {/* Free callout with Apply Now */}
             <div className="reveal mt-10 overflow-hidden rounded-3xl border border-emerald-500/20 bg-emerald-500/[0.06] p-8 text-center sm:p-12">
               <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600">
                 <Gift className="h-6 w-6" />
@@ -610,12 +477,23 @@ export function BrandLabContent() {
                 No program fee. No required equity. We measure ourselves on whether your brand grows —
                 that&apos;s the entire model.
               </p>
+              <div className="mt-7 flex justify-center">
+                <a
+                  href={APPLICATION_LINK}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-9 py-4 text-base font-semibold text-primary-foreground transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/25"
+                >
+                  Apply Now
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* ══ 7. TIMELINE ══ */}
-        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
+        {/* ══ 6. TIMELINE ══ */}
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal mx-auto max-w-3xl text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
@@ -649,7 +527,7 @@ export function BrandLabContent() {
           </div>
         </section>
 
-        {/* ══ 8. FUNDING OPTIONS ══ */}
+        {/* ══ 7. FUNDING OPTIONS ══ */}
         <section className="relative overflow-hidden bg-[#0a0a1a] px-6 py-24 sm:px-10 lg:py-32">
           <div className="pointer-events-none absolute inset-0">
             <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-primary/20 blur-[120px]" />
@@ -667,15 +545,19 @@ export function BrandLabContent() {
               </h2>
               <p className="mt-5 text-base leading-relaxed text-white/60 lg:text-lg">
                 Brand Lab founders have access to up to $100K in funding opportunities through two
-                separate tracks. Both are optional and run independently from cohort admission.
+                separate tracks.
               </p>
             </div>
 
-            <div className="mt-12 grid gap-6 lg:grid-cols-2">
-              {[
-                { icon: TrendingUp, title: "Equity Program", tk: "check size, stage, structure, and how to apply" },
-                { icon: Gift, title: "Grant Program", tk: "grant amount, eligibility, and process" },
-              ].map((card) => (
+            {/* Optional statement — moved up and enlarged */}
+            <p className="reveal mx-auto mt-10 max-w-4xl text-center font-display text-2xl font-medium leading-snug text-white sm:text-3xl">
+              Participation in either funding program is entirely optional. Choosing not to apply to either
+              has <span className="text-[hsl(36,100%,70%)]">no effect</span> on your selection into the
+              Brand Lab.
+            </p>
+
+            <div className="mt-14 grid gap-6 lg:grid-cols-2">
+              {fundingTracks.map((card) => (
                 <div
                   key={card.title}
                   className="reveal group rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] sm:p-10"
@@ -684,66 +566,14 @@ export function BrandLabContent() {
                     <card.icon className="h-6 w-6" />
                   </div>
                   <h3 className="font-display text-2xl font-bold text-white">{card.title}</h3>
-                  <p className="mt-3 rounded-xl border border-dashed border-white/20 bg-white/[0.03] px-4 py-3 text-sm text-white/50">
-                    TK — {card.tk}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="reveal mx-auto mt-8 max-w-3xl rounded-2xl border border-[hsl(36,100%,60%)]/30 bg-[hsl(36,100%,60%)]/10 px-6 py-5 text-center">
-              <p className="text-sm leading-relaxed text-[hsl(36,100%,80%)]">
-                Participation in either funding program is entirely optional. Choosing not to apply to
-                either has <span className="font-bold text-white">no effect</span> on your selection into
-                the Brand Lab.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ══ 9. WHY SOUTHERN CALIFORNIA ══ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal mx-auto max-w-3xl text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <Building2 className="h-3.5 w-3.5" />
-                Why Southern California
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                The region already has every piece a consumer brand needs
-              </h2>
-            </div>
-
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-              {socalStats.map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className={`reveal reveal-delay-${i + 1} rounded-2xl border border-border bg-card p-7`}
-                >
-                  <div className="font-display text-3xl font-bold tracking-tight text-primary sm:text-4xl">
-                    {stat.value}
-                  </div>
-                  <p className="mt-3 text-sm font-medium leading-relaxed text-foreground">{stat.label}</p>
-                  <p className="mt-2 text-xs text-muted-foreground/70">{stat.source}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* SVIC credibility */}
-            <div className="reveal mt-8 grid grid-cols-2 gap-4 rounded-2xl border border-border bg-muted/30 p-6 sm:grid-cols-4">
-              {svicStats.map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="font-display text-2xl font-bold text-foreground">{stat.value}</div>
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">
-                    {stat.label}
-                  </div>
+                  <p className="mt-3 text-base leading-relaxed text-white/60">{card.description}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ══ 10. PARTNERS ══ */}
+        {/* ══ 8. PARTNERS ══ */}
         <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal mx-auto max-w-3xl text-center">
@@ -780,7 +610,7 @@ export function BrandLabContent() {
           </div>
         </section>
 
-        {/* ══ 11. APPLY ══ */}
+        {/* ══ 9. APPLY ══ */}
         <section className="px-6 py-24 sm:px-10 lg:py-32">
           <div className="reveal mx-auto max-w-3xl text-center">
             <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
@@ -818,7 +648,7 @@ export function BrandLabContent() {
           </div>
         </section>
 
-        {/* ══ 12. FAQ ══ */}
+        {/* ══ 10. FAQ ══ */}
         <section className="border-t border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-3xl">
             <div className="reveal mb-10 text-center">
