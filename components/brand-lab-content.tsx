@@ -126,8 +126,8 @@ export function BrandLabContent() {
             />
             {/* Purple film — 45% flat overlay so the photo stays visible */}
             <div className="absolute inset-0 bg-primary/45 mix-blend-multiply" />
-            {/* Bottom fade for text legibility */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/90 via-transparent to-transparent" />
+            {/* Bottom fade for text legibility — extended higher toward the stats */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/95 from-10% via-[#0a0a1a]/55 via-55% to-transparent" />
           </div>
 
           <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-10 px-6 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
