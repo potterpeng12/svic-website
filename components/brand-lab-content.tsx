@@ -265,15 +265,11 @@ export function BrandLabContent() {
                 </div>
               ))}
             </div>
-
-            <p className="reveal mt-16 font-display text-2xl font-medium text-foreground sm:text-3xl">
-              Vetted brands. Expert partners. Proven process.
-            </p>
           </div>
         </section>
 
         {/* ══ 3. WHO WE SELECT ══ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
+        <section className="px-6 pb-20 pt-4 sm:px-10 lg:pb-28 lg:pt-8">
           <div className="mx-auto max-w-6xl">
             <div className="reveal mx-auto max-w-3xl text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
