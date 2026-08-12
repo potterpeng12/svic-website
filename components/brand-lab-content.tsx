@@ -166,10 +166,8 @@ export function BrandLabContent() {
               alt="Founders and partners networking at a Sunstone community event"
               className="h-full w-full object-cover object-center"
             />
-            {/* Purple film — slightly darker for stronger text contrast while photo stays visible */}
-            <div className="absolute inset-0 bg-[#0a0a1a]/70" />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/58 to-[#0a0a1a]/75 mix-blend-multiply" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/95 via-[#0a0a1a]/35 to-transparent" />
+            {/* Purple film — 30% overlay so the photo stays visible */}
+            <div className="absolute inset-0 bg-primary/30 mix-blend-multiply" />
           </div>
 
           <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-10 px-6 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
