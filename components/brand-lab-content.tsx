@@ -38,7 +38,7 @@ const APPLICATION_LINK = "https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEy
 
 const heroStats = [
   { value: "12", label: "weeks" },
-  { value: "6–10", label: "brands per cohort" },
+  { value: "Now Open", label: "accepting cohort applications" },
   { value: "Sept 2026", label: "inaugural cohort" },
 ]
 
@@ -101,7 +101,7 @@ const formatItems = [
 
 const timelineNodes = [
   { number: "01", timing: "Now", milestone: "Applications open", detail: "Rolling review through the summer" },
-  { number: "02", timing: "September", milestone: "Cohort kickoff", detail: "6–10 brands begin the 12 weeks in Los Angeles" },
+  { number: "02", timing: "September", milestone: "Cohort kickoff", detail: "Accepted brands begin the 12 weeks in Los Angeles" },
   {
     number: "03",
     timing: "October",
@@ -326,7 +326,7 @@ export function BrandLabContent() {
                 Who We Select
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
-                A focused cohort of 6–10 U.S.-based and international consumer brands ready to launch,
+                A focused cohort of U.S.-based and international consumer brands ready to launch,
                 scale, and raise capital in the U.S.
               </p>
             </div>
@@ -354,8 +354,8 @@ export function BrandLabContent() {
             {/* Cohort facts — open three-up */}
             <div className="reveal mt-20 grid gap-10 text-center sm:grid-cols-3">
               <div>
-                <div className="font-display text-5xl font-bold tracking-tight text-primary">6–10</div>
-                <p className="mt-3 font-display text-base font-bold text-foreground">brands per cohort</p>
+                <div className="font-display text-5xl font-bold tracking-tight text-primary">Now Open</div>
+                <p className="mt-3 font-display text-base font-bold text-foreground">accepting cohort applications</p>
                 <p className="mt-1 text-sm text-muted-foreground">Small by design — hands-on support for every founder.</p>
               </div>
               <div>
