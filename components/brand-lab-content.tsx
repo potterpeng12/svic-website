@@ -6,20 +6,12 @@ import {
   ArrowLeft,
   Sparkles,
   CheckCircle2,
-  BookOpen,
-  Briefcase,
   DollarSign,
   Users,
   Package,
   Rocket,
   ChevronDown,
-  Gift,
-  PiggyBank,
-  Video,
   Handshake,
-  CalendarClock,
-  Building2,
-  TrendingUp,
   UtensilsCrossed,
   HeartPulse,
   Shirt,
@@ -61,10 +53,10 @@ const accessItems = [
 ]
 
 const focusCategories = [
-  { icon: UtensilsCrossed, label: "Food & Beverage" },
-  { icon: HeartPulse, label: "Wellness & Personal Care" },
-  { icon: Shirt, label: "Apparel" },
-  { icon: Cpu, label: "Consumer Electronics" },
+  { icon: UtensilsCrossed, label: "Food & Beverage", image: "/images/sector-food-beverage.png" },
+  { icon: HeartPulse, label: "Wellness & Personal Care", image: "/images/sector-wellness.png" },
+  { icon: Shirt, label: "Apparel", image: "/images/sector-apparel.png" },
+  { icon: Cpu, label: "Consumer Electronics", image: "/images/sector-electronics.png" },
 ]
 
 const selectionCriteria = [
@@ -87,40 +79,6 @@ const selectionCriteria = [
     number: "04",
     title: "Founder Commitment",
     description: "Leadership ready to participate actively throughout the 12-week program.",
-  },
-]
-
-const formatItems = [
-  { icon: Video, title: "Online classes", description: "Core modules delivered live, one focused module per week." },
-  { icon: Briefcase, title: "Workshops", description: "Working sessions with partner operators on specific problems in your business." },
-  { icon: Users, title: "Weekly 1:1 office hours", description: "Every week, every founder. Dedicated time with a partner or mentor matched to your category." },
-  { icon: Building2, title: "In-person programming", description: "Cohort events, Southern California tech weeks, and the investor showcase. Attending in person is strongly encouraged." },
-  { icon: TrendingUp, title: "Investor readiness preparation", description: "Direct coaching from leading VCs and investment firms ahead of the December showcase." },
-  { icon: Handshake, title: "Partner network access", description: "Introductions across 30+ partners spanning legal, supply chain, platform, marketing, retail, and capital." },
-]
-
-const timelineNodes = [
-  { number: "01", timing: "Now", milestone: "Applications open", detail: "Rolling review through the summer" },
-  { number: "02", timing: "September", milestone: "Cohort kickoff", detail: "Accepted brands begin the 12 weeks in Los Angeles" },
-  {
-    number: "03",
-    timing: "October",
-    milestone: "Southern California Tech Weeks",
-    detail: "LA Tech Week (Oct 12–18), OC Tech Week, Glendale Tech Week, and more — cohort and partners visible citywide",
-  },
-  { number: "04", timing: "December", milestone: "Investor Showcase", detail: "Public finale with investor judging" },
-]
-
-const fundingTracks = [
-  {
-    icon: TrendingUp,
-    title: "Equity Program",
-    description: "Direct investment opportunities for brands ready to raise capital.",
-  },
-  {
-    icon: Gift,
-    title: "Grant Program",
-    description: "Non-dilutive funding support for eligible cohort brands.",
   },
 ]
 
@@ -233,7 +191,7 @@ export function BrandLabContent() {
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
                 <a
-                  href="#curriculum"
+                  href="#program"
                   className="group inline-flex items-center gap-2 text-base font-semibold text-white/80 transition-colors hover:text-white"
                 >
                   Explore the Program
@@ -269,7 +227,7 @@ export function BrandLabContent() {
         </header>
 
         {/* ══ 2. THE PROGRAM ══ */}
-        <section className="px-6 py-24 sm:px-10 lg:py-36">
+        <section id="program" className="scroll-mt-24 px-6 py-24 sm:px-10 lg:py-36">
           <div className="mx-auto max-w-5xl">
             <span className="reveal mb-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
               <Sparkles className="h-3.5 w-3.5" />
@@ -331,21 +289,29 @@ export function BrandLabContent() {
               </p>
             </div>
 
-            {/* Four sectors — open, no boxes */}
+            {/* Four sectors — Verticals-style image tiles */}
             <div className="mt-16">
               <p className="reveal text-center text-xs font-semibold uppercase tracking-widest text-primary">
                 Four consumer sectors
               </p>
-              <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
+              <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
                 {focusCategories.map((cat, i) => (
                   <div
                     key={cat.label}
-                    className={`reveal reveal-delay-${i + 1} group flex flex-col items-center gap-4 text-center`}
+                    className={`reveal reveal-delay-${i + 1} group relative aspect-[4/5] overflow-hidden rounded-3xl`}
                   >
-                    <cat.icon className="h-10 w-10 text-primary transition-transform duration-300 group-hover:-translate-y-1" />
-                    <span className="font-display text-lg font-bold leading-tight text-foreground">
-                      {cat.label}
-                    </span>
+                    <img
+                      src={cat.image || "/placeholder.svg"}
+                      alt={cat.label}
+                      className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/85 via-[#0a0a1a]/20 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 flex items-center gap-3 p-5">
+                      <cat.icon className="h-6 w-6 flex-shrink-0 text-white" />
+                      <span className="font-display text-lg font-bold leading-tight text-white text-balance">
+                        {cat.label}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -390,147 +356,7 @@ export function BrandLabContent() {
           </div>
         </section>
 
-        {/* ══ 4. CURRICULUM ══ */}
-        <section id="curriculum" className="scroll-mt-24 px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="reveal mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-              <BookOpen className="h-3.5 w-3.5" />
-              The Curriculum
-            </span>
-            <h2 className="reveal font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
-              9 Modules. One Complete Brand-Building System.
-            </h2>
-            <p className="reveal mt-6 text-base leading-relaxed text-muted-foreground lg:text-lg">
-              A sequential curriculum covering everything from U.S. legal setup and supply chain to sales
-              channels, marketing, AI, retail, and capital readiness — one focused module each week, taught
-              and mentored by experts from the Sunstone network.
-            </p>
-          </div>
-        </section>
-
-        {/* ══ 5. FORMAT ══ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal mx-auto max-w-3xl text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <CalendarClock className="h-3.5 w-3.5" />
-                Format
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Join the Program with Hybrid Flexibility
-              </h2>
-              <p className="mt-5 text-sm font-semibold uppercase tracking-wider text-primary">
-                Online instruction, in-person moments in Los Angeles
-              </p>
-            </div>
-
-            <div className="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
-              {formatItems.map((item, i) => (
-                <div
-                  key={item.title}
-                  className={`reveal reveal-delay-${(i % 3) + 1} flex items-start gap-4`}
-                >
-                  <item.icon className="mt-0.5 h-6 w-6 flex-shrink-0 text-primary" />
-                  <div>
-                    <h3 className="font-display text-lg font-bold text-foreground">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Free callout — open, no box */}
-            <div className="reveal mt-24 text-center">
-              <Gift className="mx-auto h-8 w-8 text-emerald-600" />
-              <h3 className="mt-5 font-display text-3xl font-bold text-foreground sm:text-4xl">
-                The Brand Lab is free to join.
-              </h3>
-              <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-                No program fee. No required equity. We measure ourselves on whether your brand grows —
-                that&apos;s the entire model.
-              </p>
-              <div className="mt-8 flex justify-center">
-                <a
-                  href={APPLICATION_LINK}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-9 py-4 text-base font-semibold text-primary-foreground transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/25"
-                >
-                  Apply Now
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ══ 6. TIMELINE ══ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal mx-auto max-w-3xl text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <CalendarClock className="h-3.5 w-3.5" />
-                Timeline
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Inaugural Cohort: September to December 2026
-              </h2>
-            </div>
-
-            <div className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-              {timelineNodes.map((node, i) => (
-                <div key={node.number} className={`reveal reveal-delay-${i + 1}`}>
-                  <span className="font-display text-4xl font-bold tabular-nums text-primary/40">
-                    {node.number}
-                  </span>
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-primary">
-                    {node.timing}
-                  </p>
-                  <h3 className="mt-1 font-display text-lg font-bold text-foreground">{node.milestone}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{node.detail}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ══ 7. FUNDING OPTIONS ══ */}
-        <section className="bg-[#0a0a1a] px-6 py-24 sm:px-10 lg:py-32">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal mx-auto max-w-3xl text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[hsl(36,100%,65%)]">
-                <PiggyBank className="h-3.5 w-3.5" />
-                Funding
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                Two Ways to Fund Your Growth
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-white/60 lg:text-lg">
-                Brand Lab founders have access to up to $100K in funding opportunities through two
-                separate tracks.
-              </p>
-            </div>
-
-            {/* Optional statement — enlarged */}
-            <p className="reveal mx-auto mt-10 max-w-4xl text-center font-display text-2xl font-medium leading-snug text-white sm:text-3xl">
-              Participation in either funding program is entirely optional. Choosing not to apply to either
-              has <span className="text-[hsl(36,100%,70%)]">no effect</span> on your selection into the
-              Brand Lab.
-            </p>
-
-            <div className="mx-auto mt-16 grid max-w-4xl gap-14 lg:grid-cols-2">
-              {fundingTracks.map((card) => (
-                <div key={card.title} className="reveal">
-                  <card.icon className="h-8 w-8 text-white" />
-                  <h3 className="mt-5 font-display text-2xl font-bold text-white">{card.title}</h3>
-                  <p className="mt-3 text-base leading-relaxed text-white/60">{card.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ══ 8. PARTNERS ══ */}
+        {/* ══ 4. PARTNERS ══ */}
         <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal mx-auto max-w-3xl text-center">
@@ -567,45 +393,62 @@ export function BrandLabContent() {
           </div>
         </section>
 
-        {/* ══ 9. APPLY ══ */}
-        <section className="px-6 py-24 sm:px-10 lg:py-32">
-          <div className="reveal mx-auto max-w-3xl text-center">
-            <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+        {/* ══ 5. READY TO APPLY ══ */}
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0">
+            <img
+              src="/images/brand-lab-hero.jpg"
+              alt="Founders and partners at a Sunstone community event"
+              className="h-full w-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-primary/50 mix-blend-multiply" />
+            <div className="absolute inset-0 bg-[#0a0a1a]/70" />
+          </div>
+
+          <div className="relative z-10 mx-auto max-w-4xl px-6 py-28 text-center sm:px-10 lg:py-40">
+            <span className="reveal mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[hsl(36,100%,72%)]">
               <Rocket className="h-3.5 w-3.5" />
               Apply
             </span>
-            <h2 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              Apply to the Inaugural Cohort
+            <h2 className="reveal font-display text-4xl font-bold leading-[1.05] tracking-tight text-white sm:text-6xl lg:text-7xl text-balance">
+              Ready to Apply to the Brand Lab?
             </h2>
-            <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
-              Applications for the September 2026 cohort are open. The program is free to join and reviewed
-              on a rolling basis.
+            <p className="reveal mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
+              Applications for the September 2026 inaugural cohort are open and reviewed on a rolling basis.
+              The Brand Lab is free to join — no program fee, no required equity.
             </p>
-            <div className="mt-9 flex justify-center">
+
+            <div className="reveal mt-10 flex justify-center">
               <a
                 href={APPLICATION_LINK}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-10 py-4 text-base font-semibold text-primary-foreground transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-primary/25"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-white px-10 py-4 text-base font-semibold text-[#0a0a1a] transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-white/10"
               >
                 Start Your Application
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
             </div>
-            <p className="mt-6 text-sm text-muted-foreground">
+
+            <p className="reveal mx-auto mt-8 max-w-2xl text-sm leading-relaxed text-white/55">
+              Participation in any funding program is entirely optional and has no effect on your selection
+              into the Brand Lab.
+            </p>
+
+            <p className="reveal mt-6 text-sm text-white/70">
               Questions? Contact{" "}
-              <a href="mailto:potter.peng@sunstoneinvestment.com" className="font-medium text-primary hover:underline">
+              <a href="mailto:potter.peng@sunstoneinvestment.com" className="font-medium text-white hover:underline">
                 potter.peng@sunstoneinvestment.com
               </a>{" "}
               or{" "}
-              <a href="mailto:angie.zuo@sunstoneinvestment.com" className="font-medium text-primary hover:underline">
+              <a href="mailto:angie.zuo@sunstoneinvestment.com" className="font-medium text-white hover:underline">
                 angie.zuo@sunstoneinvestment.com
               </a>
             </p>
           </div>
         </section>
 
-        {/* ══ 10. FAQ ══ */}
+        {/* ══ 6. FAQ ══ */}
         <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-3xl">
             <div className="reveal mb-12 text-center">
