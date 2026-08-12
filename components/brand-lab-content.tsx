@@ -42,27 +42,21 @@ const heroStats = [
   { value: "Sept 2026", label: "inaugural cohort" },
 ]
 
-const benefitCards = [
-  { icon: DollarSign, title: "Capital", description: "Up to $100K in funding opportunities" },
-  { icon: Package, title: "Resources", description: "Access to 30+ partners and world-class tools" },
-  { icon: Users, title: "Community", description: "A thriving network of founders, operators, and experts" },
-]
-
-const differentiators = [
+const accessItems = [
   {
-    icon: BookOpen,
-    title: "Practical & Sequential",
-    description: "One focused module per week that builds toward market entry.",
+    icon: DollarSign,
+    title: "Funding & capital readiness",
+    description: "We offer up to $100K in funding opportunities.",
+  },
+  {
+    icon: Package,
+    title: "Resources",
+    description: "Access to 30+ partners and world-class tools.",
   },
   {
     icon: Users,
-    title: "Expert-Led",
-    description: "Top operators, investors, and advisors from the Sunstone network teach and mentor.",
-  },
-  {
-    icon: Rocket,
-    title: "Built to Accelerate",
-    description: "Tools, templates, and office hours every week to help you move faster and with confidence.",
+    title: "Community",
+    description: "A thriving network of founders, operators, and experts.",
   },
 ]
 
@@ -172,10 +166,10 @@ export function BrandLabContent() {
               alt="Founders and partners networking at a Sunstone community event"
               className="h-full w-full object-cover object-center"
             />
-            {/* Purple film — keeps the photo readable and on-brand, not too bright */}
-            <div className="absolute inset-0 bg-[#0a0a1a]/55" />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/80 via-primary/45 to-[#0a0a1a]/70 mix-blend-multiply" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/20 to-transparent" />
+            {/* Purple film — lighter, keeps the photo visible while text stays readable */}
+            <div className="absolute inset-0 bg-[#0a0a1a]/30" />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/55 via-primary/25 to-[#0a0a1a]/40 mix-blend-multiply" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/85 via-[#0a0a1a]/10 to-transparent" />
           </div>
 
           <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-10 px-6 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
@@ -252,7 +246,7 @@ export function BrandLabContent() {
                 style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.9s 0.55s" }}
               >
                 <CheckCircle2 className="h-4 w-4" />
-                No program fee · No equity required
+                No Program Fee · Optional Equity Program
               </div>
             </div>
 
@@ -276,60 +270,49 @@ export function BrandLabContent() {
           </div>
         </header>
 
-        {/* ══ 2. WHAT BRAND LAB IS ══ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal mx-auto max-w-3xl text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <Sparkles className="h-3.5 w-3.5" />
-                The Program
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                What Brand Lab Is
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
-                A 12-week platform that equips global consumer brands to successfully launch, scale, and
-                raise in the U.S.
-              </p>
-            </div>
+        {/* ══ 2. THE PROGRAM ══ */}
+        <section className="px-6 py-24 sm:px-10 lg:py-36">
+          <div className="mx-auto max-w-5xl">
+            <span className="reveal mb-6 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+              <Sparkles className="h-3.5 w-3.5" />
+              What Brand Lab Is
+            </span>
 
-            {/* Benefit cards — Capital, Resources, Community */}
-            <div className="mt-14 grid gap-5 sm:grid-cols-3">
-              {benefitCards.map((card, i) => (
-                <div
-                  key={card.title}
-                  className={`reveal reveal-delay-${i + 1} flex items-start gap-4 rounded-2xl border border-border bg-muted/30 p-6`}
-                >
-                  <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <card.icon className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <h3 className="font-display text-base font-bold text-foreground">{card.title}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{card.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {/* Oversized title */}
+            <h2 className="reveal font-display text-5xl font-bold leading-[0.95] tracking-tight text-foreground sm:text-7xl lg:text-8xl">
+              The Program
+            </h2>
 
-            <p className="reveal mt-14 text-center font-display text-xl font-medium text-foreground sm:text-2xl">
-              Vetted brands. Expert partners. Proven process.
+            {/* Overview */}
+            <p className="reveal mt-8 max-w-3xl text-xl font-medium leading-relaxed text-foreground sm:text-2xl">
+              A 12-week incubation program that equips global and domestic consumer brands to successfully
+              launch, scale, and raise in the U.S.
             </p>
 
-            {/* Differentiators */}
-            <div className="mt-10 grid gap-6 sm:grid-cols-3">
-              {differentiators.map((d, i) => (
+            {/* You will get access to */}
+            <p className="reveal mt-16 font-display text-sm font-semibold uppercase tracking-widest text-primary">
+              You will get access to
+            </p>
+            <div className="mt-8 divide-y divide-border border-t border-border">
+              {accessItems.map((item, i) => (
                 <div
-                  key={d.title}
-                  className={`reveal reveal-delay-${i + 1} group rounded-2xl border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5`}
+                  key={item.title}
+                  className={`reveal reveal-delay-${i + 1} flex flex-col gap-3 py-8 sm:flex-row sm:items-baseline sm:gap-10`}
                 >
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-foreground/5 text-foreground/50 transition-colors group-hover:bg-primary/10 group-hover:text-primary">
-                    <d.icon className="h-5 w-5" />
+                  <div className="flex items-center gap-4 sm:w-72 sm:flex-shrink-0">
+                    <item.icon className="h-6 w-6 flex-shrink-0 text-primary" />
+                    <h3 className="font-display text-2xl font-bold tracking-tight text-foreground">
+                      {item.title}
+                    </h3>
                   </div>
-                  <h3 className="font-display text-lg font-bold text-foreground">{d.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{d.description}</p>
+                  <p className="text-lg leading-relaxed text-muted-foreground">{item.description}</p>
                 </div>
               ))}
             </div>
+
+            <p className="reveal mt-16 font-display text-2xl font-medium text-foreground sm:text-3xl">
+              Vetted brands. Expert partners. Proven process.
+            </p>
           </div>
         </section>
 
