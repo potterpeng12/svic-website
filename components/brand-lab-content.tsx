@@ -202,7 +202,7 @@ export function BrandLabContent() {
               </h1>
 
               <div
-                className="mt-8 max-w-xl border-l-2 border-white/40 pl-5"
+                className="mt-8 max-w-xl"
                 style={{
                   opacity: loaded ? 1 : 0,
                   transform: loaded ? "translateY(0)" : "translateY(20px)",
@@ -220,7 +220,7 @@ export function BrandLabContent() {
 
               {/* CTAs */}
               <div
-                className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
+                className="mt-10 flex flex-col gap-5 sm:flex-row sm:items-center"
                 style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.9s 0.45s" }}
               >
                 <a
@@ -234,15 +234,16 @@ export function BrandLabContent() {
                 </a>
                 <a
                   href="#curriculum"
-                  className="inline-flex items-center justify-center gap-2 rounded-full border border-white/25 bg-white/10 px-9 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20"
+                  className="group inline-flex items-center gap-2 text-base font-semibold text-white/80 transition-colors hover:text-white"
                 >
                   Explore the Program
+                  <ChevronDown className="h-4 w-4 transition-transform duration-300 group-hover:translate-y-0.5" />
                 </a>
               </div>
 
-              {/* Free badge */}
+              {/* Free note — plain text, no box */}
               <div
-                className="mt-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-500/15 px-5 py-2 text-sm font-semibold text-emerald-200 backdrop-blur-sm"
+                className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-emerald-200"
                 style={{ opacity: loaded ? 1 : 0, transition: "opacity 0.9s 0.55s" }}
               >
                 <CheckCircle2 className="h-4 w-4" />
@@ -250,18 +251,15 @@ export function BrandLabContent() {
               </div>
             </div>
 
-            {/* Stat strip */}
+            {/* Stat strip — open, no boxes */}
             <div
-              className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1"
+              className="flex flex-wrap gap-x-12 gap-y-8 lg:flex-col lg:gap-9 lg:border-none lg:pl-4"
               style={{ opacity: loaded ? 1 : 0, transition: "opacity 1s 0.6s" }}
             >
               {heroStats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="rounded-2xl border border-white/15 bg-white/10 px-5 py-5 backdrop-blur-md"
-                >
-                  <div className="font-display text-3xl font-bold text-white">{stat.value}</div>
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-white/60">
+                <div key={stat.label}>
+                  <div className="font-display text-4xl font-bold text-white sm:text-5xl">{stat.value}</div>
+                  <div className="mt-1.5 text-xs font-medium uppercase tracking-wider text-white/60">
                     {stat.label}
                   </div>
                 </div>
@@ -293,11 +291,11 @@ export function BrandLabContent() {
             <p className="reveal mt-16 font-display text-sm font-semibold uppercase tracking-widest text-primary">
               You will get access to
             </p>
-            <div className="mt-8 divide-y divide-border border-t border-border">
+            <div className="mt-8 flex flex-col gap-10">
               {accessItems.map((item, i) => (
                 <div
                   key={item.title}
-                  className={`reveal reveal-delay-${i + 1} flex flex-col gap-3 py-8 sm:flex-row sm:items-baseline sm:gap-10`}
+                  className={`reveal reveal-delay-${i + 1} flex flex-col gap-3 sm:flex-row sm:items-baseline sm:gap-10`}
                 >
                   <div className="flex items-center gap-4 sm:w-72 sm:flex-shrink-0">
                     <item.icon className="h-6 w-6 flex-shrink-0 text-primary" />
@@ -317,7 +315,7 @@ export function BrandLabContent() {
         </section>
 
         {/* ══ 3. WHO WE SELECT ══ */}
-        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal mx-auto max-w-3xl text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
@@ -333,21 +331,19 @@ export function BrandLabContent() {
               </p>
             </div>
 
-            {/* Four sectors — emphasized */}
-            <div className="mt-14">
+            {/* Four sectors — open, no boxes */}
+            <div className="mt-16">
               <p className="reveal text-center text-xs font-semibold uppercase tracking-widest text-primary">
                 Four consumer sectors
               </p>
-              <div className="mt-6 grid grid-cols-2 gap-4 lg:grid-cols-4">
+              <div className="mt-10 grid grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
                 {focusCategories.map((cat, i) => (
                   <div
                     key={cat.label}
-                    className={`reveal reveal-delay-${i + 1} group flex flex-col items-center justify-center gap-4 rounded-3xl border border-primary/15 bg-gradient-to-b from-primary/[0.07] to-card p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/10`}
+                    className={`reveal reveal-delay-${i + 1} group flex flex-col items-center gap-4 text-center`}
                   >
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                      <cat.icon className="h-7 w-7" />
-                    </div>
-                    <span className="font-display text-base font-bold leading-tight text-foreground">
+                    <cat.icon className="h-10 w-10 text-primary transition-transform duration-300 group-hover:-translate-y-1" />
+                    <span className="font-display text-lg font-bold leading-tight text-foreground">
                       {cat.label}
                     </span>
                   </div>
@@ -355,43 +351,40 @@ export function BrandLabContent() {
               </div>
             </div>
 
-            {/* Clean cohort facts band */}
-            <div className="reveal mt-8 grid gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-3">
-              <div className="bg-card p-8 text-center">
-                <div className="font-display text-4xl font-bold tracking-tight text-primary">6–10</div>
-                <p className="mt-2 text-sm font-medium text-foreground">brands per cohort</p>
-                <p className="mt-1 text-xs text-muted-foreground">Small by design — hands-on support for every founder.</p>
+            {/* Cohort facts — open three-up */}
+            <div className="reveal mt-20 grid gap-10 text-center sm:grid-cols-3">
+              <div>
+                <div className="font-display text-5xl font-bold tracking-tight text-primary">6–10</div>
+                <p className="mt-3 font-display text-base font-bold text-foreground">brands per cohort</p>
+                <p className="mt-1 text-sm text-muted-foreground">Small by design — hands-on support for every founder.</p>
               </div>
-              <div className="bg-card p-8 text-center">
+              <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary">Stage</p>
-                <p className="mt-2 font-display text-lg font-bold text-foreground">
+                <p className="mt-3 font-display text-xl font-bold text-foreground">
                   Ideation through market-ready product
                 </p>
               </div>
-              <div className="bg-card p-8 text-center">
+              <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary">Traction</p>
-                <p className="mt-2 font-display text-lg font-bold text-foreground">Under $200K GMV preferred</p>
-                <p className="mt-1 text-xs text-muted-foreground">Above that is still welcome to apply.</p>
+                <p className="mt-3 font-display text-xl font-bold text-foreground">Under $200K GMV preferred</p>
+                <p className="mt-1 text-sm text-muted-foreground">Above that is still welcome to apply.</p>
               </div>
             </div>
 
-            {/* Selection criteria — four blocks, emphasized */}
-            <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Selection criteria — open blocks */}
+            <div className="mt-20 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
               {selectionCriteria.map((c, i) => (
-                <div
-                  key={c.number}
-                  className={`reveal reveal-delay-${i + 1} rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5`}
-                >
-                  <span className="font-display text-2xl font-bold tabular-nums text-primary/50">
+                <div key={c.number} className={`reveal reveal-delay-${i + 1}`}>
+                  <span className="font-display text-3xl font-bold tabular-nums text-primary/40">
                     {c.number}
                   </span>
-                  <h3 className="mt-3 font-display text-base font-bold text-foreground">{c.title}</h3>
+                  <h3 className="mt-3 font-display text-lg font-bold text-foreground">{c.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.description}</p>
                 </div>
               ))}
             </div>
 
-            <p className="reveal mt-8 text-center text-sm text-muted-foreground">
+            <p className="reveal mt-16 text-center text-sm text-muted-foreground">
               Every company is screened for program fit, market readiness, and growth potential.
             </p>
           </div>
@@ -416,7 +409,7 @@ export function BrandLabContent() {
         </section>
 
         {/* ══ 5. FORMAT ══ */}
-        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal mx-auto max-w-3xl text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
@@ -431,36 +424,32 @@ export function BrandLabContent() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-16 grid gap-x-12 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
               {formatItems.map((item, i) => (
                 <div
                   key={item.title}
-                  className={`reveal reveal-delay-${(i % 3) + 1} flex items-start gap-4 rounded-2xl border border-border bg-card p-6`}
+                  className={`reveal reveal-delay-${(i % 3) + 1} flex items-start gap-4`}
                 >
-                  <div className="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <item.icon className="h-5 w-5" />
-                  </div>
+                  <item.icon className="mt-0.5 h-6 w-6 flex-shrink-0 text-primary" />
                   <div>
-                    <h3 className="font-display text-sm font-bold text-foreground">{item.title}</h3>
-                    <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
+                    <h3 className="font-display text-lg font-bold text-foreground">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.description}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Free callout with Apply Now */}
-            <div className="reveal mt-10 overflow-hidden rounded-3xl border border-emerald-500/20 bg-emerald-500/[0.06] p-8 text-center sm:p-12">
-              <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600">
-                <Gift className="h-6 w-6" />
-              </div>
-              <h3 className="font-display text-2xl font-bold text-foreground sm:text-3xl">
+            {/* Free callout — open, no box */}
+            <div className="reveal mt-24 text-center">
+              <Gift className="mx-auto h-8 w-8 text-emerald-600" />
+              <h3 className="mt-5 font-display text-3xl font-bold text-foreground sm:text-4xl">
                 The Brand Lab is free to join.
               </h3>
-              <p className="mx-auto mt-3 max-w-xl text-base leading-relaxed text-muted-foreground">
+              <p className="mx-auto mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
                 No program fee. No required equity. We measure ourselves on whether your brand grows —
                 that&apos;s the entire model.
               </p>
-              <div className="mt-7 flex justify-center">
+              <div className="mt-8 flex justify-center">
                 <a
                   href={APPLICATION_LINK}
                   target="_blank"
@@ -488,22 +477,17 @@ export function BrandLabContent() {
               </h2>
             </div>
 
-            <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <div className="mt-16 grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
               {timelineNodes.map((node, i) => (
-                <div key={node.number} className={`reveal reveal-delay-${i + 1} relative`}>
-                  {i < timelineNodes.length - 1 && (
-                    <div className="absolute left-[calc(2rem)] top-4 hidden h-px w-[calc(100%-1rem)] border-t border-dashed border-border lg:block" />
-                  )}
-                  <div className="relative">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-primary/30 bg-primary/10 font-display text-xs font-bold tabular-nums text-primary">
-                      {node.number}
-                    </span>
-                    <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-primary">
-                      {node.timing}
-                    </p>
-                    <h3 className="mt-1 font-display text-base font-bold text-foreground">{node.milestone}</h3>
-                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{node.detail}</p>
-                  </div>
+                <div key={node.number} className={`reveal reveal-delay-${i + 1}`}>
+                  <span className="font-display text-4xl font-bold tabular-nums text-primary/40">
+                    {node.number}
+                  </span>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-primary">
+                    {node.timing}
+                  </p>
+                  <h3 className="mt-1 font-display text-lg font-bold text-foreground">{node.milestone}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{node.detail}</p>
                 </div>
               ))}
             </div>
@@ -511,13 +495,8 @@ export function BrandLabContent() {
         </section>
 
         {/* ══ 7. FUNDING OPTIONS ══ */}
-        <section className="relative overflow-hidden bg-[#0a0a1a] px-6 py-24 sm:px-10 lg:py-32">
-          <div className="pointer-events-none absolute inset-0">
-            <div className="absolute bottom-0 left-1/3 h-80 w-80 rounded-full bg-primary/20 blur-[120px]" />
-            <div className="absolute top-0 right-1/4 h-72 w-72 rounded-full bg-[hsl(36,100%,60%)]/10 blur-[120px]" />
-          </div>
-
-          <div className="relative z-10 mx-auto max-w-6xl">
+        <section className="bg-[#0a0a1a] px-6 py-24 sm:px-10 lg:py-32">
+          <div className="mx-auto max-w-6xl">
             <div className="reveal mx-auto max-w-3xl text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[hsl(36,100%,65%)]">
                 <PiggyBank className="h-3.5 w-3.5" />
@@ -532,23 +511,18 @@ export function BrandLabContent() {
               </p>
             </div>
 
-            {/* Optional statement — moved up and enlarged */}
+            {/* Optional statement — enlarged */}
             <p className="reveal mx-auto mt-10 max-w-4xl text-center font-display text-2xl font-medium leading-snug text-white sm:text-3xl">
               Participation in either funding program is entirely optional. Choosing not to apply to either
               has <span className="text-[hsl(36,100%,70%)]">no effect</span> on your selection into the
               Brand Lab.
             </p>
 
-            <div className="mt-14 grid gap-6 lg:grid-cols-2">
+            <div className="mx-auto mt-16 grid max-w-4xl gap-14 lg:grid-cols-2">
               {fundingTracks.map((card) => (
-                <div
-                  key={card.title}
-                  className="reveal group rounded-3xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm transition-all duration-300 hover:border-white/20 hover:bg-white/[0.06] sm:p-10"
-                >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-white">
-                    <card.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="font-display text-2xl font-bold text-white">{card.title}</h3>
+                <div key={card.title} className="reveal">
+                  <card.icon className="h-8 w-8 text-white" />
+                  <h3 className="mt-5 font-display text-2xl font-bold text-white">{card.title}</h3>
                   <p className="mt-3 text-base leading-relaxed text-white/60">{card.description}</p>
                 </div>
               ))}
@@ -557,7 +531,7 @@ export function BrandLabContent() {
         </section>
 
         {/* ══ 8. PARTNERS ══ */}
-        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal mx-auto max-w-3xl text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
@@ -581,10 +555,10 @@ export function BrandLabContent() {
               <PartnerLogoWall />
             </div>
 
-            <div className="reveal mt-10 text-center">
+            <div className="reveal mt-12 text-center">
               <a
                 href="/#team"
-                className="group inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary/30 hover:shadow-md"
+                className="group inline-flex items-center gap-2 text-sm font-semibold text-primary transition-colors hover:text-primary/80"
               >
                 Interested in partnering?
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
@@ -632,31 +606,28 @@ export function BrandLabContent() {
         </section>
 
         {/* ══ 10. FAQ ══ */}
-        <section className="border-t border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-3xl">
-            <div className="reveal mb-10 text-center">
+            <div className="reveal mb-12 text-center">
               <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 Frequently Asked Questions
               </h2>
             </div>
 
-            <div className="space-y-3">
+            <div className="flex flex-col">
               {faqs.map((faq, i) => {
                 const isOpen = openFaq === i
                 return (
-                  <div
-                    key={i}
-                    className="reveal overflow-hidden rounded-2xl border border-border bg-card"
-                  >
+                  <div key={i} className="reveal">
                     <button
                       type="button"
                       onClick={() => setOpenFaq(isOpen ? null : i)}
-                      className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                      className="flex w-full items-center justify-between gap-4 py-6 text-left"
                       aria-expanded={isOpen}
                     >
-                      <span className="font-display text-base font-semibold text-foreground">{faq.q}</span>
+                      <span className="font-display text-lg font-semibold text-foreground">{faq.q}</span>
                       <ChevronDown
-                        className={`h-5 w-5 flex-shrink-0 text-muted-foreground transition-transform duration-300 ${
+                        className={`h-5 w-5 flex-shrink-0 text-primary transition-transform duration-300 ${
                           isOpen ? "rotate-180" : ""
                         }`}
                       />
@@ -666,7 +637,7 @@ export function BrandLabContent() {
                       style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                     >
                       <div className="overflow-hidden">
-                        <p className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground">{faq.a}</p>
+                        <p className="pb-6 pr-9 text-base leading-relaxed text-muted-foreground">{faq.a}</p>
                       </div>
                     </div>
                   </div>

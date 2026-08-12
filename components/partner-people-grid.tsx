@@ -19,7 +19,7 @@ function PartnerAvatar({ partner }: { partner: Partner }) {
   const showImage = partner.photo && !imgError
 
   return (
-    <div className="relative h-24 w-24 overflow-hidden rounded-full ring-2 ring-border/60 shadow-md sm:h-28 sm:w-28">
+    <div className="relative h-24 w-24 overflow-hidden rounded-full sm:h-28 sm:w-28">
       {showImage ? (
         <Image
           src={partner.photo as string}

@@ -5,11 +5,11 @@ import { partnerLogos } from "@/data/partners"
 export function PartnerLogoWall() {
   return (
     <div>
-      <div className="flex flex-wrap items-center justify-center gap-3">
+      <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-5">
         {partnerLogos.map((logo, i) => (
           <span
             key={logo}
-            className={`reveal reveal-delay-${(i % 6) + 1} inline-flex items-center rounded-full border border-border bg-card px-5 py-2.5 font-display text-sm font-semibold text-foreground/80 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/30 hover:text-foreground hover:shadow-md`}
+            className={`reveal reveal-delay-${(i % 6) + 1} font-display text-base font-semibold text-foreground/50 transition-colors duration-300 hover:text-foreground`}
           >
             {logo}
           </span>
