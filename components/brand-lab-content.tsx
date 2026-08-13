@@ -265,6 +265,15 @@ export function BrandLabContent() {
                 </div>
               ))}
             </div>
+
+            {/* Program photo */}
+            <div className="reveal mt-16 overflow-hidden rounded-3xl">
+              <img
+                src="/images/event-demo.jpg"
+                alt="Founders demonstrating their product to attendees at a Sunstone community event"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
         </section>
 
@@ -349,6 +358,35 @@ export function BrandLabContent() {
             <p className="reveal mt-16 text-center text-sm text-muted-foreground">
               Every company is screened for program fit, market readiness, and growth potential.
             </p>
+          </div>
+        </section>
+
+        {/* ══ Community gallery band ══ */}
+        <section className="px-6 pb-6 sm:px-10">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
+              <div className="reveal reveal-delay-1 overflow-hidden rounded-3xl">
+                <img
+                  src="/images/event-networking.jpg"
+                  alt="A founder in conversation at a Sunstone networking event"
+                  className="aspect-[4/5] h-full w-full object-cover"
+                />
+              </div>
+              <div className="reveal reveal-delay-2 overflow-hidden rounded-3xl lg:col-span-2 lg:row-span-1">
+                <img
+                  src="/images/event-booth.jpg"
+                  alt="A direct-to-consumer beverage brand booth at a Sunstone community event"
+                  className="aspect-[4/5] h-full w-full object-cover lg:aspect-auto"
+                />
+              </div>
+              <div className="reveal reveal-delay-3 overflow-hidden rounded-3xl">
+                <img
+                  src="/images/event-product.jpg"
+                  alt="Attendees examining a consumer product at a Sunstone showcase"
+                  className="aspect-[4/5] h-full w-full object-cover"
+                />
+              </div>
+            </div>
           </div>
         </section>
 
