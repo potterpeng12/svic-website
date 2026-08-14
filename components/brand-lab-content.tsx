@@ -59,29 +59,6 @@ const focusCategories = [
   { icon: Cpu, label: "Consumer Electronics", image: "/images/sector-electronics.png" },
 ]
 
-const selectionCriteria = [
-  {
-    number: "01",
-    title: "Consumer Focus",
-    description: "Differentiated products with a clear customer and strong brand potential.",
-  },
-  {
-    number: "02",
-    title: "Market Signal",
-    description: "Existing sales, customer traction, retail validation, or credible demand.",
-  },
-  {
-    number: "03",
-    title: "U.S. Readiness",
-    description: "A defined goal to launch, expand, or accelerate growth in the U.S.",
-  },
-  {
-    number: "04",
-    title: "Founder Commitment",
-    description: "Leadership ready to participate actively throughout the 12-week program.",
-  },
-]
-
 const faqs = [
   { q: "Is there really no cost?", a: "Yes. There is no program fee and no required equity." },
   { q: "Do I have to take investment?", a: "No, and it does not affect selection." },
@@ -342,20 +319,7 @@ export function BrandLabContent() {
               </div>
             </div>
 
-            {/* Selection criteria — open blocks */}
-            <div className="mt-20 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-              {selectionCriteria.map((c, i) => (
-                <div key={c.number} className={`reveal reveal-delay-${i + 1}`}>
-                  <span className="font-display text-3xl font-bold tabular-nums text-primary/40">
-                    {c.number}
-                  </span>
-                  <h3 className="mt-3 font-display text-lg font-bold text-foreground">{c.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.description}</p>
-                </div>
-              ))}
-            </div>
-
-            <p className="reveal mt-16 text-center text-sm text-muted-foreground">
+            <p className="reveal mt-20 text-center text-sm text-muted-foreground">
               Every company is screened for program fit, market readiness, and growth potential.
             </p>
           </div>
