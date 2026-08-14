@@ -28,12 +28,6 @@ import { PartnerLogoWall } from "@/components/partner-logo-wall"
 // Placeholder — replace with the live cohort application URL.
 const APPLICATION_LINK = "https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEyuQ/form"
 
-const heroStats = [
-  { value: "12", label: "weeks" },
-  { value: "Now Open", label: "accepting cohort applications" },
-  { value: "Sept 2026", label: "inaugural cohort" },
-]
-
 const accessItems = [
   {
     icon: DollarSign,
@@ -107,8 +101,8 @@ export function BrandLabContent() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a]/95 from-10% via-[#0a0a1a]/55 via-55% to-transparent" />
           </div>
 
-          <div className="relative z-10 mx-auto grid w-full max-w-6xl gap-10 px-6 sm:px-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-            <div>
+          <div className="relative z-10 mx-auto w-full max-w-6xl px-6 sm:px-10">
+            <div className="max-w-3xl">
               <a
                 href="/"
                 className="mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/60 transition-colors hover:text-white"
@@ -186,20 +180,6 @@ export function BrandLabContent() {
               </div>
             </div>
 
-            {/* Stat strip — open, no boxes */}
-            <div
-              className="flex flex-wrap gap-x-12 gap-y-8 lg:flex-col lg:gap-9 lg:border-none lg:pl-4"
-              style={{ opacity: loaded ? 1 : 0, transition: "opacity 1s 0.6s" }}
-            >
-              {heroStats.map((stat) => (
-                <div key={stat.label}>
-                  <div className="font-display text-4xl font-bold text-white sm:text-5xl">{stat.value}</div>
-                  <div className="mt-1.5 text-xs font-medium uppercase tracking-wider text-white/60">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </header>
 
