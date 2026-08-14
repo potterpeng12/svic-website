@@ -59,6 +59,25 @@ const focusCategories = [
   { icon: Cpu, label: "Consumer Electronics", image: "/images/sector-electronics.png" },
 ]
 
+const selectionCriteria = [
+  {
+    title: "Consumer Focus",
+    description: "Differentiated products with a clear customer and strong brand potential.",
+  },
+  {
+    title: "Market Signal",
+    description: "Existing sales, customer traction, retail validation, or credible demand.",
+  },
+  {
+    title: "U.S. Readiness",
+    description: "A defined goal to launch, expand, or accelerate growth in the U.S.",
+  },
+  {
+    title: "Founder Commitment",
+    description: "Leadership ready to participate actively throughout the 12-week program.",
+  },
+]
+
 const faqs = [
   { q: "Is there really no cost?", a: "Yes. There is no program fee and no required equity." },
   { q: "Do I have to take investment?", a: "No, and it does not affect selection." },
@@ -316,6 +335,21 @@ export function BrandLabContent() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary">Traction</p>
                 <p className="mt-3 font-display text-xl font-bold text-foreground">Under $200K GMV preferred</p>
                 <p className="mt-1 text-sm text-muted-foreground">Above that is still welcome to apply.</p>
+              </div>
+            </div>
+
+            {/* What we look for — open blocks, no boxes */}
+            <div className="mt-20">
+              <p className="reveal text-center text-xs font-semibold uppercase tracking-widest text-primary">
+                What we look for
+              </p>
+              <div className="mt-10 grid gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
+                {selectionCriteria.map((c, i) => (
+                  <div key={c.title} className={`reveal reveal-delay-${i + 1}`}>
+                    <h3 className="font-display text-lg font-bold text-foreground">{c.title}</h3>
+                    <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{c.description}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
