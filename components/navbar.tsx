@@ -8,6 +8,7 @@ const navLinks = [
   { label: "About", href: "/#about" },
   { label: "Portfolio", href: "/#portfolio" },
   { label: "Program", href: "/#program" },
+  { label: "Brand Lab", href: "/programs/dtc-brand-lab" },
   { label: "Perks", href: "/#perks" },
   { label: "Events", href: "/#events" },
   { label: "Team", href: "/#team" },
