@@ -4,33 +4,22 @@ import React, { useEffect, useState } from "react"
 import {
   ArrowUpRight,
   ArrowLeft,
-  ArrowRight,
   Sparkles,
-  Clock,
-  CheckCircle2,
-  Search,
-  FlaskConical,
-  Hammer,
-  Rocket,
-  TrendingUp,
-  Target,
-  Users,
   DollarSign,
-  Megaphone,
   Package,
-  BarChart3,
-  Palette,
-  ShoppingBag,
-  LineChart,
+  Users,
+  Utensils,
+  HeartPulse,
+  Shirt,
+  Cpu,
   Handshake,
-  Calendar,
   Plus,
   Minus,
 } from "lucide-react"
 import { useReveal } from "@/hooks/use-reveal"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
-import { partners } from "@/data/partners"
+import { brandLabPeople, ecosystemLogos } from "@/data/partners"
 
 const APPLY_URL = "https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEyuQ/form"
 
@@ -39,78 +28,54 @@ const APPLY_URL = "https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEyuQ/form
 const heroStats = [
   { value: "12", label: "Weeks" },
   { value: "$0", label: "Cost & Equity" },
-  { value: "5", label: "Verticals" },
+  { value: "4", label: "Sectors" },
   { value: "1:1", label: "Mentorship" },
 ]
 
-const stages = [
+const programAccess = [
   {
-    icon: Search,
-    title: "Discover",
-    description: "Sharpen your brand thesis, positioning, and the customer you are truly building for.",
+    icon: DollarSign,
+    title: "Funding & capital readiness",
+    description: "We offer up to $100K in funding opportunities.",
   },
   {
-    icon: FlaskConical,
-    title: "Validate",
-    description: "Pressure-test demand with real experiments before you spend a dollar on inventory.",
+    icon: Package,
+    title: "Resources",
+    description: "Access to 30+ partners and world-class tools.",
   },
   {
-    icon: Hammer,
-    title: "Build",
-    description: "Stand up your storefront, supply chain, and brand system with hands-on partner support.",
-  },
-  {
-    icon: Rocket,
-    title: "Launch",
-    description: "Go to market with a paid-acquisition and content engine designed for first traction.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Scale",
-    description: "Turn early signal into repeatable growth and a fundable, investor-ready story.",
+    icon: Users,
+    title: "Community",
+    description: "A thriving network of founders, operators, and experts.",
   },
 ]
 
-const marketData = [
-  { year: "2020", value: 111 },
-  { year: "2021", value: 129 },
-  { year: "2022", value: 155 },
-  { year: "2023", value: 187 },
-  { year: "2024", value: 213 },
-  { year: "2025", value: 243 },
+const sectors = [
+  { icon: Utensils, label: "Food & Beverage", img: "/images/sectors/food-beverage.png" },
+  { icon: HeartPulse, label: "Wellness & Personal Care", img: "/images/sectors/wellness.png" },
+  { icon: Shirt, label: "Apparel", img: "/images/sectors/apparel.png" },
+  { icon: Cpu, label: "Consumer Electronics", img: "/images/sectors/electronics.png" },
 ]
 
-const cohortTraits = [
-  "Pre-seed to early-revenue consumer founders",
-  "Building in Fashion, Beauty, Electronics, Food & Beverage, or Lifestyle",
-  "Based in or connected to Southern California",
-  "Coachable, mission-driven, and ready to move fast",
-  "Committed to the full 12-week cohort",
-]
-
-const curriculum = [
-  { icon: Target, title: "Brand Strategy", description: "Positioning, mission, and the story that makes you unmistakable." },
-  { icon: Palette, title: "Identity & Design", description: "Visual identity, packaging, and a system that scales." },
-  { icon: Users, title: "Audience & Community", description: "Find, grow, and keep the customers who love you." },
-  { icon: ShoppingBag, title: "E-commerce Infrastructure", description: "Storefront, payments, and fulfillment that just work." },
-  { icon: Megaphone, title: "Growth Marketing", description: "Paid, organic, and content engines built for first traction." },
-  { icon: Package, title: "Supply & Ops", description: "Sourcing, inventory, and margins that keep you healthy." },
-  { icon: LineChart, title: "Metrics & Finance", description: "Unit economics, dashboards, and the numbers investors ask for." },
-  { icon: DollarSign, title: "Fundraising", description: "Get investor-ready and understand what capital fits your brand." },
-  { icon: Handshake, title: "Partnerships", description: "Retail, collabs, and the relationships that unlock scale." },
-]
-
-const timeline = [
-  { step: "01", title: "Apply", description: "Submit a short application about your brand and vision. Under 5 minutes." },
-  { step: "02", title: "Interview", description: "Selected founders meet the Brand Lab team for a quick conversation." },
-  { step: "03", title: "Onboard", description: "Get matched with mentors, tools, and your cohort resources." },
-  { step: "04", title: "Cohort Begins", description: "Kick off 12 weeks of curriculum, workshops, and hands-on building." },
-]
-
-const regionStats = [
-  { value: "24M+", label: "People across Southern California" },
-  { value: "$1.4T", label: "Regional GDP — a top-tier global economy" },
-  { value: "#1", label: "U.S. region for consumer & lifestyle brands" },
+const selection = [
+  {
+    label: "Now Open",
+    accent: true,
+    value: "accepting cohort applications",
+    note: "Small by design — hands-on support for every founder.",
+  },
+  {
+    label: "Stage",
+    accent: false,
+    value: "Ideation through market-ready product",
+    note: "Every company is screened for program fit and growth potential.",
+  },
+  {
+    label: "Traction",
+    accent: false,
+    value: "Under $200K GMV preferred",
+    note: "Above that is still welcome to apply.",
+  },
 ]
 
 const faqs = [
@@ -124,7 +89,7 @@ const faqs = [
   },
   {
     q: "Do I need revenue or a product to apply?",
-    a: "No. We accept founders from pre-idea validation through early revenue. What matters most is commitment and a clear consumer focus.",
+    a: "No. We accept founders from ideation through market-ready product. What matters most is commitment and a clear consumer focus.",
   },
   {
     q: "Will the program help me raise capital?",
@@ -138,8 +103,6 @@ const faqs = [
 
 /* ─── Photo assignments ─── */
 const HERO_IMG = "/images/sunstone-collage-dtc.jpg"
-const FORMAT_IMG = "/images/dtc_imgs/DSC08196.JPG"
-const COHORT_IMG = "/images/dtc_imgs/DSC08334.JPG"
 const GALLERY_IMGS = [
   "/images/dtc_imgs/DSC08200.JPG",
   "/images/dtc_imgs/DSC08240.JPG",
@@ -176,7 +139,6 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 export function BrandLabContent() {
   const containerRef = useReveal()
   const [loaded, setLoaded] = useState(false)
-  const maxMarket = Math.max(...marketData.map((d) => d.value))
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100)
@@ -190,7 +152,7 @@ export function BrandLabContent() {
         {/* ════════ 1. HERO ════════ */}
         <header className="relative flex min-h-[92vh] items-end overflow-hidden">
           <div className="absolute inset-0">
-            <img src={HERO_IMG} alt="Sunstone DTC founders" className="h-full w-full object-cover" />
+            <img src={HERO_IMG || "/placeholder.svg"} alt="Sunstone DTC founders" className="h-full w-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/70 to-[#0a0a1a]/30" />
           </div>
 
@@ -267,353 +229,180 @@ export function BrandLabContent() {
           </div>
         </header>
 
-        {/* ════════ 2. PROGRAM OVERVIEW — 5-stage flow ════════ */}
+        {/* ════════ 2. THE PROGRAM (what Brand Lab is) ════════ */}
         <section id="program" className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
-            <div className="reveal mb-12 text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+            <div className="reveal">
+              <span className="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
                 <Sparkles className="h-3.5 w-3.5" />
-                The Journey
+                What Brand Lab Is
               </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                From Idea to Iconic Brand
+              <h2 className="font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+                The Program
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-                Twelve weeks structured around five stages, each with hands-on workshops, mentor
-                sessions, and clear milestones.
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+                A 12-week incubation program that equips global and domestic consumer brands to
+                successfully launch, scale, and raise in the U.S.
               </p>
             </div>
 
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-              {stages.map((stage, i) => (
-                <div
-                  key={stage.title}
-                  className={`reveal reveal-delay-${i + 1} group relative rounded-2xl border border-border bg-card p-6 transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5`}
-                >
-                  <div className="mb-4 flex items-center justify-between">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                      <stage.icon className="h-5 w-5" />
+            <div className="reveal reveal-delay-1 mt-16">
+              <span className="mb-8 block text-xs font-semibold uppercase tracking-widest text-primary">
+                You Will Get Access To
+              </span>
+              <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+                {programAccess.map((item) => (
+                  <div key={item.title} className="flex items-start gap-4">
+                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <item.icon className="h-5 w-5" />
                     </div>
-                    <span className="font-display text-sm font-bold tabular-nums text-foreground/30">
-                      0{i + 1}
-                    </span>
-                  </div>
-                  <h3 className="font-display text-lg font-bold text-foreground">{stage.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {stage.description}
-                  </p>
-                  {i < stages.length - 1 && (
-                    <ArrowRight className="absolute -right-3 top-1/2 hidden h-5 w-5 -translate-y-1/2 text-border lg:block" />
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ════════ 3. WHY NOW — stats + bar chart ════════ */}
-        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-16">
-            <div className="reveal">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[hsl(var(--warm))]">
-                <TrendingUp className="h-3.5 w-3.5" />
-                Why Now
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Consumer Is Being Rebuilt
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
-                Direct-to-consumer sales in the U.S. have more than doubled in five years. The tools
-                to launch a brand have never been cheaper — but the founders who win are the ones
-                with strategy, community, and the right partners around them.
-              </p>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground lg:text-lg">
-                {"That's exactly what the Brand Lab is built to provide."}
-              </p>
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                {[
-                  { v: "2x", l: "DTC sales growth since 2020" },
-                  { v: "$243B", l: "U.S. DTC e-commerce in 2025" },
-                  { v: "5", l: "Verticals we focus on" },
-                ].map((s) => (
-                  <div key={s.l}>
-                    <div className="font-display text-2xl font-bold text-foreground">{s.v}</div>
-                    <div className="mt-1 text-xs leading-snug text-muted-foreground">{s.l}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* CSS bar chart */}
-            <div className="reveal reveal-delay-2 rounded-2xl border border-border bg-card p-7">
-              <div className="mb-6 flex items-baseline justify-between">
-                <h3 className="font-display text-sm font-semibold text-foreground">
-                  U.S. DTC E-Commerce Sales
-                </h3>
-                <span className="text-xs font-medium text-muted-foreground">USD, billions</span>
-              </div>
-              <div className="flex h-56 items-end justify-between gap-3">
-                {marketData.map((d, i) => (
-                  <div key={d.year} className="flex h-full flex-1 flex-col items-center justify-end gap-2">
-                    <span className="text-xs font-semibold tabular-nums text-foreground/70">
-                      {d.value}
-                    </span>
-                    <div
-                      className="w-full rounded-t-md bg-gradient-to-t from-primary/60 to-primary transition-all duration-1000 ease-out"
-                      style={{
-                        height: loaded ? `${(d.value / maxMarket) * 82}%` : "0%",
-                        transitionDelay: `${i * 90}ms`,
-                      }}
-                    />
-                    <span className="text-xs font-medium text-muted-foreground">{d.year}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ════════ 4. COHORT PROFILE ════════ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
-            <div className="relative order-2 lg:order-1">
-              <div className="overflow-hidden rounded-2xl shadow-2xl shadow-foreground/5">
-                <img
-                  src={COHORT_IMG || "/placeholder.svg"}
-                  alt="Sunstone founder community"
-                  className="aspect-[4/3] h-full w-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-4 -left-4 -z-10 h-full w-full rounded-2xl border border-emerald-500/10 bg-emerald-500/[0.02]" />
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-emerald-600">
-                <CheckCircle2 className="h-3.5 w-3.5" />
-                Who We Select
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Built for Consumer Founders
-              </h2>
-              <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                We look for coachable, mission-driven founders ready to put in the work over a focused
-                12-week sprint.
-              </p>
-              <ul className="mt-8 space-y-3">
-                {cohortTraits.map((trait, i) => (
-                  <li
-                    key={trait}
-                    className={`reveal reveal-delay-${(i % 3) + 1} flex items-start gap-3 rounded-xl border border-border bg-card p-4 transition-all duration-300 hover:border-emerald-500/20 hover:bg-emerald-500/[0.02]`}
-                  >
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-emerald-500" />
-                    <span className="text-sm font-medium leading-relaxed text-foreground">
-                      {trait}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* ════════ 5. CURRICULUM — 3×3 grid ════════ */}
-        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal mb-12 text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <BarChart3 className="h-3.5 w-3.5" />
-                Curriculum
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Everything You Need to Build
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-                Nine practical modules covering the full journey from brand strategy to fundraising.
-              </p>
-            </div>
-
-            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-              {curriculum.map((mod, i) => (
-                <div
-                  key={mod.title}
-                  className={`reveal reveal-delay-${(i % 3) + 1} group rounded-2xl border border-border bg-card p-6 transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 hover:shadow-xl hover:shadow-primary/5`}
-                >
-                  <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
-                    <mod.icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="font-display text-base font-bold text-foreground">{mod.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                    {mod.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ════════ 6. PROGRAM FORMAT — with free callout ════════ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto grid max-w-6xl items-center gap-12 lg:grid-cols-2 lg:gap-20">
-            <div className="reveal">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <Clock className="h-3.5 w-3.5" />
-                The Format
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Twelve Focused Weeks
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
-                Live workshops, 1:1 mentorship, and hands-on building — a blend of in-person sessions
-                and remote-friendly work designed to fit around a founder&apos;s schedule.
-              </p>
-
-              <div className="mt-8 space-y-4">
-                {[
-                  { t: "Weekly workshops", d: "Led by operators who have scaled real consumer brands." },
-                  { t: "1:1 mentorship", d: "Matched advisors who know your vertical inside out." },
-                  { t: "Partner tools & credits", d: "Access to the same perks our portfolio companies use." },
-                ].map((row) => (
-                  <div key={row.t} className="flex items-start gap-3">
-                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
                     <div>
-                      <div className="text-sm font-semibold text-foreground">{row.t}</div>
-                      <div className="text-sm text-muted-foreground">{row.d}</div>
+                      <h3 className="font-display text-lg font-bold leading-snug text-foreground">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                        {item.description}
+                      </p>
                     </div>
                   </div>
                 ))}
               </div>
-
-              {/* Free callout */}
-              <div className="mt-8 flex items-center gap-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/[0.04] p-5">
-                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-emerald-500/10 font-display text-lg font-bold text-emerald-600">
-                  $0
-                </div>
-                <p className="text-sm leading-relaxed text-foreground">
-                  <span className="font-semibold">100% free, no equity.</span> We invest in the
-                  ecosystem — not your cap table.
-                </p>
-              </div>
-            </div>
-
-            <div className="reveal reveal-delay-2 relative">
-              <div className="overflow-hidden rounded-2xl shadow-2xl shadow-foreground/5">
-                <img
-                  src={FORMAT_IMG || "/placeholder.svg"}
-                  alt="Founder workshop session"
-                  className="aspect-[4/3] h-full w-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 -z-10 h-full w-full rounded-2xl border border-primary/10 bg-primary/[0.03]" />
             </div>
           </div>
         </section>
 
-        {/* ════════ 7. TIMELINE — 4 nodes ════════ */}
+        {/* ════════ 3. WHO WE SELECT (the cohort) ════════ */}
         <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
-            <div className="reveal mb-12 text-center">
+            <div className="reveal text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <Calendar className="h-3.5 w-3.5" />
-                Getting In
+                <Users className="h-3.5 w-3.5" />
+                The Cohort
               </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                From Application to Cohort
+              <h2 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                Who We Select
               </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-                A simple, four-step path to your seat in the Brand Lab.
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
+                A focused cohort of U.S.-based and international consumer brands ready to launch,
+                scale, and raise capital in the U.S.
               </p>
             </div>
 
-            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-              {timeline.map((node, i) => (
-                <div key={node.step} className={`reveal reveal-delay-${i + 1} relative`}>
-                  {i < timeline.length - 1 && (
-                    <div className="absolute left-[calc(100%_-_1rem)] top-4 hidden h-px w-[calc(100%_-_2rem)] border-t border-dashed border-border lg:block" />
-                  )}
-                  <div className="mb-4 flex items-center gap-3">
-                    <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-primary/30 bg-primary/10 text-xs font-bold tabular-nums text-primary">
-                      {node.step}
-                    </span>
-                    <h3 className="font-display text-lg font-bold text-foreground">{node.title}</h3>
-                  </div>
-                  <p className="pl-11 text-sm leading-relaxed text-muted-foreground">
-                    {node.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ════════ 8. FUNDING ════════ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal relative overflow-hidden rounded-3xl border border-border bg-card p-10 sm:p-14">
-              <div className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full bg-primary/5 blur-3xl" />
-              <div className="relative grid items-center gap-10 lg:grid-cols-[1.4fr_1fr]">
-                <div>
-                  <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-[hsl(var(--warm))]">
-                    <DollarSign className="h-3.5 w-3.5" />
-                    Beyond the Program
-                  </span>
-                  <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                    A Pathway to Capital
-                  </h2>
-                  <p className="mt-5 text-base leading-relaxed text-muted-foreground lg:text-lg">
-                    The Brand Lab makes you investor-ready. For standout brands, it opens the door to
-                    Sunstone&apos;s DTC investment track — aligned early-stage capital and a network of
-                    partners who have scaled iconic consumer companies.
-                  </p>
-                  <a
-                    href="/apply"
-                    className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/20"
+            <div className="reveal reveal-delay-1 mt-14">
+              <p className="mb-6 text-center text-xs font-semibold uppercase tracking-widest text-primary">
+                Four Consumer Sectors
+              </p>
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {sectors.map((sector) => (
+                  <div
+                    key={sector.label}
+                    className="group relative aspect-[3/4] overflow-hidden rounded-2xl"
                   >
-                    Explore the DTC Investment Track
-                    <ArrowUpRight className="h-4 w-4" />
-                  </a>
-                </div>
-                <div className="rounded-2xl border border-border bg-background p-7 text-center">
-                  <div className="font-display text-4xl font-bold text-foreground sm:text-5xl">
-                    $10K–$1M
+                    <img
+                      src={sector.img || "/placeholder.svg"}
+                      alt={sector.label}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/20 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 p-5">
+                      <sector.icon className="h-5 w-5 flex-shrink-0 text-white" />
+                      <span className="font-display text-base font-bold leading-tight text-white text-balance">
+                        {sector.label}
+                      </span>
+                    </div>
                   </div>
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    Potential aligned capital for brands that graduate into the investment track.
-                  </p>
-                </div>
+                ))}
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* ════════ 9. REGIONAL STATS ════════ */}
-        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-24">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal mb-10 text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <Target className="h-3.5 w-3.5" />
-                Rooted in Southern California
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                One of the World&apos;s Great Consumer Markets
-              </h2>
-            </div>
-            <div className="grid gap-6 sm:grid-cols-3">
-              {regionStats.map((stat, i) => (
-                <div
-                  key={stat.label}
-                  className={`reveal reveal-delay-${i + 1} rounded-2xl border border-border bg-card p-8 text-center`}
-                >
-                  <div className="font-display text-4xl font-bold text-primary sm:text-5xl">
-                    {stat.value}
+            <div className="reveal reveal-delay-2 mt-14 grid gap-6 border-t border-border pt-12 text-center sm:grid-cols-3 sm:text-left">
+              {selection.map((item) => (
+                <div key={item.label}>
+                  <div
+                    className={`font-display text-3xl font-bold sm:text-4xl ${
+                      item.accent ? "text-primary" : "text-foreground"
+                    }`}
+                  >
+                    {item.label === "Now Open" ? (
+                      "Now Open"
+                    ) : (
+                      <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                        {item.label}
+                      </span>
+                    )}
                   </div>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{stat.label}</p>
+                  <p
+                    className={`mt-2 leading-snug text-foreground ${
+                      item.accent ? "text-sm font-medium" : "text-lg font-semibold"
+                    }`}
+                  >
+                    {item.value}
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.note}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ════════ Community gallery band ════════ */}
+        {/* ════════ 4. PARTNERS ALREADY IN THE BRAND LAB ════════ */}
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="reveal text-center">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+                <Handshake className="h-3.5 w-3.5" />
+                Partners
+              </span>
+              <h2 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                Partners Already in the Brand Lab
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
+                Confirmed partners contributing expertise, market access, and hands-on support to the
+                Brand Lab cohort.
+              </p>
+            </div>
+
+            {/* People grid */}
+            <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-5">
+              {brandLabPeople.map((person, i) => (
+                <div
+                  key={person.name}
+                  className={`reveal reveal-delay-${(i % 4) + 1} flex flex-col items-center text-center`}
+                >
+                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary font-display text-2xl font-bold text-primary-foreground shadow-lg shadow-primary/20">
+                    {person.initials}
+                  </div>
+                  <h3 className="mt-4 font-display text-base font-bold text-foreground">
+                    {person.name}
+                  </h3>
+                  <p className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    {person.role}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Logo wall */}
+            <div className="reveal mt-20 border-t border-border pt-14">
+              <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+                {ecosystemLogos.map((logo) => (
+                  <span
+                    key={logo}
+                    className="font-display text-lg font-semibold text-muted-foreground/70 transition-colors duration-300 hover:text-foreground sm:text-xl"
+                  >
+                    {logo}
+                  </span>
+                ))}
+              </div>
+              <p className="mx-auto mt-12 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
+                Logos indicate collaborators in the Sunstone ecosystem. Relationships are
+                non-exclusive and do not imply endorsement of the Brand Lab.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════ 5. COMMUNITY PHOTO BAND ════════ */}
         <section className="reveal overflow-hidden">
           <div className="grid grid-cols-3 gap-0.5">
             {GALLERY_IMGS.map((src, i) => (
@@ -629,42 +418,8 @@ export function BrandLabContent() {
           </div>
         </section>
 
-        {/* ════════ 10. PARTNERS — grid + logo wall ════════ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal mb-12 text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <Handshake className="h-3.5 w-3.5" />
-                Partners
-              </span>
-              <h2 className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-                Backed by an Ecosystem
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
-                Brand Lab founders tap into the same tools, credits, and expertise trusted by the
-                Sunstone portfolio.
-              </p>
-            </div>
-
-            <div className="reveal grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-              {partners.map((partner) => (
-                <div
-                  key={partner.name}
-                  className="flex h-24 items-center justify-center rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5"
-                >
-                  <img
-                    src={partner.logo || "/placeholder.svg"}
-                    alt={`${partner.name} logo`}
-                    className="max-h-12 w-auto max-w-[70%] object-contain opacity-70 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ════════ 11. CLOSING CTA ════════ */}
-        <section className="reveal px-6 pb-20 sm:px-10 lg:pb-28">
+        {/* ════════ 6. CLOSING CTA ════════ */}
+        <section className="reveal px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="relative overflow-hidden rounded-3xl bg-[#0a0a1a] p-10 text-center sm:p-16 lg:p-20">
               <div className="absolute inset-0">
