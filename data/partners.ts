@@ -6,19 +6,24 @@ export interface BrandLabPerson {
   name: string
   role: string
   initials: string
+  photo: string
 }
 
 export const brandLabPeople: BrandLabPerson[] = [
-  { name: "Dave De Csepel", role: "Alliance for SoCal Innovation", initials: "DD" },
-  { name: "Sophie Zhu", role: "Head of Partnership at Shopline", initials: "SZ" },
-  { name: "Disha Gulati", role: "CEO at Here Here Market", initials: "DG" },
-  { name: "Adam Carrillo", role: "CEO at Partake Collective", initials: "AC" },
-  { name: "Greg Manly", role: "Consultant at TriNet", initials: "GM" },
-  { name: "Gene Cao", role: "Director at Insta360", initials: "GC" },
-  { name: "Connie Shih", role: "VP, Startup Banking at J.P. Morgan", initials: "CS" },
-  { name: "Sarah Choi", role: "Attorney at Cooley", initials: "SC" },
-  { name: "Jenny Hsu", role: "Head of Day 2 Coaching", initials: "JH" },
-  { name: "Chris Sun", role: "CEO at BrandPal", initials: "CS" },
+  { name: "Dave De Csepel", role: "CEO at Alliance for SoCal", initials: "DD", photo: "/images/partners/dave-de-csepel.jpg" },
+  { name: "Sophie Zhu", role: "Head of Partnership at SHOPLINE", initials: "SZ", photo: "/images/partners/sophie-zhu.jpg" },
+  { name: "Disha Gulati", role: "CEO at Here Here Market", initials: "DG", photo: "/images/partners/disha-gulati.jpg" },
+  { name: "Sarah Choi", role: "Attorney at Cooley", initials: "SC", photo: "/images/partners/sarah-choi.jpg" },
+  { name: "Paul Shrater", role: "Founder of Minimus Brand", initials: "PS", photo: "/images/partners/paul-shrater.jpg" },
+  { name: "Sylvia Wu", role: "Category Manager at TikTok Shop", initials: "SW", photo: "/images/partners/sylvia-wu.jpg" },
+  { name: "Connie Shih", role: "VP, Startup Banking at J.P. Morgan", initials: "CS", photo: "/images/partners/connie-shih.jpg" },
+  { name: "Chris Sun", role: "CEO at BrandPal", initials: "CS", photo: "/images/partners/chris-sun.jpg" },
+  { name: "Adam Carrillo", role: "CEO at Partake Collective", initials: "AC", photo: "/images/partners/adam-carrillo.jpg" },
+  { name: "Greg Manly", role: "HR Consultant at TriNet", initials: "GM", photo: "/images/partners/greg-manly.jpg" },
+  { name: "Gene Cao", role: "Director at Insta360", initials: "GC", photo: "/images/partners/gene-cao.jpg" },
+  { name: "Alex Hejazi", role: "CEO at Placement", initials: "AH", photo: "/images/partners/alex-hejazi.jpg" },
+  { name: "Dr. Cervantes Lee", role: "Hospitality Professor at UNLV", initials: "CL", photo: "/images/partners/cervantes-lee.jpg" },
+  { name: "Jenny Hsu", role: "Founder of Day2 Studio", initials: "JH", photo: "/images/partners/jenny-hsu.jpg" },
 ]
 
 /**
