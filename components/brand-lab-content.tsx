@@ -19,6 +19,7 @@ import {
 import { useReveal } from "@/hooks/use-reveal"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
+import { WhatYouGain } from "@/components/what-you-gain"
 import { brandLabPeople, ecosystemLogos } from "@/data/partners"
 
 const APPLY_URL = "https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEyuQ/form"
@@ -68,7 +69,7 @@ const selection = [
     label: "Stage",
     accent: false,
     value: "Ideation through market-ready product",
-    note: "Every company is screened for program fit and growth potential.",
+    note: "From first concept to shelf-ready — all early stages welcome.",
   },
   {
     label: "Traction",
@@ -271,7 +272,71 @@ export function BrandLabContent() {
           </div>
         </section>
 
-        {/* ════════ 3. WHO WE SELECT (the cohort) ════════ */}
+        {/* ════════ 3. WHAT YOU GAIN — five-stage journey ════════ */}
+        <WhatYouGain />
+
+        {/* ════════ 4. PARTNERS ALREADY IN THE BRAND LAB ════════ */}
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="reveal text-center">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+                <Handshake className="h-3.5 w-3.5" />
+                Partners
+              </span>
+              <h2 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+                Partners Already in the Brand Lab
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
+                Confirmed partners contributing expertise, market access, and hands-on support to the
+                Brand Lab cohort.
+              </p>
+            </div>
+
+            {/* People grid */}
+            <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-5">
+              {brandLabPeople.map((person, i) => (
+                <div
+                  key={person.name}
+                  className={`reveal reveal-delay-${(i % 4) + 1} flex flex-col items-center text-center`}
+                >
+                  <div className="h-24 w-24 overflow-hidden rounded-full shadow-lg shadow-primary/10 ring-1 ring-border">
+                    <img
+                      src={person.photo || "/placeholder.svg"}
+                      alt={person.name}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <h3 className="mt-4 font-display text-base font-bold text-foreground">
+                    {person.name}
+                  </h3>
+                  <p className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    {person.role}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Logo wall */}
+            <div className="reveal mt-20 border-t border-border pt-14">
+              <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+                {ecosystemLogos.map((logo) => (
+                  <span
+                    key={logo}
+                    className="font-display text-lg font-semibold text-muted-foreground/70 transition-colors duration-300 hover:text-foreground sm:text-xl"
+                  >
+                    {logo}
+                  </span>
+                ))}
+              </div>
+              <p className="mx-auto mt-12 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
+                Logos indicate collaborators in the Sunstone ecosystem. Relationships are
+                non-exclusive and do not imply endorsement of the Brand Lab.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════ 5. WHO WE SELECT (the cohort) ════════ */}
         <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal text-center">
@@ -342,67 +407,14 @@ export function BrandLabContent() {
                 </div>
               ))}
             </div>
+
+            <p className="reveal reveal-delay-2 mx-auto mt-12 max-w-2xl text-center text-base leading-relaxed text-muted-foreground">
+              Every company is screened for program fit, market readiness, and growth potential.
+            </p>
           </div>
         </section>
 
-        {/* ════════ 4. PARTNERS ALREADY IN THE BRAND LAB ════════ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="reveal text-center">
-              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <Handshake className="h-3.5 w-3.5" />
-                Partners
-              </span>
-              <h2 className="font-display text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-                Partners Already in the Brand Lab
-              </h2>
-              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
-                Confirmed partners contributing expertise, market access, and hands-on support to the
-                Brand Lab cohort.
-              </p>
-            </div>
-
-            {/* People grid */}
-            <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-5">
-              {brandLabPeople.map((person, i) => (
-                <div
-                  key={person.name}
-                  className={`reveal reveal-delay-${(i % 4) + 1} flex flex-col items-center text-center`}
-                >
-                  <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary font-display text-2xl font-bold text-primary-foreground shadow-lg shadow-primary/20">
-                    {person.initials}
-                  </div>
-                  <h3 className="mt-4 font-display text-base font-bold text-foreground">
-                    {person.name}
-                  </h3>
-                  <p className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
-                    {person.role}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Logo wall */}
-            <div className="reveal mt-20 border-t border-border pt-14">
-              <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-                {ecosystemLogos.map((logo) => (
-                  <span
-                    key={logo}
-                    className="font-display text-lg font-semibold text-muted-foreground/70 transition-colors duration-300 hover:text-foreground sm:text-xl"
-                  >
-                    {logo}
-                  </span>
-                ))}
-              </div>
-              <p className="mx-auto mt-12 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
-                Logos indicate collaborators in the Sunstone ecosystem. Relationships are
-                non-exclusive and do not imply endorsement of the Brand Lab.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* ════════ 5. COMMUNITY PHOTO BAND ════════ */}
+        {/* ════════ 6. COMMUNITY PHOTO BAND ════════ */}
         <section className="reveal overflow-hidden">
           <div className="grid grid-cols-3 gap-0.5">
             {GALLERY_IMGS.map((src, i) => (
