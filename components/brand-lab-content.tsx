@@ -15,6 +15,7 @@ import {
   Handshake,
   Plus,
   Minus,
+  CalendarClock,
 } from "lucide-react"
 import { useReveal } from "@/hooks/use-reveal"
 import { Navbar } from "@/components/navbar"
@@ -69,6 +70,37 @@ const selection = [
     accent: false,
     value: "Under $200K GMV preferred",
     note: "Above that is still welcome to apply.",
+  },
+]
+
+const cohortTimeline = [
+  {
+    num: "01",
+    month: "Now",
+    title: "Partner conversations",
+    desc: "Founding partner terms agreed over the summer.",
+    color: "#4f46e5",
+  },
+  {
+    num: "02",
+    month: "September",
+    title: "Cohort kickoff",
+    desc: "Brands begin 12 weeks in Los Angeles.",
+    color: "#7c3aed",
+  },
+  {
+    num: "03",
+    month: "October",
+    title: "Southern California Tech Weeks",
+    desc: "LA Tech Week · OC Tech Week · Glendale Tech Week · and more.",
+    color: "#9333ea",
+  },
+  {
+    num: "04",
+    month: "December",
+    title: "Investor Showcase",
+    desc: "Public finale with investor judging.",
+    color: "#c026d3",
   },
 ]
 
@@ -374,6 +406,58 @@ export function BrandLabContent() {
             <p className="reveal reveal-delay-2 mx-auto mt-12 max-w-2xl text-center text-base leading-relaxed text-muted-foreground">
               Every company is screened for program fit, market readiness, and growth potential.
             </p>
+
+            {/* Cohort Timeline */}
+            <div className="reveal mt-20 text-center">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+                <CalendarClock className="h-3.5 w-3.5" />
+                Cohort Timeline
+              </span>
+            </div>
+
+            <div className="reveal reveal-delay-1 mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+              {cohortTimeline.map((step, i) => (
+                <div key={step.month} className="relative flex flex-col">
+                  {/* Connector line + numbered node */}
+                  <div className="relative mb-8 flex items-center">
+                    <span
+                      className="relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full font-display text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20"
+                      style={{ background: step.color }}
+                    >
+                      {step.num}
+                    </span>
+                    {i < cohortTimeline.length - 1 && (
+                      <span
+                        className="ml-1 hidden h-0.5 flex-1 rounded-full lg:block"
+                        style={{
+                          background: `linear-gradient(to right, ${step.color}, ${cohortTimeline[i + 1].color})`,
+                        }}
+                      />
+                    )}
+                  </div>
+
+                  {/* Card */}
+                  <div className="flex flex-1 flex-col rounded-2xl border border-border bg-card p-6 lg:mr-4">
+                    <span
+                      className="text-xs font-bold uppercase tracking-widest"
+                      style={{ color: step.color }}
+                    >
+                      {step.month}
+                    </span>
+                    <span
+                      className="mt-3 block h-0.5 w-8 rounded-full"
+                      style={{ background: step.color }}
+                    />
+                    <h3 className="mt-4 font-display text-xl font-bold leading-tight text-foreground text-balance">
+                      {step.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground text-pretty">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

@@ -128,7 +128,7 @@ export function WhatYouGain() {
             What You Gain
           </span>
           <h2 className="mx-auto max-w-2xl font-display text-4xl font-bold tracking-tight text-foreground text-balance sm:text-5xl">
-            A Clear Path From Idea to Iconic Brand
+            Everything You Need to Move Your Brand Forward
           </h2>
         </div>
 
