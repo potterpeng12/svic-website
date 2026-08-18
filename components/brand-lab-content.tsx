@@ -26,13 +26,6 @@ const APPLY_URL = "https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEyuQ/form
 
 /* ─── Data ─── */
 
-const heroStats = [
-  { value: "12", label: "Weeks" },
-  { value: "$0", label: "Cost & Equity" },
-  { value: "4", label: "Sectors" },
-  { value: "1:1", label: "Mentorship" },
-]
-
 const programAccess = [
   {
     icon: DollarSign,
@@ -103,7 +96,7 @@ const faqs = [
 ]
 
 /* ─── Photo assignments ─── */
-const HERO_IMG = "/images/sunstone-collage-dtc.jpg"
+const HERO_IMG = "/images/hero-brand-lab.jpg"
 const GALLERY_IMGS = [
   "/images/dtc_imgs/DSC08200.JPG",
   "/images/dtc_imgs/DSC08240.JPG",
@@ -166,20 +159,6 @@ export function BrandLabContent() {
               Back to Home
             </a>
 
-            <div className="reveal mb-6 flex flex-wrap items-center gap-3">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/80 backdrop-blur-sm">
-                <Sparkles className="h-3 w-3" />
-                Free 12-Week Program
-              </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-500/10 px-4 py-1.5 text-xs font-semibold text-emerald-300 backdrop-blur-sm">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                </span>
-                Applications Open
-              </span>
-            </div>
-
             <h1
               className="reveal max-w-4xl font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
               style={{
@@ -188,14 +167,13 @@ export function BrandLabContent() {
                 transition: "all 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
               }}
             >
-              {"The DTC "}
-              <span className="text-shimmer">Brand Lab</span>
+              {"Where Consumer Brands "}
+              <span className="text-shimmer">Break Through</span>
             </h1>
 
             <p className="reveal mt-6 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg lg:text-xl">
-              A free 12-week incubator for early-stage consumer founders. Real curriculum, expert
-              partners, and a community built to help you launch and scale an iconic brand — at no
-              cost and no equity.
+              Launch, scale, and last with the right knowledge, resources, and people — all at no
+              cost to founders.
             </p>
 
             <div className="reveal mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -215,18 +193,6 @@ export function BrandLabContent() {
                 How It Works
               </a>
             </div>
-
-            {/* Stat strip */}
-            <div className="reveal mt-14 grid max-w-3xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-4">
-              {heroStats.map((stat) => (
-                <div key={stat.label} className="bg-[#0a0a1a]/40 px-5 py-6 backdrop-blur-sm">
-                  <div className="font-display text-3xl font-bold text-white">{stat.value}</div>
-                  <div className="mt-1 text-xs font-medium uppercase tracking-wider text-white/50">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </header>
 
@@ -234,16 +200,13 @@ export function BrandLabContent() {
         <section id="program" className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal">
-              <span className="mb-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
-                <Sparkles className="h-3.5 w-3.5" />
-                What Brand Lab Is
-              </span>
               <h2 className="font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                The Program
+                Sunstone DTC Brand Lab
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-                A 12-week incubation program that equips global and domestic consumer brands to
-                successfully launch, scale, and raise in the U.S.
+                A free 12-week incubator for early-stage consumer founders. Real curriculum, expert
+                partners, and a community built to help you build an iconic brand at no cost and no
+                equity.
               </p>
             </div>
 
@@ -272,10 +235,7 @@ export function BrandLabContent() {
           </div>
         </section>
 
-        {/* ════════ 3. WHAT YOU GAIN — five-stage journey ════════ */}
-        <WhatYouGain />
-
-        {/* ════════ 4. PARTNERS ALREADY IN THE BRAND LAB ════════ */}
+        {/* ════════ 3. PARTNERS ALREADY IN THE BRAND LAB ════════ */}
         <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal text-center">
@@ -336,8 +296,11 @@ export function BrandLabContent() {
           </div>
         </section>
 
+        {/* ════════ 4. WHAT YOU GAIN — progression ════════ */}
+        <WhatYouGain />
+
         {/* ════════ 5. WHO WE SELECT (the cohort) ════════ */}
-        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
