@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { usePathname } from "next/navigation"
-import { Menu, X, ArrowUpRight } from "lucide-react"
+import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react"
 
 interface NavLink {
   label: string
@@ -83,8 +83,9 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
               if (link.children) {
                 return (
                   <div key={link.href} className="group relative">
-                    <a href={link.href} className={linkClass}>
+                    <a href={link.href} className={`${linkClass} inline-flex items-center gap-1`}>
                       {link.label}
+                      <ChevronDown className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-180" />
                     </a>
                     <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100">
                       <div className="min-w-[170px] rounded-2xl border border-border/50 bg-background/95 p-1.5 shadow-lg shadow-foreground/[0.06] backdrop-blur-2xl">
