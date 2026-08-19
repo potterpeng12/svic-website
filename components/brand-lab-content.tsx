@@ -241,6 +241,20 @@ export function BrandLabContent() {
                 partners, and a community built to help you build an iconic brand at no cost and no
                 equity.
               </p>
+
+              <div className="mt-10 max-w-2xl">
+                <h3 className="font-display text-xl font-bold text-foreground">Our Mission</h3>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                  Sunstone Brand Lab exists to help emerging consumer brands turn ambition into
+                  sustainable growth by connecting founders with practical expertise, industry
+                  resources, strategic partners, and a collaborative community.
+                </p>
+                <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                  {
+                    "Our mission is to bridge the gap between building a great product and building a lasting brand\u2014giving founders the knowledge, connections, and support they need to grow, scale, and succeed in the U.S. market."
+                  }
+                </p>
+              </div>
             </div>
 
             <div className="reveal reveal-delay-1 mt-16">
