@@ -119,7 +119,7 @@ export function WhatYouGain() {
   const fill = stages.length > 1 ? (active / (stages.length - 1)) * 100 : 0
 
   return (
-    <section id="what-you-gain" className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
+    <section id="what-you-gain" className="bg-background px-6 py-20 sm:px-10 lg:py-28">
       <div className="mx-auto max-w-5xl">
         {/* Header */}
         <div className="reveal text-center">
