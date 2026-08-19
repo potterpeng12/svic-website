@@ -233,7 +233,8 @@ export function BrandLabContent() {
           <div className="mx-auto max-w-6xl">
             <div className="reveal">
               <h2 className="font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                Sunstone DTC Brand Lab
+                {"Sunstone "}
+                <span className="text-shimmer">DTC Brand Lab</span>
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
                 A free 12-week incubator for early-stage consumer founders. Real curriculum, expert
