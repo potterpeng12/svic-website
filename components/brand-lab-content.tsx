@@ -493,7 +493,7 @@ export function BrandLabContent() {
         </section>
 
         {/* ════════ FAQ ════════ */}
-        <section className="px-6 pb-24 sm:px-10 lg:pb-32">
+        <section className="border-t border-border px-6 pb-24 pt-20 sm:px-10 lg:pb-32 lg:pt-28">
           <div className="mx-auto max-w-3xl">
             <div className="reveal mb-10 text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">

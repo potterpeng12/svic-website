@@ -133,18 +133,18 @@ export function WhatYouGain() {
         </div>
 
         {/* Progression stepper */}
-        <div className="reveal sticky top-16 z-20 mt-12 rounded-2xl border border-border bg-background/85 px-5 py-5 backdrop-blur-md sm:px-8">
+        <div className="reveal sticky top-16 z-20 mx-auto mt-12 max-w-3xl rounded-xl border border-border bg-background/85 px-4 py-3.5 backdrop-blur-md sm:px-6">
           <div className="flex items-center">
             {stages.map((s, i) => (
               <React.Fragment key={s.num}>
                 <button
                   type="button"
                   onClick={() => scrollToStage(i)}
-                  className="group flex flex-col items-center gap-2"
+                  className="group flex flex-col items-center gap-1.5"
                   aria-label={`${s.num} ${s.title}`}
                 >
                   <span
-                    className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full font-display text-xs font-bold tabular-nums transition-all duration-300"
+                    className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full font-display text-[11px] font-bold tabular-nums transition-all duration-300"
                     style={
                       i <= active
                         ? { background: s.accent, color: "#fff", transform: i === active ? "scale(1.12)" : "scale(1)" }
@@ -154,14 +154,14 @@ export function WhatYouGain() {
                     {s.num}
                   </span>
                   <span
-                    className="hidden text-xs font-semibold transition-colors duration-300 sm:block"
+                    className="hidden text-[11px] font-semibold transition-colors duration-300 sm:block"
                     style={{ color: i === active ? "hsl(var(--foreground))" : "hsl(var(--muted-foreground))" }}
                   >
                     {s.title}
                   </span>
                 </button>
                 {i < stages.length - 1 && (
-                  <div className="relative mx-2 h-0.5 flex-1 self-start rounded-full bg-border sm:mt-4">
+                  <div className="relative mx-1.5 h-0.5 flex-1 self-start rounded-full bg-border sm:mt-3.5">
                     <div
                       className="absolute inset-y-0 left-0 rounded-full transition-[width] duration-500 ease-out"
                       style={{ width: i < active ? "100%" : "0%", background: stages[i].accent }}
