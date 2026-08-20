@@ -57,7 +57,7 @@ const selection = [
     label: "Now Open",
     accent: true,
     value: "accepting cohort applications",
-    note: "Small by design — hands-on support for every founder.",
+    note: "Small by design — hands-on support for every founder. Every company is screened for program fit, market readiness, and growth potential.",
   },
   {
     label: "Stage",
@@ -242,6 +242,16 @@ export function BrandLabContent() {
                 equity.
               </p>
 
+              <a
+                href={APPLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
+              >
+                Apply Now to the Brand Lab
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+
               <div className="mt-10 max-w-2xl">
                 <h3 className="font-display text-xl font-bold text-foreground">Our Mission</h3>
                 <p className="mt-4 text-base leading-relaxed text-muted-foreground">
@@ -356,10 +366,6 @@ export function BrandLabContent() {
                 </div>
               ))}
             </div>
-
-            <p className="reveal reveal-delay-2 mx-auto mt-12 max-w-2xl text-center text-base leading-relaxed text-muted-foreground">
-              Every company is screened for program fit, market readiness, and growth potential.
-            </p>
 
             {/* Cohort Timeline */}
             <div className="reveal mt-20 text-center">

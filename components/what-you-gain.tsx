@@ -184,37 +184,37 @@ export function WhatYouGain() {
                   stageRefs.current[i] = el
                 }}
                 data-index={i}
-                className="reveal rounded-2xl border bg-card p-6 transition-all duration-300 sm:p-8"
+                className="reveal rounded-xl border bg-card p-4 transition-all duration-300 sm:p-5"
                 style={{
                   borderColor: isActive ? stage.accent : "hsl(var(--border))",
-                  boxShadow: isActive ? `0 10px 40px -18px ${stage.accent}` : "none",
+                  boxShadow: isActive ? `0 8px 30px -16px ${stage.accent}` : "none",
                 }}
               >
-                <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:gap-8">
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
                   {/* Number + title */}
-                  <div className="flex items-center gap-4 sm:w-72 sm:flex-shrink-0">
+                  <div className="flex items-center gap-3 sm:w-60 sm:flex-shrink-0">
                     <span
-                      className="font-display text-5xl font-bold leading-none tracking-tight transition-colors duration-300 sm:text-6xl"
+                      className="font-display text-3xl font-bold leading-none tracking-tight transition-colors duration-300 sm:text-4xl"
                       style={{ color: isActive ? stage.accent : "hsl(var(--muted-foreground) / 0.35)" }}
                     >
                       {stage.num}
                     </span>
                     <div>
-                      <h3 className="font-display text-xl font-bold uppercase tracking-tight text-foreground sm:text-2xl">
+                      <h3 className="font-display text-base font-bold uppercase tracking-tight text-foreground sm:text-lg">
                         {stage.title}
                       </h3>
-                      <p className="mt-1 text-sm leading-snug text-muted-foreground">{stage.blurb}</p>
+                      <p className="mt-1 text-xs leading-snug text-muted-foreground">{stage.blurb}</p>
                     </div>
                   </div>
 
                   {/* Item chips */}
-                  <div className="flex flex-wrap gap-2.5 sm:flex-1">
+                  <div className="flex flex-wrap gap-2 sm:flex-1">
                     {stage.items.map((item) => (
                       <span
                         key={item.label}
-                        className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-medium text-foreground"
+                        className="inline-flex items-center gap-1.5 rounded-full border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground"
                       >
-                        <item.icon className="h-4 w-4" style={{ color: stage.accent }} />
+                        <item.icon className="h-3.5 w-3.5" style={{ color: stage.accent }} />
                         {item.label}
                       </span>
                     ))}
