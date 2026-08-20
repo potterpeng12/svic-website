@@ -233,8 +233,8 @@ export function BrandLabContent() {
           <div className="mx-auto max-w-6xl">
             <div className="reveal">
               <h2 className="font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                {"Sunstone "}
-                <span className="text-shimmer">DTC Brand Lab</span>
+                {"What is the "}
+                <span className="text-shimmer">Brand Lab</span>
               </h2>
               <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
                 A free 12-week incubator for early-stage consumer founders. Real curriculum, expert
@@ -329,7 +329,7 @@ export function BrandLabContent() {
               </div>
             </div>
 
-            <div className="reveal reveal-delay-2 mt-14 grid gap-6 border-t border-border pt-12 text-center sm:grid-cols-3 sm:text-left">
+            <div className="reveal reveal-delay-2 mt-14 grid gap-6 pt-12 text-center sm:grid-cols-3 sm:text-left">
               {selection.map((item) => (
                 <div key={item.label}>
                   <div
@@ -428,58 +428,6 @@ export function BrandLabContent() {
                 <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* ════════ 6. CLOSING CTA ════════ */}
-        <section className="reveal px-6 py-20 sm:px-10 lg:py-28">
-          <div className="mx-auto max-w-6xl">
-            <div className="relative overflow-hidden rounded-3xl bg-[#0a0a1a] p-10 text-center sm:p-16 lg:p-20">
-              <div className="absolute inset-0">
-                <img
-                  src="/images/dtc_imgs/DSC08209.JPG"
-                  alt=""
-                  className="h-full w-full object-cover opacity-20"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0a0a1a]/90 via-[#0a0a1a]/80 to-[#0a0a1a]/90" />
-              </div>
-              <div className="pointer-events-none absolute inset-0">
-                <div className="absolute right-1/4 top-0 h-64 w-64 rounded-full bg-primary/15 blur-[100px]" />
-                <div className="absolute bottom-0 left-1/4 h-64 w-64 rounded-full bg-emerald-500/10 blur-[100px]" />
-              </div>
-
-              <div className="relative z-10">
-                <span className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/60">
-                  <Sparkles className="h-3 w-3" />
-                  Applications Open
-                </span>
-                <h2 className="font-display text-4xl font-bold tracking-tight text-white text-balance sm:text-5xl lg:text-6xl">
-                  {"Your Brand Starts "}
-                  <span className="text-shimmer">Here</span>
-                </h2>
-                <p className="mx-auto mt-5 max-w-lg text-base leading-relaxed text-white/50 lg:text-lg">
-                  Join a free 12-week cohort built to help you launch, grow, and fund the next great
-                  consumer brand. No cost. No equity. Just momentum.
-                </p>
-                <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-5">
-                  <a
-                    href={APPLY_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-2.5 rounded-full bg-white px-10 py-4 text-base font-semibold text-[#0a0a1a] transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-white/10"
-                  >
-                    Apply to the Brand Lab
-                    <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                  </a>
-                  <a
-                    href="mailto:community@sunstoneinvestment.com"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-transparent px-10 py-4 text-base font-semibold text-white/80 transition-all duration-300 hover:border-white/30 hover:bg-white/5"
-                  >
-                    Contact Us
-                  </a>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
