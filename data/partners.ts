@@ -22,7 +22,6 @@ export const brandLabPeople: BrandLabPerson[] = [
   { name: "Greg Manly", role: "HR Consultant at TriNet", initials: "GM", photo: "/images/partners/greg-manly.jpg" },
   { name: "Gene Cao", role: "Director at Insta360", initials: "GC", photo: "/images/partners/gene-cao.jpg" },
   { name: "Alex Hejazi", role: "CEO at Placement", initials: "AH", photo: "/images/partners/alex-hejazi.jpg" },
-  { name: "Dr. Cervantes Lee", role: "Hospitality Professor at UNLV", initials: "CL", photo: "/images/partners/cervantes-lee.jpg" },
   { name: "Jenny Hsu", role: "Founder of Day2 Studio", initials: "JH", photo: "/images/partners/jenny-hsu.jpg" },
   { name: "Ken Xu", role: "Senior Product Manager at Devz AI", initials: "KX", photo: "/images/partners/ken-xu.jpg" },
   { name: "Bianca Jeanty", role: "Client Partner at Snap Inc", initials: "BJ", photo: "/images/partners/bianca-jeanty.jpg" },

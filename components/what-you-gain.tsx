@@ -69,7 +69,7 @@ const stages: Stage[] = [
   },
   {
     num: "04",
-    title: "Prepare Capital",
+    title: "Capital Readiness",
     blurb: "Become investor-ready and unlock pathways to funding.",
     accent: "#c026d3",
     items: [
@@ -127,7 +127,7 @@ export function WhatYouGain() {
             <Sparkles className="h-3.5 w-3.5" />
             What You Gain
           </span>
-          <h2 className="mx-auto max-w-2xl font-display text-4xl font-bold tracking-tight text-foreground text-balance sm:text-5xl">
+          <h2 className="mx-auto max-w-3xl font-display text-4xl font-bold tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
             Everything You Need to Move Your Brand Forward
           </h2>
         </div>
