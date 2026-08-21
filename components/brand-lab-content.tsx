@@ -480,22 +480,28 @@ export function BrandLabContent() {
 
             {/* Logo wall */}
             <div className="reveal mt-20 border-t border-border pt-14">
-              <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+              <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-10">
                 {ecosystemLogos.map((logo) =>
                   logo.image ? (
-                    <img
+                    <div
                       key={logo.name}
-                      src={logo.image || "/placeholder.svg"}
-                      alt={logo.name}
-                      className="h-7 w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-8"
-                    />
-                  ) : (
-                    <span
-                      key={logo.name}
-                      className="font-display text-lg font-semibold text-muted-foreground/70 transition-colors duration-300 hover:text-foreground sm:text-xl"
+                      className="flex h-16 w-40 items-center justify-center sm:h-20 sm:w-44"
                     >
-                      {logo.name}
-                    </span>
+                      <img
+                        src={logo.image || "/placeholder.svg"}
+                        alt={logo.name}
+                        className="max-h-full max-w-full object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      key={logo.name}
+                      className="flex h-16 w-40 items-center justify-center sm:h-20 sm:w-44"
+                    >
+                      <span className="font-display text-xl font-semibold text-muted-foreground/70 transition-colors duration-300 hover:text-foreground sm:text-2xl">
+                        {logo.name}
+                      </span>
+                    </div>
                   ),
                 )}
               </div>
