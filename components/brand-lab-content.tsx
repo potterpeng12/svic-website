@@ -107,7 +107,7 @@ const cohortTimeline = [
 const faqs = [
   {
     q: "Is the Brand Lab really free?",
-    a: "Yes. The Brand Lab is 100% free and we take no equity. Our goal is to strengthen Southern California's consumer ecosystem by helping founders build durable brands.",
+      a: "Yes. The Brand Lab is 100% free with an option for equity program. Our goal is to strengthen Southern California's consumer ecosystem by helping founders build durable brands.",
   },
   {
     q: "How much time does it require?",
@@ -192,7 +192,7 @@ export function BrandLabContent() {
             </a>
 
             <h1
-              className="reveal max-w-5xl font-display text-5xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl xl:text-8xl"
+              className="reveal whitespace-nowrap font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
               style={{
                 opacity: loaded ? 1 : 0,
                 transform: loaded ? "translateY(0)" : "translateY(24px)",
@@ -329,8 +329,8 @@ export function BrandLabContent() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/20 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 p-5">
-                      <sector.icon className="h-5 w-5 flex-shrink-0 text-white" />
-                      <span className="font-display text-base font-bold leading-tight text-white text-balance">
+                    <sector.icon className="h-6 w-6 flex-shrink-0 text-white" />
+                    <span className="font-display text-lg font-bold leading-tight text-white text-balance sm:text-xl">
                         {sector.label}
                       </span>
                     </div>

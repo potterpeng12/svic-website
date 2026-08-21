@@ -212,7 +212,7 @@ export function WhatYouGain() {
                     {stage.items.map((item) => (
                       <span
                         key={item.label}
-                        className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3.5 py-2 text-sm font-medium text-foreground"
+                        className="inline-flex items-center gap-2 py-2 pr-3 text-sm font-medium text-foreground"
                       >
                         <item.icon className="h-4 w-4" style={{ color: stage.accent }} />
                         {item.label}
