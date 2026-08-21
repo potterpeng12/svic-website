@@ -485,7 +485,7 @@ export function BrandLabContent() {
                   logo.image ? (
                     <div
                       key={logo.name}
-                      className="flex h-16 w-40 items-center justify-center sm:h-20 sm:w-44"
+                      className="flex h-10 w-[6.25rem] items-center justify-center sm:h-[3.125rem] sm:w-[6.875rem]"
                     >
                       <img
                         src={logo.image || "/placeholder.svg"}
@@ -496,7 +496,7 @@ export function BrandLabContent() {
                   ) : (
                     <div
                       key={logo.name}
-                      className="flex h-16 w-40 items-center justify-center sm:h-20 sm:w-44"
+                      className="flex h-10 w-[6.25rem] items-center justify-center sm:h-[3.125rem] sm:w-[6.875rem]"
                     >
                       <span className="font-display text-xl font-semibold text-muted-foreground/70 transition-colors duration-300 hover:text-foreground sm:text-2xl">
                         {logo.name}
