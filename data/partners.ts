@@ -28,29 +28,35 @@ export const brandLabPeople: BrandLabPerson[] = [
 ]
 
 /**
- * Collaborators across the Sunstone ecosystem, shown as a text logo wall.
+ * Collaborators across the Sunstone ecosystem, shown as a logo wall.
+ * `image` renders the brand's real logo; entries without one fall back to text.
  * Relationships are non-exclusive and do not imply endorsement of the Brand Lab.
  */
-export const ecosystemLogos: string[] = [
-  "Amazon",
-  "Alibaba.com",
-  "SHOPLINE",
-  "Insta360",
-  "TikTok",
-  "LLAC",
-  "Devz",
-  "Minimus",
-  "Mondelez International",
-  "J.P. Morgan",
-  "Cooley",
-  "Here Here Market",
-  "Day Two",
-  "Pasadena Angels",
-  "Placement",
-  "Alliance for SoCal Innovation",
-  "FastMoss",
-  "BrandPal",
-  "TriNet",
-  "Partake Collective",
-  "WSJ",
+export interface EcosystemLogo {
+  name: string
+  image?: string
+}
+
+export const ecosystemLogos: EcosystemLogo[] = [
+  { name: "Amazon", image: "/images/logos/amazon.png" },
+  { name: "Alibaba.com", image: "/images/logos/alibaba.png" },
+  { name: "SHOPLINE", image: "/images/logos/shopline.png" },
+  { name: "Insta360", image: "/images/logos/insta360.webp" },
+  { name: "TikTok", image: "/images/logos/tiktok.webp" },
+  { name: "LLAC", image: "/images/logos/llac.webp" },
+  { name: "Devz", image: "/images/logos/devz.jpg" },
+  { name: "Minimus", image: "/images/logos/minimus.webp" },
+  { name: "Mondelez International", image: "/images/logos/mondelez.webp" },
+  { name: "J.P. Morgan", image: "/images/logos/jpmorgan.webp" },
+  { name: "Cooley", image: "/images/logos/cooley.png" },
+  { name: "Here Here Market", image: "/images/logos/here-here-market.png" },
+  { name: "Day Two", image: "/images/logos/day-two.webp" },
+  { name: "Pasadena Angels", image: "/images/logos/pasadena-angels.avif" },
+  { name: "Placement", image: "/images/logos/placement.webp" },
+  { name: "Alliance for SoCal Innovation", image: "/images/logos/alliance-socal.webp" },
+  { name: "FastMoss", image: "/images/logos/fastmoss.webp" },
+  { name: "BrandPal" },
+  { name: "TriNet" },
+  { name: "Partake Collective" },
+  { name: "WSJ" },
 ]

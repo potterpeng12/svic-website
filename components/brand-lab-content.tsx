@@ -480,15 +480,24 @@ export function BrandLabContent() {
 
             {/* Logo wall */}
             <div className="reveal mt-20 border-t border-border pt-14">
-              <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
-                {ecosystemLogos.map((logo) => (
-                  <span
-                    key={logo}
-                    className="font-display text-lg font-semibold text-muted-foreground/70 transition-colors duration-300 hover:text-foreground sm:text-xl"
-                  >
-                    {logo}
-                  </span>
-                ))}
+              <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+                {ecosystemLogos.map((logo) =>
+                  logo.image ? (
+                    <img
+                      key={logo.name}
+                      src={logo.image || "/placeholder.svg"}
+                      alt={logo.name}
+                      className="h-7 w-auto object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0 sm:h-8"
+                    />
+                  ) : (
+                    <span
+                      key={logo.name}
+                      className="font-display text-lg font-semibold text-muted-foreground/70 transition-colors duration-300 hover:text-foreground sm:text-xl"
+                    >
+                      {logo.name}
+                    </span>
+                  ),
+                )}
               </div>
               <p className="mx-auto mt-12 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
                 Logos indicate collaborators in the Sunstone ecosystem. Relationships are
