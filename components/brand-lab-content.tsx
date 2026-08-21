@@ -1,6 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
+import Image from "next/image"
 import {
   ArrowUpRight,
   ArrowLeft,
@@ -231,39 +232,51 @@ export function BrandLabContent() {
         {/* ════════ 2. THE PROGRAM (what Brand Lab is) ════════ */}
         <section id="program" className="px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
-            <div className="reveal">
-              <h2 className="font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
-                {"What is the "}
-                <span className="text-shimmer">Brand Lab</span>
-              </h2>
-              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-                A free 12-week incubator for early-stage consumer founders. Real curriculum, expert
-                partners, and a community built to help you build an iconic brand at no cost and no
-                equity.
-              </p>
-
-              <a
-                href={APPLY_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
-              >
-                Apply Now to the Brand Lab
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-              </a>
-
-              <div className="mt-10 max-w-2xl">
-                <h3 className="font-display text-xl font-bold text-foreground">Our Mission</h3>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                  Sunstone Brand Lab exists to help emerging consumer brands turn ambition into
-                  sustainable growth by connecting founders with practical expertise, industry
-                  resources, strategic partners, and a collaborative community.
+            <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+              <div className="reveal">
+                <h2 className="font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+                  {"What is the "}
+                  <span className="text-shimmer">Brand Lab</span>
+                </h2>
+                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+                  A free 12-week incubator for early-stage consumer founders. Real curriculum, expert
+                  partners, and a community built to help you build an iconic brand at no cost and no
+                  equity.
                 </p>
-                <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-                  {
-                    "Our mission is to bridge the gap between building a great product and building a lasting brand\u2014giving founders the knowledge, connections, and support they need to grow, scale, and succeed in the U.S. market."
-                  }
-                </p>
+
+                <a
+                  href={APPLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
+                >
+                  Apply Now to the Brand Lab
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+
+                <div className="mt-10 max-w-2xl">
+                  <h3 className="font-display text-xl font-bold text-foreground">Our Mission</h3>
+                  <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                    Sunstone Brand Lab exists to help emerging consumer brands turn ambition into
+                    sustainable growth by connecting founders with practical expertise, industry
+                    resources, strategic partners, and a collaborative community.
+                  </p>
+                  <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                    {
+                      "Our mission is to bridge the gap between building a great product and building a lasting brand\u2014giving founders the knowledge, connections, and support they need to grow, scale, and succeed in the U.S. market."
+                    }
+                  </p>
+                </div>
+              </div>
+
+              <div className="reveal reveal-delay-1 relative aspect-[4/5] w-full overflow-hidden rounded-3xl md:aspect-[5/6]">
+                <Image
+                  src="/images/brand-lab-founders.png"
+                  alt="Three Sunstone Brand Lab founders speaking on stage with microphones at a Pipeline demo event"
+                  fill
+                  sizes="(min-width: 768px) 40vw, 90vw"
+                  className="object-cover object-center"
+                />
               </div>
             </div>
 
