@@ -255,13 +255,13 @@ export function BrandLabContent() {
                 </a>
 
                 <div className="mt-10 max-w-2xl">
-                  <h3 className="font-display text-xl font-bold text-foreground">Our Mission</h3>
-                  <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                  <h3 className="font-display text-2xl font-bold text-foreground sm:text-3xl">Our Mission</h3>
+                  <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                     Sunstone Brand Lab exists to help emerging consumer brands turn ambition into
                     sustainable growth by connecting founders with practical expertise, industry
                     resources, strategic partners, and a collaborative community.
                   </p>
-                  <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+                  <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                     {
                       "Our mission is to bridge the gap between building a great product and building a lasting brand\u2014giving founders the knowledge, connections, and support they need to grow, scale, and succeed in the U.S. market."
                     }
@@ -287,14 +287,14 @@ export function BrandLabContent() {
               <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
                 {programAccess.map((item) => (
                   <div key={item.title} className="flex items-start gap-4">
-                    <div className="flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                      <item.icon className="h-5 w-5" />
+                    <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <item.icon className="h-7 w-7" />
                     </div>
                     <div>
-                      <h3 className="font-display text-lg font-bold leading-snug text-foreground">
+                      <h3 className="font-display text-2xl font-bold leading-snug text-foreground">
                         {item.title}
                       </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                      <p className="mt-2 text-lg leading-relaxed text-muted-foreground">
                         {item.description}
                       </p>
                     </div>
@@ -356,26 +356,26 @@ export function BrandLabContent() {
               {selection.map((item) => (
                 <div key={item.label}>
                   <div
-                    className={`font-display text-3xl font-bold sm:text-4xl ${
+                    className={`font-display text-4xl font-bold sm:text-5xl ${
                       item.accent ? "text-primary" : "text-foreground"
                     }`}
                   >
                     {item.label === "Now Open" ? (
                       "Now Open"
                     ) : (
-                      <span className="text-xs font-semibold uppercase tracking-widest text-primary">
+                      <span className="text-sm font-semibold uppercase tracking-widest text-primary">
                         {item.label}
                       </span>
                     )}
                   </div>
                   <p
                     className={`mt-2 leading-snug text-foreground ${
-                      item.accent ? "text-sm font-medium" : "text-lg font-semibold"
+                      item.accent ? "text-lg font-medium" : "text-xl font-semibold"
                     }`}
                   >
                     {item.value}
                   </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.note}</p>
+                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">{item.note}</p>
                 </div>
               ))}
             </div>

@@ -144,7 +144,7 @@ export function WhatYouGain() {
                   aria-label={`${s.num} ${s.title}`}
                 >
                   <span
-                    className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full font-display text-[11px] font-bold tabular-nums transition-all duration-300"
+                    className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full font-display text-sm font-bold tabular-nums transition-all duration-300"
                     style={
                       i <= active
                         ? { background: s.accent, color: "#fff", transform: i === active ? "scale(1.12)" : "scale(1)" }
@@ -154,7 +154,7 @@ export function WhatYouGain() {
                     {s.num}
                   </span>
                   <span
-                    className="hidden text-[11px] font-semibold transition-colors duration-300 sm:block"
+                    className="hidden text-sm font-semibold transition-colors duration-300 sm:block"
                     style={{ color: i === active ? "hsl(var(--foreground))" : "hsl(var(--muted-foreground))" }}
                   >
                     {s.title}
