@@ -87,8 +87,8 @@
   transform: scale(1);
 }
 
-/* Accessibility + resilience: never keep content hidden when motion is
-   reduced or JavaScript hasn't run. Content must be immediately visible. */
+/* Accessibility: never keep content hidden when motion is reduced.
+   Content must be immediately visible. */
 @media (prefers-reduced-motion: reduce) {
   .reveal,
   .reveal-scale {
@@ -96,12 +96,6 @@
     transform: none !important;
     transition: none !important;
   }
-}
-.no-js .reveal,
-.no-js .reveal-scale {
-  opacity: 1 !important;
-  transform: none !important;
-  transition: none !important;
 }
 
 /* ===== MARQUEE ===== */

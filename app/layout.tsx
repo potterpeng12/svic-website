@@ -21,15 +21,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`no-js bg-background ${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
+    <html lang="en" className={`bg-background ${inter.variable} ${spaceGrotesk.variable}`} suppressHydrationWarning>
       <head>
-        {/* Remove the no-js flag as early as possible so reveal animations
-            run when JS is available, but content stays visible when it isn't. */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `document.documentElement.classList.remove('no-js')`,
-          }}
-        />
+        {/* When JavaScript is unavailable, reveal animations never fire, so
+            force all reveal content visible immediately. */}
+        <noscript>
+          <style>{`.reveal,.reveal-scale{opacity:1!important;transform:none!important;transition:none!important}`}</style>
+        </noscript>
       </head>
       <body className="font-sans antialiased" suppressHydrationWarning>{children}</body>
     </html>
