@@ -129,7 +129,7 @@ const faqs = [
 ]
 
 /* ─── Photo assignments ─── */
-const HERO_IMG = "/images/hero-brand-lab-consumer.png"
+const HERO_IMG = "/images/hero-brand-lab.jpg"
 const GALLERY_IMGS = [
   "/images/dtc_imgs/DSC08200.JPG",
   "/images/dtc_imgs/DSC08240.JPG",
@@ -183,7 +183,7 @@ export function BrandLabContent() {
           <div className="absolute inset-0">
             <img
               src={HERO_IMG || "/placeholder.svg"}
-              alt="A curated retail shelf of emerging consumer brands — beverages, wellness products, apparel, and electronics"
+              alt="Sunstone DTC founders"
               className="h-full w-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/70 to-[#0a0a1a]/30" />
