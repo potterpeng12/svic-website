@@ -147,10 +147,10 @@ export function Hero() {
           }}
         >
           <a
-            href="#program"
+            href="/programs/dtc-brand-lab"
             className="group inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-base font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20"
           >
-            Get Access
+            Apply to Brand Lab Now
             <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
           </a>
           <a
