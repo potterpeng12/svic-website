@@ -250,7 +250,7 @@ export function BrandLabContent() {
                   rel="noopener noreferrer"
                   className="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
                 >
-                  Apply Now to the Brand Lab
+                  Apply Now
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
 
