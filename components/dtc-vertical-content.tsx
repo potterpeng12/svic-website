@@ -240,7 +240,7 @@ export function DtcVerticalContent() {
         {/* ════════════════════════════════════════════════════════════
             4. WHAT WE PROVIDE — 4-pillar grid, wider
         ════════════════════════════════════════════════════════════ */}
-        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
+        <section className="border-y border-border bg-background px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal text-center mb-10">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
@@ -340,7 +340,7 @@ export function DtcVerticalContent() {
         {/* ════════════════════════════════════════════════════════════
             7. HOW IT WORKS — horizontal timeline-style steps
         ════════════════════════════════════════════════════════════ */}
-        <section className="border-y border-border bg-muted/30 px-6 py-20 sm:px-10 lg:py-28">
+        <section className="border-y border-border bg-background px-6 py-20 sm:px-10 lg:py-28">
           <div className="mx-auto max-w-6xl">
             <div className="reveal text-center mb-10">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">

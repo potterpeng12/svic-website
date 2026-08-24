@@ -1,0 +1,552 @@
+"use client"
+
+import React, { useEffect, useState } from "react"
+import Image from "next/image"
+import {
+  ArrowUpRight,
+  ArrowLeft,
+  Sparkles,
+  DollarSign,
+  Package,
+  Users,
+  Utensils,
+  HeartPulse,
+  Shirt,
+  Cpu,
+  Handshake,
+  Plus,
+  Minus,
+  CalendarClock,
+} from "lucide-react"
+import { useReveal } from "@/hooks/use-reveal"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
+import { WhatYouGain } from "@/components/what-you-gain"
+import { brandLabPeople, ecosystemLogos } from "@/data/partners"
+
+const APPLY_URL = "https://airtable.com/appV77FGcaF0S6aPI/pagIWmNbVo1shEyuQ/form"
+
+/* ─── Data ─── */
+
+const programAccess = [
+  {
+    icon: DollarSign,
+    title: "Funding & capital readiness",
+    description: "We offer up to $100K in funding opportunities.",
+  },
+  {
+    icon: Package,
+    title: "Resources",
+    description: "Access to 30+ partners and world-class tools.",
+  },
+  {
+    icon: Users,
+    title: "Community",
+    description: "A thriving network of founders, operators, and experts.",
+  },
+]
+
+const sectors = [
+  { icon: Utensils, label: "Food & Beverage", img: "/images/sectors/food-beverage.png" },
+  { icon: HeartPulse, label: "Wellness & Personal Care", img: "/images/sectors/wellness.png" },
+  { icon: Shirt, label: "Apparel", img: "/images/sectors/apparel.png" },
+  { icon: Cpu, label: "Consumer Electronics", img: "/images/sectors/electronics.png" },
+]
+
+const selection = [
+  {
+    label: "Now Open",
+    accent: true,
+    value: "accepting cohort applications",
+    note: "Small by design — hands-on support for every founder. Every company is screened for program fit, market readiness, and growth potential.",
+  },
+  {
+    label: "Stage",
+    accent: false,
+    value: "Ideation through market-ready product",
+    note: "From first concept to shelf-ready — all early stages welcome.",
+  },
+  {
+    label: "Traction",
+    accent: false,
+    value: "Under $200K GMV preferred",
+    note: "Above that is still welcome to apply.",
+  },
+]
+
+const cohortTimeline = [
+  {
+    num: "01",
+    month: "Now",
+    title: "Partner conversations",
+    desc: "Founding partner terms agreed over the summer.",
+    color: "#4f46e5",
+  },
+  {
+    num: "02",
+    month: "September",
+    title: "Cohort kickoff",
+    desc: "Brands begin 12 weeks in Los Angeles.",
+    color: "#7c3aed",
+  },
+  {
+    num: "03",
+    month: "October",
+    title: "Southern California Tech Weeks",
+    desc: "LA Tech Week · OC Tech Week · Glendale Tech Week · and more.",
+    color: "#9333ea",
+  },
+  {
+    num: "04",
+    month: "December",
+    title: "Investor Showcase",
+    desc: "Public finale with investor judging.",
+    color: "#c026d3",
+  },
+]
+
+const faqs = [
+  {
+    q: "Is the Brand Lab really free?",
+      a: "Yes. The Brand Lab is 100% free with an option for equity program. Our goal is to strengthen Southern California's consumer ecosystem by helping founders build durable brands.",
+  },
+  {
+    q: "How much time does it require?",
+    a: "Plan for roughly 6–8 hours per week across live workshops, mentor sessions, and building time over the 12-week cohort.",
+  },
+  {
+    q: "Do I need revenue or a product to apply?",
+    a: "No. We accept founders from ideation through market-ready product. What matters most is commitment and a clear consumer focus.",
+  },
+  {
+    q: "Will the program help me raise capital?",
+    a: "The curriculum makes you investor-ready and, for the right brands, opens pathways to Sunstone's capital and partner network. Participation is not a guarantee of funding.",
+  },
+  {
+    q: "Does it have to be in person?",
+    a: "The Brand Lab is built for Southern California founders with a blend of in-person sessions and remote-friendly workshops.",
+  },
+]
+
+/* ─── Photo assignments ─── */
+const HERO_IMG = "/images/hero-brand-lab.jpg"
+const GALLERY_IMGS = [
+  "/images/dtc_imgs/DSC08200.JPG",
+  "/images/dtc_imgs/DSC08240.JPG",
+  "/images/dtc_imgs/DSC08312.JPG",
+]
+
+/* ─── FAQ item ─── */
+function FaqItem({ q, a }: { q: string; a: string }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <div className="overflow-hidden rounded-2xl border border-border bg-card transition-colors duration-300 hover:border-primary/20">
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+        aria-expanded={open}
+      >
+        <span className="font-display text-base font-semibold text-foreground">{q}</span>
+        <span className="flex h-7 w-7 flex-shrink-0 items-center justify-center rounded-full border border-border text-foreground/60">
+          {open ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
+        </span>
+      </button>
+      {open && (
+        <div className="animate-expand px-6 pb-5">
+          <p className="text-sm leading-relaxed text-muted-foreground">{a}</p>
+        </div>
+      )}
+    </div>
+  )
+}
+
+/* ─── Component ─── */
+
+export function BrandLabContent() {
+  const containerRef = useReveal()
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoaded(true), 100)
+    return () => clearTimeout(t)
+  }, [])
+
+  return (
+    <>
+      <Navbar darkHero />
+      <main className="relative min-h-screen" ref={containerRef}>
+        {/* ════════ 1. HERO ════════ */}
+        <header className="relative flex min-h-[92vh] items-end overflow-hidden">
+          <div className="absolute inset-0">
+            <img src={HERO_IMG || "/placeholder.svg"} alt="Sunstone DTC founders" className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/70 to-[#0a0a1a]/30" />
+          </div>
+
+          <div className="relative z-10 mx-auto w-full max-w-6xl px-6 pb-14 pt-32 sm:px-10 lg:pb-20">
+            <a
+              href="/"
+              className="reveal mb-8 inline-flex items-center gap-2 text-sm font-medium text-white/50 transition-colors hover:text-white/80"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              Back to Home
+            </a>
+
+            <h1
+              className="reveal whitespace-nowrap font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
+              style={{
+                opacity: loaded ? 1 : 0,
+                transform: loaded ? "translateY(0)" : "translateY(24px)",
+                transition: "all 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
+              }}
+            >
+              {"Sunstone "}
+              <span className="text-shimmer">DTC Brand Lab</span>
+            </h1>
+
+            <p className="reveal mt-6 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg lg:text-xl">
+              Launch, scale, and last with the right knowledge, resources, and people — all at no
+              cost to founders.
+            </p>
+
+            <div className="reveal mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <a
+                href={APPLY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-base font-semibold text-[#0a0a1a] transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-white/10"
+              >
+                Apply Now
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+              </a>
+              <a
+                href="#program"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-9 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-white/20"
+              >
+                How It Works
+              </a>
+            </div>
+          </div>
+        </header>
+
+        {/* ════════ 2. THE PROGRAM (what Brand Lab is) ════════ */}
+        <section id="program" className="px-6 py-20 sm:px-10 lg:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="grid items-center gap-12 md:grid-cols-2 md:gap-16">
+              <div className="reveal">
+                <h2 className="font-display text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
+                  {"What is the "}
+                  <span className="text-shimmer">Brand Lab</span>
+                </h2>
+                <p className="mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+                  A free 12-week incubator for early-stage consumer founders. Real curriculum, expert
+                  partners, and a community built to help you build an iconic brand at no cost and no
+                  equity.
+                </p>
+
+                <a
+                  href={APPLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
+                >
+                  Apply Now to the Brand Lab
+                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </a>
+
+                <div className="mt-10 max-w-2xl">
+                  <h3 className="font-display text-2xl font-bold text-foreground sm:text-3xl">Our Mission</h3>
+                  <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                    Sunstone Brand Lab exists to help emerging consumer brands turn ambition into
+                    sustainable growth by connecting founders with practical expertise, industry
+                    resources, strategic partners, and a collaborative community.
+                  </p>
+                  <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
+                    {
+                      "Our mission is to bridge the gap between building a great product and building a lasting brand\u2014giving founders the knowledge, connections, and support they need to grow, scale, and succeed in the U.S. market."
+                    }
+                  </p>
+                </div>
+              </div>
+
+              <div className="reveal reveal-delay-1 relative aspect-[4/5] w-full overflow-hidden rounded-3xl md:aspect-[5/6]">
+                <Image
+                  src="/images/brand-lab-founders.png"
+                  alt="Three Sunstone Brand Lab founders speaking on stage with microphones at a Pipeline demo event"
+                  fill
+                  sizes="(min-width: 768px) 40vw, 90vw"
+                  className="object-cover object-center"
+                />
+              </div>
+            </div>
+
+            <div className="reveal reveal-delay-1 mt-16">
+              <span className="mb-8 block text-xs font-semibold uppercase tracking-widest text-primary">
+                You Will Get Access To
+              </span>
+              <div className="grid gap-x-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+                {programAccess.map((item) => (
+                  <div key={item.title} className="flex items-start gap-4">
+                    <div className="flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                      <item.icon className="h-7 w-7" />
+                    </div>
+                    <div>
+                      <h3 className="font-display text-2xl font-bold leading-snug text-foreground">
+                        {item.title}
+                      </h3>
+                      <p className="mt-2 text-lg leading-relaxed text-muted-foreground">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════ 4. WHAT YOU GAIN — progression ════════ */}
+        <WhatYouGain />
+
+        {/* ════════ 5. WHO WE SELECT (the cohort) ════════ */}
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="reveal text-center">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+                <Users className="h-3.5 w-3.5" />
+                The Cohort
+              </span>
+              <h2 className="font-display text-4xl font-bold tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
+                Who We Select
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
+                A focused cohort of U.S.-based and international consumer brands ready to launch,
+                scale, and raise capital in the U.S.
+              </p>
+            </div>
+
+            <div className="reveal reveal-delay-1 mt-14">
+              <p className="mb-6 text-center text-xs font-semibold uppercase tracking-widest text-primary">
+                Four Consumer Sectors
+              </p>
+              <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {sectors.map((sector) => (
+                  <div
+                    key={sector.label}
+                    className="group relative aspect-square overflow-hidden rounded-2xl"
+                  >
+                    <img
+                      src={sector.img || "/placeholder.svg"}
+                      alt={sector.label}
+                      className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/20 to-transparent" />
+                    <div className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 p-5">
+                    <sector.icon className="h-6 w-6 flex-shrink-0 text-white" />
+                    <span className="font-display text-lg font-bold leading-tight text-white text-balance sm:text-xl">
+                        {sector.label}
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="reveal reveal-delay-2 mt-14 grid gap-6 pt-12 text-center sm:grid-cols-3 sm:text-left">
+              {selection.map((item) => (
+                <div key={item.label}>
+                  <div
+                    className={`font-display text-4xl font-bold sm:text-5xl ${
+                      item.accent ? "text-primary" : "text-foreground"
+                    }`}
+                  >
+                    {item.label === "Now Open" ? (
+                      "Now Open"
+                    ) : (
+                      <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                        {item.label}
+                      </span>
+                    )}
+                  </div>
+                  <p
+                    className={`mt-2 leading-snug text-foreground ${
+                      item.accent ? "text-lg font-medium" : "text-xl font-semibold"
+                    }`}
+                  >
+                    {item.value}
+                  </p>
+                  <p className="mt-2 text-base leading-relaxed text-muted-foreground">{item.note}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Cohort Timeline */}
+            <div className="reveal mt-20 text-center">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+                <CalendarClock className="h-3.5 w-3.5" />
+                Cohort Timeline
+              </span>
+            </div>
+
+            <div className="reveal reveal-delay-1 mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-4">
+              {cohortTimeline.map((step, i) => (
+                <div key={step.month} className="relative flex flex-col">
+                  {/* Connector line + numbered node */}
+                  <div className="relative mb-8 flex items-center">
+                    <span
+                      className="relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-full font-display text-lg font-bold text-primary-foreground shadow-lg shadow-primary/20"
+                      style={{ background: step.color }}
+                    >
+                      {step.num}
+                    </span>
+                    {i < cohortTimeline.length - 1 && (
+                      <span
+                        className="ml-1 hidden h-0.5 flex-1 rounded-full lg:block"
+                        style={{
+                          background: `linear-gradient(to right, ${step.color}, ${cohortTimeline[i + 1].color})`,
+                        }}
+                      />
+                    )}
+                  </div>
+
+                  {/* Card */}
+                  <div className="flex flex-1 flex-col rounded-2xl border border-border bg-card p-6 lg:mr-4">
+                    <span
+                      className="text-xs font-bold uppercase tracking-widest"
+                      style={{ color: step.color }}
+                    >
+                      {step.month}
+                    </span>
+                    <span
+                      className="mt-3 block h-0.5 w-8 rounded-full"
+                      style={{ background: step.color }}
+                    />
+                    <h3 className="mt-4 font-display text-xl font-bold leading-tight text-foreground text-balance">
+                      {step.title}
+                    </h3>
+                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground text-pretty">
+                      {step.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ════════ 6. COMMUNITY PHOTO BAND ════════ */}
+        <section className="reveal overflow-hidden">
+          <div className="grid grid-cols-3 gap-0.5">
+            {GALLERY_IMGS.map((src, i) => (
+              <div key={src} className="relative aspect-[16/10] overflow-hidden">
+                <img
+                  src={src || "/placeholder.svg"}
+                  alt={`Sunstone community event ${i + 1}`}
+                  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent" />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ════════ PARTNERS ALREADY IN THE BRAND LAB ════════ */}
+        <section className="px-6 py-20 sm:px-10 lg:py-28">
+          <div className="mx-auto max-w-6xl">
+            <div className="reveal text-center">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+                <Handshake className="h-3.5 w-3.5" />
+                Partners
+              </span>
+              <h2 className="font-display text-4xl font-bold tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
+                Partners Already in the Brand Lab
+              </h2>
+              <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground lg:text-lg">
+                Confirmed partners contributing expertise, market access, and hands-on support to the
+                Brand Lab cohort.
+              </p>
+            </div>
+
+            {/* People grid */}
+            <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-5">
+              {brandLabPeople.map((person, i) => (
+                <div
+                  key={person.name}
+                  className={`reveal reveal-delay-${(i % 4) + 1} flex flex-col items-center text-center`}
+                >
+                  <div className="h-24 w-24 overflow-hidden rounded-full shadow-lg shadow-primary/10 ring-1 ring-border">
+                    <img
+                      src={person.photo || "/placeholder.svg"}
+                      alt={person.name}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <h3 className="mt-4 font-display text-base font-bold text-foreground">
+                    {person.name}
+                  </h3>
+                  <p className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                    {person.role}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Logo wall */}
+            <div className="reveal mt-20 border-t border-border pt-14">
+              <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-10">
+                {ecosystemLogos.map((logo) =>
+                  logo.image ? (
+                    <div
+                      key={logo.name}
+                      className="flex h-10 w-[6.25rem] items-center justify-center sm:h-[3.125rem] sm:w-[6.875rem]"
+                    >
+                      <img
+                        src={logo.image || "/placeholder.svg"}
+                        alt={logo.name}
+                        className="max-h-full max-w-full object-contain opacity-60 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      key={logo.name}
+                      className="flex h-10 w-[6.25rem] items-center justify-center sm:h-[3.125rem] sm:w-[6.875rem]"
+                    >
+                      <span className="font-display text-xl font-semibold text-muted-foreground/70 transition-colors duration-300 hover:text-foreground sm:text-2xl">
+                        {logo.name}
+                      </span>
+                    </div>
+                  ),
+                )}
+              </div>
+              <p className="mx-auto mt-12 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
+                Logos indicate collaborators in the Sunstone ecosystem. Relationships are
+                non-exclusive and do not imply endorsement of the Brand Lab.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════ FAQ ════════ */}
+        <section className="border-t border-border px-6 pb-24 pt-20 sm:px-10 lg:pb-32 lg:pt-28">
+          <div className="mx-auto max-w-3xl">
+            <div className="reveal mb-10 text-center">
+              <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
+                <Sparkles className="h-3.5 w-3.5" />
+                FAQ
+              </span>
+              <h2 className="font-display text-4xl font-bold tracking-tight text-foreground text-balance sm:text-5xl lg:text-6xl">
+                Questions, Answered
+              </h2>
+            </div>
+            <div className="reveal space-y-3">
+              {faqs.map((faq) => (
+                <FaqItem key={faq.q} q={faq.q} a={faq.a} />
+              ))}
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </>
+  )
+}
