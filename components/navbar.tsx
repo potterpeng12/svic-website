@@ -23,7 +23,17 @@ const navLinks: NavLink[] = [
   { label: "Team", href: "/#team" },
 ]
 
-export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
+export function Navbar({
+  darkHero = false,
+  ctaLabel = "Get Access",
+  ctaHref = "/apply",
+  ctaExternal = false,
+}: {
+  darkHero?: boolean
+  ctaLabel?: string
+  ctaHref?: string
+  ctaExternal?: boolean
+}) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [activeSection, setActiveSection] = useState("")
@@ -117,13 +127,14 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
 
           <div className="flex items-center gap-2">
             <a
-              href="/apply"
+              href={ctaHref}
+              {...(ctaExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className={`hidden items-center gap-1 rounded-full px-3.5 py-1.5 text-sm font-semibold whitespace-nowrap flex-shrink-0 transition-all duration-300 hover:scale-[1.02] md:inline-flex ${isOverDark
                 ? "border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
                 : "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/20"
                 }`}
             >
-              Get Access
+              {ctaLabel}
               <ArrowUpRight className="h-3.5 w-3.5" />
             </a>
 
@@ -154,7 +165,7 @@ export function Navbar({ darkHero = false }: { darkHero?: boolean }) {
                 ? [{ label: link.label, href: link.href, child: false }, ...link.children.map((c) => ({ ...c, child: true }))]
                 : [{ label: link.label, href: link.href, child: false }],
             ),
-            { label: "Get Access", href: "/apply", child: false },
+            { label: ctaLabel, href: ctaHref, child: false },
           ].map((link, i) => (
             <a
               key={link.href}
