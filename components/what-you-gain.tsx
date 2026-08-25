@@ -37,7 +37,7 @@ const stages: Stage[] = [
   {
     num: "01",
     title: "Set Up",
-    blurb: "Get the foundation right — entity, banking, and a market-ready product.",
+    blurb: "Get the foundation right: entity, banking, and a market-ready product.",
     accent: "#3b82f6",
     items: [
       { icon: Scale, label: "Legal & entity" },

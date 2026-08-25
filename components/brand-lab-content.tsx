@@ -57,20 +57,20 @@ const selection = [
   {
     label: "Now Open",
     accent: true,
-    value: "accepting cohort applications",
-    note: "Small by design — hands-on support for every founder. Every company is screened for program fit, market readiness, and growth potential.",
+    value: "Accepting cohort applications",
+    note: "Small by design with hands-on support for every founder. Every company is screened for program fit, market readiness, and growth potential.",
   },
   {
     label: "Stage",
     accent: false,
     value: "Ideation through market-ready product",
-    note: "From first concept to shelf-ready — all early stages welcome.",
+    note: "From first concept to shelf-ready. All early stages welcome.",
   },
   {
     label: "Traction",
     accent: false,
     value: "Under $200K GMV preferred",
-    note: "Above that is still welcome to apply.",
+    note: "Exceptions welcome.",
   },
 ]
 
@@ -100,7 +100,7 @@ const cohortTimeline = [
     num: "04",
     month: "December",
     title: "Investor Showcase",
-    desc: "Public finale with investor judging.",
+    desc: "Grand finale in front of a live panel of investor judges.",
     color: "#c026d3",
   },
 ]
@@ -262,7 +262,7 @@ export function BrandLabContent() {
                   </p>
                   <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                     {
-                      "Our mission is to bridge the gap between building a great product and building a lasting brand\u2014giving founders the knowledge, connections, and support they need to grow, scale, and succeed in the U.S. market."
+                      "Our mission is to bridge the gap between building a great product and building a lasting brand, giving founders the knowledge, connections, and support they need to grow, scale, and succeed in the U.S. market."
                     }
                   </p>
                 </div>
