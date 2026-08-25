@@ -271,7 +271,7 @@ export function BrandLabContent() {
               <div className="reveal reveal-delay-1 relative aspect-[4/5] w-full overflow-hidden rounded-3xl md:aspect-[5/6]">
                 <Image
                   src="/images/brand-lab-founders.png"
-                  alt="Three Sunstone Brand Lab founders speaking on stage with microphones at a Pipeline demo event"
+                  alt="A brand ambassador celebrating at a consumer product sampling booth, surrounded by branded cans and product displays"
                   fill
                   sizes="(min-width: 768px) 40vw, 90vw"
                   className="object-cover object-center"
