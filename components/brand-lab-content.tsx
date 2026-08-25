@@ -86,7 +86,7 @@ const cohortTimeline = [
     num: "02",
     month: "September",
     title: "Cohort kickoff",
-    desc: "Brands begin 12 weeks in Los Angeles.",
+    desc: "Brands begin the 12 week hybrid program.",
     color: "#7c3aed",
   },
   {
