@@ -47,10 +47,10 @@ const programAccess = [
 ]
 
 const sectors = [
-  { icon: Utensils, label: "Food & Beverage", img: "/images/sectors/food-beverage.png", position: "54% 62%" },
-  { icon: HeartPulse, label: "Wellness & Personal Care", img: "/images/sectors/wellness.png", position: "56% 58%" },
-  { icon: Shirt, label: "Apparel", img: "/images/sectors/apparel.png", position: "68% 50%" },
-  { icon: Cpu, label: "Consumer Electronics", img: "/images/sectors/electronics.png", position: "50% 55%" },
+  { icon: Utensils, label: "Food & Beverage", img: "/images/sectors/food-beverage.png" },
+  { icon: HeartPulse, label: "Wellness & Personal Care", img: "/images/sectors/wellness.png" },
+  { icon: Shirt, label: "Apparel", img: "/images/sectors/apparel.png" },
+  { icon: Cpu, label: "Consumer Electronics", img: "/images/sectors/electronics.png" },
 ]
 
 const selection = [
@@ -332,13 +332,12 @@ export function BrandLabContent() {
                 {sectors.map((sector) => (
                   <div
                     key={sector.label}
-                    className="group relative aspect-square overflow-hidden rounded-2xl"
+                    className="group relative aspect-square overflow-hidden rounded-2xl bg-[#0a0a1a]"
                   >
                   <img
                     src={sector.img || "/placeholder.svg"}
                     alt={sector.label}
-                    style={{ objectPosition: sector.position }}
-                    className="h-full w-full scale-125 object-cover transition-transform duration-700 group-hover:scale-[1.35]"
+                    className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
                   />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/20 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 p-5">
