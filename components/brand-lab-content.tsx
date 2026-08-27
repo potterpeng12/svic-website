@@ -332,12 +332,12 @@ export function BrandLabContent() {
                 {sectors.map((sector) => (
                   <div
                     key={sector.label}
-                    className="group relative aspect-square overflow-hidden rounded-2xl bg-[#0a0a1a]"
+                    className="group relative aspect-square overflow-hidden rounded-2xl"
                   >
                   <img
                     src={sector.img || "/placeholder.svg"}
                     alt={sector.label}
-                    className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
+                    className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/20 to-transparent" />
                     <div className="absolute inset-x-0 bottom-0 flex items-center gap-2.5 p-5">
