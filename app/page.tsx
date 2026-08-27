@@ -16,7 +16,7 @@ export const revalidate = 0
 export default function Page() {
   return (
     <main className="relative overflow-x-hidden">
-      <Navbar darkHero={true} />
+      <Navbar darkHero={true} ctaLabel="Apply to Brand Lab Now" ctaHref="/programs/dtc-brand-lab" />
       <Hero />
       <About />
       <Portfolio />

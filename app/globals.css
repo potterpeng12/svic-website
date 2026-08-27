@@ -87,6 +87,17 @@
   transform: scale(1);
 }
 
+/* Accessibility: never keep content hidden when motion is reduced.
+   Content must be immediately visible. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal-scale {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* ===== MARQUEE ===== */
 @keyframes marquee-left {
   0% { transform: translateX(0); }

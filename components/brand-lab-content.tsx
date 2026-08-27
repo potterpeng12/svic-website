@@ -57,20 +57,20 @@ const selection = [
   {
     label: "Now Open",
     accent: true,
-    value: "accepting cohort applications",
-    note: "Small by design — hands-on support for every founder. Every company is screened for program fit, market readiness, and growth potential.",
+    value: "Accepting cohort applications",
+    note: "Small by design with hands-on support for every founder. Every company is screened for program fit, market readiness, and growth potential.",
   },
   {
     label: "Stage",
     accent: false,
     value: "Ideation through market-ready product",
-    note: "From first concept to shelf-ready — all early stages welcome.",
+    note: "From first concept to shelf-ready. All early stages welcome.",
   },
   {
     label: "Traction",
     accent: false,
     value: "Under $200K GMV preferred",
-    note: "Above that is still welcome to apply.",
+    note: "Exceptions welcome.",
   },
 ]
 
@@ -86,7 +86,7 @@ const cohortTimeline = [
     num: "02",
     month: "September",
     title: "Cohort kickoff",
-    desc: "Brands begin 12 weeks in Los Angeles.",
+    desc: "Brands begin the 12 week hybrid program.",
     color: "#7c3aed",
   },
   {
@@ -100,7 +100,7 @@ const cohortTimeline = [
     num: "04",
     month: "December",
     title: "Investor Showcase",
-    desc: "Public finale with investor judging.",
+    desc: "Grand finale in front of a live panel of investor judges.",
     color: "#c026d3",
   },
 ]
@@ -165,21 +165,27 @@ function FaqItem({ q, a }: { q: string; a: string }) {
 
 export function BrandLabContent() {
   const containerRef = useReveal()
-  const [loaded, setLoaded] = useState(false)
+  const [showSticky, setShowSticky] = useState(false)
 
   useEffect(() => {
-    const t = setTimeout(() => setLoaded(true), 100)
-    return () => clearTimeout(t)
+    const onScroll = () => setShowSticky(window.scrollY > window.innerHeight * 0.9)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
   return (
     <>
-      <Navbar darkHero />
+      <Navbar darkHero ctaLabel="Apply to Brand Lab" ctaHref={APPLY_URL} ctaExternal />
       <main className="relative min-h-screen" ref={containerRef}>
         {/* ════════ 1. HERO ════════ */}
         <header className="relative flex min-h-[92vh] items-end overflow-hidden">
           <div className="absolute inset-0">
-            <img src={HERO_IMG || "/placeholder.svg"} alt="Sunstone DTC founders" className="h-full w-full object-cover" />
+            <img
+              src={HERO_IMG || "/placeholder.svg"}
+              alt="Sunstone DTC founders"
+              className="h-full w-full object-cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/70 to-[#0a0a1a]/30" />
           </div>
 
@@ -192,14 +198,7 @@ export function BrandLabContent() {
               Back to Home
             </a>
 
-            <h1
-              className="reveal whitespace-nowrap font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl"
-              style={{
-                opacity: loaded ? 1 : 0,
-                transform: loaded ? "translateY(0)" : "translateY(24px)",
-                transition: "all 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.15s",
-              }}
-            >
+            <h1 className="reveal whitespace-nowrap font-display text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-7xl">
               {"Sunstone "}
               <span className="text-shimmer">DTC Brand Lab</span>
             </h1>
@@ -263,7 +262,7 @@ export function BrandLabContent() {
                   </p>
                   <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                     {
-                      "Our mission is to bridge the gap between building a great product and building a lasting brand\u2014giving founders the knowledge, connections, and support they need to grow, scale, and succeed in the U.S. market."
+                      "Our mission is to bridge the gap between building a great product and building a lasting brand, giving founders the knowledge, connections, and support they need to grow, scale, and succeed in the U.S. market."
                     }
                   </p>
                 </div>
@@ -272,7 +271,7 @@ export function BrandLabContent() {
               <div className="reveal reveal-delay-1 relative aspect-[4/5] w-full overflow-hidden rounded-3xl md:aspect-[5/6]">
                 <Image
                   src="/images/brand-lab-founders.png"
-                  alt="Three Sunstone Brand Lab founders speaking on stage with microphones at a Pipeline demo event"
+                  alt="A brand ambassador celebrating at a consumer product sampling booth, surrounded by branded cans and product displays"
                   fill
                   sizes="(min-width: 768px) 40vw, 90vw"
                   className="object-cover object-center"
@@ -451,7 +450,7 @@ export function BrandLabContent() {
         </section>
 
         {/* ════════ PARTNERS ALREADY IN THE BRAND LAB ════════ */}
-        <section className="px-6 py-20 sm:px-10 lg:py-28">
+        <section className="px-6 py-16 sm:px-10 lg:py-20">
           <div className="mx-auto max-w-6xl">
             <div className="reveal text-center">
               <span className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-primary">
@@ -468,23 +467,20 @@ export function BrandLabContent() {
             </div>
 
             {/* People grid */}
-            <div className="mt-16 grid grid-cols-2 gap-x-6 gap-y-12 sm:grid-cols-3 lg:grid-cols-5">
-              {brandLabPeople.map((person, i) => (
-                <div
-                  key={person.name}
-                  className={`reveal reveal-delay-${(i % 4) + 1} flex flex-col items-center text-center`}
-                >
-                  <div className="h-24 w-24 overflow-hidden rounded-full shadow-lg shadow-primary/10 ring-1 ring-border">
+            <div className="reveal mt-12 grid grid-cols-3 gap-x-5 gap-y-8 sm:grid-cols-4 lg:grid-cols-5">
+              {brandLabPeople.map((person) => (
+                <div key={person.name} className="flex flex-col items-center text-center">
+                  <div className="h-16 w-16 overflow-hidden rounded-full shadow-lg shadow-primary/10 ring-1 ring-border sm:h-20 sm:w-20">
                     <img
                       src={person.photo || "/placeholder.svg"}
                       alt={person.name}
                       className="h-full w-full object-cover"
                     />
                   </div>
-                  <h3 className="mt-4 font-display text-base font-bold text-foreground">
+                  <h3 className="mt-3 font-display text-sm font-bold text-foreground">
                     {person.name}
                   </h3>
-                  <p className="mt-1 text-xs font-medium uppercase tracking-wide text-muted-foreground">
+                  <p className="mt-0.5 text-[0.65rem] font-medium uppercase tracking-wide text-muted-foreground">
                     {person.role}
                   </p>
                 </div>
@@ -492,8 +488,8 @@ export function BrandLabContent() {
             </div>
 
             {/* Logo wall */}
-            <div className="reveal mt-20 border-t border-border pt-14">
-              <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-10">
+            <div className="reveal mt-14 border-t border-border pt-10">
+              <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-6">
                 {ecosystemLogos.map((logo) =>
                   logo.image ? (
                     <div
@@ -518,7 +514,7 @@ export function BrandLabContent() {
                   ),
                 )}
               </div>
-              <p className="mx-auto mt-12 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
+              <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
                 Logos indicate collaborators in the Sunstone ecosystem. Relationships are
                 non-exclusive and do not imply endorsement of the Brand Lab.
               </p>
@@ -545,7 +541,45 @@ export function BrandLabContent() {
             </div>
           </div>
         </section>
+
+        {/* ════════ FINAL CTA ════════ */}
+        <section className="px-6 pb-28 sm:px-10 lg:pb-36">
+          <div className="reveal mx-auto max-w-4xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#4f46e5] via-[#7c3aed] to-[#c026d3] px-8 py-16 text-center sm:px-14 sm:py-20">
+            <h2 className="font-display text-3xl font-bold tracking-tight text-white text-balance sm:text-4xl lg:text-5xl">
+              Ready to build a brand that lasts?
+            </h2>
+            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-white/80 lg:text-lg">
+              Join the next Brand Lab cohort — free, hands-on, and built for early-stage consumer
+              founders in Southern California.
+            </p>
+            <a
+              href={APPLY_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group mt-9 inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-base font-semibold text-[#0a0a1a] transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-black/20"
+            >
+              Apply Now
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+          </div>
+        </section>
       </main>
+
+      {/* Sticky Apply button (desktop) */}
+      <a
+        href={APPLY_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={`group fixed bottom-6 right-6 z-40 hidden items-center gap-2 rounded-full bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-xl shadow-primary/30 transition-all duration-500 md:inline-flex ${
+          showSticky
+            ? "pointer-events-auto translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-4 opacity-0"
+        }`}
+      >
+        Apply to Brand Lab
+        <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+      </a>
+
       <Footer />
     </>
   )
