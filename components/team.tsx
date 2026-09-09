@@ -49,7 +49,7 @@ const leadership: TeamMember[] = [
 const svicTeam: TeamMember[] = [
   {
     name: "Angie Zuo",
-    role: "Founder Community Manager",
+    role: "Investment Analyst",
     photo: "/images/team/angie-zuo.png",
     photoPosition: "center center",
     photoScale: 1,
