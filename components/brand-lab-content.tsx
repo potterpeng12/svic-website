@@ -176,7 +176,7 @@ export function BrandLabContent() {
 
   return (
     <>
-      <Navbar darkHero ctaLabel="Apply to Brand Lab" ctaHref={APPLY_URL} ctaExternal />
+      <Navbar darkHero ctaLabel="Stay Tuned for Cohort 2" ctaHref={APPLY_URL} ctaExternal />
       <main className="relative min-h-screen" ref={containerRef}>
         {/* ════════ 1. HERO ════════ */}
         <header className="relative flex min-h-[92vh] items-end overflow-hidden">
@@ -215,7 +215,7 @@ export function BrandLabContent() {
                 rel="noopener noreferrer"
                 className="group inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-base font-semibold text-[#0a0a1a] transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-white/10"
               >
-                Apply Now
+                Stay Tuned for Cohort 2
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
               <a
@@ -249,7 +249,7 @@ export function BrandLabContent() {
                   rel="noopener noreferrer"
                   className="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
                 >
-                  Apply Now to the Brand Lab
+                  Stay Tuned for Cohort 2
                   <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
 
@@ -559,7 +559,7 @@ export function BrandLabContent() {
               rel="noopener noreferrer"
               className="group mt-9 inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-base font-semibold text-[#0a0a1a] transition-all duration-300 hover:scale-[1.03] hover:shadow-2xl hover:shadow-black/20"
             >
-              Apply Now
+              Stay Tuned for Cohort 2
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
           </div>
@@ -577,7 +577,7 @@ export function BrandLabContent() {
             : "pointer-events-none translate-y-4 opacity-0"
         }`}
       >
-        Apply to Brand Lab
+        Stay Tuned for Cohort 2
         <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
       </a>
 
