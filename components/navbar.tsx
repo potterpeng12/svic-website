@@ -26,7 +26,7 @@ const navLinks: NavLink[] = [
 export function Navbar({
   darkHero = false,
   ctaLabel = "Get Access",
-  ctaHref = "/apply",
+  ctaHref,
   ctaExternal = false,
 }: {
   darkHero?: boolean
@@ -126,17 +126,28 @@ export function Navbar({
           </div>
 
           <div className="flex items-center gap-2">
-            <a
-              href={ctaHref}
-              {...(ctaExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-              className={`hidden items-center gap-1 rounded-full px-3.5 py-1.5 text-sm font-semibold whitespace-nowrap flex-shrink-0 transition-all duration-300 hover:scale-[1.02] md:inline-flex ${isOverDark
-                ? "border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
-                : "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/20"
-                }`}
-            >
-              {ctaLabel}
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
+            {ctaHref ? (
+              <a
+                href={ctaHref}
+                {...(ctaExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                className={`hidden items-center gap-1 rounded-full px-3.5 py-1.5 text-sm font-semibold whitespace-nowrap flex-shrink-0 transition-all duration-300 hover:scale-[1.02] md:inline-flex ${isOverDark
+                  ? "border border-white/20 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20"
+                  : "bg-primary text-primary-foreground hover:shadow-lg hover:shadow-primary/20"
+                  }`}
+              >
+                {ctaLabel}
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+            ) : (
+              <span
+                className={`hidden items-center gap-1 rounded-full px-3.5 py-1.5 text-sm font-semibold whitespace-nowrap flex-shrink-0 md:inline-flex ${isOverDark
+                  ? "border border-white/20 bg-white/10 text-white backdrop-blur-sm"
+                  : "bg-primary text-primary-foreground"
+                  }`}
+              >
+                {ctaLabel}
+              </span>
+            )}
 
             <button
               type="button"

@@ -146,13 +146,9 @@ export function Hero() {
             transition: "all 1s cubic-bezier(0.22, 1, 0.36, 1) 0.9s",
           }}
         >
-          <a
-            href="/programs/dtc-brand-lab"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-base font-semibold text-black transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-white/20"
-          >
-            Apply to Brand Lab Now
-            <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-          </a>
+          <span className="inline-flex items-center gap-2.5 rounded-full bg-white px-9 py-4 text-base font-semibold text-black">
+            Learn more about next brand lab cohort
+          </span>
           <a
             href="#about"
             className="inline-flex items-center gap-2 rounded-full border-2 border-white/30 bg-white/10 px-9 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:border-white/50 hover:bg-white/20"
