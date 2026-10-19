@@ -42,7 +42,7 @@ export function Apply() {
           <div className="relative z-10">
             <div className="mb-8 inline-flex items-center rounded-full border border-background/10 bg-background/5 px-4 py-2">
               <span className="text-sm font-medium text-background/80">
-                Application is Now Closed
+                Stay Tuned for Cohort 2
               </span>
             </div>
 
