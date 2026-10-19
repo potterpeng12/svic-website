@@ -247,17 +247,7 @@ export function BrandLabContent() {
                   information and time.
                 </p>
 
-                <a
-                  href={APPLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group mt-4 inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
-                >
-                  Stay Tuned for Cohort 2
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </a>
-
-                <div className="mt-10 max-w-2xl">
+  <div className="mt-10 max-w-2xl">
                   <h3 className="font-display text-2xl font-bold text-foreground sm:text-3xl">Our Mission</h3>
                   <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                     Sunstone Brand Lab exists to help emerging consumer brands turn ambition into
