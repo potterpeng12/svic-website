@@ -55,9 +55,9 @@ const sectors = [
 
 const selection = [
   {
-    label: "Now Open",
+    label: "Now Closed",
     accent: true,
-    value: "Accepting cohort applications",
+    value: "Cohort applications are closed",
     note: "Small by design with hands-on support for every founder. Every company is screened for program fit, market readiness, and growth potential.",
   },
   {
@@ -370,8 +370,8 @@ export function BrandLabContent() {
                       item.accent ? "text-primary" : "text-foreground"
                     }`}
                   >
-                    {item.label === "Now Open" ? (
-                      "Now Open"
+                    {item.label === "Now Closed" ? (
+                      "Now Closed"
                     ) : (
                       <span className="text-sm font-semibold uppercase tracking-widest text-primary">
                         {item.label}

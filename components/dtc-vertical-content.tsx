@@ -147,12 +147,9 @@ export function DtcVerticalContent() {
                 <Sparkles className="h-3 w-3" />
                 DTC Vertical
               </span>
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/20 bg-emerald-500/10 backdrop-blur-sm px-4 py-1.5 text-xs font-semibold text-emerald-300">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
-                </span>
-                Now Accepting Applications
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-white/15 bg-white/10 backdrop-blur-sm px-4 py-1.5 text-xs font-semibold text-white/70">
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-white/50" />
+                Applications Closed
               </span>
             </div>
 
@@ -458,7 +455,7 @@ export function DtcVerticalContent() {
               <div className="relative z-10">
                 <span className="mb-6 inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white/60">
                   <Sparkles className="h-3 w-3" />
-                  Applications Open
+                  Applications Closed
                 </span>
 
                 <h2 className="font-display text-3xl font-bold tracking-tight text-white sm:text-4xl lg:text-5xl">
