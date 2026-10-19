@@ -55,12 +55,6 @@ const sectors = [
 
 const selection = [
   {
-    label: "Now Open",
-    accent: true,
-    value: "Accepting cohort applications",
-    note: "Small by design with hands-on support for every founder. Every company is screened for program fit, market readiness, and growth potential.",
-  },
-  {
     label: "Stage",
     accent: false,
     value: "Ideation through market-ready product",
@@ -362,27 +356,15 @@ export function BrandLabContent() {
               </div>
             </div>
 
-            <div className="reveal reveal-delay-2 mt-14 grid gap-6 pt-12 text-center sm:grid-cols-3 sm:text-left">
+            <div className="reveal reveal-delay-2 mx-auto mt-14 grid max-w-3xl gap-10 pt-12 text-center sm:grid-cols-2 sm:gap-12">
               {selection.map((item) => (
                 <div key={item.label}>
-                  <div
-                    className={`font-display text-4xl font-bold sm:text-5xl ${
-                      item.accent ? "text-primary" : "text-foreground"
-                    }`}
-                  >
-                    {item.label === "Now Open" ? (
-                      "Now Open"
-                    ) : (
-                      <span className="text-sm font-semibold uppercase tracking-widest text-primary">
-                        {item.label}
-                      </span>
-                    )}
+                  <div className="font-display text-4xl font-bold text-foreground sm:text-5xl">
+                    <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                      {item.label}
+                    </span>
                   </div>
-                  <p
-                    className={`mt-2 leading-snug text-foreground ${
-                      item.accent ? "text-lg font-medium" : "text-xl font-semibold"
-                    }`}
-                  >
+                  <p className="mt-2 text-xl font-semibold leading-snug text-foreground">
                     {item.value}
                   </p>
                   <p className="mt-2 text-base leading-relaxed text-muted-foreground">{item.note}</p>
