@@ -44,7 +44,9 @@ export function CohortContent() {
             aria-hidden="true"
           />
 
-          <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-6 pb-16 pt-32 text-center">
+          <div
+            className={`relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-6 pb-16 pt-32 text-center transition-opacity duration-300 ${gridVisible ? "opacity-100" : "opacity-0"}`}
+          >
             <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70 sm:text-xs">
               Sunstone Innovation · DTC Brand Lab
             </p>

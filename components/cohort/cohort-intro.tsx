@@ -1,23 +1,21 @@
 "use client"
 
 import { useCallback, useEffect, useRef, useState } from "react"
-import { animate, motion, type AnimationPlaybackControls } from "framer-motion"
+import { motion } from "framer-motion"
 import { ImageIcon } from "lucide-react"
 import type { CohortBrand } from "@/data/cohort-1"
 
-type Phase = "gather" | "title" | "disperse" | "landed"
+type Phase = "gather" | "disperse" | "landed"
 
 type Target = { x: number; y: number; width: number; height: number }
 
 const GATHER_STEP = 0.14
-const TITLE_AT_MS = 2900
-const DISPERSE_AT_MS = 4500
-const LANDED_AT_MS = 5750
-const DONE_AT_MS = 6150
+const DISPERSE_AT_MS = 3100
+const LANDED_AT_MS = 4350
+const DONE_AT_MS = 4750
 
 const FLIGHT_SECONDS = 1.0
 const FLIGHT_STAGGER = 0.02
-const GRID_TOP_OFFSET = 112
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -36,16 +34,10 @@ function tileLayout(i: number) {
 }
 
 /*
- * Measures where each card will sit once the page has scrolled down to the grid,
- * expressed as an offset from the viewport center (where the tiles are anchored).
+ * Measures where each card currently sits, expressed as an offset from the
+ * viewport center (where the tiles are anchored).
  */
 function measureTargets(brands: CohortBrand[]) {
-  const section = document.getElementById("cohort")
-  const scrollY = window.scrollY
-  const maxScroll = Math.max(0, document.documentElement.scrollHeight - window.innerHeight)
-  const sectionTop = section ? section.getBoundingClientRect().top + scrollY : 0
-  const scrollTarget = Math.min(maxScroll, Math.max(0, sectionTop - GRID_TOP_OFFSET))
-
   const targets: Record<string, Target> = {}
   for (const brand of brands) {
     const photo = document.querySelector<HTMLElement>(`[data-cohort-image="${brand.id}"]`)
@@ -53,12 +45,12 @@ function measureTargets(brands: CohortBrand[]) {
     const rect = photo.getBoundingClientRect()
     targets[brand.id] = {
       x: Math.round(rect.left + rect.width / 2 - window.innerWidth / 2),
-      y: Math.round(rect.top + scrollY - scrollTarget + rect.height / 2 - window.innerHeight / 2),
+      y: Math.round(rect.top + rect.height / 2 - window.innerHeight / 2),
       width: Math.round(rect.width),
       height: Math.round(rect.height),
     }
   }
-  return { targets, scrollTarget }
+  return targets
 }
 
 export function CohortIntro({
@@ -73,7 +65,6 @@ export function CohortIntro({
   const [phase, setPhase] = useState<Phase>("gather")
   const [targets, setTargets] = useState<Record<string, Target>>({})
   const finished = useRef(false)
-  const scrollControls = useRef<AnimationPlaybackControls | null>(null)
 
   const finish = useCallback(() => {
     if (finished.current) return
@@ -84,23 +75,14 @@ export function CohortIntro({
 
   useEffect(() => {
     const root = document.documentElement
-    const previousBehavior = root.style.scrollBehavior
     const previousGutter = root.style.scrollbarGutter
 
     const startFlight = () => {
-      const { targets: measured, scrollTarget } = measureTargets(brands)
-      setTargets(measured)
+      setTargets(measureTargets(brands))
       setPhase("disperse")
-      root.style.scrollBehavior = "auto"
-      scrollControls.current = animate(window.scrollY, scrollTarget, {
-        duration: FLIGHT_SECONDS + 0.3,
-        ease: EASE,
-        onUpdate: (value) => window.scrollTo(0, value),
-      })
     }
 
     const timers = [
-      window.setTimeout(() => setPhase("title"), TITLE_AT_MS),
       window.setTimeout(startFlight, DISPERSE_AT_MS),
       window.setTimeout(() => {
         setPhase("landed")
@@ -111,8 +93,6 @@ export function CohortIntro({
 
     return () => {
       timers.forEach(window.clearTimeout)
-      scrollControls.current?.stop()
-      root.style.scrollBehavior = previousBehavior
       root.style.scrollbarGutter = previousGutter
     }
   }, [brands, finish, onRevealGrid])
@@ -133,7 +113,6 @@ export function CohortIntro({
   }, [finish])
 
   const flying = phase === "disperse" || phase === "landed"
-  const showTitle = phase === "title"
 
   return (
     <div
@@ -210,26 +189,6 @@ export function CohortIntro({
         })}
       </div>
 
-      <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
-        <motion.div
-          className="mx-6 flex flex-col items-center px-6 py-8 text-center sm:px-12 sm:py-10"
-          initial={{ opacity: 0, y: 16, scale: 0.96 }}
-          animate={{
-            opacity: showTitle ? 1 : 0,
-            y: showTitle ? 0 : 16,
-            scale: showTitle ? 1 : 0.96,
-          }}
-          transition={{ duration: 0.8, ease: EASE }}
-        >
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70 sm:text-xs">
-            Sunstone Innovation · DTC Brand Lab
-          </p>
-          <h1 className="mt-4 font-display text-5xl font-bold tracking-tight text-white sm:text-7xl lg:text-8xl">
-            {"Meet "}
-            <span className="text-shimmer">Cohort 1</span>
-          </h1>
-        </motion.div>
-      </div>
     </div>
   )
 }
