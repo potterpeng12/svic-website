@@ -48,9 +48,9 @@ function measureTargets(brands: CohortBrand[]) {
 
   const targets: Record<string, Target> = {}
   for (const brand of brands) {
-    const card = document.querySelector<HTMLElement>(`[data-cohort-card="${brand.id}"]`)
-    if (!card) continue
-    const rect = card.getBoundingClientRect()
+    const photo = document.querySelector<HTMLElement>(`[data-cohort-image="${brand.id}"]`)
+    if (!photo) continue
+    const rect = photo.getBoundingClientRect()
     targets[brand.id] = {
       x: Math.round(rect.left + rect.width / 2 - window.innerWidth / 2),
       y: Math.round(rect.top + scrollY - scrollTarget + rect.height / 2 - window.innerHeight / 2),

@@ -38,15 +38,11 @@ export function CohortContent() {
 
       <main className="relative min-h-screen">
         {/* ════════ HERO ════════ */}
-        <header className="relative flex min-h-[78vh] items-center justify-center overflow-hidden">
-          <div className="absolute inset-0">
-            <img
-              src="/images/hero-brand-lab.jpg"
-              alt=""
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a1a] via-[#0a0a1a]/85 to-[#0a0a1a]/70" />
-          </div>
+        <header className="relative flex min-h-[78vh] items-center justify-center overflow-hidden bg-[#0a0a1a]">
+          <div
+            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(271_81%_56%/0.18),transparent_60%)]"
+            aria-hidden="true"
+          />
 
           <div className="relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-6 pb-16 pt-32 text-center">
             <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70 sm:text-xs">

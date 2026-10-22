@@ -61,7 +61,10 @@ export function CohortCard({
         >
           {/* ───── FRONT ───── */}
           <div className={`group/card ${faceBase}`} inert={flipped} aria-hidden={flipped}>
-            <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
+            <div
+              data-cohort-image={brand.id}
+              className="relative aspect-[4/3] w-full overflow-hidden bg-muted"
+            >
               {brand.image ? (
                 <img
                   src={brand.image || "/placeholder.svg"}

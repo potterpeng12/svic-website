@@ -139,9 +139,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A Southern California quick-service restaurant brand serving comfort foods, including chopped cheese sandwiches, cheesesteaks, chicken and waffles, and breakfast burritos.",
     website: "https://montystakeout.com",
-    image: "/images/cohort-1/montys.jpg",
+    image: "/images/cohort-1/montys-sandwich.jpg",
     imageFit: "cover",
-    imagePosition: "50% 70%",
   },
   {
     id: "nad-and-me",
