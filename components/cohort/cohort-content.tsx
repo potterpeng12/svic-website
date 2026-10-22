@@ -1,15 +1,13 @@
 "use client"
 
 import { useCallback, useEffect, useState } from "react"
-import { motion, useReducedMotion } from "framer-motion"
+import { useReducedMotion } from "framer-motion"
 import { ArrowLeft } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { CohortIntro } from "@/components/cohort/cohort-intro"
 import { CohortCard } from "@/components/cohort/cohort-card"
 import { cohortOneBrands } from "@/data/cohort-1"
-
-const EASE = [0.22, 1, 0.36, 1] as const
 
 export function CohortContent() {
   const reduceMotion = useReducedMotion() ?? false
@@ -58,18 +56,6 @@ export function CohortContent() {
               {"Meet "}
               <span className="text-shimmer">Cohort 1</span>
             </h1>
-
-            <motion.div
-              className="flex flex-col items-center"
-              initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-              animate={gridVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: reduceMotion ? 0 : 0.9, ease: EASE }}
-            >
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/70 text-pretty sm:text-lg lg:text-xl">
-                The inaugural cohort of the Sunstone DTC Brand Lab: eighteen emerging consumer brands
-                building across food, wellness, apparel, and everyday products.
-              </p>
-            </motion.div>
           </div>
         </header>
 

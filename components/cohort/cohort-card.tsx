@@ -67,6 +67,7 @@ export function CohortCard({
                   src={brand.image || "/placeholder.svg"}
                   alt={`${brand.name} ${brand.imageFit === "cover" ? "product" : "logo"}`}
                   loading="lazy"
+                  style={brand.imagePosition ? { objectPosition: brand.imagePosition } : undefined}
                   className={`h-full w-full transition-transform duration-300 ease-out motion-reduce:transition-none group-hover/card:scale-105 ${
                     brand.imageFit === "cover" ? "object-cover" : "object-contain p-8"
                   }`}

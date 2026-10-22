@@ -19,6 +19,8 @@ export interface CohortBrand {
   image?: string
   /** "contain" for logos, "cover" for product photography. */
   imageFit?: "contain" | "cover"
+  /** CSS object-position for "cover" images, e.g. "50% 0%" keeps the top of the photo visible. */
+  imagePosition?: string
   /**
    * Fill this in to activate the "Meet the Founder" flip on the card.
    * The flip button stays hidden until `name` is set.
@@ -37,6 +39,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "An athletic footwear company developing innovative sports cleats featuring patented SmartStuds technology, designed to reduce rotational stress on knees and ankles during athletic activity.",
     website: "https://www.caddix.com",
+    image: "/images/cohort-1/caddix.png",
+    imageFit: "cover",
   },
   {
     id: "clean-saint",
@@ -127,6 +131,7 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://drinklinea.com",
     image: "/images/cohort-1/linea.png",
     imageFit: "cover",
+    imagePosition: "50% 0%",
   },
   {
     id: "montys",
@@ -136,6 +141,7 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://montystakeout.com",
     image: "/images/cohort-1/montys.jpg",
     imageFit: "cover",
+    imagePosition: "50% 70%",
   },
   {
     id: "nad-and-me",
