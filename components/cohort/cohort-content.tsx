@@ -69,13 +69,6 @@ export function CohortContent() {
                 The inaugural cohort of the Sunstone DTC Brand Lab: eighteen emerging consumer brands
                 building across food, wellness, apparel, and everyday products.
               </p>
-              <span className="mt-8 inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-medium text-white backdrop-blur-sm">
-                <span className="relative flex h-2 w-2">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[hsl(var(--warm))] opacity-60 motion-reduce:hidden" />
-                  <span className="relative inline-flex h-2 w-2 rounded-full bg-[hsl(var(--warm))]" />
-                </span>
-                18 Emerging Brands · Inaugural Cohort
-              </span>
             </motion.div>
           </div>
         </header>
@@ -87,11 +80,10 @@ export function CohortContent() {
               The 18 companies in Cohort 1
             </h2>
             <ul className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-              {cohortOneBrands.map((brand, i) => (
+              {cohortOneBrands.map((brand) => (
                 <CohortCard
                   key={brand.id}
                   brand={brand}
-                  index={i}
                   show={gridVisible}
                   reduceMotion={reduceMotion}
                 />
