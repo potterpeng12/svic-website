@@ -12,11 +12,11 @@ type Target = { x: number; y: number; width: number; height: number }
 const GATHER_STEP = 0.14
 const TITLE_AT_MS = 2900
 const DISPERSE_AT_MS = 4500
-const LANDED_AT_MS = 6300
-const DONE_AT_MS = 6900
+const LANDED_AT_MS = 5750
+const DONE_AT_MS = 6150
 
-const FLIGHT_SECONDS = 1.2
-const FLIGHT_STAGGER = 0.03
+const FLIGHT_SECONDS = 1.0
+const FLIGHT_STAGGER = 0.02
 const GRID_TOP_OFFSET = 112
 
 const EASE = [0.22, 1, 0.36, 1] as const
@@ -178,7 +178,7 @@ export function CohortIntro({
               }
               transition={
                 phase === "landed"
-                  ? { duration: 0.5, ease: "easeOut" }
+                  ? { duration: 0.3, ease: "easeOut" }
                   : flightTarget
                     ? { duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }
                     : { duration: 0.7, delay: 0.2 + i * GATHER_STEP, ease: EASE }

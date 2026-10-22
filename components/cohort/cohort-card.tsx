@@ -42,7 +42,7 @@ export function CohortCard({
       className="relative h-full focus-within:z-30 [@media(hover:hover)]:hover:z-30"
       initial={reduceMotion ? false : { opacity: 0 }}
       animate={{ opacity: show ? 1 : 0 }}
-      transition={{ duration: reduceMotion ? 0 : 0.5, ease: EASE }}
+      transition={{ duration: reduceMotion ? 0 : 0.3, ease: EASE }}
     >
       <article
         className="h-full rounded-2xl transition-[transform,box-shadow] duration-300 ease-out motion-reduce:transition-none [@media(hover:hover)]:hover:-translate-y-1.5 [@media(hover:hover)]:hover:scale-[1.04] [@media(hover:hover)]:hover:shadow-2xl [@media(hover:hover)]:hover:shadow-foreground/10 shadow-sm shadow-foreground/[0.03]"
