@@ -44,6 +44,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "An oral care brand offering Mouth OS, a waterless, fluoride-free dissolvable toothpaste film featuring hydroxyapatite and individually sealed doses, designed for convenient, portable, tube-free dental hygiene.",
     website: "https://cleansaint.com",
+    image: "/images/cohort-1/clean-saint.png",
+    imageFit: "cover",
   },
   {
     id: "dulce-caramel",
@@ -51,6 +53,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A Chicago-based artisanal confectionery specializing in handmade Argentine-inspired sweets, including alfajores, caramels, chocolate, and honeycomb treats, using traditional methods and natural ingredients.",
     website: "https://dulcecaramel.com",
+    image: "/images/cohort-1/dulce-caramel.webp",
+    imageFit: "cover",
   },
   {
     id: "dynomighty",
@@ -58,6 +62,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A creative accessories brand specializing in innovative, lightweight, and durable wallets made from recyclable Tyvek material. Known for its signature Mighty Wallet, the company combines minimalist construction with colorful, artist-designed patterns to offer functional and stylish alternatives to traditional leather wallets.",
     website: "https://mightywallet.shop",
+    image: "/images/cohort-1/dynomighty.webp",
+    imageFit: "cover",
   },
   {
     id: "eazwear",
@@ -65,6 +71,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A hygiene-focused apparel brand offering individually packaged, sterilized disposable cotton underwear designed for convenience, comfort, travel, and everyday personal hygiene.",
     website: null,
+    image: "/images/cohort-1/eazwear.png",
+    imageFit: "cover",
   },
   {
     id: "giraf-sleeptech",
@@ -72,6 +80,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A Singapore-based sleep technology company developing innovative deep-pressure pillows designed to support relaxation and more restorative sleep through proprietary composite materials and sensory pressure technology.",
     website: "https://www.girafthepillow.com",
+    image: "/images/cohort-1/giraf-sleeptech.png",
+    imageFit: "cover",
   },
   {
     id: "goode-bites",
@@ -79,6 +89,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A premium beef jerky brand specializing in small-batch, hand-cut brisket jerky made without seed oils, artificial preservatives, or added nitrates.",
     website: "https://www.goodbitesjerky.com",
+    image: "/images/cohort-1/goode-bites.png",
+    imageFit: "cover",
   },
   {
     id: "kamuel",
@@ -86,6 +98,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A Los Angeles-based premium footwear brand developing distinctive, high-end sneakers designed for ambitious, style-conscious consumers.",
     website: "https://www.kamuel.com",
+    image: "/images/cohort-1/kamuel.png",
+    imageFit: "cover",
   },
   {
     id: "karma-wellness-kitchen",
@@ -93,6 +107,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A wellness-focused food brand offering popped water lily seed snacks, herbal teas, and convenient meal kits inspired by Indian and South Asian flavors.",
     website: "https://www.karmawellnesskitchen.com",
+    image: "/images/cohort-1/karma-wellness-kitchen.png",
+    imageFit: "cover",
   },
   {
     id: "lido-gear",
@@ -100,6 +116,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A marketing and branding services company providing brand development, strategic consulting, marketing planning, and business analysis for companies across industries including real estate, finance, hospitality, and professional services.",
     website: "https://lidogear.com",
+    image: "/images/cohort-1/lido-gear.png",
+    imageFit: "cover",
   },
   {
     id: "linea",
@@ -107,6 +125,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "An emerging functional hydration brand developing low-sugar and clean-ingredient electrolyte drink mixes featuring sodium, potassium, and chelated magnesium. Designed for convenient everyday hydration, LINEA combines balanced mineral formulations with approachable flavors and portable packaging.",
     website: "https://drinklinea.com",
+    image: "/images/cohort-1/linea.png",
+    imageFit: "cover",
   },
   {
     id: "montys",
@@ -114,6 +134,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A Southern California quick-service restaurant brand serving comfort foods, including chopped cheese sandwiches, cheesesteaks, chicken and waffles, and breakfast burritos.",
     website: "https://montystakeout.com",
+    image: "/images/cohort-1/montys.jpg",
+    imageFit: "cover",
   },
   {
     id: "nad-and-me",
@@ -121,6 +143,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A functional beverage company producing caffeine-free NAD+ drinks formulated with cellular nutrients and marketed to support everyday energy, vitality, and wellness through convenient ready-to-drink products.",
     website: "https://nadandme.com",
+    image: "/images/cohort-1/nad-and-me.png",
+    imageFit: "cover",
   },
   {
     id: "reset-foods",
@@ -135,6 +159,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A sustainable sun-care brand offering minimalist mineral sunscreen balms made with zinc oxide and packaged in recyclable metal tins. Its four-ingredient formula is designed for outdoor enthusiasts seeking simple, plastic-free sun protection.",
     website: "https://seakersunco.com",
+    image: "/images/cohort-1/seaker-sun-co.png",
+    imageFit: "cover",
   },
   {
     id: "oculora",
@@ -142,6 +168,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "Oculora is an eye-wellness brand offering self-heating eye masks designed to promote relaxation and provide a restorative break from screen-heavy lifestyles. Combining gentle warmth with botanical aromas, its portable, single-use masks create a convenient 20-minute self-care ritual for home, travel, and everyday use.",
     website: "https://myoculora.com",
+    image: "/images/cohort-1/oculora.png",
+    imageFit: "cover",
   },
   {
     id: "taply",
@@ -149,6 +177,8 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A functional beverage brand producing lightly sparkling maple water made from organic maple sap, offering naturally occurring electrolytes, antioxidants, and minerals without added sugar.",
     website: "https://drinktaply.com",
+    image: "/images/cohort-1/taply.png",
+    imageFit: "cover",
   },
   {
     id: "zabaan",
@@ -156,5 +186,7 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A Los Angeles-based specialty food brand developing small-batch Pakistani chutneys inspired by traditional family recipes. Featuring flavors such as mint and tamarind, Zabaan brings authentic South Asian condiments to everyday meals through fresh ingredients and handcrafted production.",
     website: "https://eatzabaan.com",
+    image: "/images/cohort-1/zabaan.png",
+    imageFit: "cover",
   },
 ]
