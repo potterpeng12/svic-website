@@ -186,7 +186,7 @@ export function CohortIntro({
               style={{ zIndex: i }}
             >
               <motion.div
-                className={`absolute left-0 top-0 flex h-44 w-36 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 rounded-2xl border p-3 text-center shadow-2xl shadow-black/40 sm:h-56 sm:w-48 ${tones[i % tones.length]}`}
+                className={`absolute left-0 top-0 flex h-44 w-36 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl text-center sm:h-56 sm:w-48 ${brand.image ? "" : `border p-3 ${tones[i % tones.length]}`}`}
                 animate={flightTarget ? { width: target.width, height: target.height } : undefined}
                 transition={{ duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }}
               >
@@ -194,7 +194,7 @@ export function CohortIntro({
                   <img
                     src={brand.image || "/placeholder.svg"}
                     alt=""
-                    className={`h-full w-full rounded-xl ${brand.imageFit === "cover" ? "object-cover" : "object-contain"}`}
+                    className={`h-full w-full ${brand.imageFit === "cover" ? "object-cover" : "object-contain"}`}
                   />
                 ) : (
                   <>
@@ -212,7 +212,7 @@ export function CohortIntro({
 
       <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
         <motion.div
-          className="mx-6 flex flex-col items-center rounded-3xl bg-[#0a0a1a]/55 px-6 py-8 text-center backdrop-blur-md sm:px-12 sm:py-10"
+          className="mx-6 flex flex-col items-center px-6 py-8 text-center sm:px-12 sm:py-10"
           initial={{ opacity: 0, y: 16, scale: 0.96 }}
           animate={{
             opacity: showTitle ? 1 : 0,
