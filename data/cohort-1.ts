@@ -68,19 +68,6 @@ export const cohortOneBrands: CohortBrand[] = [
     },
   },
   {
-    id: "dulce-caramel",
-    name: "Dulce Caramel Co.",
-    blurb:
-      "A Chicago-based artisanal confectionery specializing in handmade Argentine-inspired sweets, including alfajores, caramels, chocolate, and honeycomb treats, using traditional methods and natural ingredients.",
-    website: "https://dulcecaramel.com",
-    image: "/images/cohort-1/dulce-caramel.webp",
-    imageFit: "cover",
-    founder: {
-      name: "Graciela Schargorodsky",
-      title: "President",
-    },
-  },
-  {
     id: "dynomighty",
     name: "Dynomighty",
     blurb:
