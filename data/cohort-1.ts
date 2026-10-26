@@ -1,8 +1,10 @@
 export interface Founder {
   name?: string
   title?: string
+  /** Headshot path. Leave undefined to show the initials placeholder. */
   image?: string
-  bio?: string
+  /** CSS object-position for the headshot crop, e.g. "50% 25%". */
+  imagePosition?: string
   linkedin?: string
 }
 
@@ -41,6 +43,13 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://www.caddix.com",
     image: "/images/cohort-1/caddix.png",
     imageFit: "cover",
+    founder: {
+      name: "Kevin Sheppard",
+      title: "COO",
+      image: "/images/cohort-1/founders/kevin-sheppard.webp",
+      imagePosition: "50% 30%",
+      linkedin: "https://www.linkedin.com/in/kevin-sheppard-7a779ab6/",
+    },
   },
   {
     id: "clean-saint",
@@ -50,6 +59,13 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://cleansaint.com",
     image: "/images/cohort-1/clean-saint.png",
     imageFit: "cover",
+    founder: {
+      name: "Joshua Stancle",
+      title: "Founder & CEO",
+      image: "/images/cohort-1/founders/joshua-stancle.png",
+      imagePosition: "50% 35%",
+      linkedin: "https://www.linkedin.com/in/joshua-stancle-29097515/",
+    },
   },
   {
     id: "dulce-caramel",
@@ -59,6 +75,10 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://dulcecaramel.com",
     image: "/images/cohort-1/dulce-caramel.webp",
     imageFit: "cover",
+    founder: {
+      name: "Graciela Schargorodsky",
+      title: "President",
+    },
   },
   {
     id: "dynomighty",
@@ -68,6 +88,13 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://mightywallet.shop",
     image: "/images/cohort-1/dynomighty.webp",
     imageFit: "cover",
+    founder: {
+      name: "Terrence Kelleman",
+      title: "Founder",
+      image: "/images/cohort-1/founders/terrence-kelleman.jpg",
+      imagePosition: "50% 30%",
+      linkedin: "https://www.linkedin.com/in/bemighty/",
+    },
   },
   {
     id: "eazwear",
@@ -77,6 +104,11 @@ export const cohortOneBrands: CohortBrand[] = [
     website: null,
     image: "/images/cohort-1/eazwear.png",
     imageFit: "cover",
+    founder: {
+      name: "Eric Zhuang",
+      title: "Founder",
+      linkedin: "https://www.linkedin.com/in/eric-zhuang-2b1841417/",
+    },
   },
   {
     id: "giraf-sleeptech",
@@ -86,6 +118,13 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://www.girafthepillow.com",
     image: "/images/cohort-1/giraf-sleeptech.png",
     imageFit: "cover",
+    founder: {
+      name: "Ken Leong",
+      title: "Founder & CEO",
+      image: "/images/cohort-1/founders/ken-leong.png",
+      imagePosition: "50% 15%",
+      linkedin: "https://www.linkedin.com/in/kencleong?originalSubdomain=sg",
+    },
   },
   {
     id: "goode-bites",
@@ -95,6 +134,13 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://www.goodbitesjerky.com",
     image: "/images/cohort-1/goode-bites.png",
     imageFit: "cover",
+    founder: {
+      name: "Andre Goode",
+      title: "Co-Founder & CEO",
+      image: "/images/cohort-1/founders/andre-goode.jpg",
+      imagePosition: "50% 30%",
+      linkedin: "https://www.linkedin.com/in/andre-goode/",
+    },
   },
   {
     id: "kamuel",
@@ -104,6 +150,13 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://www.kamuel.com",
     image: "/images/cohort-1/kamuel.png",
     imageFit: "cover",
+    founder: {
+      name: "Kam Black",
+      title: "Founder",
+      image: "/images/cohort-1/founders/kam-black.png",
+      imagePosition: "50% 25%",
+      linkedin: "https://www.linkedin.com/in/kamblack/",
+    },
   },
   {
     id: "karma-wellness-kitchen",
@@ -113,6 +166,13 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://www.karmawellnesskitchen.com",
     image: "/images/cohort-1/karma-wellness-kitchen.png",
     imageFit: "cover",
+    founder: {
+      name: "Vinita Parekh",
+      title: "Founder & CEO",
+      image: "/images/cohort-1/founders/vinita-parekh.jpg",
+      imagePosition: "50% 30%",
+      linkedin: "https://www.linkedin.com/in/vinita-parekh-karma/",
+    },
   },
   {
     id: "lido-gear",
@@ -122,6 +182,10 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://lidogear.com",
     image: "/images/cohort-1/lido-gear.png",
     imageFit: "cover",
+    founder: {
+      name: "Alan Sather",
+      title: "CEO",
+    },
   },
   {
     id: "linea",
@@ -132,6 +196,10 @@ export const cohortOneBrands: CohortBrand[] = [
     image: "/images/cohort-1/linea.png",
     imageFit: "cover",
     imagePosition: "50% 0%",
+    founder: {
+      name: "Ryan Newhard",
+      title: "Founder & CEO",
+    },
   },
   {
     id: "montys",
@@ -141,6 +209,10 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://montystakeout.com",
     image: "/images/cohort-1/montys-sandwich.jpg",
     imageFit: "cover",
+    founder: {
+      name: "Henry Arayasirikul",
+      title: "Founder & CEO",
+    },
   },
   {
     id: "nad-and-me",
@@ -150,6 +222,13 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://nadandme.com",
     image: "/images/cohort-1/nad-and-me.png",
     imageFit: "cover",
+    founder: {
+      name: "Alex Tsepko",
+      title: "Co-Founder",
+      image: "/images/cohort-1/founders/alex-tsepko.png",
+      imagePosition: "50% 25%",
+      linkedin: "https://www.linkedin.com/in/alextsepko/",
+    },
   },
   {
     id: "reset-foods",
@@ -157,6 +236,10 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "An emerging packaged food and beverage company developing consumer food products under the RESET FOODS brand. Specific product offerings are not yet confirmed.",
     website: null,
+    founder: {
+      name: "Anqi Li",
+      title: "CEO",
+    },
   },
   {
     id: "seaker-sun-co",
@@ -166,6 +249,13 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://seakersunco.com",
     image: "/images/cohort-1/seaker-sun-co.png",
     imageFit: "cover",
+    founder: {
+      name: "Euan Latimer",
+      title: "Founder",
+      image: "/images/cohort-1/founders/euan-latimer.png",
+      imagePosition: "50% 30%",
+      linkedin: "https://www.linkedin.com/in/euanklatimer/",
+    },
   },
   {
     id: "oculora",
@@ -175,6 +265,13 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://myoculora.com",
     image: "/images/cohort-1/oculora.png",
     imageFit: "cover",
+    founder: {
+      name: "Aaron Ma",
+      title: "Founder",
+      image: "/images/cohort-1/founders/aaron-ma.png",
+      imagePosition: "50% 35%",
+      linkedin: "https://www.linkedin.com/in/aaron-ma-ba93373b2/",
+    },
   },
   {
     id: "taply",
@@ -182,9 +279,13 @@ export const cohortOneBrands: CohortBrand[] = [
     blurb:
       "A functional beverage brand producing lightly sparkling maple water made from organic maple sap, offering naturally occurring electrolytes, antioxidants, and minerals without added sugar.",
     website: "https://drinktaply.com",
-  image: "/images/cohort-1/taply.png",
-  imageFit: "cover",
-  imagePosition: "50% 90%",
+    image: "/images/cohort-1/taply.png",
+    imageFit: "cover",
+    imagePosition: "50% 90%",
+    founder: {
+      name: "Ashley Bowser",
+      title: "Founder",
+    },
   },
   {
     id: "zabaan",
@@ -194,5 +295,9 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://eatzabaan.com",
     image: "/images/cohort-1/zabaan.png",
     imageFit: "cover",
+    founder: {
+      name: "Musmin Zar",
+      title: "Founder",
+    },
   },
 ]

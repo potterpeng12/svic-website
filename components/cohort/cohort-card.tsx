@@ -2,13 +2,18 @@
 
 import { useEffect, useRef, useState } from "react"
 import { motion } from "framer-motion"
-import { ArrowLeft, ArrowRight, ArrowUpRight, ImageIcon, Linkedin, User } from "lucide-react"
+import { ArrowLeft, ArrowRight, ArrowUpRight, ImageIcon, Linkedin } from "lucide-react"
 import { hasFounderInfo, type CohortBrand } from "@/data/cohort-1"
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
 const faceBase =
   "[grid-area:1/1] flex flex-col overflow-hidden rounded-2xl border border-border bg-card [backface-visibility:hidden]"
+
+function initials(name: string) {
+  const parts = name.trim().split(/\s+/)
+  return ((parts[0]?.[0] ?? "") + (parts.length > 1 ? parts[parts.length - 1][0] : "")).toUpperCase()
+}
 
 const focusRing =
   "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-card"
@@ -24,6 +29,7 @@ export function CohortCard({
 }) {
   const [flipped, setFlipped] = useState(false)
   const founder = hasFounderInfo(brand.founder) ? brand.founder : null
+  const roleLabel = founder?.title && !/founder/i.test(founder.title) ? "Leader" : "Founder"
   const frontButton = useRef<HTMLButtonElement>(null)
   const backButton = useRef<HTMLButtonElement>(null)
   const mounted = useRef(false)
@@ -121,10 +127,10 @@ export function CohortCard({
                     ref={frontButton}
                     type="button"
                     onClick={() => setFlipped(true)}
-                    aria-label={`Meet the founder of ${brand.name}`}
+                    aria-label={`Meet the ${roleLabel.toLowerCase()} of ${brand.name}`}
                     className={`group/btn inline-flex items-center gap-2 rounded-full border border-primary/20 bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-colors hover:bg-primary hover:text-primary-foreground ${focusRing}`}
                   >
-                    Meet the Founder
+                    Meet the {roleLabel}
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
                   </button>
                 </div>
@@ -140,36 +146,58 @@ export function CohortCard({
               inert={!flipped}
               aria-hidden={!flipped}
             >
+              <div className="relative aspect-[4/3] w-full flex-shrink-0 overflow-hidden bg-muted">
+                {founder.image ? (
+                  <img
+                    src={founder.image || "/placeholder.svg"}
+                    alt={`Portrait of ${founder.name}`}
+                    loading="lazy"
+                    style={{ objectPosition: founder.imagePosition ?? "50% 30%" }}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent via-muted to-secondary">
+                    <div
+                      className="flex h-24 w-24 items-center justify-center rounded-full bg-card/70 font-display text-3xl font-bold text-muted-foreground ring-1 ring-border"
+                      aria-hidden="true"
+                    >
+                      {initials(founder.name)}
+                    </div>
+                    <span className="sr-only">Photo coming soon</span>
+                  </div>
+                )}
+              </div>
               <div className="flex flex-1 flex-col items-center p-6 text-center">
-                <div className="flex h-28 w-28 flex-shrink-0 items-center justify-center overflow-hidden rounded-full bg-muted ring-1 ring-border">
-                  {founder.image ? (
-                    <img
-                      src={founder.image || "/placeholder.svg"}
-                      alt={`${founder.name}, founder of ${brand.name}`}
-                      className="h-full w-full object-cover"
-                    />
+                <h3 className="font-display text-xl font-bold leading-snug text-foreground text-balance">
+                  {founder.linkedin ? (
+                    <a
+                      href={founder.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`rounded-md transition-colors hover:text-primary ${focusRing}`}
+                    >
+                      {founder.name}
+                      <span className="sr-only">(LinkedIn, opens in a new tab)</span>
+                    </a>
                   ) : (
-                    <User className="h-10 w-10 text-muted-foreground/60" />
+                    founder.name
                   )}
-                </div>
-                <h3 className="mt-4 font-display text-xl font-bold text-foreground">{founder.name}</h3>
+                </h3>
                 {founder.title && (
-                  <p className="mt-1 text-xs font-semibold uppercase tracking-widest text-primary">
+                  <p className="mt-1.5 text-xs font-semibold uppercase tracking-widest text-primary">
                     {founder.title}
                   </p>
                 )}
-                {founder.bio && (
-                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{founder.bio}</p>
-                )}
+                <p className="mt-1 text-sm text-muted-foreground text-balance">{brand.name}</p>
                 {founder.linkedin && (
                   <a
                     href={founder.linkedin}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`mt-4 inline-flex items-center gap-2 rounded-full text-sm font-medium text-foreground transition-colors hover:text-primary ${focusRing}`}
+                    className={`group/li mt-4 inline-flex items-center gap-2 rounded-full text-sm font-medium text-foreground transition-colors hover:text-primary ${focusRing}`}
                   >
-                    <Linkedin className="h-4 w-4" />
-                    LinkedIn
+                    <Linkedin className="h-4 w-4 transition-transform duration-300 group-hover/li:-translate-y-0.5" />
+                    View LinkedIn
                     <span className="sr-only">(opens in a new tab)</span>
                   </a>
                 )}
