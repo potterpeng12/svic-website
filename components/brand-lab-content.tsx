@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import {
   ArrowUpRight,
   ArrowLeft,
@@ -204,7 +205,14 @@ export function BrandLabContent() {
 
             <p className="reveal mt-8 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
               Brand Lab Cohort 1 is now at full capacity. Please look out for future cohort
-              information and time.
+              information and time.{" "}
+              <Link
+                href="/programs/dtc-brand-lab/cohort-1"
+                className="inline-flex items-center gap-1 font-semibold text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white"
+              >
+                Meet our Cohort 1 members here
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
             </p>
 
             <div className="reveal mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
