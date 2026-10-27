@@ -94,6 +94,8 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
       name: "Eric Zhuang",
       title: "Founder",
+      image: "/images/cohort-1/founders/eric-zhuang.jpg",
+      imagePosition: "50% 35%",
       linkedin: "https://www.linkedin.com/in/eric-zhuang-2b1841417/",
     },
   },
@@ -140,8 +142,8 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
       name: "Kam Black",
       title: "Founder",
-      image: "/images/cohort-1/founders/kam-black.png",
-      imagePosition: "50% 25%",
+      image: "/images/cohort-1/founders/kam-black.jpg",
+      imagePosition: "50% 30%",
       linkedin: "https://www.linkedin.com/in/kamblack/",
     },
   },
@@ -186,6 +188,9 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
       name: "Ryan Newhard",
       title: "Founder & CEO",
+      image: "/images/cohort-1/founders/ryan-newhard.jpg",
+      imagePosition: "50% 40%",
+      linkedin: "https://www.linkedin.com/in/ryan-newhard-19970",
     },
   },
   {
