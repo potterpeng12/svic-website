@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import {
   ArrowUpRight,
   ArrowLeft,
@@ -54,12 +55,6 @@ const sectors = [
 ]
 
 const selection = [
-  {
-    label: "Now Open",
-    accent: true,
-    value: "Accepting cohort applications",
-    note: "Small by design with hands-on support for every founder. Every company is screened for program fit, market readiness, and growth potential.",
-  },
   {
     label: "Stage",
     accent: false,
@@ -210,7 +205,14 @@ export function BrandLabContent() {
 
             <p className="reveal mt-8 max-w-2xl text-sm leading-relaxed text-white/70 sm:text-base">
               Brand Lab Cohort 1 is now at full capacity. Please look out for future cohort
-              information and time.
+              information and time.{" "}
+              <Link
+                href="/programs/dtc-brand-lab/cohort-1"
+                className="inline-flex items-center gap-1 font-semibold text-white underline decoration-white/40 underline-offset-4 transition-colors hover:decoration-white"
+              >
+                Meet our Cohort 1 members here
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </Link>
             </p>
 
             <div className="reveal mt-6 flex flex-col gap-4 sm:flex-row sm:items-center">
@@ -253,17 +255,7 @@ export function BrandLabContent() {
                   information and time.
                 </p>
 
-                <a
-                  href={APPLY_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group mt-4 inline-flex items-center gap-2.5 rounded-full bg-foreground px-8 py-4 text-base font-semibold text-background transition-all duration-300 hover:scale-[1.03] hover:shadow-xl hover:shadow-foreground/10"
-                >
-                  Stay Tuned for Cohort 2
-                  <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                </a>
-
-                <div className="mt-10 max-w-2xl">
+  <div className="mt-10 max-w-2xl">
                   <h3 className="font-display text-2xl font-bold text-foreground sm:text-3xl">Our Mission</h3>
                   <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
                     Sunstone Brand Lab exists to help emerging consumer brands turn ambition into
@@ -362,27 +354,15 @@ export function BrandLabContent() {
               </div>
             </div>
 
-            <div className="reveal reveal-delay-2 mt-14 grid gap-6 pt-12 text-center sm:grid-cols-3 sm:text-left">
+            <div className="reveal reveal-delay-2 mx-auto mt-14 grid max-w-3xl gap-10 pt-12 text-center sm:grid-cols-2 sm:gap-12">
               {selection.map((item) => (
                 <div key={item.label}>
-                  <div
-                    className={`font-display text-4xl font-bold sm:text-5xl ${
-                      item.accent ? "text-primary" : "text-foreground"
-                    }`}
-                  >
-                    {item.label === "Now Open" ? (
-                      "Now Open"
-                    ) : (
-                      <span className="text-sm font-semibold uppercase tracking-widest text-primary">
-                        {item.label}
-                      </span>
-                    )}
+                  <div className="font-display text-4xl font-bold text-foreground sm:text-5xl">
+                    <span className="text-sm font-semibold uppercase tracking-widest text-primary">
+                      {item.label}
+                    </span>
                   </div>
-                  <p
-                    className={`mt-2 leading-snug text-foreground ${
-                      item.accent ? "text-lg font-medium" : "text-xl font-semibold"
-                    }`}
-                  >
+                  <p className="mt-2 text-xl font-semibold leading-snug text-foreground">
                     {item.value}
                   </p>
                   <p className="mt-2 text-base leading-relaxed text-muted-foreground">{item.note}</p>

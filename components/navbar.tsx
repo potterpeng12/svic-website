@@ -16,7 +16,10 @@ const navLinks: NavLink[] = [
   {
     label: "Program",
     href: "/#program",
-    children: [{ label: "Brand Lab", href: "/programs/dtc-brand-lab" }],
+    children: [
+      { label: "Brand Lab", href: "/programs/dtc-brand-lab" },
+      { label: "Meet Cohort 1", href: "/programs/dtc-brand-lab/cohort-1" },
+    ],
   },
   { label: "Perks", href: "/#perks" },
   { label: "Events", href: "/#events" },
@@ -179,7 +182,7 @@ export function Navbar({
             { label: ctaLabel, href: ctaHref, child: false },
           ].map((link, i) => (
             <a
-              key={link.href}
+              key={`${link.label}-${i}`}
               href={link.href}
               onClick={() => setMobileOpen(false)}
               className={`rounded-2xl px-6 font-display font-bold text-foreground transition-all duration-500 hover:bg-accent hover:text-primary ${link.child ? "py-2 text-2xl text-muted-foreground" : "py-3 text-4xl"

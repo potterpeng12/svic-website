@@ -3,7 +3,7 @@
 import React from "react"
 
 import { useReveal } from "@/hooks/use-reveal"
-import { ArrowUpRight, Sparkles } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 import { useCallback, useRef, useState } from "react"
 
 export function Apply() {
@@ -40,10 +40,9 @@ export function Apply() {
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-72 w-72 rounded-full bg-[hsl(var(--warm))]/10 blur-3xl" />
 
           <div className="relative z-10">
-            <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-background/10 bg-background/5 px-4 py-2">
-              <Sparkles className="h-3.5 w-3.5 text-background" />
+            <div className="mb-8 inline-flex items-center rounded-full border border-background/10 bg-background/5 px-4 py-2">
               <span className="text-sm font-medium text-background/80">
-                Now Accepting Applications
+                Stay Tuned for Cohort 2
               </span>
             </div>
 
@@ -73,7 +72,7 @@ export function Apply() {
                 href="/programs/dtc-brand-lab"
                 className="group inline-flex items-center gap-2.5 rounded-full bg-primary px-10 py-5 text-lg font-semibold text-primary-foreground shadow-2xl shadow-primary/20 transition-all duration-300 hover:shadow-primary/40 hover:scale-[1.03]"
               >
-                Start Application
+                Learn About DTC Brand Lab
                 <ArrowUpRight className="h-5 w-5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
               </a>
               <a
