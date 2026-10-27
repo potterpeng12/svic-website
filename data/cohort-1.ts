@@ -94,8 +94,8 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
       name: "Eric Zhuang",
       title: "Founder",
-      image: "/images/cohort-1/founders/eric-zhuang.jpg",
-      imagePosition: "50% 35%",
+      image: "/images/cohort-1/founders/eric-zhuang-face.jpg",
+      imagePosition: "50% 45%",
       linkedin: "https://www.linkedin.com/in/eric-zhuang-2b1841417/",
     },
   },
@@ -174,8 +174,8 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
   name: "Alan Sather",
   title: "CEO",
-  image: "/images/cohort-1/founders/lido-gears-founder.jpg",
-  imagePosition: "50% 30%",
+      image: "/images/cohort-1/founders/lido-gears-founder-wide.jpg",
+      imagePosition: "50% 30%",
   },
   },
   {
@@ -190,7 +190,7 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
       name: "Ryan Newhard",
       title: "Founder & CEO",
-      image: "/images/cohort-1/founders/ryan-newhard.jpg",
+      image: "/images/cohort-1/founders/ryan-newhard-hd.jpg",
       imagePosition: "50% 40%",
       linkedin: "https://www.linkedin.com/in/ryan-newhard-19970",
     },
