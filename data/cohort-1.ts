@@ -172,9 +172,11 @@ export const cohortOneBrands: CohortBrand[] = [
     image: "/images/cohort-1/lido-gear.png",
     imageFit: "cover",
     founder: {
-      name: "Alan Sather",
-      title: "CEO",
-    },
+  name: "Alan Sather",
+  title: "CEO",
+  image: "/images/cohort-1/founders/lido-gears-founder.jpg",
+  imagePosition: "50% 30%",
+  },
   },
   {
     id: "linea",
