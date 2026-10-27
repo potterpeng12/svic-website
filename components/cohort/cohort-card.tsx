@@ -128,7 +128,7 @@ export function CohortCard({
                     type="button"
                     onClick={() => setFlipped(true)}
                     aria-label={`Meet the ${roleLabel.toLowerCase()} of ${brand.name}`}
-                    className={`group/btn inline-flex items-center gap-2 rounded-full border border-primary/20 bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground transition-colors hover:bg-primary hover:text-primary-foreground ${focusRing}`}
+                    className={`group/btn inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary/40 hover:text-primary ${focusRing}`}
                   >
                     Meet the {roleLabel}
                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-0.5" />
@@ -206,7 +206,7 @@ export function CohortCard({
                     ref={backButton}
                     type="button"
                     onClick={() => setFlipped(false)}
-                    className={`group/btn inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary/30 hover:bg-accent ${focusRing}`}
+                    className={`group/btn inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:border-primary/40 hover:text-primary ${focusRing}`}
                   >
                     <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover/btn:-translate-x-0.5" />
                     Back to Brand
