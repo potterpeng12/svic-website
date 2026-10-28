@@ -110,7 +110,7 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
       name: "Ken Leong",
       title: "Founder & CEO",
-    image: "/images/cohort-1/founders/ken-leong-headroom.jpg",
+    image: "/images/cohort-1/founders/ken-leong-tight.jpg",
     imagePosition: "50% 0%",
       linkedin: "https://www.linkedin.com/in/kencleong?originalSubdomain=sg",
     },
@@ -190,8 +190,8 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
       name: "Ryan Newhard",
       title: "Founder & CEO",
-      image: "/images/cohort-1/founders/ryan-newhard-hd.jpg",
-      imagePosition: "50% 40%",
+  image: "/images/cohort-1/founders/ryan-newhard-final.jpg",
+  imagePosition: "50% 30%",
       linkedin: "https://www.linkedin.com/in/ryan-newhard-19970",
     },
   },
