@@ -7,6 +7,7 @@ import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { CohortIntro } from "@/components/cohort/cohort-intro"
 import { CohortCard } from "@/components/cohort/cohort-card"
+import { MomentsCarousel } from "@/components/cohort/moments-carousel"
 import { cohortOneBrands } from "@/data/cohort-1"
 
 export function CohortContent() {
@@ -80,6 +81,8 @@ export function CohortContent() {
                 />
               ))}
             </ul>
+
+            <MomentsCarousel />
 
             <div className="mt-16 flex justify-center">
               <a
