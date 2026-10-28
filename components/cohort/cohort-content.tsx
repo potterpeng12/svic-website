@@ -39,8 +39,15 @@ export function CohortContent() {
       <main className="relative min-h-screen">
         {/* ════════ HERO ════════ */}
         <header className="relative flex min-h-[78vh] items-center justify-center overflow-hidden bg-[#0a0a1a]">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/cohort-1-group-photo.jpg"
+            alt=""
+            aria-hidden="true"
+            className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out ${gridVisible ? "opacity-100" : "opacity-0"}`}
+          />
           <div
-            className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(271_81%_56%/0.18),transparent_60%)]"
+            className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"
             aria-hidden="true"
           />
 
