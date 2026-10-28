@@ -158,8 +158,8 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
       name: "Vinita Parekh",
       title: "Founder & CEO",
-      image: "/images/cohort-1/founders/vinita-parekh.jpg",
-      imagePosition: "50% 30%",
+  image: "/images/cohort-1/founders/vinita-parekh.jpg",
+  imagePosition: "50% 0%",
       linkedin: "https://www.linkedin.com/in/vinita-parekh-karma/",
     },
   },
