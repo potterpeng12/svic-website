@@ -94,8 +94,8 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
       name: "Eric Zhuang",
       title: "Founder",
-      image: "/images/cohort-1/founders/eric-zhuang-centered.jpg",
-      imagePosition: "50% 62%",
+    image: "/images/cohort-1/founders/eric-zhuang-wide.jpg",
+    imagePosition: "50% 50%",
       linkedin: "https://www.linkedin.com/in/eric-zhuang-2b1841417/",
     },
   },
@@ -110,8 +110,8 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
       name: "Ken Leong",
       title: "Founder & CEO",
-      image: "/images/cohort-1/founders/ken-leong.png",
-      imagePosition: "50% 15%",
+    image: "/images/cohort-1/founders/ken-leong.png",
+    imagePosition: "50% 0%",
       linkedin: "https://www.linkedin.com/in/kencleong?originalSubdomain=sg",
     },
   },
