@@ -12,6 +12,7 @@ export function Hero() {
   const [animState, setAnimState] = useState<"in" | "out">("in")
   const [loaded, setLoaded] = useState(false)
   const [isPlaying, setIsPlaying] = useState(true)
+  const [ended, setEnded] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
@@ -32,6 +33,13 @@ export function Hero() {
 
   const toggleVideo = () => {
     if (videoRef.current) {
+      if (ended) {
+        setEnded(false)
+        videoRef.current.currentTime = 0
+        videoRef.current.play()
+        setIsPlaying(true)
+        return
+      }
       if (isPlaying) {
         videoRef.current.pause()
       } else {
@@ -49,8 +57,11 @@ export function Hero() {
           ref={videoRef}
           autoPlay
           muted
-          loop
           playsInline
+          onEnded={() => {
+            setEnded(true)
+            setIsPlaying(false)
+          }}
           className="h-full w-full object-cover"
           style={{
             opacity: loaded ? 1 : 0,
@@ -59,6 +70,18 @@ export function Hero() {
         >
           <source src="/images/video_clean.mp4" type="video/mp4" />
         </video>
+
+        {/* Group photo fades in when the video finishes */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/hero-group-photo.jpg"
+          alt="Sunstone Venture & Innovation Center founders and mentors posing together on stage"
+          className="absolute inset-0 h-full w-full object-cover object-center"
+          style={{
+            opacity: ended ? 1 : 0,
+            transition: "opacity 1.5s ease-in-out",
+          }}
+        />
 
         {/* Gradient overlays for better text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black/90" />
@@ -69,7 +92,7 @@ export function Hero() {
       <button
         onClick={toggleVideo}
         className="absolute top-24 right-6 z-20 rounded-full border-2 border-white/20 bg-black/30 p-3 text-white backdrop-blur-sm transition-all duration-300 hover:border-white/40 hover:bg-black/50"
-        aria-label={isPlaying ? "Pause video" : "Play video"}
+        aria-label={ended ? "Replay video" : isPlaying ? "Pause video" : "Play video"}
         style={{
           opacity: loaded ? 1 : 0,
           transition: "opacity 0.8s 1s",
