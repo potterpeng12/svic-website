@@ -72,7 +72,7 @@ export function MomentsCarousel() {
         <div>
           <h2
             id="moments-heading"
-            className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+            className="bg-[linear-gradient(90deg,hsl(271,81%,70%),hsl(36,100%,70%),hsl(271,81%,70%))] bg-clip-text font-display text-3xl font-bold tracking-tight text-transparent sm:text-4xl"
           >
             Moments With Cohort 1
           </h2>
