@@ -5,6 +5,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const moments = [
   {
+    src: "/images/cohort-1/moments/shopline-nomadsfi.jpg",
+    width: 1500,
+    height: 1000,
+    alt: "A founder laughing at a busy orange-draped table with Nomadsfi, Shopline and Trinet signs",
+  },
+  {
     src: "/images/cohort-1/moments/nalwaya-foods.jpg",
     width: 829,
     height: 1000,
@@ -33,12 +39,6 @@ const moments = [
     width: 1500,
     height: 1000,
     alt: "The Korjin founder smiling beside his product display while guests look on",
-  },
-  {
-    src: "/images/cohort-1/moments/shopline-nomadsfi.jpg",
-    width: 1500,
-    height: 1000,
-    alt: "A founder laughing at a busy orange-draped table with Nomadsfi, Shopline and Trinet signs",
   },
 ]
 
@@ -70,12 +70,9 @@ export function MomentsCarousel() {
     <section className="mt-20 lg:mt-28" aria-labelledby="moments-heading">
       <div className="flex items-end justify-between gap-4">
         <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-muted-foreground sm:text-xs">
-            Demo Day
-          </p>
           <h2
             id="moments-heading"
-            className="mt-2 font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
+            className="font-display text-3xl font-bold tracking-tight text-foreground sm:text-4xl"
           >
             Moments With Cohort 1
           </h2>
