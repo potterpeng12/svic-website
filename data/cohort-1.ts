@@ -95,7 +95,7 @@ export const cohortOneBrands: CohortBrand[] = [
       name: "Eric Zhuang",
       title: "Founder",
       image: "/images/cohort-1/founders/eric-zhuang-centered.jpg",
-      imagePosition: "50% 50%",
+      imagePosition: "50% 62%",
       linkedin: "https://www.linkedin.com/in/eric-zhuang-2b1841417/",
     },
   },
