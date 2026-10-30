@@ -28,6 +28,18 @@ const moments = [
     height: 1000,
     alt: "A founders panel discussion on stage in front of a Sunstone presentation screen",
   },
+  {
+    src: "/images/cohort-1/moments/oculora.jpg",
+    width: 1500,
+    height: 1000,
+    alt: "The Oculora founder presenting eye-care products at a Cohort 1 table",
+  },
+  {
+    src: "/images/cohort-1/moments/kamuel.jpg",
+    width: 1500,
+    height: 1000,
+    alt: "The Kamuel founder showing footwear and product materials to attendees",
+  },
 ]
 
 export function MomentsCarousel() {
