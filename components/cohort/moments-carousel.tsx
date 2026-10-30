@@ -5,24 +5,6 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const moments = [
   {
-    src: "/images/cohort-1/moments/shopline-nomadsfi.jpg",
-    width: 1500,
-    height: 1000,
-    alt: "A founder laughing at a busy orange-draped table with Nomadsfi, Shopline and Trinet signs",
-  },
-  {
-    src: "/images/cohort-1/moments/nalwaya-foods.jpg",
-    width: 829,
-    height: 1000,
-    alt: "A Cohort 1 founder presenting cultured ghee jars to attendees at the Nalwaya Foods table",
-  },
-  {
-    src: "/images/cohort-1/moments/dirty.jpg",
-    width: 750,
-    height: 1000,
-    alt: "Three people holding up packaged greens behind the DIRTY table",
-  },
-  {
     src: "/images/cohort-1/moments/sunstone-presentation.jpg",
     width: 1500,
     height: 1000,
