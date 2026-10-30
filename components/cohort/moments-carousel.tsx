@@ -17,10 +17,16 @@ const moments = [
     alt: "A founder talking with attendees at the Trutone and Mighty Wallet table",
   },
   {
-    src: "/images/cohort-1/moments/korjin.jpg",
+    src: "/images/cohort-1-group-photo.jpg",
+    width: 1900,
+    height: 1280,
+    alt: "Cohort 1 founders and mentors posing together at the Sunstone Venture & Innovation Center",
+  },
+  {
+    src: "/images/cohort-1/moments/founders-panel.jpg",
     width: 1500,
     height: 1000,
-    alt: "The Korjin founder smiling beside his product display while guests look on",
+    alt: "A founders panel discussion on stage in front of a Sunstone presentation screen",
   },
 ]
 
