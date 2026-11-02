@@ -5,22 +5,10 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const moments = [
   {
-    src: "/images/cohort-1/moments/sunstone-presentation.jpg",
-    width: 1500,
-    height: 1000,
-    alt: "A speaker with a microphone presenting in front of the Sunstone About slide while a crowd watches",
-  },
-  {
     src: "/images/cohort-1/moments/trutone-mighty-wallet.jpg",
     width: 1500,
     height: 1000,
     alt: "A founder talking with attendees at the Trutone and Mighty Wallet table",
-  },
-  {
-    src: "/images/cohort-1-group-photo.jpg",
-    width: 1900,
-    height: 1280,
-    alt: "Cohort 1 founders and mentors posing together at the Sunstone Venture & Innovation Center",
   },
   {
     src: "/images/cohort-1/moments/founders-panel.jpg",
