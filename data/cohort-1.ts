@@ -142,8 +142,8 @@ export const cohortOneBrands: CohortBrand[] = [
     founder: {
       name: "Kam Black",
       title: "Founder",
-      image: "/images/cohort-1/founders/kam-black-centered.jpg",
-      imagePosition: "50% 50%",
+image: "/images/cohort-1/founders/kam-black-new.jpg",
+    imagePosition: "50% 50%",
       linkedin: "https://www.linkedin.com/in/kamblack/",
     },
   },
@@ -275,10 +275,12 @@ export const cohortOneBrands: CohortBrand[] = [
     website: "https://drinktaply.com",
     image: "/images/cohort-1/taply.png",
     imageFit: "cover",
-    imagePosition: "50% 90%",
     founder: {
-      name: "Ashley Bowser",
+      name: "Nikki B",
       title: "Founder",
+      image: "/images/cohort-1/founders/nikki-b.jpg",
+      imagePosition: "50% 35%",
+      linkedin: "https://linkedin.com/in/nikki-b-b25531a0",
     },
   },
   {

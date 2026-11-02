@@ -42,7 +42,7 @@ export function CohortContent() {
         <header className="relative flex min-h-[78vh] items-center justify-center overflow-hidden bg-[#0a0a1a]">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/cohort-1-group-photo.jpg"
+            src="/images/cohort-1-hero.jpg"
             alt=""
             aria-hidden="true"
             className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out ${gridVisible ? "opacity-100" : "opacity-0"}`}

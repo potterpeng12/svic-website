@@ -5,40 +5,28 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 
 const moments = [
   {
-    src: "/images/cohort-1/moments/shopline-nomadsfi.jpg",
-    width: 1500,
-    height: 1000,
-    alt: "A founder laughing at a busy orange-draped table with Nomadsfi, Shopline and Trinet signs",
-  },
-  {
-    src: "/images/cohort-1/moments/nalwaya-foods.jpg",
-    width: 829,
-    height: 1000,
-    alt: "A Cohort 1 founder presenting cultured ghee jars to attendees at the Nalwaya Foods table",
-  },
-  {
-    src: "/images/cohort-1/moments/dirty.jpg",
-    width: 750,
-    height: 1000,
-    alt: "Three people holding up packaged greens behind the DIRTY table",
-  },
-  {
-    src: "/images/cohort-1/moments/sunstone-presentation.jpg",
-    width: 1500,
-    height: 1000,
-    alt: "A speaker with a microphone presenting in front of the Sunstone About slide while a crowd watches",
-  },
-  {
     src: "/images/cohort-1/moments/trutone-mighty-wallet.jpg",
     width: 1500,
     height: 1000,
     alt: "A founder talking with attendees at the Trutone and Mighty Wallet table",
   },
   {
-    src: "/images/cohort-1/moments/korjin.jpg",
+    src: "/images/cohort-1/moments/founders-panel.jpg",
     width: 1500,
     height: 1000,
-    alt: "The Korjin founder smiling beside his product display while guests look on",
+    alt: "A founders panel discussion on stage in front of a Sunstone presentation screen",
+  },
+  {
+    src: "/images/cohort-1/moments/oculora.jpg",
+    width: 1500,
+    height: 1000,
+    alt: "The Oculora founder presenting eye-care products at a Cohort 1 table",
+  },
+  {
+    src: "/images/cohort-1/moments/kamuel.jpg",
+    width: 1500,
+    height: 1000,
+    alt: "The Kamuel founder showing footwear and product materials to attendees",
   },
 ]
 
