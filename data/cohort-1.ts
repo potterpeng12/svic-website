@@ -273,8 +273,8 @@ image: "/images/cohort-1/founders/kam-black-new.jpg",
     blurb:
       "A functional beverage brand producing lightly sparkling maple water made from organic maple sap, offering naturally occurring electrolytes, antioxidants, and minerals without added sugar.",
     website: "https://drinktaply.com",
-    image: "/images/cohort-1/taply.png",
-    imageFit: "cover",
+image: "/images/cohort-1/founders/nikki-b.jpg",
+  imageFit: "cover",
     imagePosition: "50% 90%",
     founder: {
       name: "Nikki B",
