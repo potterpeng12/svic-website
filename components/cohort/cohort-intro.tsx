@@ -7,8 +7,6 @@ import type { CohortBrand } from "@/data/cohort-1"
 
 type Phase = "gather" | "disperse" | "landed"
 
-type Target = { x: number; y: number; width: number; height: number }
-
 const GATHER_STEP = 0.14
 const DISPERSE_AT_MS = 3100
 const LANDED_AT_MS = 4350
@@ -29,26 +27,6 @@ function tileLayout() {
   return { rotate: 0, ox: 0, oy: 0 }
 }
 
-/*
- * Measures where each card currently sits, expressed as an offset from the
- * viewport center (where the tiles are anchored).
- */
-function measureTargets(brands: CohortBrand[]) {
-  const targets: Record<string, Target> = {}
-  for (const brand of brands) {
-    const photo = document.querySelector<HTMLElement>(`[data-cohort-image="${brand.id}"]`)
-    if (!photo) continue
-    const rect = photo.getBoundingClientRect()
-    targets[brand.id] = {
-      x: Math.round(rect.left + rect.width / 2 - window.innerWidth / 2),
-      y: Math.round(rect.top + rect.height / 2 - window.innerHeight / 2),
-      width: Math.round(rect.width),
-      height: Math.round(rect.height),
-    }
-  }
-  return targets
-}
-
 export function CohortIntro({
   brands,
   onRevealGrid,
@@ -59,7 +37,6 @@ export function CohortIntro({
   onDone: () => void
 }) {
   const [phase, setPhase] = useState<Phase>("gather")
-  const [targets, setTargets] = useState<Record<string, Target>>({})
   const finished = useRef(false)
 
   const finish = useCallback(() => {
@@ -74,7 +51,6 @@ export function CohortIntro({
     const previousGutter = root.style.scrollbarGutter
 
     const startFlight = () => {
-      setTargets(measureTargets(brands))
       setPhase("disperse")
     }
 
@@ -138,8 +114,7 @@ export function CohortIntro({
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         {brands.map((brand, i) => {
           const { rotate, ox, oy } = tileLayout()
-          const target = targets[brand.id]
-          const flightTarget = flying && target
+          const flightTarget = false
 
           return (
             <motion.div
