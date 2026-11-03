@@ -15,7 +15,7 @@ const LANDED_AT_MS = 4350
 const DONE_AT_MS = 4750
 
 const FLIGHT_SECONDS = 1.0
-const FLIGHT_STAGGER = 0.02
+const FLIGHT_STAGGER = 0.08
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -25,12 +25,8 @@ const tones = [
   "bg-[hsl(var(--warm)/0.2)] border-[hsl(var(--warm)/0.3)]",
 ]
 
-/* Deterministic, rounded values so server and client markup always match. */
-function tileLayout(i: number) {
-  const rotate = Math.round(Math.sin(i * 2.7) * 16)
-  const ox = Math.round(Math.cos(i * 1.9) * 40) / 10
-  const oy = Math.round(Math.sin(i * 2.3) * 40) / 10
-  return { rotate, ox, oy }
+function tileLayout() {
+  return { rotate: 0, ox: 0, oy: 0 }
 }
 
 /*
@@ -141,7 +137,7 @@ export function CohortIntro({
 
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         {brands.map((brand, i) => {
-          const { rotate, ox, oy } = tileLayout(i)
+          const { rotate, ox, oy } = tileLayout()
           const target = targets[brand.id]
           const flightTarget = flying && target
 
@@ -149,7 +145,7 @@ export function CohortIntro({
             <motion.div
               key={brand.id}
               className="absolute left-1/2 top-1/2 h-0 w-0"
-              initial={{ opacity: 0, scale: 0.55, x: `${ox}vw`, y: `${oy + 8}vh`, rotate: rotate - 14 }}
+              initial={{ opacity: 0, scale: 0.2, x: `${ox}vw`, y: `${oy}vh`, rotate: 0 }}
               animate={
                 flightTarget
                   ? { opacity: phase === "landed" ? 0 : 1, scale: 1, x: target.x, y: target.y, rotate: 0 }
@@ -165,7 +161,7 @@ export function CohortIntro({
               style={{ zIndex: i }}
             >
               <motion.div
-                className={`absolute left-0 top-0 flex h-44 w-36 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 overflow-hidden rounded-2xl text-center sm:h-56 sm:w-48 ${brand.image ? "" : `border p-3 ${tones[i % tones.length]}`}`}
+                className={`absolute left-0 top-0 flex h-44 w-44 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 overflow-hidden text-center sm:h-56 sm:w-56 ${brand.image ? "" : `border p-3 ${tones[i % tones.length]}`}`}
                 animate={flightTarget ? { width: target.width, height: target.height } : undefined}
                 transition={{ duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }}
               >
