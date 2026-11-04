@@ -45,7 +45,7 @@ export function CohortContent() {
             src="/images/cohort-1-hero.jpg"
             alt=""
             aria-hidden="true"
-            className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-1000 ease-in-out ${gridVisible ? "opacity-100" : "opacity-0"}`}
+            className={`absolute inset-0 h-full w-full object-cover object-center transition-opacity duration-500 ease-out ${gridVisible ? "opacity-100" : "opacity-0"}`}
           />
           <div
             className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80"
@@ -53,7 +53,7 @@ export function CohortContent() {
           />
 
           <div
-            className={`relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-6 pb-16 pt-32 text-center transition-opacity duration-300 ${gridVisible ? "opacity-100" : "opacity-0"}`}
+            className={`relative z-10 mx-auto flex w-full max-w-4xl flex-col items-center px-6 pb-16 pt-32 text-center transition-opacity duration-200 ${gridVisible ? "opacity-100" : "opacity-0"}`}
           >
             <p className="text-[11px] font-semibold uppercase tracking-[0.25em] text-white/70 sm:text-xs">
               Sunstone Innovation · DTC Brand Lab
