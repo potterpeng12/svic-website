@@ -16,9 +16,9 @@ function ImagePlaceholder({ className = "" }: { className?: string }) {
 
 function SectionIntro({ eyebrow, title, eyebrowClassName }: { eyebrow: string; title?: string; eyebrowClassName?: string }) {
   return (
-    <div className="mb-6 flex flex-col gap-4 border-t border-border pt-5 md:mb-8 md:flex-row md:items-start md:justify-between">
-      <p className={cn("text-xs font-semibold uppercase tracking-[0.22em] text-foreground", eyebrowClassName)}>{eyebrow}</p>
-      {title ? <h2 className="max-w-2xl text-balance font-display text-3xl font-semibold tracking-tight md:text-5xl">{title}</h2> : null}
+    <div className="mb-8 flex flex-col items-start gap-3 border-t border-border pt-5 md:mb-10">
+      <p className={cn("text-xs font-semibold uppercase leading-none tracking-[0.22em] text-foreground", eyebrowClassName)}>{eyebrow}</p>
+      {title ? <h2 className="max-w-2xl text-balance font-display text-3xl font-semibold leading-tight tracking-tight md:text-4xl">{title}</h2> : null}
     </div>
   )
 }
@@ -109,7 +109,7 @@ export function ProductLabContent() {
               <p>Every great food product begins with an idea. Turning that idea into something real requires the right environment, tools, and connections.</p>
               <p className="text-pretty"><strong className="bg-gradient-to-r from-primary to-warm-strong bg-clip-text font-bold text-transparent">The Sunstone Product Lab</strong>, powered by <strong className="bg-gradient-to-r from-warm-strong to-primary bg-clip-text font-bold text-transparent">Partake Collective</strong>, gives food innovators access to professional kitchen facilities for product development, testing, R&amp;D, and the path to commercialization.</p>
               <p>Beyond the kitchen, entrepreneurs may explore connections across the Sunstone and Partake ecosystem, including manufacturing, packaging, distribution, strategic partnerships, and capital.</p>
-              <div className="border-l-2 border-primary pl-6 pt-2">
+              <div className="border-l-2 border-primary pl-6">
                 <h2 className="mb-3 font-display text-2xl font-semibold text-foreground">Our Mission</h2>
                 <p>To help food entrepreneurs bridge the gap between great ideas and market-ready products by connecting them with professional facilities, practical resources, and an innovation-driven community.</p>
               </div>
@@ -148,8 +148,7 @@ export function ProductLabContent() {
 
       <section className="bg-secondary/40 px-6 pb-14 pt-20 md:pb-16 md:pt-32">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro eyebrow="Locations" />
-          <p className="mb-10 max-w-xl text-balance text-2xl font-display leading-tight md:text-4xl">Explore professional kitchen facilities in Southern California.</p>
+          <SectionIntro eyebrow="Locations" title="Explore professional kitchen facilities in Southern California." />
           <div className="grid gap-4 md:grid-cols-2">
             {[ ["Long Beach", "Long Beach, California", "Professional kitchen facilities supporting food entrepreneurs, culinary development, and growing brands.", "/images/partake-long-beach.png", "Partake Collective's white corner building lined with palm trees, with vertical Partake signage on Elm Avenue in Long Beach"], ["Glassell Park", "Los Angeles, California", "Available facilities and access arrangements are subject to confirmation.", "/images/partake-glassell-park.webp", "Partake Collective's red brick kitchen building with Partake signage in Glassell Park, Los Angeles"] ].map(([title, location, text, image, alt]) => <article key={title} className="overflow-hidden rounded-[1.5rem] border border-border bg-background"><div className="relative aspect-[16/9] overflow-hidden bg-muted"><Image src={image} alt={alt} fill sizes="(min-width: 768px) 50vw, 100vw" className={title === "Long Beach" ? "object-cover object-[55%_40%]" : "object-cover"} /></div><div className="p-7 md:p-8"><h3 className="font-display text-3xl font-semibold">{title}</h3><p className="mt-2 text-sm font-medium text-muted-foreground">{location}</p><p className="mt-6 max-w-md leading-relaxed text-muted-foreground">{text}</p></div></article>)}
           </div>
