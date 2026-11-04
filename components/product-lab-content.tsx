@@ -46,10 +46,10 @@ const audienceCards = [
 ]
 
 const kitchenCards = [
-  ["Hourly Kitchen", "Flexible access for recipe testing, experimentation, and short-term product development."],
-  ["Commercial Kitchen", "Professional cooking environments for businesses with established production needs."],
-  ["Chef's & Commissary Kitchen", "Shared commercial cooking facilities suited to caterers, mobile food businesses, and other food operators."],
-  ["Prep Kitchen", "Spaces supporting food preparation, assembly, packaging, and fulfillment workflows."],
+  ["Hourly Kitchen", "Flexible access for recipe testing, experimentation, and short-term product development.", "/images/kitchen-hourly.png", "Bright stainless steel kitchen with prep sinks, overhead shelving, a combi oven, and an arched window"],
+  ["Commercial Kitchen", "Professional cooking environments for businesses with established production needs.", "/images/kitchen-commercial.webp", "Commercial kitchen with a gas range, fryer, exhaust hood, sinks, and reach-in refrigerator"],
+  ["Chef's & Commissary Kitchen", "Shared commercial cooking facilities suited to caterers, mobile food businesses, and other food operators.", "/images/kitchen-chef-commissary.webp", "Stainless steel chef's cooking line with grills, exhaust hoods, and green tile walls"],
+  ["Prep Kitchen", "Spaces supporting food preparation, assembly, packaging, and fulfillment workflows.", "/images/kitchen-prep.jpg", "Prep kitchen with a stainless steel worktable, sink, shelving, and two-door refrigerator"],
 ]
 
 const resources = [
@@ -140,7 +140,7 @@ export function ProductLabContent() {
         <div className="mx-auto max-w-7xl">
           <SectionIntro eyebrow="The Kitchens" />
           <div className="grid gap-4 md:grid-cols-2">
-            {kitchenCards.map(([title, text]) => <article key={title} className="overflow-hidden rounded-[1.5rem] border border-border bg-card"><ImagePlaceholder className="aspect-[16/8]" /><div className="p-7 md:p-8"><h3 className="font-display text-2xl font-semibold">{title}</h3><p className="mt-4 leading-relaxed text-muted-foreground">{text}</p></div></article>)}
+            {kitchenCards.map(([title, text, src, alt]) => <article key={title} className="overflow-hidden rounded-[1.5rem] border border-border bg-card"><div className="relative aspect-[16/8] bg-muted"><Image src={src} alt={alt} fill sizes="(min-width: 768px) 50vw, 100vw" className="object-cover" /></div><div className="p-7 md:p-8"><h3 className="font-display text-2xl font-semibold">{title}</h3><p className="mt-4 leading-relaxed text-muted-foreground">{text}</p></div></article>)}
           </div>
           <p className="mt-8 text-sm text-muted-foreground">Kitchen configurations, equipment, and availability vary by location.</p>
         </div>
