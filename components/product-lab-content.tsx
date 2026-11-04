@@ -105,7 +105,7 @@ export function ProductLabContent() {
             <ImagePlaceholder className="aspect-[4/3] rounded-[2rem]" />
             <div className="flex flex-col gap-8 text-lg leading-relaxed text-muted-foreground">
               <p>Every great food product begins with an idea. Turning that idea into something real requires the right environment, tools, and connections.</p>
-              <p>The Sunstone Product Lab, powered by Partake Collective, provides access to professional kitchen facilities for product development, testing, R&amp;D, and preparation for commercialization.</p>
+              <p className="max-w-2xl text-pretty text-xl leading-relaxed text-muted-foreground md:text-2xl"><strong className="bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text font-display font-semibold text-transparent">The Sunstone Product Lab</strong>, powered by <strong className="bg-gradient-to-r from-accent via-primary/80 to-primary bg-clip-text font-display font-semibold text-transparent">Partake Collective</strong>, gives food innovators access to professional kitchen facilities for product development, testing, R&amp;D, and the path to commercialization.</p>
               <p>Beyond the kitchen, entrepreneurs may explore connections across the Sunstone and Partake ecosystem, including manufacturing, packaging, distribution, strategic partnerships, and capital.</p>
               <div className="border-l-2 border-primary pl-6 pt-2">
                 <h2 className="mb-3 font-display text-2xl font-semibold text-foreground">Our Mission</h2>
