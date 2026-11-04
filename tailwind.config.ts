@@ -35,9 +35,14 @@ const config: Config = {
         },
         accent: {
           DEFAULT: 'hsl(var(--accent))',
-          foreground: 'hsl(var(--accent-foreground))',
-        },
-        destructive: {
+  foreground: 'hsl(var(--accent-foreground))',
+  },
+  warm: {
+  DEFAULT: 'hsl(var(--warm))',
+  strong: 'hsl(var(--warm-strong))',
+  foreground: 'hsl(var(--warm-foreground))',
+  },
+  destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
         },

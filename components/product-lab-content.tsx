@@ -4,6 +4,7 @@ import { useState } from "react"
 import { ArrowUpRight, ChevronDown, ExternalLink } from "lucide-react"
 import { Footer } from "@/components/footer"
 import { Navbar } from "@/components/navbar"
+import { cn } from "@/lib/utils"
 
 const applyUrl = "https://airtable.com/apphQqTcBjir4jFP5/pagDzyhsQUtfIGPCS/form"
 const kitchensUrl = "https://partakecollective.com/commercial-kitchens/"
@@ -105,7 +106,7 @@ export function ProductLabContent() {
             <ImagePlaceholder className="aspect-[4/3] rounded-[2rem]" />
             <div className="flex flex-col gap-8 text-lg leading-relaxed text-muted-foreground">
               <p>Every great food product begins with an idea. Turning that idea into something real requires the right environment, tools, and connections.</p>
-              <p className="max-w-2xl text-pretty text-xl leading-relaxed text-muted-foreground md:text-2xl"><strong className="bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text font-display font-semibold text-transparent">The Sunstone Product Lab</strong>, powered by <strong className="bg-gradient-to-r from-accent via-primary/80 to-primary bg-clip-text font-display font-semibold text-transparent">Partake Collective</strong>, gives food innovators access to professional kitchen facilities for product development, testing, R&amp;D, and the path to commercialization.</p>
+              <p className="text-pretty"><strong className="bg-gradient-to-r from-primary to-warm-strong bg-clip-text font-bold text-transparent">The Sunstone Product Lab</strong>, powered by <strong className="bg-gradient-to-r from-warm-strong to-primary bg-clip-text font-bold text-transparent">Partake Collective</strong>, gives food innovators access to professional kitchen facilities for product development, testing, R&amp;D, and the path to commercialization.</p>
               <p>Beyond the kitchen, entrepreneurs may explore connections across the Sunstone and Partake ecosystem, including manufacturing, packaging, distribution, strategic partnerships, and capital.</p>
               <div className="border-l-2 border-primary pl-6 pt-2">
                 <h2 className="mb-3 font-display text-2xl font-semibold text-foreground">Our Mission</h2>
@@ -159,7 +160,7 @@ export function ProductLabContent() {
         <div className="mx-auto max-w-7xl">
           <SectionIntro eyebrow="Beyond the Kitchen" />
           <div className="mb-12 max-w-2xl text-lg leading-relaxed text-muted-foreground"><p>Building a great food product takes more than the right equipment.</p><p className="mt-5">Through the broader Sunstone and Partake Collective ecosystem, participating entrepreneurs may explore connections and resources across:</p></div>
-          <div className="grid gap-x-8 gap-y-0 md:grid-cols-2 lg:grid-cols-3">{resources.map(([title, text]) => <article key={title} className="border-t border-border py-6"><h3 className="font-display text-xl font-semibold">{title}</h3><p className="mt-2 leading-relaxed text-muted-foreground">{text}</p></article>)}</div>
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{resources.map(([title, text], index) => { const isWarm = index % 2 === 1; return <article key={title} className={cn("flex flex-col gap-3 rounded-[1.5rem] border-t-4 p-7 transition-transform duration-300 hover:-translate-y-1", isWarm ? "border-warm-strong bg-secondary" : "border-primary bg-accent")}><span aria-hidden="true" className={cn("size-2.5 rounded-full", isWarm ? "bg-warm-strong" : "bg-primary")} /><h3 className={cn("font-display text-xl font-semibold", isWarm ? "text-warm-foreground" : "text-accent-foreground")}>{title}</h3><p className="leading-relaxed text-foreground/75">{text}</p></article> })}</div>
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground">Additional resources and introductions are subject to availability and are not guaranteed.</p>
         </div>
       </section>
