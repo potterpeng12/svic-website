@@ -17,7 +17,7 @@ function ImagePlaceholder({ className = "" }: { className?: string }) {
 function SectionIntro({ eyebrow, title, eyebrowClassName }: { eyebrow: string; title?: string; eyebrowClassName?: string }) {
   return (
     <div className="mb-12 flex flex-col gap-4 border-t border-border pt-5 md:mb-16 md:flex-row md:items-start md:justify-between">
-      <p className={cn("text-xs font-semibold uppercase tracking-[0.22em] text-foreground/80", eyebrowClassName)}>{eyebrow}</p>
+      <p className={cn("text-xs font-semibold uppercase tracking-[0.22em] text-foreground", eyebrowClassName)}>{eyebrow}</p>
       {title ? <h2 className="max-w-2xl text-balance font-display text-3xl font-semibold tracking-tight md:text-5xl">{title}</h2> : null}
     </div>
   )
