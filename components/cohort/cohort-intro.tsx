@@ -1,6 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useRef, useState } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { ImageIcon } from "lucide-react"
 import type { CohortBrand } from "@/data/cohort-1"
@@ -8,13 +8,28 @@ import type { CohortBrand } from "@/data/cohort-1"
 type Phase = "gather" | "disperse" | "landed"
 type Target = { x: number; y: number; width: number; height: number }
 
-const GATHER_STEP = 0.08
-const DISPERSE_AT_MS = 1800
-const LANDED_AT_MS = 3050
-const DONE_AT_MS = 3400
+const INTRO_BRAND_IDS = new Set([
+  "caddix",
+  "clean-saint",
+  "dynomighty",
+  "giraf-sleeptech",
+  "goode-bites",
+  "kamuel",
+  "linea",
+  "nad-and-me",
+  "seaker-sun-co",
+  "oculora",
+  "taply",
+  "zabaan",
+])
 
-const FLIGHT_SECONDS = 1.0
-const FLIGHT_STAGGER = 0.02
+const GATHER_STEP = 0.08
+const DISPERSE_AT_MS = 1700
+const LANDED_AT_MS = 2550
+const DONE_AT_MS = 2750
+
+const FLIGHT_SECONDS = 0.7
+const FLIGHT_STAGGER = 0.012
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -45,7 +60,7 @@ function measureTargets(brands: CohortBrand[]) {
 }
 
 export function CohortIntro({
-  brands,
+  brands: allBrands,
   onRevealGrid,
   onDone,
 }: {
@@ -53,6 +68,7 @@ export function CohortIntro({
   onRevealGrid: () => void
   onDone: () => void
 }) {
+  const brands = useMemo(() => allBrands.filter((brand) => INTRO_BRAND_IDS.has(brand.id)), [allBrands])
   const [phase, setPhase] = useState<Phase>("gather")
   const [targets, setTargets] = useState<Record<string, Target>>({})
   const finished = useRef(false)
@@ -115,7 +131,7 @@ export function CohortIntro({
         className="absolute inset-0 bg-[#0a0a1a]"
         initial={{ opacity: 1 }}
         animate={{ opacity: flying ? 0 : 1 }}
-        transition={{ duration: 0.9, ease: "easeInOut" }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(271_81%_56%/0.18),transparent_60%)]" />
       </motion.div>
@@ -148,7 +164,7 @@ export function CohortIntro({
               }
               transition={
                 phase === "landed"
-                  ? { duration: 0.3, ease: "easeOut" }
+                  ? { duration: 0.2, ease: "easeOut" }
                   : flightTarget
                     ? { duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }
                     : { duration: 0.55, delay: 0.15 + i * GATHER_STEP, ease: EASE }
