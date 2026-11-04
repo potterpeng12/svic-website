@@ -85,8 +85,8 @@ export function ProductLabContent() {
         <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-20">
           <div className="flex flex-col items-start gap-8">
             <div className="flex flex-col gap-5">
-              <p className="text-sm font-medium text-muted-foreground">Sunstone Product Lab</p>
-              <h1 className="max-w-xl text-balance font-display text-5xl font-semibold leading-[0.98] tracking-[-0.04em] md:text-7xl">Partner with Partake Collective</h1>
+              <h1 className="max-w-4xl text-balance bg-gradient-to-r from-primary via-primary/80 to-accent bg-clip-text font-display text-7xl font-semibold leading-[0.88] tracking-[-0.06em] text-transparent md:text-[8.5rem]">Sunstone Product Lab</h1>
+              <h2 className="max-w-3xl text-balance font-display text-5xl font-semibold leading-[0.94] tracking-[-0.04em] md:text-7xl">Partner with Partake Collective</h2>
               <p className="max-w-lg text-pretty text-xl leading-relaxed text-muted-foreground md:text-2xl">Develop, test, and bring your product to life.</p>
             </div>
             <div className="flex flex-col items-start gap-5">
