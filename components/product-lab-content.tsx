@@ -131,7 +131,7 @@ export function ProductLabContent() {
         <div className="mx-auto max-w-7xl">
           <SectionIntro eyebrow="Who It's For" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {audienceCards.map(([title, text]) => <article key={title} className="flex flex-col gap-6"><ImagePlaceholder className="aspect-[4/3] rounded-[1.5rem] border-background/20 bg-background/5" /><div><h3 className="font-display text-2xl font-semibold">{title}</h3><p className="mt-3 leading-relaxed text-background/65">{text}</p></div></article>)}
+            {audienceCards.map(([title, text]) => <article key={title} className="flex flex-col gap-6 border-t border-background/20 pt-6"><div><h3 className="font-display text-2xl font-semibold">{title}</h3><p className="mt-3 leading-relaxed text-background/65">{text}</p></div></article>)}
           </div>
         </div>
       </section>
