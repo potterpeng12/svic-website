@@ -14,10 +14,10 @@ function ImagePlaceholder({ className = "" }: { className?: string }) {
   return <div aria-hidden="true" className={`border border-dashed border-foreground/15 bg-muted/50 ${className}`} />
 }
 
-function SectionIntro({ eyebrow, title }: { eyebrow: string; title?: string }) {
+function SectionIntro({ eyebrow, title, eyebrowClassName }: { eyebrow: string; title?: string; eyebrowClassName?: string }) {
   return (
     <div className="mb-12 flex flex-col gap-4 border-t border-border pt-5 md:mb-16 md:flex-row md:items-start md:justify-between">
-      <p className="text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground">{eyebrow}</p>
+      <p className={cn("text-xs font-semibold uppercase tracking-[0.22em] text-muted-foreground", eyebrowClassName)}>{eyebrow}</p>
       {title ? <h2 className="max-w-2xl text-balance font-display text-3xl font-semibold tracking-tight md:text-5xl">{title}</h2> : null}
     </div>
   )
@@ -88,7 +88,7 @@ export function ProductLabContent() {
           <div className="flex flex-col items-start gap-8">
             <div className="flex flex-col gap-5">
               <h1 className="max-w-4xl text-balance bg-gradient-to-r from-primary via-warm to-accent bg-clip-text font-display text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-transparent md:text-7xl">Sunstone Product Lab</h1>
-              <h2 className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[0.98] tracking-[-0.035em] text-foreground md:text-6xl">Partner with Partake Collective</h2>
+              <h2 className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[0.98] tracking-[-0.035em] text-foreground md:text-5xl">Partner with Partake Collective</h2>
               <p className="max-w-lg text-pretty text-xl leading-relaxed text-muted-foreground md:text-2xl">Develop, test, and bring your product to life.</p>
             </div>
             <div className="flex flex-col items-start gap-5">
@@ -100,7 +100,7 @@ export function ProductLabContent() {
         </div>
       </section>
 
-      <section className="bg-secondary/40 px-6 py-20 md:py-32">
+      <section className="bg-secondary/40 px-6 pb-28 pt-20 md:pb-40 md:pt-32">
         <div className="mx-auto max-w-7xl">
           <SectionIntro eyebrow="The Program" />
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
@@ -129,7 +129,7 @@ export function ProductLabContent() {
 
       <section className="bg-foreground px-6 py-20 text-background md:py-32">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro eyebrow="Who It's For" />
+          <SectionIntro eyebrow="Who It's For" eyebrowClassName="text-warm" />
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {audienceCards.map(([title, text]) => <article key={title} className="flex flex-col gap-6 border-t border-background/20 pt-6"><div><h3 className="font-display text-2xl font-semibold">{title}</h3><p className="mt-3 leading-relaxed text-background/65">{text}</p></div></article>)}
           </div>
@@ -146,7 +146,7 @@ export function ProductLabContent() {
         </div>
       </section>
 
-      <section className="bg-secondary/40 px-6 py-20 md:py-32">
+      <section className="bg-secondary/40 px-6 pb-14 pt-20 md:pb-16 md:pt-32">
         <div className="mx-auto max-w-7xl">
           <SectionIntro eyebrow="Locations" />
           <p className="mb-12 max-w-xl text-2xl font-display leading-tight md:text-4xl">Explore professional kitchen facilities in Southern California.</p>
@@ -157,7 +157,7 @@ export function ProductLabContent() {
         </div>
       </section>
 
-      <section className="px-6 py-20 md:py-32">
+      <section className="px-6 pb-20 pt-14 md:pb-32 md:pt-16">
         <div className="mx-auto max-w-7xl">
           <SectionIntro eyebrow="Beyond the Kitchen" />
           <div className="mb-12 max-w-2xl text-lg leading-relaxed text-muted-foreground"><p>Building a great food product takes more than the right equipment.</p><p className="mt-5">Through the broader Sunstone and Partake Collective ecosystem, participating entrepreneurs may explore connections and resources across:</p></div>
@@ -187,5 +187,5 @@ export function ProductLabContent() {
 
 function FaqSection() {
   const [open, setOpen] = useState<number | null>(null)
-  return <section className="bg-foreground px-6 py-20 text-background md:py-32"><div className="mx-auto max-w-4xl"><SectionIntro eyebrow="FAQ" /><div className="border-t border-background/20">{faqs.map(([question, answer], index) => { const isOpen = open === index; return <div key={question} className="border-b border-background/20"><button type="button" onClick={() => setOpen(isOpen ? null : index)} aria-expanded={isOpen} className="flex w-full items-center justify-between gap-6 py-6 text-left font-display text-xl font-semibold"><span>{question}</span><ChevronDown className={`h-5 w-5 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} /></button><div className={`grid transition-[grid-template-rows,opacity] duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}><div className="overflow-hidden"><p className="max-w-3xl pb-6 leading-relaxed text-background/65">{answer}</p></div></div></div> })}</div></div></section>
+  return <section className="bg-foreground px-6 py-20 text-background md:py-32"><div className="mx-auto max-w-4xl"><SectionIntro eyebrow="FAQ" eyebrowClassName="text-background" /><div className="border-t border-background/20">{faqs.map(([question, answer], index) => { const isOpen = open === index; return <div key={question} className="border-b border-background/20"><button type="button" onClick={() => setOpen(isOpen ? null : index)} aria-expanded={isOpen} className="flex w-full items-center justify-between gap-6 py-6 text-left font-display text-xl font-semibold"><span>{question}</span><ChevronDown className={`h-5 w-5 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`} /></button><div className={`grid transition-[grid-template-rows,opacity] duration-300 ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}><div className="overflow-hidden"><p className="max-w-3xl pb-6 leading-relaxed text-background/65">{answer}</p></div></div></div> })}</div></div></section>
 }
