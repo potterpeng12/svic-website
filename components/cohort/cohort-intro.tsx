@@ -7,13 +7,11 @@ import type { CohortBrand } from "@/data/cohort-1"
 
 type Phase = "gather" | "disperse" | "landed"
 
-const GATHER_STEP = 0.14
-const DISPERSE_AT_MS = 3100
-const LANDED_AT_MS = 4350
-const DONE_AT_MS = 4750
-
-const FLIGHT_SECONDS = 1.0
-const FLIGHT_STAGGER = 0.08
+const GATHER_STEP = 0.1
+const DISPERSE_AT_MS = 2200
+const LANDED_AT_MS = 3000
+const REVEAL_AT_MS = 3450
+const DONE_AT_MS = 3850
 
 const EASE = [0.22, 1, 0.36, 1] as const
 
@@ -56,10 +54,8 @@ export function CohortIntro({
 
     const timers = [
       window.setTimeout(startFlight, DISPERSE_AT_MS),
-      window.setTimeout(() => {
-        setPhase("landed")
-        onRevealGrid()
-      }, LANDED_AT_MS),
+      window.setTimeout(() => setPhase("landed"), LANDED_AT_MS),
+      window.setTimeout(onRevealGrid, REVEAL_AT_MS),
       window.setTimeout(finish, DONE_AT_MS),
     ]
 
@@ -95,7 +91,7 @@ export function CohortIntro({
       <motion.div
         className="absolute inset-0 bg-[#0a0a1a]"
         initial={{ opacity: 1 }}
-        animate={{ opacity: flying ? 0 : 1 }}
+        animate={{ opacity: phase === "landed" ? 0 : 1 }}
         transition={{ duration: 0.9, ease: "easeInOut" }}
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(271_81%_56%/0.18),transparent_60%)]" />
@@ -114,31 +110,23 @@ export function CohortIntro({
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         {brands.map((brand, i) => {
           const { rotate, ox, oy } = tileLayout()
-          const flightTarget = false
 
           return (
             <motion.div
               key={brand.id}
               className="absolute left-1/2 top-1/2 h-0 w-0"
               initial={{ opacity: 0, scale: 0.2, x: `${ox}vw`, y: `${oy}vh`, rotate: 0 }}
-              animate={
-                flightTarget
-                  ? { opacity: phase === "landed" ? 0 : 1, scale: 1, x: target.x, y: target.y, rotate: 0 }
-                  : { opacity: 1, scale: 1, x: `${ox}vw`, y: `${oy}vh`, rotate }
-              }
+              animate={{ opacity: phase === "landed" ? 0 : 1, scale: 1, x: `${ox}vw`, y: `${oy}vh`, rotate }}
               transition={
                 phase === "landed"
                   ? { duration: 0.3, ease: "easeOut" }
-                  : flightTarget
-                    ? { duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }
-                    : { duration: 0.7, delay: 0.2 + i * GATHER_STEP, ease: EASE }
+                  : { duration: 0.55, delay: 0.15 + i * GATHER_STEP, ease: EASE }
               }
               style={{ zIndex: i }}
             >
               <motion.div
                 className={`absolute left-0 top-0 flex h-44 w-44 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 overflow-hidden text-center sm:h-56 sm:w-56 ${brand.image ? "" : `border p-3 ${tones[i % tones.length]}`}`}
-                animate={flightTarget ? { width: target.width, height: target.height } : undefined}
-                transition={{ duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }}
+
               >
                 {brand.image ? (
                   <img
