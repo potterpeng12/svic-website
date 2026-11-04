@@ -18,6 +18,7 @@ const navLinks: NavLink[] = [
     href: "/#program",
     children: [
       { label: "Brand Lab", href: "/programs/dtc-brand-lab" },
+      { label: "Product Lab", href: "/programs/product-lab" },
       { label: "Meet Cohort 1", href: "/programs/dtc-brand-lab/cohort-1" },
     ],
   },
