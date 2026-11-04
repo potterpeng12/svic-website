@@ -16,7 +16,7 @@ function ImagePlaceholder({ className = "" }: { className?: string }) {
 
 function SectionIntro({ eyebrow, title, eyebrowClassName }: { eyebrow: string; title?: string; eyebrowClassName?: string }) {
   return (
-    <div className="mb-12 flex flex-col gap-4 border-t border-border pt-5 md:mb-16 md:flex-row md:items-start md:justify-between">
+    <div className="mb-6 flex flex-col gap-4 border-t border-border pt-5 md:mb-8 md:flex-row md:items-start md:justify-between">
       <p className={cn("text-xs font-semibold uppercase tracking-[0.22em] text-foreground", eyebrowClassName)}>{eyebrow}</p>
       {title ? <h2 className="max-w-2xl text-balance font-display text-3xl font-semibold tracking-tight md:text-5xl">{title}</h2> : null}
     </div>
@@ -149,7 +149,7 @@ export function ProductLabContent() {
       <section className="bg-secondary/40 px-6 pb-14 pt-20 md:pb-16 md:pt-32">
         <div className="mx-auto max-w-7xl">
           <SectionIntro eyebrow="Locations" />
-          <p className="mb-12 max-w-xl text-2xl font-display leading-tight md:text-4xl">Explore professional kitchen facilities in Southern California.</p>
+          <p className="mb-10 max-w-xl text-balance text-2xl font-display leading-tight md:text-4xl">Explore professional kitchen facilities in Southern California.</p>
           <div className="grid gap-4 md:grid-cols-2">
             {[ ["Long Beach", "Long Beach, California", "Professional kitchen facilities supporting food entrepreneurs, culinary development, and growing brands.", "/images/partake-long-beach.png", "Partake Collective's white corner building lined with palm trees, with vertical Partake signage on Elm Avenue in Long Beach"], ["Glassell Park", "Los Angeles, California", "Available facilities and access arrangements are subject to confirmation.", "/images/partake-glassell-park.webp", "Partake Collective's red brick kitchen building with Partake signage in Glassell Park, Los Angeles"] ].map(([title, location, text, image, alt]) => <article key={title} className="overflow-hidden rounded-[1.5rem] border border-border bg-background"><div className="relative aspect-[16/9] overflow-hidden bg-muted"><Image src={image} alt={alt} fill sizes="(min-width: 768px) 50vw, 100vw" className={title === "Long Beach" ? "object-cover object-[55%_40%]" : "object-cover"} /></div><div className="p-7 md:p-8"><h3 className="font-display text-3xl font-semibold">{title}</h3><p className="mt-2 text-sm font-medium text-muted-foreground">{location}</p><p className="mt-6 max-w-md leading-relaxed text-muted-foreground">{text}</p></div></article>)}
           </div>
@@ -160,7 +160,7 @@ export function ProductLabContent() {
       <section className="px-6 pb-20 pt-14 md:pb-32 md:pt-16">
         <div className="mx-auto max-w-7xl">
           <SectionIntro eyebrow="Beyond the Kitchen" />
-          <div className="mb-12 max-w-2xl text-lg leading-relaxed text-muted-foreground"><p>Building a great food product takes more than the right equipment.</p><p className="mt-5">Through the broader Sunstone and Partake Collective ecosystem, participating entrepreneurs may explore connections and resources across:</p></div>
+          <div className="mb-10 max-w-2xl text-lg leading-relaxed text-muted-foreground"><p>Building a great food product takes more than the right equipment.</p><p className="mt-5">Through the broader Sunstone and Partake Collective ecosystem, participating entrepreneurs may explore connections and resources across:</p></div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">{resources.map(([title, text], index) => { const isWarm = index % 2 === 1; return <article key={title} className={cn("flex flex-col gap-3 rounded-[1.5rem] border-t-4 p-7 transition-transform duration-300 hover:-translate-y-1", isWarm ? "border-warm-strong bg-secondary" : "border-primary bg-accent")}><span aria-hidden="true" className={cn("size-2.5 rounded-full", isWarm ? "bg-warm-strong" : "bg-primary")} /><h3 className={cn("font-display text-xl font-semibold", isWarm ? "text-warm-foreground" : "text-accent-foreground")}>{title}</h3><p className="leading-relaxed text-foreground/75">{text}</p></article> })}</div>
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground">Additional resources and introductions are subject to availability and are not guaranteed.</p>
         </div>
