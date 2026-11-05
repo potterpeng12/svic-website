@@ -10,9 +10,6 @@ import { cn } from "@/lib/utils"
 const applyUrl = "https://airtable.com/apphQqTcBjir4jFP5/pagDzyhsQUtfIGPCS/form"
 const kitchensUrl = "https://partakecollective.com/commercial-kitchens/"
 
-function ImagePlaceholder({ className = "" }: { className?: string }) {
-  return <div aria-hidden="true" className={`border border-dashed border-foreground/15 bg-muted/50 ${className}`} />
-}
 
 function SectionIntro({ eyebrow, title, eyebrowClassName }: { eyebrow: string; title?: string; eyebrowClassName?: string }) {
   return (
@@ -96,7 +93,9 @@ export function ProductLabContent() {
               <p className="text-sm text-muted-foreground">For food innovators, emerging chefs, and CPG brands.</p>
             </div>
           </div>
-          <ImagePlaceholder className="aspect-[4/3] w-full rounded-[2rem]" />
+          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-muted">
+            <Image src="/images/success-stories.jpg" alt="Smiling food entrepreneurs and chefs holding their dishes in front of their colorful brand logos" fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-center" />
+          </div>
         </div>
       </section>
 
@@ -104,7 +103,9 @@ export function ProductLabContent() {
         <div className="mx-auto max-w-7xl">
           <SectionIntro eyebrow="The Program" />
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
-            <ImagePlaceholder className="aspect-[4/3] rounded-[2rem]" />
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-muted">
+              <Image src="/images/success-stories.jpg" alt="Partake Collective food entrepreneurs showcasing their products" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover object-center" />
+            </div>
             <div className="flex flex-col gap-8 text-lg leading-relaxed text-muted-foreground">
               <p>Every great food product begins with an idea. Turning that idea into something real requires the right environment, tools, and connections.</p>
               <p className="text-pretty"><strong className="bg-gradient-to-r from-primary to-warm-strong bg-clip-text font-bold text-transparent">The Sunstone Product Lab</strong>, powered by <strong className="bg-gradient-to-r from-warm-strong to-primary bg-clip-text font-bold text-transparent">Partake Collective</strong>, gives food innovators access to professional kitchen facilities for product development, testing, R&amp;D, and the path to commercialization.</p>
