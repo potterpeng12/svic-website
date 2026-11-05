@@ -173,7 +173,7 @@ export function CohortIntro({
               style={{ zIndex: i }}
             >
               <motion.div
-                className={`absolute left-0 top-0 flex h-[min(82vw,72vh)] w-[min(82vw,72vh)] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 overflow-hidden text-center ${brand.image ? "" : `border p-3 ${tones[i % tones.length]}`}`}
+                className={`absolute left-0 top-0 flex h-[min(70vw,60vh)] w-[min(70vw,60vh)] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 overflow-hidden text-center ${brand.image ? "" : `border p-3 ${tones[i % tones.length]}`}`}
                 animate={flightTarget ? { width: target.width, height: target.height } : undefined}
                 transition={{ duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }}
               >
