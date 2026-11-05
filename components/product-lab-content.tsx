@@ -104,7 +104,7 @@ export function ProductLabContent() {
           <SectionIntro eyebrow="The Program" />
           <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-24">
             <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] bg-muted">
-              <Image src="/images/success-stories.jpg" alt="Partake Collective food entrepreneurs showcasing their products" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover object-center" />
+              <Image src="/images/program-zabaan-booth.jpg" alt="Zabaan founders presenting their chutney jars to a customer at a tasting booth" fill sizes="(min-width: 1024px) 40vw, 100vw" className="object-cover object-[45%_center]" />
             </div>
             <div className="flex flex-col gap-8 text-lg leading-relaxed text-muted-foreground">
               <p>Every great food product begins with an idea. Turning that idea into something real requires the right environment, tools, and connections.</p>
