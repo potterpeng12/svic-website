@@ -30,9 +30,10 @@ function ApplyButton() {
 }
 
 const developmentCards = [
-  ["01 — Develop", "Turn ideas into recipes, formulations, and physical prototypes. Explore ingredients, experiment with concepts, and create something new."],
-  ["02 — Test & Refine", "Improve flavor, texture, consistency, and product quality through hands-on experimentation and testing."],
-  ["03 — Prepare for Market", "Explore small-batch production, packaging workflows, and the next steps toward commercialization."],
+  ["Develop", "Bring Ideas to Life", "Access culinary infrastructure and product development opportunities through partners such as Partake Collective."],
+  ["Validate", "Learn, Test, and Refine", "Explore opportunities for product testing, customer feedback, and market validation to better understand product-market fit."],
+  ["Commercialize", "Build for the Market", "Connect with potential manufacturing, packaging, branding, e-commerce, and distribution resources to support the transition from prototype to commercial product."],
+  ["Scale", "Unlock New Opportunities", "Engage with Sunstone's broader network of industry partners, business resources, and potential capital connections as your business evolves."],
 ]
 
 const audienceCards = [
@@ -85,13 +86,10 @@ export function ProductLabContent() {
           <div className="flex flex-col items-start gap-8">
             <div className="flex flex-col gap-5">
               <h1 className="max-w-4xl text-balance bg-gradient-to-r from-primary via-warm to-accent bg-clip-text font-display text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-transparent md:text-7xl">Sunstone Product Lab</h1>
-              <h2 className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[0.98] tracking-[-0.035em] text-foreground md:text-5xl">Partner with Partake Collective</h2>
-              <p className="max-w-lg text-pretty text-xl leading-relaxed text-muted-foreground md:text-2xl">Develop, test, and bring your product to life.</p>
+              <h2 className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[0.98] tracking-[-0.035em] text-foreground md:text-5xl">One Ecosystem. Multiple Pathways to Growth.</h2>
+              <p className="max-w-lg text-pretty text-xl leading-relaxed text-muted-foreground md:text-2xl">Partner with Partake Collective.</p>
             </div>
-            <div className="flex flex-col items-start gap-5">
-              <ApplyButton />
-              <p className="text-sm text-muted-foreground">For food innovators, emerging chefs, and CPG brands.</p>
-            </div>
+            <ApplyButton />
           </div>
           <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[2rem] bg-muted">
             <Image src="/images/success-stories.jpg" alt="Smiling food entrepreneurs and chefs holding their dishes in front of their colorful brand logos" fill priority sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover object-center" />
@@ -112,7 +110,8 @@ export function ProductLabContent() {
               <p>Beyond the kitchen, entrepreneurs may explore connections across the Sunstone and Partake ecosystem, including manufacturing, packaging, distribution, strategic partnerships, and capital.</p>
               <div className="border-l-2 border-primary pl-6">
                 <h2 className="mb-3 font-display text-2xl font-semibold text-foreground">Our Mission</h2>
-                <p>To help food entrepreneurs bridge the gap between great ideas and market-ready products by connecting them with professional facilities, practical resources, and an innovation-driven community.</p>
+                <p>Food innovation doesn&apos;t happen in isolation. Successful products emerge when creativity, infrastructure, industry expertise, market access, and capital come together.</p>
+                <p className="mt-4">Sunstone&apos;s Food Innovation as a Service approach connects these essential elements through a collaborative innovation ecosystem.</p>
               </div>
             </div>
           </div>
@@ -121,9 +120,9 @@ export function ProductLabContent() {
 
       <section className="px-6 py-20 md:py-32">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro eyebrow="What You Can Do" />
-          <div className="grid gap-4 md:grid-cols-3">
-            {developmentCards.map(([title, text]) => <article key={title} className="rounded-[1.5rem] border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 md:p-8"><h3 className="font-display text-2xl font-semibold">{title}</h3><p className="mt-5 text-base leading-relaxed text-muted-foreground">{text}</p></article>)}
+          <SectionIntro eyebrow="What You Can Do with Sunstone Product Lab" />
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+            {developmentCards.map(([title, tagline, text]) => <article key={title} className="rounded-[1.5rem] border border-border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5"><h3 className="font-display text-2xl font-semibold">{title}</h3><p className="mt-1 text-sm font-semibold text-primary">{tagline}</p><p className="mt-5 text-base leading-relaxed text-muted-foreground">{text}</p></article>)}
           </div>
         </div>
       </section>
@@ -177,7 +176,7 @@ export function ProductLabContent() {
       <FaqSection />
 
       <section className="px-6 py-24 md:py-36">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 text-center"><a href={applyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 font-display text-4xl font-semibold tracking-tight transition-colors hover:text-primary md:text-6xl">Apply to the Product Lab <ArrowUpRight className="h-8 w-8 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></a><p className="text-sm text-muted-foreground">Business licenses, applicable permits, and insurance must be verified before kitchen access.</p><p className="text-sm text-muted-foreground">For any inquiries, feel free to reach out to us directly.</p><a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-300 hover:scale-[1.02]">Contact Us</a></div>
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 text-center"><p className="max-w-3xl text-balance font-display text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl">From the first recipe to the next growth opportunity, innovation is a journey and no founder should have to navigate it alone.</p><a href={applyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 font-display text-4xl font-semibold tracking-tight transition-colors hover:text-primary md:text-6xl">Apply to the Product Lab <ArrowUpRight className="h-8 w-8 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></a><p className="text-sm text-muted-foreground">Business licenses, applicable permits, and insurance must be verified before kitchen access.</p><p className="text-sm text-muted-foreground">For any inquiries, feel free to reach out to us directly.</p><a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-300 hover:scale-[1.02]">Contact Us</a></div>
       </section>
 
       <Footer />
