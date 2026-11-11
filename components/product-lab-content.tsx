@@ -86,8 +86,9 @@ export function ProductLabContent() {
           <div className="flex flex-col items-start gap-8">
             <div className="flex flex-col gap-5">
               <h1 className="max-w-4xl text-balance bg-gradient-to-r from-primary via-warm to-accent bg-clip-text font-display text-5xl font-semibold leading-[0.94] tracking-[-0.05em] text-transparent md:text-7xl">Sunstone Product Lab</h1>
-              <h2 className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[0.98] tracking-[-0.035em] text-foreground md:text-5xl">One Ecosystem. Multiple Pathways to Growth.</h2>
-              <p className="max-w-lg text-pretty text-xl leading-relaxed text-muted-foreground md:text-2xl">Partner with Partake Collective.</p>
+              <p className="max-w-xl text-pretty text-base font-medium leading-relaxed text-muted-foreground md:text-lg">One Ecosystem. Multiple Pathways to Growth.</p>
+              <h2 className="max-w-3xl text-balance font-display text-4xl font-semibold leading-[0.98] tracking-[-0.035em] text-foreground md:text-5xl">Partner with Partake Collective.</h2>
+              <p className="max-w-lg text-pretty text-xl leading-relaxed text-muted-foreground md:text-2xl">Develop, test, and bring your product to life.</p>
             </div>
             <ApplyButton />
           </div>
