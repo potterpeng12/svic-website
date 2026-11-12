@@ -23,11 +23,28 @@ const INTRO_BRAND_IDS = new Set([
   "zabaan",
 ])
 
-const GATHER_STEP = 0.26
-const GATHER_SECONDS = 1.3
-const DISPERSE_AT_MS = 4500
-const LANDED_AT_MS = 5350
-const DONE_AT_MS = 5550
+const GATHER_STEP_MS = 300
+const GATHER_SECONDS = 0.6
+const VISIBLE_TICKS = 3
+const DISPERSE_AT_MS = 5100
+const LANDED_AT_MS = 5950
+const DONE_AT_MS = 6150
+
+// A 3x2 grid; any three consecutive tiles (all visible together) use different cells.
+const SPOTS: Array<[number, number]> = [
+  [-31, -21],
+  [0, 21],
+  [31, -21],
+  [-31, 21],
+  [0, -21],
+  [31, 21],
+  [-31, -21],
+  [0, 21],
+  [31, -21],
+  [-31, 21],
+  [0, -21],
+  [31, 21],
+]
 
 const FLIGHT_SECONDS = 0.7
 const FLIGHT_STAGGER = 0.012
@@ -40,8 +57,10 @@ const tones = [
   "bg-[hsl(var(--warm)/0.2)] border-[hsl(var(--warm)/0.3)]",
 ]
 
-function tileLayout() {
-  return { rotate: 0, ox: 0, oy: 0 }
+function tileLayout(i: number) {
+  const [ox, oy] = SPOTS[i % SPOTS.length]
+  // framer-motion stalls animating a bare "0vw", so nudge zero offsets.
+  return { ox: ox || 0.01, oy: oy || 0.01 }
 }
 
 function measureTargets(brands: CohortBrand[]) {
@@ -72,7 +91,17 @@ export function CohortIntro({
   const brands = useMemo(() => allBrands.filter((brand) => INTRO_BRAND_IDS.has(brand.id)), [allBrands])
   const [phase, setPhase] = useState<Phase>("gather")
   const [targets, setTargets] = useState<Record<string, Target>>({})
+  const [tick, setTick] = useState(-1)
   const finished = useRef(false)
+
+  useEffect(() => {
+    const start = window.setTimeout(() => setTick(0), 150)
+    const interval = window.setInterval(() => setTick((t) => (t < 0 ? t : t + 1)), GATHER_STEP_MS)
+    return () => {
+      window.clearTimeout(start)
+      window.clearInterval(interval)
+    }
+  }, [])
 
   const finish = useCallback(() => {
     if (finished.current) return
@@ -149,31 +178,39 @@ export function CohortIntro({
 
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         {brands.map((brand, i) => {
-          const { rotate, ox, oy } = tileLayout()
+          const { ox, oy } = tileLayout(i)
           const target = targets[brand.id]
           const flightTarget = flying && target
+          const popped = tick >= i && tick < i + VISIBLE_TICKS
+          const shown = flightTarget ? phase !== "landed" : popped
+          const grown = flightTarget ? true : popped
 
           return (
             <motion.div
               key={brand.id}
               className="absolute left-1/2 top-1/2 h-0 w-0"
-              initial={{ opacity: 0, scale: 0.2, x: `${ox}vw`, y: `${oy}vh`, rotate: 0 }}
-              animate={
-                flightTarget
-                  ? { opacity: phase === "landed" ? 0 : 1, scale: 1, x: target.x, y: target.y, rotate: 0 }
-                  : { opacity: 1, scale: 1, x: `${ox}vw`, y: `${oy}vh`, rotate }
-              }
+              initial={{ x: `${ox}vw`, y: `${oy}vh` }}
+              animate={flightTarget ? { x: target.x, y: target.y } : { x: `${ox}vw`, y: `${oy}vh` }}
               transition={
-                phase === "landed"
-                  ? { duration: 0.2, ease: "easeOut" }
-                  : flightTarget
-                    ? { duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }
-                    : { duration: GATHER_SECONDS, delay: 0.15 + i * GATHER_STEP, ease: EASE }
+                flightTarget
+                  ? { duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }
+                  : { duration: 0 }
               }
               style={{ zIndex: i }}
             >
+              <div
+                className="absolute left-0 top-0 h-0 w-0"
+                style={{
+                  opacity: shown ? 1 : 0,
+                  transform: `scale(${grown ? 1 : 0.2})`,
+                  transition:
+                    phase === "landed"
+                      ? "opacity 200ms ease-out"
+                      : `opacity ${GATHER_SECONDS}s cubic-bezier(${EASE.join(",")}), transform ${GATHER_SECONDS}s cubic-bezier(${EASE.join(",")})`,
+                }}
+              >
               <motion.div
-                className={`absolute left-0 top-0 flex h-[min(70vw,60vh)] w-[min(70vw,60vh)] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 overflow-hidden text-center ${brand.image ? "" : `border p-3 ${tones[i % tones.length]}`}`}
+                className={`absolute left-0 top-0 flex h-[min(30vw,40vh)] w-[min(30vw,40vh)] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 overflow-hidden text-center ${brand.image ? "" : `border p-3 ${tones[i % tones.length]}`}`}
                 animate={flightTarget ? { width: target.width, height: target.height } : undefined}
                 transition={{ duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }}
               >
@@ -192,6 +229,7 @@ export function CohortIntro({
                   </>
                 )}
               </motion.div>
+              </div>
             </motion.div>
           )
         })}
