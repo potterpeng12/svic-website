@@ -176,12 +176,11 @@ export function ProductLabContent() {
       <FaqSection />
 
       <section className="px-6 py-20 md:py-28">
-        <div className="mx-auto flex max-w-7xl flex-col gap-12 rounded-[2rem] bg-secondary px-6 py-14 md:px-14 md:py-20 lg:flex-row lg:items-end lg:justify-between lg:gap-20">
-          <div className="flex max-w-2xl flex-col gap-6">
-            <p className="text-xs font-semibold uppercase leading-none tracking-[0.22em] text-foreground">Get Started</p>
-            <p className="text-balance font-display text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl">From the first recipe to the next growth opportunity, innovation is a journey and no founder should have to navigate it alone.</p>
-          </div>
-          <div className="flex flex-col items-start gap-6 lg:max-w-sm">
+        <div className="mx-auto flex max-w-7xl flex-col gap-6 rounded-[2rem] bg-secondary px-6 py-14 md:px-14 md:py-16">
+          <p className="text-xs font-semibold uppercase leading-none tracking-[0.22em] text-foreground">Get Started</p>
+          <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+          <p className="max-w-2xl text-balance font-display text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl">From the first recipe to the next growth opportunity, innovation is a journey and no founder should have to navigate it alone.</p>
+          <div className="flex shrink-0 flex-col items-start gap-5 lg:w-96 lg:pt-1">
             <div className="flex flex-wrap items-center gap-3">
               <ApplyButton />
               <a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="inline-flex items-center rounded-full border border-foreground/20 bg-background px-5 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-primary hover:text-primary">Contact Us</a>
@@ -190,6 +189,7 @@ export function ProductLabContent() {
               <p>Business licenses, applicable permits, and insurance must be verified before kitchen access.</p>
               <p>For any inquiries, feel free to reach out to us directly.</p>
             </div>
+          </div>
           </div>
         </div>
       </section>
