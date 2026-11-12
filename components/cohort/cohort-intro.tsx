@@ -21,13 +21,16 @@ const INTRO_BRAND_IDS = new Set([
 ])
 
 const START_DELAY_MS = 150
-const GATHER_STEP_MS = 420
-const GATHER_SECONDS = 0.8
+const GATHER_STEP_MS = 300
+const GATHER_SECONDS = 0.6
 const VISIBLE_TICKS = 3
-const FADE_OUT_MS = 500
+const FADE_OUT_MS = 450
+
+// Switch to "spaced" to go back to the non-overlapping 3x2 grid.
+const LAYOUT: "overlap" | "spaced" = "overlap"
 
 // A 3x2 grid; any three consecutive tiles (all visible together) use different cells.
-const SPOTS: Array<[number, number]> = [
+const SPACED_SPOTS: Array<[number, number]> = [
   [-31, -21],
   [0, 21],
   [31, -21],
@@ -35,6 +38,18 @@ const SPOTS: Array<[number, number]> = [
   [0, -21],
   [31, 21],
 ]
+
+// Tighter offsets so neighbouring photos partially cover each other.
+const OVERLAP_SPOTS: Array<[number, number]> = [
+  [-18, -12],
+  [4, 10],
+  [20, -14],
+  [-10, 16],
+  [14, 4],
+  [-22, 2],
+]
+
+const SPOTS = LAYOUT === "overlap" ? OVERLAP_SPOTS : SPACED_SPOTS
 
 const EASE = "cubic-bezier(0.22, 1, 0.36, 1)"
 
