@@ -21,7 +21,7 @@ const INTRO_BRAND_IDS = new Set([
 ])
 
 const START_DELAY_MS = 150
-const GATHER_STEP_MS = 300
+const GATHER_STEP_MS = 250
 const GATHER_SECONDS = 0.6
 const VISIBLE_TICKS = 3
 const FADE_OUT_MS = 450
