@@ -176,19 +176,18 @@ export function ProductLabContent() {
       <FaqSection />
 
       <section className="px-6 py-20 md:py-28">
-        <div className="mx-auto max-w-7xl rounded-[2rem] bg-secondary px-6 py-12 md:px-14 md:py-14">
-  <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
-  <p className="max-w-lg text-balance font-display text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl">From the first recipe to the next growth opportunity, no founder should have to navigate it alone.</p>
-  <div className="flex shrink-0 flex-col items-start gap-4 lg:w-96 lg:border-l lg:border-foreground/10 lg:pl-12">
-            <div className="flex flex-wrap items-center gap-3">
-              <ApplyButton />
-              <a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="inline-flex items-center rounded-full border border-foreground/20 bg-background px-5 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-primary hover:text-primary">Contact Us</a>
-            </div>
-            <div className="flex flex-col gap-2 text-sm leading-relaxed text-muted-foreground">
-              <p>Business licenses, applicable permits, and insurance must be verified before kitchen access.</p>
-              <p>For any inquiries, feel free to reach out to us directly.</p>
-            </div>
+        <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 rounded-[2rem] bg-primary px-6 py-12 text-center text-primary-foreground md:px-12 md:py-14">
+          <p className="max-w-2xl text-balance font-display text-2xl font-medium leading-snug tracking-tight md:text-3xl">From the first recipe to the next growth opportunity, no founder should have to navigate it alone.</p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a href={applyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 rounded-full bg-background px-5 py-3 text-sm font-semibold text-primary transition-transform duration-300 hover:scale-[1.02]">
+              Apply to the Product Lab
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="inline-flex items-center rounded-full border border-primary-foreground/40 px-5 py-3 text-sm font-semibold text-primary-foreground transition-colors duration-300 hover:bg-primary-foreground/10">Contact Us</a>
           </div>
+          <div className="flex max-w-xl flex-col gap-1 text-sm leading-relaxed text-primary-foreground/75">
+            <p>Business licenses, applicable permits, and insurance must be verified before kitchen access.</p>
+            <p>For any inquiries, feel free to reach out to us directly.</p>
           </div>
         </div>
       </section>
