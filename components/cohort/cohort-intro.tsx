@@ -5,9 +5,6 @@ import { motion } from "framer-motion"
 import { ImageIcon } from "lucide-react"
 import type { CohortBrand } from "@/data/cohort-1"
 
-type Phase = "gather" | "disperse" | "landed"
-type Target = { x: number; y: number; width: number; height: number }
-
 const INTRO_BRAND_IDS = new Set([
   "caddix",
   "clean-saint",
@@ -23,12 +20,11 @@ const INTRO_BRAND_IDS = new Set([
   "zabaan",
 ])
 
-const GATHER_STEP_MS = 300
-const GATHER_SECONDS = 0.6
+const START_DELAY_MS = 150
+const GATHER_STEP_MS = 420
+const GATHER_SECONDS = 0.8
 const VISIBLE_TICKS = 3
-const DISPERSE_AT_MS = 5100
-const LANDED_AT_MS = 5950
-const DONE_AT_MS = 6150
+const FADE_OUT_MS = 500
 
 // A 3x2 grid; any three consecutive tiles (all visible together) use different cells.
 const SPOTS: Array<[number, number]> = [
@@ -38,46 +34,15 @@ const SPOTS: Array<[number, number]> = [
   [-31, 21],
   [0, -21],
   [31, 21],
-  [-31, -21],
-  [0, 21],
-  [31, -21],
-  [-31, 21],
-  [0, -21],
-  [31, 21],
 ]
 
-const FLIGHT_SECONDS = 0.7
-const FLIGHT_STAGGER = 0.012
-
-const EASE = [0.22, 1, 0.36, 1] as const
+const EASE = "cubic-bezier(0.22, 1, 0.36, 1)"
 
 const tones = [
   "bg-white/[0.08] border-white/15",
   "bg-primary/25 border-primary/30",
   "bg-[hsl(var(--warm)/0.2)] border-[hsl(var(--warm)/0.3)]",
 ]
-
-function tileLayout(i: number) {
-  const [ox, oy] = SPOTS[i % SPOTS.length]
-  // framer-motion stalls animating a bare "0vw", so nudge zero offsets.
-  return { ox: ox || 0.01, oy: oy || 0.01 }
-}
-
-function measureTargets(brands: CohortBrand[]) {
-  const measured: Record<string, Target> = {}
-  for (const brand of brands) {
-    const card = document.querySelector<HTMLElement>(`[data-cohort-image="${brand.id}"]`)
-    if (!card) continue
-    const rect = card.getBoundingClientRect()
-    measured[brand.id] = {
-      x: rect.left + rect.width / 2 - window.innerWidth / 2,
-      y: rect.top + rect.height / 2 - window.innerHeight / 2,
-      width: rect.width,
-      height: rect.height,
-    }
-  }
-  return measured
-}
 
 export function CohortIntro({
   brands: allBrands,
@@ -89,19 +54,9 @@ export function CohortIntro({
   onDone: () => void
 }) {
   const brands = useMemo(() => allBrands.filter((brand) => INTRO_BRAND_IDS.has(brand.id)), [allBrands])
-  const [phase, setPhase] = useState<Phase>("gather")
-  const [targets, setTargets] = useState<Record<string, Target>>({})
   const [tick, setTick] = useState(-1)
+  const [fading, setFading] = useState(false)
   const finished = useRef(false)
-
-  useEffect(() => {
-    const start = window.setTimeout(() => setTick(0), 150)
-    const interval = window.setInterval(() => setTick((t) => (t < 0 ? t : t + 1)), GATHER_STEP_MS)
-    return () => {
-      window.clearTimeout(start)
-      window.clearInterval(interval)
-    }
-  }, [])
 
   const finish = useCallback(() => {
     if (finished.current) return
@@ -111,31 +66,30 @@ export function CohortIntro({
   }, [onRevealGrid, onDone])
 
   useEffect(() => {
-    const root = document.documentElement
-    const previousGutter = root.style.scrollbarGutter
-
-    const startFlight = () => {
-      setTargets(measureTargets(brands))
-      setPhase("disperse")
-    }
-
-    const timers = [
-      window.setTimeout(startFlight, DISPERSE_AT_MS),
-      window.setTimeout(() => {
-        setPhase("landed")
-        onRevealGrid()
-      }, LANDED_AT_MS),
-      window.setTimeout(finish, DONE_AT_MS),
-    ]
-
+    const start = window.setTimeout(() => setTick(0), START_DELAY_MS)
+    const interval = window.setInterval(() => setTick((t) => (t < 0 ? t : t + 1)), GATHER_STEP_MS)
     return () => {
-      timers.forEach(window.clearTimeout)
-      root.style.scrollbarGutter = previousGutter
+      window.clearTimeout(start)
+      window.clearInterval(interval)
     }
-  }, [brands, finish, onRevealGrid])
+  }, [])
+
+  useEffect(() => {
+    // Fade out as the last photo starts to zoom away, so the page appears without a gap.
+    const fadeAt = START_DELAY_MS + (brands.length + VISIBLE_TICKS - 1) * GATHER_STEP_MS
+    const timers = [
+      window.setTimeout(() => {
+        setFading(true)
+        onRevealGrid()
+      }, fadeAt),
+      window.setTimeout(finish, fadeAt + FADE_OUT_MS),
+    ]
+    return () => timers.forEach(window.clearTimeout)
+  }, [brands.length, finish, onRevealGrid])
 
   useEffect(() => {
     const root = document.documentElement
+    const previousGutter = root.style.scrollbarGutter
     const previousOverflow = document.body.style.overflow
     root.style.scrollbarGutter = "stable"
     document.body.style.overflow = "hidden"
@@ -144,29 +98,26 @@ export function CohortIntro({
     }
     window.addEventListener("keydown", onKey)
     return () => {
+      root.style.scrollbarGutter = previousGutter
       document.body.style.overflow = previousOverflow
       window.removeEventListener("keydown", onKey)
     }
   }, [finish])
 
-  const flying = phase === "disperse" || phase === "landed"
-
   return (
-    <div
+    <motion.div
       className="cohort-intro fixed inset-0 z-[60] overflow-hidden"
       role="dialog"
       aria-label="Cohort 1 introduction"
+      initial={{ opacity: 1 }}
+      animate={{ opacity: fading ? 0 : 1 }}
+      transition={{ duration: FADE_OUT_MS / 1000, ease: "easeInOut" }}
     >
-      <motion.div
-        className="absolute inset-0 bg-[#0a0a1a]"
-        initial={{ opacity: 1 }}
-        animate={{ opacity: flying ? 0 : 1 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-      >
+      <div className="absolute inset-0 bg-[#0a0a1a]">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,hsl(271_81%_56%/0.18),transparent_60%)]" />
-      </motion.div>
+      </div>
 
-      {!flying && (
+      {!fading && (
         <button
           type="button"
           onClick={finish}
@@ -178,63 +129,46 @@ export function CohortIntro({
 
       <div className="pointer-events-none absolute inset-0 z-0" aria-hidden="true">
         {brands.map((brand, i) => {
-          const { ox, oy } = tileLayout(i)
-          const target = targets[brand.id]
-          const flightTarget = flying && target
+          const [ox, oy] = SPOTS[i % SPOTS.length]
           const popped = tick >= i && tick < i + VISIBLE_TICKS
-          const shown = flightTarget ? phase !== "landed" : popped
-          const grown = flightTarget ? true : popped
 
           return (
-            <motion.div
+            <div
               key={brand.id}
               className="absolute left-1/2 top-1/2 h-0 w-0"
-              initial={{ x: `${ox}vw`, y: `${oy}vh` }}
-              animate={flightTarget ? { x: target.x, y: target.y } : { x: `${ox}vw`, y: `${oy}vh` }}
-              transition={
-                flightTarget
-                  ? { duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }
-                  : { duration: 0 }
-              }
-              style={{ zIndex: i }}
+              style={{ transform: `translate(${ox}vw, ${oy}vh)`, zIndex: i }}
             >
               <div
                 className="absolute left-0 top-0 h-0 w-0"
                 style={{
-                  opacity: shown ? 1 : 0,
-                  transform: `scale(${grown ? 1 : 0.2})`,
-                  transition:
-                    phase === "landed"
-                      ? "opacity 200ms ease-out"
-                      : `opacity ${GATHER_SECONDS}s cubic-bezier(${EASE.join(",")}), transform ${GATHER_SECONDS}s cubic-bezier(${EASE.join(",")})`,
+                  opacity: popped ? 1 : 0,
+                  transform: `scale(${popped ? 1 : 0.2})`,
+                  transition: `opacity ${GATHER_SECONDS}s ${EASE}, transform ${GATHER_SECONDS}s ${EASE}`,
                 }}
               >
-              <motion.div
-                className={`absolute left-0 top-0 flex h-[min(30vw,40vh)] w-[min(30vw,40vh)] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 overflow-hidden text-center ${brand.image ? "" : `border p-3 ${tones[i % tones.length]}`}`}
-                animate={flightTarget ? { width: target.width, height: target.height } : undefined}
-                transition={{ duration: FLIGHT_SECONDS, delay: i * FLIGHT_STAGGER, ease: EASE }}
-              >
-                {brand.image ? (
-                  <img
-                    src={brand.image || "/placeholder.svg"}
-                    alt=""
-                    className={`h-full w-full ${brand.imageFit === "cover" ? "object-cover" : "object-contain"}`}
-                  />
-                ) : (
-                  <>
-                    <ImageIcon className="h-6 w-6 text-white/40" />
-                    <span className="font-display text-[11px] font-semibold uppercase leading-tight tracking-wider text-white/60 text-balance sm:text-xs">
-                      {brand.name.split(/[|–]/)[0].trim()}
-                    </span>
-                  </>
-                )}
-              </motion.div>
+                <div
+                  className={`absolute left-0 top-0 flex h-[min(30vw,40vh)] w-[min(30vw,40vh)] -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center gap-2 overflow-hidden text-center ${brand.image ? "" : `border p-3 ${tones[i % tones.length]}`}`}
+                >
+                  {brand.image ? (
+                    <img
+                      src={brand.image || "/placeholder.svg"}
+                      alt=""
+                      className={`h-full w-full ${brand.imageFit === "cover" ? "object-cover" : "object-contain"}`}
+                    />
+                  ) : (
+                    <>
+                      <ImageIcon className="h-6 w-6 text-white/40" />
+                      <span className="font-display text-[11px] font-semibold uppercase leading-tight tracking-wider text-white/60 text-balance sm:text-xs">
+                        {brand.name.split(/[|–]/)[0].trim()}
+                      </span>
+                    </>
+                  )}
+                </div>
               </div>
-            </motion.div>
+            </div>
           )
         })}
       </div>
-
-    </div>
+    </motion.div>
   )
 }
