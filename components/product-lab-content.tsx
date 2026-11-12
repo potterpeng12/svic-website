@@ -177,9 +177,9 @@ export function ProductLabContent() {
 
       <section className="px-6 py-20 md:py-28">
         <div className="mx-auto max-w-7xl rounded-[2rem] bg-secondary px-6 py-12 md:px-14 md:py-14">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:gap-12">
-          <p className="flex-1 text-balance font-display text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl">From the first recipe to the next growth opportunity, innovation is a journey and no founder should have to navigate it alone.</p>
-          <div className="flex shrink-0 flex-col items-start gap-4 lg:w-96">
+  <div className="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-16">
+  <p className="max-w-lg text-balance font-display text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl">From the first recipe to the next growth opportunity, no founder should have to navigate it alone.</p>
+  <div className="flex shrink-0 flex-col items-start gap-4 lg:w-96 lg:border-l lg:border-foreground/10 lg:pl-12">
             <div className="flex flex-wrap items-center gap-3">
               <ApplyButton />
               <a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="inline-flex items-center rounded-full border border-foreground/20 bg-background px-5 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-primary hover:text-primary">Contact Us</a>
