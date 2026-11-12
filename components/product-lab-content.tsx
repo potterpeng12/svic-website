@@ -176,16 +176,16 @@ export function ProductLabContent() {
       <FaqSection />
 
       <section className="px-6 py-20 md:py-28">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 rounded-[2rem] bg-foreground px-6 py-12 text-center text-background md:px-12 md:py-14">
-          <p className="max-w-4xl text-balance font-display text-2xl font-medium leading-snug tracking-tight md:text-4xl">From the first recipe to the next growth opportunity, no founder should have to navigate it alone.</p>
+  <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 text-center text-foreground">
+  <p className="max-w-4xl text-balance font-display text-2xl font-medium leading-snug tracking-tight md:text-4xl">From the first recipe to the next growth opportunity, no founder should have to navigate it alone.</p>
           <div className="flex flex-wrap items-center justify-center gap-3">
             <a href={applyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-300 hover:scale-[1.02]">
               Apply to the Product Lab
               <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
             </a>
-            <a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="inline-flex items-center rounded-full border border-background/40 px-5 py-3 text-sm font-semibold text-background transition-colors duration-300 hover:bg-background/10">Contact Us</a>
+            <a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="inline-flex items-center rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:bg-secondary">Contact Us</a>
           </div>
-  <p className="max-w-3xl text-sm leading-relaxed text-background/70">For any inquiries, feel free to reach out to us directly.</p>
+  <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">For any inquiries, feel free to reach out to us directly.</p>
         </div>
       </section>
 
