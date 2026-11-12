@@ -13,7 +13,7 @@ const kitchensUrl = "https://partakecollective.com/commercial-kitchens/"
 
 function SectionIntro({ eyebrow, title, eyebrowClassName }: { eyebrow: string; title?: string; eyebrowClassName?: string }) {
   return (
-    <div className="mb-8 flex flex-col items-start gap-3 border-t border-border pt-5 md:mb-10">
+    <div className="mb-8 flex flex-col items-start gap-3 md:mb-10">
       <p className={cn("text-xs font-semibold uppercase leading-none tracking-[0.22em] text-foreground", eyebrowClassName)}>{eyebrow}</p>
       {title ? <h2 className="max-w-2xl text-balance font-display text-3xl font-semibold leading-tight tracking-tight md:text-4xl">{title}</h2> : null}
     </div>
@@ -167,6 +167,7 @@ export function ProductLabContent() {
 
       <section className="bg-secondary/40 px-6 py-20 md:py-32">
         <div className="mx-auto max-w-7xl">
+          <SectionIntro eyebrow="How It Works" />
           <ol className="grid gap-4 md:grid-cols-4">{steps.map(([label, text]) => { const [number, title] = label.split(" — "); return <li key={label} className="flex flex-col gap-4 rounded-[1.5rem] bg-background p-7 shadow-sm ring-1 ring-border transition-transform duration-300 hover:-translate-y-1"><span className="flex size-12 items-center justify-center rounded-full bg-primary font-display text-lg font-semibold text-primary-foreground">{number}</span><h3 className="font-display text-xl font-semibold leading-tight">{title}</h3><p className="leading-relaxed text-muted-foreground">{text}</p></li> })}</ol>
           <div className="mt-10 flex justify-center md:justify-start"><ApplyButton /></div>
         </div>
@@ -174,8 +175,23 @@ export function ProductLabContent() {
 
       <FaqSection />
 
-      <section className="px-6 py-24 md:py-36">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 text-center"><p className="max-w-3xl text-balance font-display text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl">From the first recipe to the next growth opportunity, innovation is a journey and no founder should have to navigate it alone.</p><a href={applyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 font-display text-4xl font-semibold tracking-tight transition-colors hover:text-primary md:text-6xl">Apply to the Product Lab <ArrowUpRight className="h-8 w-8 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></a><div className="flex flex-col items-center gap-2"><p className="text-sm text-muted-foreground">Business licenses, applicable permits, and insurance must be verified before kitchen access.</p><p className="text-sm text-muted-foreground">For any inquiries, feel free to reach out to us directly.</p><a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-300 hover:scale-[1.02]">Contact Us</a></div></div>
+      <section className="px-6 py-20 md:py-28">
+        <div className="mx-auto flex max-w-7xl flex-col gap-12 rounded-[2rem] bg-secondary px-6 py-14 md:px-14 md:py-20 lg:flex-row lg:items-end lg:justify-between lg:gap-20">
+          <div className="flex max-w-2xl flex-col gap-6">
+            <p className="text-xs font-semibold uppercase leading-none tracking-[0.22em] text-foreground">Get Started</p>
+            <p className="text-balance font-display text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl">From the first recipe to the next growth opportunity, innovation is a journey and no founder should have to navigate it alone.</p>
+          </div>
+          <div className="flex flex-col items-start gap-6 lg:max-w-sm">
+            <div className="flex flex-wrap items-center gap-3">
+              <ApplyButton />
+              <a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="inline-flex items-center rounded-full border border-foreground/20 bg-background px-5 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:border-primary hover:text-primary">Contact Us</a>
+            </div>
+            <div className="flex flex-col gap-2 text-sm leading-relaxed text-muted-foreground">
+              <p>Business licenses, applicable permits, and insurance must be verified before kitchen access.</p>
+              <p>For any inquiries, feel free to reach out to us directly.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <Footer />
