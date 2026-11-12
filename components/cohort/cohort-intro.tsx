@@ -23,11 +23,11 @@ const INTRO_BRAND_IDS = new Set([
   "zabaan",
 ])
 
-const GATHER_STEP = 0.1
-const GATHER_SECONDS = 0.85
-const DISPERSE_AT_MS = 2200
-const LANDED_AT_MS = 3050
-const DONE_AT_MS = 3250
+const GATHER_STEP = 0.16
+const GATHER_SECONDS = 1
+const DISPERSE_AT_MS = 3100
+const LANDED_AT_MS = 3950
+const DONE_AT_MS = 4150
 
 const FLIGHT_SECONDS = 0.7
 const FLIGHT_STAGGER = 0.012
