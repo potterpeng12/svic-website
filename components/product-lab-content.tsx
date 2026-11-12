@@ -167,9 +167,8 @@ export function ProductLabContent() {
 
       <section className="bg-secondary/40 px-6 py-20 md:py-32">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro eyebrow="How It Works" title="Your Next Step Starts Here." />
-          <div className="grid gap-8 md:grid-cols-4 md:gap-4">{steps.map(([title, text]) => <article key={title} className="relative border-l border-border pl-6 md:border-l-0 md:border-t md:pl-0 md:pt-6"><span className="absolute -left-1.5 top-0 size-3 rounded-full bg-primary md:-top-1.5 md:left-0" /><h3 className="font-display text-xl font-semibold">{title}</h3><p className="mt-3 leading-relaxed text-muted-foreground">{text}</p></article>)}</div>
-          <div className="mt-12"><ApplyButton /></div>
+          <ol className="grid gap-4 md:grid-cols-4">{steps.map(([label, text]) => { const [number, title] = label.split(" — "); return <li key={label} className="flex flex-col gap-4 rounded-[1.5rem] bg-background p-7 shadow-sm ring-1 ring-border transition-transform duration-300 hover:-translate-y-1"><span className="flex size-12 items-center justify-center rounded-full bg-primary font-display text-lg font-semibold text-primary-foreground">{number}</span><h3 className="font-display text-xl font-semibold leading-tight">{title}</h3><p className="leading-relaxed text-muted-foreground">{text}</p></li> })}</ol>
+          <div className="mt-10 flex justify-center md:justify-start"><ApplyButton /></div>
         </div>
       </section>
 
