@@ -13,7 +13,7 @@ const kitchensUrl = "https://partakecollective.com/commercial-kitchens/"
 
 function SectionIntro({ eyebrow, title, eyebrowClassName }: { eyebrow: string; title?: string; eyebrowClassName?: string }) {
   return (
-    <div className="mb-8 flex flex-col items-start gap-3 border-t border-border pt-5 md:mb-10">
+    <div className="mb-8 flex flex-col items-start gap-3 md:mb-10">
       <p className={cn("text-xs font-semibold uppercase leading-none tracking-[0.22em] text-foreground", eyebrowClassName)}>{eyebrow}</p>
       {title ? <h2 className="max-w-2xl text-balance font-display text-3xl font-semibold leading-tight tracking-tight md:text-4xl">{title}</h2> : null}
     </div>
@@ -167,16 +167,26 @@ export function ProductLabContent() {
 
       <section className="bg-secondary/40 px-6 py-20 md:py-32">
         <div className="mx-auto max-w-7xl">
-          <SectionIntro eyebrow="How It Works" title="Your Next Step Starts Here." />
-          <div className="grid gap-8 md:grid-cols-4 md:gap-4">{steps.map(([title, text]) => <article key={title} className="relative border-l border-border pl-6 md:border-l-0 md:border-t md:pl-0 md:pt-6"><span className="absolute -left-1.5 top-0 size-3 rounded-full bg-primary md:-top-1.5 md:left-0" /><h3 className="font-display text-xl font-semibold">{title}</h3><p className="mt-3 leading-relaxed text-muted-foreground">{text}</p></article>)}</div>
-          <div className="mt-12"><ApplyButton /></div>
+          <SectionIntro eyebrow="How It Works" />
+          <ol className="grid gap-4 md:grid-cols-4">{steps.map(([label, text]) => { const [number, title] = label.split(" — "); return <li key={label} className="flex flex-col gap-4 rounded-[1.5rem] bg-background p-7 shadow-sm ring-1 ring-border transition-transform duration-300 hover:-translate-y-1"><span className="flex size-12 items-center justify-center rounded-full bg-primary font-display text-lg font-semibold text-primary-foreground">{number}</span><h3 className="font-display text-xl font-semibold leading-tight">{title}</h3><p className="leading-relaxed text-muted-foreground">{text}</p></li> })}</ol>
+          <div className="mt-10 flex justify-center md:justify-start"><ApplyButton /></div>
         </div>
       </section>
 
       <FaqSection />
 
-      <section className="px-6 py-24 md:py-36">
-        <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 text-center"><p className="max-w-3xl text-balance font-display text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl">From the first recipe to the next growth opportunity, innovation is a journey and no founder should have to navigate it alone.</p><a href={applyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 font-display text-4xl font-semibold tracking-tight transition-colors hover:text-primary md:text-6xl">Apply to the Product Lab <ArrowUpRight className="h-8 w-8 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" /></a><div className="flex flex-col items-center gap-2"><p className="text-sm text-muted-foreground">Business licenses, applicable permits, and insurance must be verified before kitchen access.</p><p className="text-sm text-muted-foreground">For any inquiries, feel free to reach out to us directly.</p><a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="mt-2 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-300 hover:scale-[1.02]">Contact Us</a></div></div>
+      <section className="px-6 py-20 md:py-28">
+  <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 text-center text-foreground">
+  <p className="max-w-4xl text-balance font-display text-2xl font-medium leading-snug tracking-tight md:text-4xl">From the first recipe to the next growth opportunity, no founder should have to navigate it alone.</p>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a href={applyUrl} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-transform duration-300 hover:scale-[1.02]">
+              Apply to the Product Lab
+              <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+            </a>
+            <a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="inline-flex items-center rounded-full border border-border px-5 py-3 text-sm font-semibold text-foreground transition-colors duration-300 hover:bg-secondary">Contact Us</a>
+          </div>
+  <p className="max-w-3xl text-sm leading-relaxed text-muted-foreground">For any inquiries, feel free to reach out to us directly.</p>
+        </div>
       </section>
 
       <Footer />
