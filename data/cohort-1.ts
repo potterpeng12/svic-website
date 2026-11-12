@@ -275,6 +275,7 @@ image: "/images/cohort-1/founders/kam-black-new.jpg",
     website: "https://drinktaply.com",
     image: "/images/cohort-1/taply.png",
     imageFit: "cover",
+    imagePosition: "50% 80%",
     founder: {
       name: "Nikki B",
       title: "Founder",
