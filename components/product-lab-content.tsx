@@ -185,10 +185,7 @@ export function ProductLabContent() {
             </a>
             <a href="mailto:Cindy.Lin@SunstoneInvestment.com" className="inline-flex items-center rounded-full border border-background/40 px-5 py-3 text-sm font-semibold text-background transition-colors duration-300 hover:bg-background/10">Contact Us</a>
           </div>
-          <div className="flex max-w-3xl flex-col gap-1 text-sm leading-relaxed text-background/70">
-            <p>Business licenses, applicable permits, and insurance must be verified before kitchen access.</p>
-            <p>For any inquiries, feel free to reach out to us directly.</p>
-          </div>
+  <p className="max-w-3xl text-sm leading-relaxed text-background/70">For any inquiries, feel free to reach out to us directly.</p>
         </div>
       </section>
 
